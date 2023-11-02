@@ -9,8 +9,12 @@
   <meta name="description" content="">
   <link rel="me" href="https://fosstodon.org/@wildflyas" />
   <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
-  <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
   <script>
@@ -21,7 +25,7 @@
     gtag('config', 'UA-40221748-1');
   </script>
   <script src="assets/javascript/tracking.js"></script>
-  <script src="https://analytics.ossupstream.org/matomo.js" async defer></script>
+  <script src="https://design.jboss.org/matomo/matomo.js" async defer></script>
 
 </head>
 
@@ -36,12 +40,6 @@
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
         <li>
-          <a href="/" class="">Home</a>
-        </li>
-        <li>
-          <a href="/downloads/" class="active">Downloads</a>
-        </li>
-        <li>
           <a href="/news/" class="">News</a>
         </li>
         <li>
@@ -54,10 +52,16 @@
             <a target="_blank" href="https://docs.wildfly.org">Docs</a>
         </li>
         <li>
+          <a href="/downloads/" class="active">Downloads</a>
+        </li>
+        <li>
           <a href="/security/" class="">CVE Reporting</a>
         </li>
         <li>
-          <a class="button-cta secondary" href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/getstarted/">Get Started</a>
         </li>
       </ul>
     </nav>
@@ -68,14 +72,236 @@
   <div class="grid-wrapper">
     <div class="grid__item width-12-12 ">
       
-      <h1>Wild<strong>Fly</strong> 29 Final is now available</h1>
+      <h1>Wild<strong>Fly</strong> 30 Final is now available</h1>
       <div class="download-ctas">
-        <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-29.0.0.Final.zip" class="button-cta">Download the zip</a>
-        <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-29.0.0.Final.tar.gz" class="button-cta">Download the tgz</a>
+        <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-30.0.0.Final.zip" class="button-cta">Download the zip</a>
+        <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-30.0.0.Final.tar.gz" class="button-cta">Download the tgz</a>
       </div> 
       <div class="page-subtitle">
         <h4>The technology behind Wild<strong>Fly</strong> is also available in <a href="https://www.redhat.com/en/technologies/jboss-middleware/application-platform" target="_blank">JBoss Enterprise Application Platform 7</a>. JBoss EAP is a hardened enterprise subscription with Red Hat’s world-class support, long multi-year maintenance cycles, and exclusive content. <a href="https://developers.redhat.com/register" target="_blank">Sign-up with Red Hat</a> to download a no-cost 1-year development license.</h4>
         <a href="https://developers.redhat.com/products/eap/download/" class="button-cta secondary" target="_blank">Download Red Hat JBoss EAP</a>
+      </div>
+      
+      <div class="grid-wrapper version-row mobile-fullwidth">
+        <div class="grid__item width-2-12 version-id">
+          <h2 id="30.0.0.Final"><a class="anchor" href="#30.0.0.Final"></a>30.0.0.Final</h2>
+        </div>
+        <div class="grid__item width-10-12 version-content">
+          <div class="grid-wrapper">
+            <div class="grid__item width-6-12 version-table">
+              <table class="tg">
+                <tr>
+                  <th colspan="3"><div class="version-name final">Final<span class="release-date">Oct 18, 2023</span></div>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-30.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-30.0.0.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-30.0.0.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-30.0.0.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Preview Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-preview-30.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-preview-30.0.0.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-preview-30.0.0.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-preview-30.0.0.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Application Server Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-30.0.0.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-30.0.0.Final-src.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-30.0.0.Final-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-30.0.0.Final-src.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Quick Start Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/quickstart/tree/30.0.0.Final">Source</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Release Notes</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://wildfly.org/news/2023/10/18/WildFly30-Released/">Notes</a><br/>
+                    
+                  </td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid-wrapper version-row mobile-fullwidth">
+        <div class="grid__item width-2-12 version-id">
+          <h2 id="30.0.0.Beta1"><a class="anchor" href="#30.0.0.Beta1"></a>30.0.0.Beta1</h2>
+        </div>
+        <div class="grid__item width-10-12 version-content">
+          <div class="grid-wrapper">
+            <div class="grid__item width-6-12 version-table">
+              <table class="tg">
+                <tr>
+                  <th colspan="3"><div class="version-name final">Beta<span class="release-date">Sep 28, 2023</span></div>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-30.0.0.Beta1.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-30.0.0.Beta1.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-30.0.0.Beta1.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-30.0.0.Beta1.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Preview Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-preview-30.0.0.Beta1.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-preview-30.0.0.Beta1.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-preview-30.0.0.Beta1.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-preview-30.0.0.Beta1.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Application Server Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-30.0.0.Beta1-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-30.0.0.Beta1-src.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-30.0.0.Beta1-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Beta1/wildfly-30.0.0.Beta1-src.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Quick Start Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/quickstart/tree/30.0.0.Beta1">Source</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Release Notes</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12410348">Notes</a><br/>
+                    
+                  </td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid-wrapper version-row mobile-fullwidth">
+        <div class="grid__item width-2-12 version-id">
+          <h2 id="29.0.1.Final"><a class="anchor" href="#29.0.1.Final"></a>29.0.1.Final</h2>
+        </div>
+        <div class="grid__item width-10-12 version-content">
+          <div class="grid-wrapper">
+            <div class="grid__item width-6-12 version-table">
+              <table class="tg">
+                <tr>
+                  <th colspan="3"><div class="version-name final">Final<span class="release-date">Aug 26, 2023</span></div>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Distribution</td>
+                  <!--<td class="licence">LGPL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-29.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-29.0.1.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-29.0.1.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-29.0.1.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Preview Distribution</td>
+                  <!--<td class="licence">LGPL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-preview-29.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-preview-29.0.1.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-preview-29.0.1.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-preview-29.0.1.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Application Server Source Code</td>
+                  <!--<td class="licence">LGPL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-29.0.1.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-29.0.1.Final-src.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-29.0.1.Final-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-29.0.1.Final-src.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Quick Start Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/quickstart/tree/29.0.1.Final">Source</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Release Notes</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://wildfly.org/news/2023/08/23/WildFly2901-Released/">Notes</a><br/>
+                    
+                  </td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
       
       <div class="grid-wrapper version-row mobile-fullwidth">
@@ -92,7 +318,7 @@
                 
                 <tr>
                   <td class="description">WildFly Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-29.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-29.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -104,7 +330,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-preview-29.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-preview-29.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -116,7 +342,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-29.0.0.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-29.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -128,7 +354,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/29.0.0.Final">Source</a><br/>
@@ -138,84 +364,10 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2023/07/21/WildFly29-Released/">Notes</a><br/>
-                    
-                  </td>
-                </tr>
-                
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="grid-wrapper version-row mobile-fullwidth">
-        <div class="grid__item width-2-12 version-id">
-          <h2 id="29.0.0.Beta1"><a class="anchor" href="#29.0.0.Beta1"></a>29.0.0.Beta1</h2>
-        </div>
-        <div class="grid__item width-10-12 version-content">
-          <div class="grid-wrapper">
-            <div class="grid__item width-6-12 version-table">
-              <table class="tg">
-                <tr>
-                  <th colspan="3"><div class="version-name final">Beta<span class="release-date">Jul 06, 2023</span></div>
-                </tr>
-                
-                <tr>
-                  <td class="description">WildFly Distribution</td>
-                  <td class="licence">LGPL</td>
-                  <td class="links">
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-29.0.0.Beta1.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-29.0.0.Beta1.zip.sha1">SHA-1</a><br/>
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-29.0.0.Beta1.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-29.0.0.Beta1.tar.gz.sha1">SHA-1</a><br/>
-                    
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td class="description">WildFly Preview Distribution</td>
-                  <td class="licence">LGPL</td>
-                  <td class="links">
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-preview-29.0.0.Beta1.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-preview-29.0.0.Beta1.zip.sha1">SHA-1</a><br/>
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-preview-29.0.0.Beta1.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-preview-29.0.0.Beta1.tar.gz.sha1">SHA-1</a><br/>
-                    
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
-                  <td class="links">
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-29.0.0.Beta1-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-29.0.0.Beta1-src.zip.sha1">SHA-1</a><br/>
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-29.0.0.Beta1-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Beta1/wildfly-29.0.0.Beta1-src.tar.gz.sha1">SHA-1</a><br/>
-                    
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
-                  <td class="links">
-                    
-                    <a href="https://github.com/wildfly/quickstart/tree/29.0.0.Beta1">Source</a><br/>
-                    
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td class="description">Release Notes</td>
-                  <td class="licence"></td>
-                  <td class="links">
-                    
-                    <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12406375">Notes</a><br/>
                     
                   </td>
                 </tr>
@@ -240,7 +392,7 @@
                 
                 <tr>
                   <td class="description">WildFly Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/28.0.1.Final/wildfly-28.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/28.0.1.Final/wildfly-28.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -252,7 +404,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/28.0.1.Final/wildfly-preview-28.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/28.0.1.Final/wildfly-preview-28.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -264,7 +416,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/28.0.1.Final/wildfly-28.0.1.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/28.0.1.Final/wildfly-28.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -276,7 +428,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/28.0.1.Final">Source</a><br/>
@@ -286,7 +438,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2023/05/23/WildFly2801-Released/">Notes</a><br/>
@@ -314,7 +466,7 @@
                 
                 <tr>
                   <td class="description">WildFly Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/28.0.0.Final/wildfly-28.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/28.0.0.Final/wildfly-28.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -326,7 +478,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/28.0.0.Final/wildfly-preview-28.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/28.0.0.Final/wildfly-preview-28.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -338,7 +490,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/28.0.0.Final/wildfly-28.0.0.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/28.0.0.Final/wildfly-28.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -350,7 +502,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/28.0.0.SP1">Source</a><br/>
@@ -360,7 +512,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2023/04/20/WildFly28-Released/">Notes</a><br/>
@@ -388,7 +540,7 @@
                 
                 <tr>
                   <td class="description">WildFly Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -400,7 +552,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-preview-27.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-preview-27.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -412,7 +564,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/27.0.1.Final/wildfly-27.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -424,7 +576,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/27.0.1.Final">Source</a><br/>
@@ -434,7 +586,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2022/12/16/WildFly2701-Released/">Notes</a><br/>
@@ -462,7 +614,7 @@
                 
                 <tr>
                   <td class="description">WildFly Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Final/wildfly-27.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Final/wildfly-27.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -474,7 +626,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Final/wildfly-preview-27.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Final/wildfly-preview-27.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -486,7 +638,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Final/wildfly-27.0.0.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Final/wildfly-27.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -498,7 +650,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/27.0.0.Final">Source</a><br/>
@@ -508,7 +660,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2022/11/09/WildFly27-Final-Released/">Notes</a><br/>
@@ -536,7 +688,7 @@
                 
                 <tr>
                   <td class="description">WildFly Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Alpha5/wildfly-27.0.0.Alpha5.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Alpha5/wildfly-27.0.0.Alpha5.zip.sha1">SHA-1</a><br/>
@@ -548,7 +700,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Alpha5/wildfly-preview-27.0.0.Alpha5.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Alpha5/wildfly-preview-27.0.0.Alpha5.zip.sha1">SHA-1</a><br/>
@@ -560,7 +712,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Alpha5/wildfly-27.0.0.Alpha5-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/27.0.0.Alpha5/wildfly-27.0.0.Alpha5-src.zip.sha1">SHA-1</a><br/>
@@ -572,7 +724,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12392620">Notes</a><br/>
@@ -600,7 +752,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE 8 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-26.1.3.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-26.1.3.Final.zip.sha1">SHA-1</a><br/>
@@ -612,7 +764,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9.1 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-preview-26.1.3.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-preview-26.1.3.Final.zip.sha1">SHA-1</a><br/>
@@ -624,7 +776,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-servlet-26.1.3.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-servlet-26.1.3.Final.zip.sha1">SHA-1</a><br/>
@@ -636,7 +788,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-26.1.3.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-26.1.3.Final-src.zip.sha1">SHA-1</a><br/>
@@ -648,7 +800,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/26.1.3.Final">Source</a><br/>
@@ -658,7 +810,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2023/01/18/WildFly2613-Released/">Notes</a><br/>
@@ -686,7 +838,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE 8 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-26.1.2.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-26.1.2.Final.zip.sha1">SHA-1</a><br/>
@@ -698,7 +850,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9.1 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-preview-26.1.2.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-preview-26.1.2.Final.zip.sha1">SHA-1</a><br/>
@@ -710,7 +862,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-servlet-26.1.2.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-servlet-26.1.2.Final.zip.sha1">SHA-1</a><br/>
@@ -722,7 +874,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-26.1.2.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.2.Final/wildfly-26.1.2.Final-src.zip.sha1">SHA-1</a><br/>
@@ -734,7 +886,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/26.1.2.Final">Source</a><br/>
@@ -744,7 +896,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12386470">Notes</a><br/>
@@ -772,7 +924,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9.1 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-preview-26.1.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-preview-26.1.1.Final.zip.sha1">SHA-1</a><br/>
@@ -784,7 +936,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE 8 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-26.1.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-26.1.1.Final.zip.sha1">SHA-1</a><br/>
@@ -796,7 +948,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-servlet-26.1.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-servlet-26.1.1.Final.zip.sha1">SHA-1</a><br/>
@@ -808,7 +960,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-26.1.1.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-26.1.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -820,7 +972,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/26.1.1.Final">Source</a><br/>
@@ -830,7 +982,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12385081">Notes</a><br/>
@@ -858,7 +1010,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9.1 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.0.Final/wildfly-preview-26.1.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.0.Final/wildfly-preview-26.1.0.Final.zip.sha1">SHA-1</a><br/>
@@ -870,7 +1022,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE 8 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.0.Final/wildfly-26.1.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.0.Final/wildfly-26.1.0.Final.zip.sha1">SHA-1</a><br/>
@@ -882,7 +1034,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.0.Final/wildfly-servlet-26.1.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.0.Final/wildfly-servlet-26.1.0.Final.zip.sha1">SHA-1</a><br/>
@@ -894,7 +1046,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.1.0.Final/wildfly-26.1.0.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.1.0.Final/wildfly-26.1.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -906,7 +1058,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/26.1.0.Final">Source</a><br/>
@@ -916,7 +1068,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2022/04/14/WildFly261-Final-Released/">Notes</a><br/>
@@ -944,7 +1096,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9.1 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.0.1.Final/wildfly-preview-26.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.0.1.Final/wildfly-preview-26.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -956,7 +1108,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE 8 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.0.1.Final/wildfly-26.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.0.1.Final/wildfly-26.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -968,7 +1120,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.0.1.Final/wildfly-servlet-26.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.0.1.Final/wildfly-servlet-26.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -980,7 +1132,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.0.1.Final/wildfly-26.0.1.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.0.1.Final/wildfly-26.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -992,7 +1144,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/26.0.1.Final">Source</a><br/>
@@ -1002,7 +1154,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12378705">Notes</a><br/>
@@ -1030,7 +1182,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9.1 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.0.0.Final/wildfly-preview-26.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.0.0.Final/wildfly-preview-26.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1042,7 +1194,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE 8 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.0.0.Final/wildfly-26.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.0.0.Final/wildfly-26.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1054,7 +1206,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.0.0.Final/wildfly-servlet-26.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.0.0.Final/wildfly-servlet-26.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1066,7 +1218,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/26.0.0.Final/wildfly-26.0.0.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/26.0.0.Final/wildfly-26.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1078,7 +1230,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/26.0.0.Final">Source</a><br/>
@@ -1088,7 +1240,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2021/12/16/WildFly26-Final-Released/">Notes</a><br/>
@@ -1116,7 +1268,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9.1 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/25.0.1.Final/wildfly-preview-25.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/25.0.1.Final/wildfly-preview-25.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1128,7 +1280,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE 8 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/25.0.1.Final/wildfly-25.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/25.0.1.Final/wildfly-25.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1140,7 +1292,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/25.0.1.Final/wildfly-servlet-25.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/25.0.1.Final/wildfly-servlet-25.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1152,7 +1304,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/25.0.1.Final/wildfly-25.0.1.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/25.0.1.Final/wildfly-25.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1164,7 +1316,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/25.0.1.Final">Source</a><br/>
@@ -1174,7 +1326,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12375434">Notes</a><br/>
@@ -1202,7 +1354,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9.1 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-preview-25.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-preview-25.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1214,7 +1366,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE 8 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-25.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-25.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1226,7 +1378,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-servlet-25.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-servlet-25.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1238,7 +1390,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-25.0.0.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/25.0.0.Final/wildfly-25.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1250,7 +1402,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/25.0.0.Final">Source</a><br/>
@@ -1260,7 +1412,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2021/10/05/WildFly25-Final-Released/">Notes</a><br/>
@@ -1288,7 +1440,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9.1 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/24.0.1.Final/wildfly-preview-24.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/24.0.1.Final/wildfly-preview-24.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1300,7 +1452,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE 8 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/24.0.1.Final/wildfly-24.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/24.0.1.Final/wildfly-24.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1312,7 +1464,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/24.0.1.Final/servlet/wildfly-servlet-24.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/24.0.1.Final/servlet/wildfly-servlet-24.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1324,7 +1476,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/24.0.1.Final/wildfly-24.0.1.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/24.0.1.Final/wildfly-24.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1336,7 +1488,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/24.0.1.Final">Source</a><br/>
@@ -1346,7 +1498,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12358829">Notes</a><br/>
@@ -1374,7 +1526,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9.1 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/24.0.0.Final/wildfly-preview-24.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/24.0.0.Final/wildfly-preview-24.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1386,7 +1538,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE 8 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/24.0.0.Final/wildfly-24.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/24.0.0.Final/wildfly-24.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1398,7 +1550,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/24.0.0.Final/servlet/wildfly-servlet-24.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/24.0.0.Final/servlet/wildfly-servlet-24.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1410,7 +1562,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/24.0.0.Final/wildfly-24.0.0.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/24.0.0.Final/wildfly-24.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1422,7 +1574,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/24.0.0.SP1">Source</a><br/>
@@ -1432,7 +1584,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2021/06/17/WildFly24-Final-Released/">Notes</a><br/>
@@ -1460,7 +1612,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.2.Final/wildfly-preview-23.0.2.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.2.Final/wildfly-preview-23.0.2.Final.zip.sha1">SHA-1</a><br/>
@@ -1472,7 +1624,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.2.Final/wildfly-23.0.2.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.2.Final/wildfly-23.0.2.Final.zip.sha1">SHA-1</a><br/>
@@ -1484,7 +1636,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.2.Final/servlet/wildfly-servlet-23.0.2.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.2.Final/servlet/wildfly-servlet-23.0.2.Final.zip.sha1">SHA-1</a><br/>
@@ -1496,7 +1648,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.2.Final/wildfly-23.0.2.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.2.Final/wildfly-23.0.2.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1508,7 +1660,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/23.0.2.SP1">Source</a><br/>
@@ -1518,7 +1670,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2021/04/29/WildFly2302-Released/">Notes</a><br/>
@@ -1546,7 +1698,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.1.Final/wildfly-preview-23.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.1.Final/wildfly-preview-23.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1558,7 +1710,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.1.Final/wildfly-23.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.1.Final/wildfly-23.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1570,7 +1722,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.1.Final/servlet/wildfly-servlet-23.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.1.Final/servlet/wildfly-servlet-23.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1582,7 +1734,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.1.Final/wildfly-23.0.1.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.1.Final/wildfly-23.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1594,7 +1746,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/23.0.1.Final">Source</a><br/>
@@ -1604,7 +1756,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12354096">Notes</a><br/>
@@ -1632,7 +1784,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.0.Final/wildfly-preview-23.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.0.Final/wildfly-preview-23.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1644,7 +1796,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.0.Final/wildfly-23.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.0.Final/wildfly-23.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1656,7 +1808,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.0.Final/servlet/wildfly-servlet-23.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.0.Final/servlet/wildfly-servlet-23.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1668,7 +1820,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/23.0.0.Final/wildfly-23.0.0.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/23.0.0.Final/wildfly-23.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1680,7 +1832,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/23.0.0.Final">Source</a><br/>
@@ -1690,7 +1842,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2021/03/11/WildFly23-Final-Released/">Notes</a><br/>
@@ -1718,7 +1870,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/22.0.1.Final/wildfly-preview-22.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/22.0.1.Final/wildfly-preview-22.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1730,7 +1882,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/22.0.1.Final/wildfly-22.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/22.0.1.Final/wildfly-22.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1742,7 +1894,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/22.0.1.Final/servlet/wildfly-servlet-22.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/22.0.1.Final/servlet/wildfly-servlet-22.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1754,7 +1906,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/22.0.1.Final/wildfly-22.0.1.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/22.0.1.Final/wildfly-22.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1766,7 +1918,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/22.0.1.Final">Source</a><br/>
@@ -1776,7 +1928,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2021/02/11/WildFly2201-Released/">Notes</a><br/>
@@ -1804,7 +1956,7 @@
                 
                 <tr>
                   <td class="description">WildFly Preview EE 9 Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/22.0.0.Final/wildfly-preview-22.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/22.0.0.Final/wildfly-preview-22.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1816,7 +1968,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/22.0.0.Final/wildfly-22.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/22.0.0.Final/wildfly-22.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1828,7 +1980,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/22.0.0.Final/servlet/wildfly-servlet-22.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/22.0.0.Final/servlet/wildfly-servlet-22.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -1840,7 +1992,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/22.0.0.Final/wildfly-22.0.0.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/22.0.0.Final/wildfly-22.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1852,7 +2004,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/22.0.0.Final">Source</a><br/>
@@ -1862,7 +2014,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2021/01/13/WildFly22-Final-Released/">Notes</a><br/>
@@ -1890,7 +2042,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/21.0.2.Final/wildfly-21.0.2.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/21.0.2.Final/wildfly-21.0.2.Final.zip.sha1">SHA-1</a><br/>
@@ -1902,7 +2054,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/21.0.2.Final/servlet/wildfly-servlet-21.0.2.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/21.0.2.Final/servlet/wildfly-servlet-21.0.2.Final.zip.sha1">SHA-1</a><br/>
@@ -1914,7 +2066,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/21.0.2.Final/wildfly-21.0.2.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/21.0.2.Final/wildfly-21.0.2.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1926,7 +2078,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12352600">Notes</a><br/>
@@ -1954,7 +2106,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/21.0.1.Final/wildfly-21.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/21.0.1.Final/wildfly-21.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1966,7 +2118,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/21.0.1.Final/servlet/wildfly-servlet-21.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/21.0.1.Final/servlet/wildfly-servlet-21.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -1978,7 +2130,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/21.0.1.Final/wildfly-21.0.1.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/21.0.1.Final/wildfly-21.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -1990,7 +2142,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12350654">Notes</a><br/>
@@ -2018,7 +2170,7 @@
                 
                 <tr>
                   <td class="description">Jakarta EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/21.0.0.Final/wildfly-21.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/21.0.0.Final/wildfly-21.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2030,7 +2182,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/21.0.0.Final/servlet/wildfly-servlet-21.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/21.0.0.Final/servlet/wildfly-servlet-21.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2042,7 +2194,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/21.0.0.Final/wildfly-21.0.0.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/21.0.0.Final/wildfly-21.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -2054,7 +2206,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/21.0.0.Final">Source</a><br/>
@@ -2064,7 +2216,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2020/10/13/WildFly21-Final-Released/">Notes</a><br/>
@@ -2092,7 +2244,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/20.0.1.Final/wildfly-20.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/20.0.1.Final/wildfly-20.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -2104,7 +2256,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/20.0.1.Final/servlet/wildfly-servlet-20.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/20.0.1.Final/servlet/wildfly-servlet-20.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -2116,7 +2268,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/20.0.1.Final/wildfly-20.0.1.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/20.0.1.Final/wildfly-20.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -2128,7 +2280,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12346151">Notes</a><br/>
@@ -2156,7 +2308,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/20.0.0.Final/wildfly-20.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/20.0.0.Final/wildfly-20.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2168,7 +2320,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/20.0.0.Final/servlet/wildfly-servlet-20.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/20.0.0.Final/servlet/wildfly-servlet-20.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2180,7 +2332,7 @@
                 
                 <tr>
                   <td class="description">Application Server Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/20.0.0.Final/wildfly-20.0.0.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/20.0.0.Final/wildfly-20.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -2192,7 +2344,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/20.0.0.Final">Source</a><br/>
@@ -2202,7 +2354,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2020/06/08/WildFly20-Final-Released/">Notes</a><br/>
@@ -2230,7 +2382,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/19.1.0.Final/wildfly-19.1.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/19.1.0.Final/wildfly-19.1.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2242,7 +2394,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/19.1.0.Final/servlet/wildfly-servlet-19.1.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/19.1.0.Final/servlet/wildfly-servlet-19.1.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2254,7 +2406,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/19.1.0.Final/wildfly-19.1.0.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/19.1.0.Final/wildfly-19.1.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -2266,7 +2418,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/19.1.0.Final">Source</a><br/>
@@ -2276,7 +2428,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12345176">Notes</a><br/>
@@ -2304,7 +2456,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/19.0.0.Final/wildfly-19.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/19.0.0.Final/wildfly-19.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2316,7 +2468,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/19.0.0.Final/servlet/wildfly-servlet-19.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/19.0.0.Final/servlet/wildfly-servlet-19.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2328,7 +2480,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/19.0.0.Final/wildfly-19.0.0.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/19.0.0.Final/wildfly-19.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -2340,7 +2492,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/19.0.0.Final">Source</a><br/>
@@ -2350,7 +2502,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2020/03/18/WildFly19-Final-Released/">Notes</a><br/>
@@ -2378,7 +2530,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/18.0.1.Final/wildfly-18.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/18.0.1.Final/wildfly-18.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -2390,7 +2542,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/18.0.1.Final/servlet/wildfly-servlet-18.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/18.0.1.Final/servlet/wildfly-servlet-18.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -2402,7 +2554,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/18.0.1.Final/wildfly-18.0.1.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/18.0.1.Final/wildfly-18.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -2414,7 +2566,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/18.0.1.Final">Source</a><br/>
@@ -2424,7 +2576,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2019/11/14/WildFly-1801-Released/">Notes</a><br/>
@@ -2452,7 +2604,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/18.0.0.Final/wildfly-18.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/18.0.0.Final/wildfly-18.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2464,7 +2616,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/18.0.0.Final/servlet/wildfly-servlet-18.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/18.0.0.Final/servlet/wildfly-servlet-18.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2476,7 +2628,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/18.0.0.Final/wildfly-18.0.0.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/18.0.0.Final/wildfly-18.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -2488,7 +2640,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/18.0.0.Final">Source</a><br/>
@@ -2498,7 +2650,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2019/10/03/WildFly18-Final-Released/">Notes</a><br/>
@@ -2526,7 +2678,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/17.0.1.Final/wildfly-17.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/17.0.1.Final/wildfly-17.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -2538,7 +2690,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/17.0.1.Final/servlet/wildfly-servlet-17.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/17.0.1.Final/servlet/wildfly-servlet-17.0.1.Final.zip.sha1">SHA-1</a><br/>
@@ -2550,7 +2702,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/17.0.1.Final/wildfly-17.0.1.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/17.0.1.Final/wildfly-17.0.1.Final-src.zip.sha1">SHA-1</a><br/>
@@ -2562,7 +2714,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/17.0.1.Final">Source</a><br/>
@@ -2572,7 +2724,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.redhat.com/secure/ReleaseNote.jspa?projectId=12313721&version=12342471">Notes</a><br/>
@@ -2600,7 +2752,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/17.0.0.Final/wildfly-17.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/17.0.0.Final/wildfly-17.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2612,7 +2764,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/17.0.0.Final/servlet/wildfly-servlet-17.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/17.0.0.Final/servlet/wildfly-servlet-17.0.0.Final.zip.sha1">SHA-1</a><br/>
@@ -2624,7 +2776,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/17.0.0.Final/wildfly-17.0.0.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/17.0.0.Final/wildfly-17.0.0.Final-src.zip.sha1">SHA-1</a><br/>
@@ -2636,7 +2788,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/17.0.0.Final">Source</a><br/>
@@ -2646,7 +2798,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2019/06/10/WildFly17-Final-Released/">Notes</a><br/>
@@ -2674,7 +2826,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final.zip.sha1">sha-1</a><br/>
@@ -2686,7 +2838,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/16.0.0.Final/servlet/wildfly-servlet-16.0.0.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/16.0.0.Final/servlet/wildfly-servlet-16.0.0.Final.zip.sha1">sha-1</a><br/>
@@ -2698,7 +2850,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final-src.zip.sha1">sha-1</a><br/>
@@ -2710,7 +2862,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2019/02/27/WildFly16-Final-Released/">Notes</a><br/>
@@ -2738,7 +2890,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final.zip.sha1">sha-1</a><br/>
@@ -2750,7 +2902,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/15.0.0.Final/servlet/wildfly-servlet-15.0.1.Final.zip">zip</a> | <a href="https://download.jboss.org/wildfly/15.0.1.Final/servlet/wildfly-servlet-15.0.1.Final.zip.sha1">sha-1</a><br/>
@@ -2762,7 +2914,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/15.0.0.Final/wildfly-15.0.1.Final-src.zip">zip</a> | <a href="https://download.jboss.org/wildfly/15.0.1.Final/wildfly-15.0.1.Final-src.zip.sha1">sha-1</a><br/>
@@ -2774,7 +2926,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/15.0.1.Final">Source</a><br/>
@@ -2784,7 +2936,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12313721&version=12340359">Notes</a><br/>
@@ -2812,7 +2964,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/15.0.0.Final/wildfly-15.0.0.Final.zip">zip</a><br/>
@@ -2824,7 +2976,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/15.0.0.Final/servlet/wildfly-servlet-15.0.0.Final.zip">zip</a><br/>
@@ -2836,7 +2988,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/15.0.0.Final/wildfly-15.0.0.Final-src.zip">zip</a><br/>
@@ -2848,7 +3000,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/15.0.0.Final">Source</a><br/>
@@ -2858,7 +3010,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12313721&version=12339953">Notes</a><br/>
@@ -2886,7 +3038,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/14.0.1.Final/wildfly-14.0.1.Final.zip">zip</a><br/>
@@ -2898,7 +3050,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/14.0.1.Final/servlet/wildfly-servlet-14.0.1.Final.zip">zip</a><br/>
@@ -2910,7 +3062,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/14.0.1.Final/wildfly-14.0.1.Final-src.zip">zip</a><br/>
@@ -2922,7 +3074,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/14.0.0.Final">Source</a><br/>
@@ -2932,7 +3084,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12313721&version=12339042">Notes</a><br/>
@@ -2960,7 +3112,7 @@
                 
                 <tr>
                   <td class="description">Java EE Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/14.0.0.Final/wildfly-14.0.0.Final.zip">zip</a><br/>
@@ -2972,7 +3124,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/14.0.0.Final/servlet/wildfly-servlet-14.0.0.Final.zip">zip</a><br/>
@@ -2984,7 +3136,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/14.0.0.Final/wildfly-14.0.0.Final-src.zip">zip</a><br/>
@@ -2996,7 +3148,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/14.0.0.Final">Source</a><br/>
@@ -3006,7 +3158,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2018/08/30/WildFly14-Final-Released/">Notes</a><br/>
@@ -3034,7 +3186,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/13.0.0.Final/wildfly-13.0.0.Final.zip">zip</a><br/>
@@ -3046,7 +3198,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/13.0.0.Final/servlet/wildfly-servlet-13.0.0.Final.zip">zip</a><br/>
@@ -3058,7 +3210,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/13.0.0.Final/wildfly-13.0.0.Final-src.zip">zip</a><br/>
@@ -3070,7 +3222,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/13.0.0.Final">Source</a><br/>
@@ -3080,7 +3232,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2018/05/30/WildFly13-Final-Released/">Notes</a><br/>
@@ -3108,7 +3260,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/12.0.0.Final/wildfly-12.0.0.Final.zip">zip</a><br/>
@@ -3120,7 +3272,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/12.0.0.Final/servlet/wildfly-servlet-12.0.0.Final.zip">zip</a><br/>
@@ -3132,7 +3284,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/12.0.0.Final/wildfly-12.0.0.Final-src.zip">zip</a><br/>
@@ -3144,7 +3296,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/12.0.0.Final">Source</a><br/>
@@ -3154,7 +3306,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2018/02/28/WildFly12-Final-Released/">Notes</a><br/>
@@ -3182,7 +3334,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.zip">zip</a><br/>
@@ -3194,7 +3346,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/11.0.0.Final/servlet/wildfly-servlet-11.0.0.Final.zip">zip</a><br/>
@@ -3206,7 +3358,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final-src.zip">zip</a><br/>
@@ -3218,7 +3370,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/11.0.0.Final">Source</a><br/>
@@ -3228,7 +3380,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2017/10/23/WildFly11-Final-Released/">Notes</a><br/>
@@ -3256,7 +3408,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/10.1.0.Final/wildfly-10.1.0.Final.zip">zip</a><br/>
@@ -3268,7 +3420,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/10.1.0.Final/servlet/wildfly-servlet-10.1.0.Final.zip">zip</a><br/>
@@ -3280,7 +3432,7 @@
                 
                 <tr>
                   <td class="description">Update Existing 10.0.0 Final Install</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/10.1.0.Final/wildfly-10.1.0.Final-update.zip">zip</a><br/>
@@ -3290,7 +3442,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/10.1.0.Final/wildfly-10.1.0.Final-src.zip">zip</a><br/>
@@ -3302,7 +3454,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/10.x">Source</a><br/>
@@ -3330,7 +3482,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.zip">zip</a><br/>
@@ -3342,7 +3494,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/10.0.0.Final/servlet/wildfly-servlet-10.0.0.Final.zip">zip</a><br/>
@@ -3354,7 +3506,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final-src.zip">zip</a><br/>
@@ -3366,7 +3518,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/10.x">Source</a><br/>
@@ -3376,7 +3528,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2016/01/29/WildFly10-Released/">Notes</a><br/>
@@ -3404,7 +3556,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.2.Final/wildfly-9.0.2.Final.zip">zip</a><br/>
@@ -3416,7 +3568,7 @@
                 
                 <tr>
                   <td class="description">Update Existing 9.0.1 Final (Patched) Install</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.2.Final/wildfly-9.0.2.Final-update.zip">zip</a><br/>
@@ -3426,7 +3578,7 @@
                 
                 <tr>
                   <td class="description">Update Existing 9.0.1 Final (Full Zip) Install</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.2.Final/wildfly-9.0.2.Final-901FULLZIP-update.zip">zip</a><br/>
@@ -3436,7 +3588,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.2.Final/servlet/wildfly-servlet-9.0.2.Final.zip">zip</a><br/>
@@ -3448,7 +3600,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.2.Final/wildfly-9.0.2.Final-src.zip">zip</a><br/>
@@ -3460,7 +3612,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/9.x">Source</a><br/>
@@ -3470,7 +3622,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12313721&version=12327709">Notes</a><br/>
@@ -3498,7 +3650,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.1.Final/wildfly-9.0.1.Final.zip">zip</a><br/>
@@ -3510,7 +3662,7 @@
                 
                 <tr>
                   <td class="description">Update Existing 9.0.0 Final Install</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.1.Final/wildfly-9.0.1.Final-update.zip">zip</a><br/>
@@ -3520,7 +3672,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.1.Final/servlet/wildfly-servlet-9.0.1.Final.zip">zip</a><br/>
@@ -3532,7 +3684,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.1.Final/wildfly-9.0.1.Final-src.zip">zip</a><br/>
@@ -3544,7 +3696,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/9.x">Source</a><br/>
@@ -3554,7 +3706,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2015/07/23/WildFly-901-and-821">Notes</a><br/>
@@ -3582,7 +3734,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.0.Final/wildfly-9.0.0.Final.zip">zip</a><br/>
@@ -3594,7 +3746,7 @@
                 
                 <tr>
                   <td class="description">Servlet-Only Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.0.Final/servlet/wildfly-servlet-9.0.0.Final.zip">zip</a><br/>
@@ -3606,7 +3758,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/9.0.0.Final/wildfly-9.0.0.Final-src.zip">zip</a><br/>
@@ -3618,7 +3770,7 @@
                 
                 <tr>
                   <td class="description">Quick Start Source Code</td>
-                  <td class="licence">AL</td>
+                  <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
                     <a href="https://github.com/wildfly/quickstart/tree/9.x">Source</a><br/>
@@ -3628,7 +3780,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2015/07/02/WildFly9-Final-Released">Notes</a><br/>
@@ -3656,7 +3808,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.2.1.Final/wildfly-8.2.1.Final.zip">zip</a><br/>
@@ -3668,7 +3820,7 @@
                 
                 <tr>
                   <td class="description">Update Existing 8.2.0 Final Install</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.2.1.Final/wildfly-8.2.1.Final-update.zip">zip</a><br/>
@@ -3678,7 +3830,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.2.1.Final/wildfly-8.2.1.Final-src.zip">zip</a><br/>
@@ -3690,7 +3842,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2015/07/23/WildFly-901-and-821">Notes</a><br/>
@@ -3718,7 +3870,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.2.0.Final/wildfly-8.2.0.Final.zip">zip</a><br/>
@@ -3730,7 +3882,7 @@
                 
                 <tr>
                   <td class="description">Update Existing 8.1.0 Final Install</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.2.0.Final/wildfly-8.2.0.Final-update.zip">zip</a><br/>
@@ -3740,7 +3892,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.2.0.Final/wildfly-8.2.0.Final-src.zip">zip</a><br/>
@@ -3752,7 +3904,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2014/11/20/WildFly82-Final-Released">Notes</a><br/>
@@ -3780,7 +3932,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.1.0.Final/wildfly-8.1.0.Final.zip">zip</a><br/>
@@ -3792,7 +3944,7 @@
                 
                 <tr>
                   <td class="description">Update Existing 8.0.0 Final Install</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.1.0.Final/wildfly-8.1.0.Final-update.zip">zip</a><br/>
@@ -3802,7 +3954,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.1.0.Final/wildfly-8.1.0.Final-src.zip">zip</a><br/>
@@ -3814,7 +3966,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://community.jboss.org/wiki/WildFly810FinalReleaseNotes">Notes</a><br/>
@@ -3842,7 +3994,7 @@
                 
                 <tr>
                   <td class="description">Java EE7 Full & Web Distribution</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.0.0.Final/wildfly-8.0.0.Final.zip">zip</a><br/>
@@ -3854,7 +4006,7 @@
                 
                 <tr>
                   <td class="description">Application Server Source Code</td>
-                  <td class="licence">LGPL</td>
+                  <!--<td class="licence">LGPL</td>-->
                   <td class="links">
                     
                     <a href="https://download.jboss.org/wildfly/8.0.0.Final/wildfly-8.0.0.Final-src.zip">zip</a><br/>
@@ -3866,7 +4018,7 @@
                 
                 <tr>
                   <td class="description">Release Notes</td>
-                  <td class="licence"></td>
+                  <!--<td class="licence"></td>-->
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2014/02/11/WildFly8-Final-Released/">Notes</a><br/>
@@ -3893,7 +4045,7 @@
     </div>
   </div>
   <div class="grid-wrapper">
-    <p class="grid__item width-3-12">WildFly is open. All dependencies of this project are available under the <a href='https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html' target='_blank'>LGPL 2.1</a> or compatible license.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
 
     
       <div class="width-1-12 project-links">
@@ -3903,6 +4055,8 @@
             <li><a href="/downloads">Downloads</a></li>
           
             <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/getstarted">Get Started</a></li>
           
             <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
           
@@ -4043,7 +4197,11 @@
     if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
         _satellite.pageBottom();
     }
+    hljs.highlightAll();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
 </body>
 
 </html>

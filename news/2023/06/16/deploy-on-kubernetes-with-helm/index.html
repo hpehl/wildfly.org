@@ -9,8 +9,12 @@
   <meta name="description" content="">
   <link rel="me" href="https://fosstodon.org/@wildflyas" />
   <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
-  <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
   <script>
@@ -21,7 +25,7 @@
     gtag('config', 'UA-40221748-1');
   </script>
   <script src="assets/javascript/tracking.js"></script>
-  <script src="https://analytics.ossupstream.org/matomo.js" async defer></script>
+  <script src="https://design.jboss.org/matomo/matomo.js" async defer></script>
 
 </head>
 
@@ -36,12 +40,6 @@
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
         <li>
-          <a href="/" class="">Home</a>
-        </li>
-        <li>
-          <a href="/downloads/" class="">Downloads</a>
-        </li>
-        <li>
           <a href="/news/" class="active">News</a>
         </li>
         <li>
@@ -54,10 +52,16 @@
             <a target="_blank" href="https://docs.wildfly.org">Docs</a>
         </li>
         <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
           <a href="/security/" class="">CVE Reporting</a>
         </li>
         <li>
-          <a class="button-cta secondary" href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/getstarted/">Get Started</a>
         </li>
       </ul>
     </nav>
@@ -151,7 +155,7 @@ $ cd quickstart/helloworld</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-nowrap" data-lang="nowrap">$ helm repo add wildfly https://docs.wildfly.org/wildfly-charts/
+<pre class="highlight nowrap"><code>$ helm repo add wildfly https://docs.wildfly.org/wildfly-charts/
 "wildfly" has been added to your repositories
 $ helm search repo wildfly
 NAME                  	CHART VERSION	APP VERSION	DESCRIPTION
@@ -170,7 +174,7 @@ Add it if you don&#8217;t have it in your pom.xml.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-nowrap" data-lang="nowrap">&lt;profiles&gt;
+<pre class="highlight nowrap"><code>&lt;profiles&gt;
 ...
         &lt;profile&gt;
             &lt;id&gt;openshift&lt;/id&gt;
@@ -219,7 +223,7 @@ Add it if you don&#8217;t have it in your pom.xml.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-nowrap" data-lang="nowrap"> $ mvn package wildfly:image -Popenshift
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash"> $ mvn package wildfly:image -Popenshift
 [INFO] Scanning for projects...
 [INFO]
 [INFO] -----------------&lt; org.wildfly.quickstarts:helloworld &gt;-----------------
@@ -335,7 +339,7 @@ INFO: WFLYSRV0050: WildFly Full 28.0.1.Final (WildFly Core 20.0.2.Final) stopped
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-nowrap" data-lang="nowrap"> $ docker images
+<pre class="highlight nowrap"><code> $ docker images
 REPOSITORY                        TAG                     IMAGE ID       CREATED          SIZE
 helloworld                        latest                  6d404b584da2   32 seconds ago   686MB</code></pre>
 </div>
@@ -366,7 +370,7 @@ If you use hub.docker.com you have to change 'quay.io/username/reponame' with <c
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ docker login quay.io
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ docker login quay.io
 $ docker tag helloworld quay.io/username/helloworld</code></pre>
 </div>
 </div>
@@ -385,7 +389,7 @@ quay.io/username/helloworld   latest                  6d404b584da2   56 minutes 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ docker push quay.io/username/helloworld
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ docker push quay.io/username/helloworld
 Using default tag: latest
 The push refers to repository [quay.io/username/helloworld]
 ad91a69a4efb: Pushed
@@ -412,7 +416,7 @@ latest: digest: sha256:1d72e7b4f8dd75414a2b1dc8da3505906b0211ac6962e871b84f2c8ea
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ cd charts
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ cd charts
 $ touch values.yaml</code></pre>
 </div>
 </div>
@@ -421,7 +425,7 @@ $ touch values.yaml</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>image:
+<pre class="highlight"><code class="language-bash" data-lang="bash">image:
   name: quay.io/rh_ee_msappegr/helloworld # change it with the image you have just pushed
 build:
   enabled: false # The build part is not needed since we have already built our application with the wildfly-maven-plugin plugin
@@ -440,7 +444,7 @@ deploy:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ helm install helloworld-app \
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ helm install helloworld-app \
     wildfly/wildfly \
     -f charts/values.yaml
 
@@ -464,7 +468,7 @@ $ kubectl get deployment helloworld-app -w</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ kubectl get deployment helloworld-app -w
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ kubectl get deployment helloworld-app -w
 NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 helloworld-app   1/1     1            1           30s</code></pre>
 </div>
@@ -477,7 +481,7 @@ helloworld-app   1/1     1            1           30s</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ kubectl port-forward $(oc get pod -l app.kubernetes.io/instance=helloworld-app -o name) 8080:8080
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ kubectl port-forward $(oc get pod -l app.kubernetes.io/instance=helloworld-app -o name) 8080:8080
 Forwarding from 127.0.0.1:8080 -&gt; 8080
 ...</code></pre>
 </div>
@@ -501,7 +505,7 @@ Forwarding from 127.0.0.1:8080 -&gt; 8080
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ curl localhost:8080
+<pre class="highlight"><code class="language-html" data-lang="html">$ curl localhost:8080
 &lt;!--
     JBoss, Home of Professional Open Source
     Copyright 2015, Red Hat, Inc. and/or its affiliates, and individual
@@ -596,7 +600,7 @@ Forwarding from 127.0.0.1:8080 -&gt; 8080
     </div>
   </div>
   <div class="grid-wrapper">
-    <p class="grid__item width-3-12">WildFly is open. All dependencies of this project are available under the <a href='https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html' target='_blank'>LGPL 2.1</a> or compatible license.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
 
     
       <div class="width-1-12 project-links">
@@ -606,6 +610,8 @@ Forwarding from 127.0.0.1:8080 -&gt; 8080
             <li><a href="/downloads">Downloads</a></li>
           
             <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/getstarted">Get Started</a></li>
           
             <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
           
@@ -746,7 +752,11 @@ Forwarding from 127.0.0.1:8080 -&gt; 8080
     if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
         _satellite.pageBottom();
     }
+    hljs.highlightAll();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
 </body>
 
 </html>

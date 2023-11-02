@@ -9,8 +9,12 @@
   <meta name="description" content="">
   <link rel="me" href="https://fosstodon.org/@wildflyas" />
   <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
-  <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
   <script>
@@ -21,7 +25,7 @@
     gtag('config', 'UA-40221748-1');
   </script>
   <script src="assets/javascript/tracking.js"></script>
-  <script src="https://analytics.ossupstream.org/matomo.js" async defer></script>
+  <script src="https://design.jboss.org/matomo/matomo.js" async defer></script>
 
 </head>
 
@@ -36,12 +40,6 @@
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
         <li>
-          <a href="/" class="">Home</a>
-        </li>
-        <li>
-          <a href="/downloads/" class="">Downloads</a>
-        </li>
-        <li>
           <a href="/news/" class="active">News</a>
         </li>
         <li>
@@ -54,10 +52,16 @@
             <a target="_blank" href="https://docs.wildfly.org">Docs</a>
         </li>
         <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
           <a href="/security/" class="">CVE Reporting</a>
         </li>
         <li>
-          <a class="button-cta secondary" href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/getstarted/">Get Started</a>
         </li>
       </ul>
     </nav>
@@ -79,350 +83,350 @@
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="https://wildfly-security.github.io/wildfly-elytron/blog/frequently-asked-questions-new-contributors/" target="_blank">FAQ for New Contributors</a></h2>
+          <h2><a href="https://wildfly-security.github.io/wildfly-elytron/blog/filesystem-integrity/" target="_blank">Enabling Integrity on Filesystem realms</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Farah Juma | September 15, 2022</p>
+          <p class="byline">By Ashpan Raskar | November 10, 2022</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/09/15/frequently-asked-questions-new-contributors/&title=FAQ for New Contributors" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/11/10/filesystem-realm/&title=Enabling Integrity on Filesystem realms" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=FAQ for New Contributors&url=https://wildfly.org//news/2022/09/15/frequently-asked-questions-new-contributors/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Enabling Integrity on Filesystem realms&url=https://wildfly.org//news/2022/11/10/filesystem-realm/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/09/15/frequently-asked-questions-new-contributors/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/11/10/filesystem-realm/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/09/15/frequently-asked-questions-new-contributors/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/11/10/filesystem-realm/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=FAQ for New Contributors&amp;body=FAQ for New Contributors https://wildfly.org//news/2022/09/15/frequently-asked-questions-new-contributors/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=Enabling Integrity on Filesystem realms&amp;body=Enabling Integrity on Filesystem realms https://wildfly.org//news/2022/11/10/filesystem-realm/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>Answers to frequently asked questions from new contributors.</p>
+            <p>An overview of the new support for filesystem realm integrity verification.</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="https://wildfly-security.github.io/wildfly-elytron/blog/frequently-asked-questions-new-contributors/" target="_blank">Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="https://wildfly-security.github.io/wildfly-elytron/blog/filesystem-integrity/" target="_blank">Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2022/09/14/Remote-dev-watch/" >Remote dev-watch development with WildFly Jar Maven Plugin</a></h2>
+          <h2><a href="/news/2022/11/10/bootable-jar-8.1.Final-Released/" >WildFly Bootable JAR 8.1 is released!</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Emmanuel Hugonnet | September 14, 2022</p>
+          <p class="byline">By Jean-François Denise | November 10, 2022</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/09/14/Remote-dev-watch/&title=Remote dev-watch development with WildFly Jar Maven Plugin" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/11/10/bootable-jar-8.1.Final-Released/&title=WildFly Bootable JAR 8.1 is released!" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Remote dev-watch development with WildFly Jar Maven Plugin&url=https://wildfly.org//news/2022/09/14/Remote-dev-watch/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly Bootable JAR 8.1 is released!&url=https://wildfly.org//news/2022/11/10/bootable-jar-8.1.Final-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/09/14/Remote-dev-watch/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/11/10/bootable-jar-8.1.Final-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/09/14/Remote-dev-watch/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/11/10/bootable-jar-8.1.Final-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Remote dev-watch development with WildFly Jar Maven Plugin&amp;body=Remote dev-watch development with WildFly Jar Maven Plugin https://wildfly.org//news/2022/09/14/Remote-dev-watch/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=WildFly Bootable JAR 8.1 is released!&amp;body=WildFly Bootable JAR 8.1 is released! https://wildfly.org//news/2022/11/10/bootable-jar-8.1.Final-Released/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>Bootable JAR Maven plugin 8.0.0.Alpha2 brings in a new way to make remote development easier.</p>
+            <p>Bootable JAR Maven plugin 8.1.0 has been released.</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2022/09/14/Remote-dev-watch/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2022/11/10/bootable-jar-8.1.Final-Released/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="https://wildfly-security.github.io/wildfly-elytron/blog/bearer-only-support-openid-connect/" target="_blank">Bearer Token Support for the Elytron OIDC Client Subsystem</a></h2>
+          <h2><a href="/news/2022/11/10/DistributedJakartaEnterpriseBeanTimers/" >Distributed Jakarta Enterprise Bean Timers</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Farah Juma | September 01, 2022</p>
+          <p class="byline">By Paul Ferraro | November 10, 2022</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/09/01/bearer-only-support-openid-connect/&title=Bearer Token Support for the Elytron OIDC Client Subsystem" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/11/10/DistributedJakartaEnterpriseBeanTimers/&title=Distributed Jakarta Enterprise Bean Timers" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Bearer Token Support for the Elytron OIDC Client Subsystem&url=https://wildfly.org//news/2022/09/01/bearer-only-support-openid-connect/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Distributed Jakarta Enterprise Bean Timers&url=https://wildfly.org//news/2022/11/10/DistributedJakartaEnterpriseBeanTimers/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/09/01/bearer-only-support-openid-connect/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/11/10/DistributedJakartaEnterpriseBeanTimers/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/09/01/bearer-only-support-openid-connect/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/11/10/DistributedJakartaEnterpriseBeanTimers/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Bearer Token Support for the Elytron OIDC Client Subsystem&amp;body=Bearer Token Support for the Elytron OIDC Client Subsystem https://wildfly.org//news/2022/09/01/bearer-only-support-openid-connect/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=Distributed Jakarta Enterprise Bean Timers&amp;body=Distributed Jakarta Enterprise Bean Timers https://wildfly.org//news/2022/11/10/DistributedJakartaEnterpriseBeanTimers/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>An overview of how to secure an application with Bearer Token Authentication when using the Elytron OIDC Client subsystem.</p>
+            <p>A new distributed Jakarta Enterprise Bean TimerService for WildFly</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="https://wildfly-security.github.io/wildfly-elytron/blog/bearer-only-support-openid-connect/" target="_blank">Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2022/11/10/DistributedJakartaEnterpriseBeanTimers/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="https://wildfly-security.github.io/wildfly-elytron/blog/top-five-reasons-to-join-elytron-open-source-day/" target="_blank">Top 5 Reasons To Join Us At Open Source Day</a></h2>
+          <h2><a href="/news/2022/11/09/WildFly27-Final-Released/" >WildFly 27 Final is released!</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Farah Juma | August 31, 2022</p>
+          <p class="byline">By Brian Stansberry | November 09, 2022</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/08/31/top-five-reasons-to-join-elytron-open-source-day/&title=Top 5 Reasons To Join Us At Open Source Day" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/11/09/WildFly27-Final-Released/&title=WildFly 27 Final is released!" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Top 5 Reasons To Join Us At Open Source Day&url=https://wildfly.org//news/2022/08/31/top-five-reasons-to-join-elytron-open-source-day/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 27 Final is released!&url=https://wildfly.org//news/2022/11/09/WildFly27-Final-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/08/31/top-five-reasons-to-join-elytron-open-source-day/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/11/09/WildFly27-Final-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/08/31/top-five-reasons-to-join-elytron-open-source-day/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/11/09/WildFly27-Final-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Top 5 Reasons To Join Us At Open Source Day&amp;body=Top 5 Reasons To Join Us At Open Source Day https://wildfly.org//news/2022/08/31/top-five-reasons-to-join-elytron-open-source-day/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=WildFly 27 Final is released!&amp;body=WildFly 27 Final is released! https://wildfly.org//news/2022/11/09/WildFly27-Final-Released/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>Learn why you should join the WildFly Elytron project at this year's Grace Hopper Open Source Day.</p>
+            <p>It gives me tremendous pleasure to announce that the new WildFly and WildFly Preview 27.0.0.Final releases are available for download at https://wildfly.org/downloads. Jakarta EE 10 Support For sure the biggest new thing in WildFly 27 is support for Jakarta EE 10. WildFly 27 is a compatible implementation of the EE 10 Platform as well as the Web Profile and the new Core Profile. WildFly is EE 10 compatible when running on both Java SE 11...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="https://wildfly-security.github.io/wildfly-elytron/blog/top-five-reasons-to-join-elytron-open-source-day/" target="_blank">Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2022/11/09/WildFly27-Final-Released/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2022/08/31/WildFly2612-Released/" >WildFly 26.1.2 is released!</a></h2>
+          <h2><a href="/news/2022/11/09/WildFly-s2i-wildfly-27-final/" >What's new for WildFly 27 in the cloud.</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Brian Stansberry | August 31, 2022</p>
+          <p class="byline">By Jean-François Denise | November 09, 2022</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/08/31/WildFly2612-Released/&title=WildFly 26.1.2 is released!" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/11/09/WildFly-s2i-wildfly-27-final/&title=What's new for WildFly 27 in the cloud." rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 26.1.2 is released!&url=https://wildfly.org//news/2022/08/31/WildFly2612-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=What's new for WildFly 27 in the cloud.&url=https://wildfly.org//news/2022/11/09/WildFly-s2i-wildfly-27-final/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/08/31/WildFly2612-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/11/09/WildFly-s2i-wildfly-27-final/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/08/31/WildFly2612-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/11/09/WildFly-s2i-wildfly-27-final/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=WildFly 26.1.2 is released!&amp;body=WildFly 26.1.2 is released! https://wildfly.org//news/2022/08/31/WildFly2612-Released/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=What's new for WildFly 27 in the cloud.&amp;body=What's new for WildFly 27 in the cloud. https://wildfly.org//news/2022/11/09/WildFly-s2i-wildfly-27-final/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>WildFly 26.1.2.Final is now available for download. This is a bug fix release. The full list of issues resolved in WildFly 26.1.2 is available here. Issues resolved in the WildFly Core update included with WildFly 26.1.2 are available here. As I&#8217;ve discussed in various posts that touch on the WildFly project&#8217;s plans for 2022, beginning with the upcoming WildFly 27 release WildFly releases will no longer support Java SE 8, Jakarta EE 8 and MicroProfile...</p>
+            <p>WildFly S2I (Source To Image) images In April we announced the new WildFly architecture for the cloud. I strongly encourage you to read that post to get familiar with this new architecture. We have discontinued the release of WildFly s2i centos7 based images starting WildFly 26.1.2. For new features and bug fixes, we are now only releasing UBI8 based JDK11/JDK17 s2i builder and runtime images along with the Galleon wildfly-cloud-galleon-pack. The latest artifacts that form...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2022/08/31/WildFly2612-Released/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2022/11/09/WildFly-s2i-wildfly-27-final/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2022/08/19/RHOSAK/" >Using RHOSAK from WildFly</a></h2>
+          <h2><a href="https://wildfly-security.github.io/wildfly-elytron/blog/ghc22-recap/" target="_blank">Grace Hopper Celebration Recap</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Kabir Khan | August 19, 2022</p>
+          <p class="byline">By Farah Juma | October 31, 2022</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/08/19/RHOSAK/&title=Using RHOSAK from WildFly" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/10/31/ghc22-recap/&title=Grace Hopper Celebration Recap" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Using RHOSAK from WildFly&url=https://wildfly.org//news/2022/08/19/RHOSAK/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Grace Hopper Celebration Recap&url=https://wildfly.org//news/2022/10/31/ghc22-recap/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/08/19/RHOSAK/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/10/31/ghc22-recap/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/08/19/RHOSAK/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/10/31/ghc22-recap/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Using RHOSAK from WildFly&amp;body=Using RHOSAK from WildFly https://wildfly.org//news/2022/08/19/RHOSAK/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=Grace Hopper Celebration Recap&amp;body=Grace Hopper Celebration Recap https://wildfly.org//news/2022/10/31/ghc22-recap/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>Introduction RHOSAK (full name: Red Hat OpenShift Streams for Apache Kafka) is a cloud service hosted by Red Hat which makes setting up, managing and scaling Apache Kafka instances very easy. Also, you get the peace of mind of knowing the instances are patched with the latest security fixes. Apache Kafka is an open source, distributed streaming platform that enables (among other things) the development of real-time, event-driven applications. WildFly integrates with Apache Kafka via...</p>
+            <p>A recap of the 2022 Grace Hopper Celebration.</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2022/08/19/RHOSAK/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="https://wildfly-security.github.io/wildfly-elytron/blog/ghc22-recap/" target="_blank">Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2022/08/05/WildFly27-Alpha4-Released/" >WildFly 27 Alpha4 is released</a></h2>
+          <h2><a href="https://wildfly-security.github.io/wildfly-elytron/blog/ghc22-open-source-day-recap/" target="_blank">Open Source Day 2022 Recap</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Brian Stansberry | August 05, 2022</p>
+          <p class="byline">By Farah Juma | October 14, 2022</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/08/05/WildFly27-Alpha4-Released/&title=WildFly 27 Alpha4 is released" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/10/14/ghc22-open-source-day-recap/&title=Open Source Day 2022 Recap" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 27 Alpha4 is released&url=https://wildfly.org//news/2022/08/05/WildFly27-Alpha4-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Open Source Day 2022 Recap&url=https://wildfly.org//news/2022/10/14/ghc22-open-source-day-recap/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/08/05/WildFly27-Alpha4-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/10/14/ghc22-open-source-day-recap/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/08/05/WildFly27-Alpha4-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/10/14/ghc22-open-source-day-recap/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=WildFly 27 Alpha4 is released&amp;body=WildFly 27 Alpha4 is released https://wildfly.org//news/2022/08/05/WildFly27-Alpha4-Released/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=Open Source Day 2022 Recap&amp;body=Open Source Day 2022 Recap https://wildfly.org//news/2022/10/14/ghc22-open-source-day-recap/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>Today we have released the 27.0.0.Alpha4 version of WildFly, now available on the downloads page. This release serves as a major milestone on our way toward support for Jakarta EE 10 in WildFly, as it is the first release of standard WildFly that is based on the Jakarta EE APIs that are planned for the upcoming Jakarta EE 10 release. Until this release, only WildFly Preview has offered any kind of support for Jakarta EE...</p>
+            <p>A recap of the GHC22 Open Source Day.</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2022/08/05/WildFly27-Alpha4-Released/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="https://wildfly-security.github.io/wildfly-elytron/blog/ghc22-open-source-day-recap/" target="_blank">Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2022/08/04/wildfly-maven-docker/" >Use the wildfly-maven-plugin to create a Docker image of your application</a></h2>
+          <h2><a href="https://wildfly-security.github.io/wildfly-elytron/hacktoberfest/" target="_blank">Hacktoberfest Has Started</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Jeff Mesnil | August 04, 2022</p>
+          <p class="byline">By Farah Juma | October 07, 2022</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/08/04/wildfly-maven-docker/&title=Use the wildfly-maven-plugin to create a Docker image of your application" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/10/07/hacktoberfest-has-started/&title=Hacktoberfest Has Started" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Use the wildfly-maven-plugin to create a Docker image of your application&url=https://wildfly.org//news/2022/08/04/wildfly-maven-docker/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Hacktoberfest Has Started&url=https://wildfly.org//news/2022/10/07/hacktoberfest-has-started/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/08/04/wildfly-maven-docker/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/10/07/hacktoberfest-has-started/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/08/04/wildfly-maven-docker/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/10/07/hacktoberfest-has-started/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Use the wildfly-maven-plugin to create a Docker image of your application&amp;body=Use the wildfly-maven-plugin to create a Docker image of your application https://wildfly.org//news/2022/08/04/wildfly-maven-docker/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=Hacktoberfest Has Started&amp;body=Hacktoberfest Has Started https://wildfly.org//news/2022/10/07/hacktoberfest-has-started/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>In this article, we will explain how a developer using the Docker image for WildFly can take advantage of the new capabilities of the wildlfy-maven-plugin and the new WildFly runtime image to build their container image. We will describe the changes required to move to this new architecture. Once the changes are done, we will provide some examples of the benefits that can be gained from this new architecture. WildFly, Docker, S2I and what are...</p>
+            <p>All the details on how to get started, pick an issue to work on, and submit your first PR.</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2022/08/04/wildfly-maven-docker/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="https://wildfly-security.github.io/wildfly-elytron/hacktoberfest/" target="_blank">Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="https://www.youtube.com/watch?v=1K92tit2uCk" target="_blank">Vlog: Encrypting a Filesystem Realm</a></h2>
+          <h2><a href="/news/2022/09/29/WildFly26-Beta-Released/" >WildFly 27 Beta1 is released!</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Ashpan Raskar | July 07, 2022</p>
+          <p class="byline">By Brian Stansberry | September 29, 2022</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/07/07/wildfly-elytron-filesystem-encryption-vlog/&title=Vlog: Encrypting a Filesystem Realm" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/09/29/WildFly26-Beta-Released/&title=WildFly 27 Beta1 is released!" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Vlog: Encrypting a Filesystem Realm&url=https://wildfly.org//news/2022/07/07/wildfly-elytron-filesystem-encryption-vlog/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 27 Beta1 is released!&url=https://wildfly.org//news/2022/09/29/WildFly26-Beta-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/07/07/wildfly-elytron-filesystem-encryption-vlog/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/09/29/WildFly26-Beta-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/07/07/wildfly-elytron-filesystem-encryption-vlog/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/09/29/WildFly26-Beta-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Vlog: Encrypting a Filesystem Realm&amp;body=Vlog: Encrypting a Filesystem Realm https://wildfly.org//news/2022/07/07/wildfly-elytron-filesystem-encryption-vlog/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=WildFly 27 Beta1 is released!&amp;body=WildFly 27 Beta1 is released! https://wildfly.org//news/2022/09/29/WildFly26-Beta-Released/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>This video demonstrates how to enable encryption for new filesystem realms, and how to encrypt pre-existing filesystem realms.</p>
+            <p>I&#8217;m pleased to announce that the new WildFly and WildFly Preview 27.0.0.Beta1 releases are available for download at https://wildfly.org/downloads. New and Notable As I noted in my last post, the key new thing in WildFly 27 is compatibility with the recently released Jakarta EE 10. Thanks so much to all the great WildFly contributors who worked so hard on our EE 10 journey! Besides Jakarta EE 10 support, here are some of the other new...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="https://www.youtube.com/watch?v=1K92tit2uCk" target="_blank">Watch Video ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2022/09/29/WildFly26-Beta-Released/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="https://wildfly-security.github.io/wildfly-elytron/blog/ejb-over-tls/" target="_blank">Securing Jakarta Enterprise Beans with mutual TLS authentication</a></h2>
+          <h2><a href="/news/2022/09/22/Jakarta-EE10-and-WildFly/" >Jakarta EE 10 is released; WildFly is compatible!</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Cameron Rodriguez | June 21, 2022</p>
+          <p class="byline">By Brian Stansberry | September 22, 2022</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/06/21/ejb-over-tls/&title=Securing Jakarta Enterprise Beans with mutual TLS authentication" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2022/09/22/Jakarta-EE10-and-WildFly/&title=Jakarta EE 10 is released; WildFly is compatible!" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Securing Jakarta Enterprise Beans with mutual TLS authentication&url=https://wildfly.org//news/2022/06/21/ejb-over-tls/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Jakarta EE 10 is released; WildFly is compatible!&url=https://wildfly.org//news/2022/09/22/Jakarta-EE10-and-WildFly/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/06/21/ejb-over-tls/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2022/09/22/Jakarta-EE10-and-WildFly/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/06/21/ejb-over-tls/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2022/09/22/Jakarta-EE10-and-WildFly/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Securing Jakarta Enterprise Beans with mutual TLS authentication&amp;body=Securing Jakarta Enterprise Beans with mutual TLS authentication https://wildfly.org//news/2022/06/21/ejb-over-tls/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=Jakarta EE 10 is released; WildFly is compatible!&amp;body=Jakarta EE 10 is released; WildFly is compatible! https://wildfly.org//news/2022/09/22/Jakarta-EE10-and-WildFly/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>A demonstration on how to configure Elytron for secure connections to EJBs, using mutual TLS, SASL authentication mechanisms, and credential stores.</p>
+            <p>Congratulations to everyone involved with Jakarta EE for today&#8217;s announced general availability of Jakarta EE 10! It&#8217;s great to see continued advances in Jakarta EE, particularly Jakarta Contexts and Dependency Injection 4.0 with the new CDI Lite, along with the new Jakarta EE 10 Core Profile. I&#8217;m particularly happy to announce that our hard work in the WildFly community on EE 10 is paying off. Last week we released WildFly 27.0.0.Alpha5, and this week compatibility...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="https://wildfly-security.github.io/wildfly-elytron/blog/ejb-over-tls/" target="_blank">Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2022/09/22/Jakarta-EE10-and-WildFly/" >Read More ></a></div>
       </div>
     
     
@@ -451,7 +455,7 @@
     </div>
   </div>
   <div class="grid-wrapper">
-    <p class="grid__item width-3-12">WildFly is open. All dependencies of this project are available under the <a href='https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html' target='_blank'>LGPL 2.1</a> or compatible license.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
 
     
       <div class="width-1-12 project-links">
@@ -461,6 +465,8 @@
             <li><a href="/downloads">Downloads</a></li>
           
             <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/getstarted">Get Started</a></li>
           
             <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
           
@@ -601,7 +607,11 @@
     if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
         _satellite.pageBottom();
     }
+    hljs.highlightAll();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
 </body>
 
 </html>

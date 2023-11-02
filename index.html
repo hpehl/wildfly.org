@@ -9,8 +9,12 @@
   <meta name="description" content="">
   <link rel="me" href="https://fosstodon.org/@wildflyas" />
   <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
-  <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
   <script>
@@ -21,7 +25,7 @@
     gtag('config', 'UA-40221748-1');
   </script>
   <script src="assets/javascript/tracking.js"></script>
-  <script src="https://analytics.ossupstream.org/matomo.js" async defer></script>
+  <script src="https://design.jboss.org/matomo/matomo.js" async defer></script>
 
 </head>
 
@@ -36,12 +40,6 @@
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
         <li>
-          <a href="/" class="active">Home</a>
-        </li>
-        <li>
-          <a href="/downloads/" class="">Downloads</a>
-        </li>
-        <li>
           <a href="/news/" class="">News</a>
         </li>
         <li>
@@ -54,10 +52,16 @@
             <a target="_blank" href="https://docs.wildfly.org">Docs</a>
         </li>
         <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
           <a href="/security/" class="">CVE Reporting</a>
         </li>
         <li>
-          <a class="button-cta secondary" href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/getstarted/">Get Started</a>
         </li>
       </ul>
     </nav>
@@ -69,12 +73,13 @@
   <div class="grid__item width-12-12 home-section">
 
     
-    <h1>Wild<strong>Fly</strong> 29 Final is now available</h1>
+    <h1>Wild<strong>Fly</strong></h1>
+    <h2>A powerful, modular, & lightweight application server that helps you build amazing applications.</h2>
+    <h3>Now available: <span style="font-weight: 100;">Wild</span><strong>Fly</strong> 30 Final</h3>
     <div class="home-ctas">
-      
-      <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-preview-29.0.0.Final.zip" class="button-cta secondary">Try WildFly Preview</a>
-      <a href="https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-29.0.0.Final.zip" class="button-cta">Download the zip</a>
-      <a href="/downloads/" class="button-cta secondary">Other Versions</a>
+      <a href="/getstarted/" class="button-cta">Get Started</a>
+      <a href="https://github.com/wildfly/wildfly/releases/download/30.0.0.Final/wildfly-preview-30.0.0.Final.zip" class="button-cta secondary">Try WildFly Preview</a>
+      <a href="/downloads/" class="button-cta secondary">Download Wild<strong>Fly</strong></a>
     </div>
 
   </div>
@@ -89,8 +94,6 @@
 
   <div class="grid__item width-12-12 home-section">
     <img class="home-img" src="/assets/img/homepage/homepage-screenshot.png">
-    <h2>Wild<strong>Fly</strong> is a powerful, modular, & lightweight application server that helps you
-build amazing applications.</h2>
   </div>
 
   <div class="grid__item width-12-12 home-section">
@@ -122,13 +125,13 @@ build amazing applications.</h2>
     
       <div class="news-block-item grid__item width-3-12">
         <div class="post-title grid__item">
-          <h4><a href="https://wildfly-security.github.io/wildfly-elytron/blog/securing-management-console-oidc/" target="_blank">Securing the WildFly Management Console with OpenID Connect</a></h4>
+          <h4><a href="/news/2023/10/18/WildFly30-Released/" >WildFly 30 is released!</a></h4>
         </div>
-        <p class="byline">By  | July 24, 2023</p>
+        <p class="byline">By  | October 18, 2023</p>
         
-          <p>An overview of how to secure the WildFly management console with the Keycloak OpenID provider.</p>
+          <p>I&#8217;m pleased to announce that the new WildFly and WildFly Preview 30.0.0.Final releases are available for download at https://wildfly.org/downloads. New and Notable An important focus of our work for this release was preparing for the arrival of Java SE 21, the latest LTS JDK release. While we still recommend that you run WildFly on SE 17 or 11 (see Java SE Support below for more on why), we do believe WildFly 30 is a great...</p>
         
-        <a href="https://wildfly-security.github.io/wildfly-elytron/blog/securing-management-console-oidc/" target="_blank">Read More ></a>
+        <a href="/news/2023/10/18/WildFly30-Released/" >Read More ></a>
       </div>
     
   
@@ -137,13 +140,13 @@ build amazing applications.</h2>
     
       <div class="news-block-item grid__item width-3-12">
         <div class="post-title grid__item">
-          <h4><a href="http://jberet.org/remote-ejb-batch/" target="_blank">Remote EJB Client for Batch Application</a></h4>
+          <h4><a href="/news/2023/09/27/Hacktoberfest-2023/" >Hacktoberfest 2023</a></h4>
         </div>
-        <p class="byline">By  | July 21, 2023</p>
+        <p class="byline">By  | September 27, 2023</p>
         
-          <p>How to use standalone remote EJB client to connect to WildFly and manage batch jobs</p>
+          <p>Hacktoberfest is back, and it&#8217;s time to channel your inner Open Source superhero! This annual event unites developers of all levels, from seasoned pros to enthusiastic beginners, in a shared mission to contribute to Open Source projects and celebrate the spirit of collaboration in software development. Join us for this month-long celebration of contributions as we work together, one pull request at a time. What is Hacktoberfest? Hacktoberfest is a month-long event in October that...</p>
         
-        <a href="http://jberet.org/remote-ejb-batch/" target="_blank">Read More ></a>
+        <a href="/news/2023/09/27/Hacktoberfest-2023/" >Read More ></a>
       </div>
     
   
@@ -152,13 +155,13 @@ build amazing applications.</h2>
     
       <div class="news-block-item grid__item width-3-12">
         <div class="post-title grid__item">
-          <h4><a href="/news/2023/07/21/WildFly29-Released/" >WildFly 29 is released!</a></h4>
+          <h4><a href="https://jmesnil.net/weblog/2023/09/13/wildfly-12-factor-app/" target="_blank">WildFly and the Twelve-factor App Methodology</a></h4>
         </div>
-        <p class="byline">By  | July 21, 2023</p>
+        <p class="byline">By  | September 13, 2023</p>
         
-          <p>I&#8217;m pleased to announce that the new WildFly and WildFly Preview 29.0.0.Final releases are available for download at https://wildfly.org/downloads. New and Notable During the WildFly 29 development cycle the WildFly contributors were heavily focused on bug fixing, plus a lot internal housekeeping that needed doing after all the recent work toward Jakarta EE 10. But we do have some new goodies: It is now possible to secure the management console with WildFly&#8217;s native support for...</p>
+          <p>In this article, Jeff Mesnil explains what WildFly provides to develop and operate "cloudy" Entreprise Java applications and how it also benefits "bare metal" applications.</p>
         
-        <a href="/news/2023/07/21/WildFly29-Released/" >Read More ></a>
+        <a href="https://jmesnil.net/weblog/2023/09/13/wildfly-12-factor-app/" target="_blank">Read More ></a>
       </div>
     
   
@@ -167,13 +170,13 @@ build amazing applications.</h2>
     
       <div class="news-block-item grid__item width-3-12">
         <div class="post-title grid__item">
-          <h4><a href="https://wildfly-security.github.io/wildfly-elytron/blog/Client-cert-auth-without-roles/" target="_blank">Using Certificate Based Authentication with Mutual TLS without Roles</a></h4>
+          <h4><a href="https://www.youtube.com/watch?v=nevZyt2TkzI" target="_blank">Vlog: Join us at Open Source Day on September 22, 2023 and Make Meaningful Contributions</a></h4>
         </div>
-        <p class="byline">By  | June 26, 2023</p>
+        <p class="byline">By  | September 13, 2023</p>
         
-          <p>How to secure a web application deployed to WildFly with mutual TLS and the CLIENT_CERT HTTP authentication mechanism.</p>
+          <p>Check out this short video to learn how you can join the WildFly Elytron project and make meaningful contributions to the open source community!</p>
         
-        <a href="https://wildfly-security.github.io/wildfly-elytron/blog/Client-cert-auth-without-roles/" target="_blank">Read More ></a>
+        <a href="https://www.youtube.com/watch?v=nevZyt2TkzI" target="_blank">Watch Video ></a>
       </div>
     
   
@@ -182,13 +185,13 @@ build amazing applications.</h2>
     
       <div class="news-block-item grid__item width-3-12">
         <div class="post-title grid__item">
-          <h4><a href="/news/2023/06/16/deploy-on-kubernetes-with-helm/" >Deploy on Kubernetes with Helm</a></h4>
+          <h4><a href="https://resteasy.dev/2023/09/12/resteasy-grpc/" target="_blank">Using the resteasy-grpc feature together with the WildFly gRPC subsystem</a></h4>
         </div>
-        <p class="byline">By  | June 16, 2023</p>
+        <p class="byline">By  | September 13, 2023</p>
         
-          <p>How to deploy WildFly applications on Kubernetes with Helm.</p>
+          <p>An introduction to the usage of the resteasy-grpc and the WildFly gRPC subsystem</p>
         
-        <a href="/news/2023/06/16/deploy-on-kubernetes-with-helm/" >Read More ></a>
+        <a href="https://resteasy.dev/2023/09/12/resteasy-grpc/" target="_blank">Read More ></a>
       </div>
     
   
@@ -197,13 +200,13 @@ build amazing applications.</h2>
     
       <div class="news-block-item grid__item width-3-12">
         <div class="post-title grid__item">
-          <h4><a href="/news/2023/06/12/grpc-subsystem/" >grpc and WildFly - Part I</a></h4>
+          <h4><a href="https://www.youtube.com/watch?v=9i_MiK0W2n4" target="_blank">Vlog: Join us at Open Source Day on September 22nd, 2023 and Level Up Your Skills</a></h4>
         </div>
-        <p class="byline">By  | June 12, 2023</p>
+        <p class="byline">By  | September 08, 2023</p>
         
-          <p>We are pleased to announce the first release of support for gRPC services in WildFly[1]. gRPC, a Google project, is, as its name suggests, a Remote Procedure Call framework. In some ways, it is a competitor to Jakarta RESTFul Web Services, but it has different semantics and a different performance profile. gRPC rests on another Google project, protobuf, which is, according to the website, "a language-neutral, platform-neutral extensible mechanism for serializing structured data." It consists...</p>
+          <p>Check out this 1 minute video to learn how you can contribute to the WildFly Elytron project and level up your skills in Java, git and more!</p>
         
-        <a href="/news/2023/06/12/grpc-subsystem/" >Read More ></a>
+        <a href="https://www.youtube.com/watch?v=9i_MiK0W2n4" target="_blank">Watch Video ></a>
       </div>
     
   
@@ -212,13 +215,13 @@ build amazing applications.</h2>
     
       <div class="news-block-item grid__item width-3-12">
         <div class="post-title grid__item">
-          <h4><a href="/news/2023/05/24/MicroProfile-LRA/" >Using MicroProfile LRA in WildFly</a></h4>
+          <h4><a href="https://wildfly-security.github.io/wildfly-elytron/blog/securing-wildfly-apps-saml-openshift/" target="_blank">Securing WildFly Apps with SAML on OpenShift</a></h4>
         </div>
-        <p class="byline">By  | May 24, 2023</p>
+        <p class="byline">By  | September 06, 2023</p>
         
-          <p>MicroProfile Long Running Actions (LRA) is a specification that defines the protocol and an API for the distributed transactions based on the saga pattern and user-defined compensations. In WildFly 28.0.0.Final, we introduced the integration of Narayana LRA which implements this specification. In this guide, we look into how you can enable LRA in your WildFly distribution and how you can use LRA in your applications. Overview of the LRA protocol We provide only a high-level...</p>
+          <p>Learn how to secure applications deployed to WildFly on OpenShift with SAML.</p>
         
-        <a href="/news/2023/05/24/MicroProfile-LRA/" >Read More ></a>
+        <a href="https://wildfly-security.github.io/wildfly-elytron/blog/securing-wildfly-apps-saml-openshift/" target="_blank">Read More ></a>
       </div>
     
   
@@ -227,14 +230,54 @@ build amazing applications.</h2>
     
       <div class="news-block-item grid__item width-3-12">
         <div class="post-title grid__item">
-          <h4><a href="/news/2023/05/23/WildFly2801-Released/" >WildFly 28.0.1 is released!</a></h4>
+          <h4><a href="https://www.youtube.com/watch?v=PAcqCa8u0Z8" target="_blank">Vlog: Begin your Open Source Journey with the WildFly Elytron Project at Open Source Day</a></h4>
         </div>
-        <p class="byline">By  | May 23, 2023</p>
+        <p class="byline">By  | September 06, 2023</p>
         
-          <p>WildFly 28.0.1.Final is now available for download. It&#8217;s been about five weeks since the WildFly 28 release, so we&#8217;ve done a small bug fix update, WildFly 28.0.1. This includes an update to WildFly Preview. The following issues were resolved in 28.0.1: Bugs [WFLY-17016] - todo-backend QS has outdated Readme instructions [WFLY-17921] - Add missing org.jboss.vfs to RESTEasy Spring deployments [WFLY-17947] - todo-backend Readme OpenShift instructions results in a non-functional QS app [WFLY-17960] - LRA causes...</p>
+          <p>Check out this 1 minute video to learn why anyone can contribute to the WildFly Elytron project, regardless of prior experience.</p>
         
-        <a href="/news/2023/05/23/WildFly2801-Released/" >Read More ></a>
+        <a href="https://www.youtube.com/watch?v=PAcqCa8u0Z8" target="_blank">Watch Video ></a>
       </div>
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
+    
+  
+    
+    
     
   
     
@@ -1100,7 +1143,7 @@ build amazing applications.</h2>
     </div>
   </div>
   <div class="grid-wrapper">
-    <p class="grid__item width-3-12">WildFly is open. All dependencies of this project are available under the <a href='https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html' target='_blank'>LGPL 2.1</a> or compatible license.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
 
     
       <div class="width-1-12 project-links">
@@ -1110,6 +1153,8 @@ build amazing applications.</h2>
             <li><a href="/downloads">Downloads</a></li>
           
             <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/getstarted">Get Started</a></li>
           
             <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
           
@@ -1250,7 +1295,11 @@ build amazing applications.</h2>
     if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
         _satellite.pageBottom();
     }
+    hljs.highlightAll();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
 </body>
 
 </html>

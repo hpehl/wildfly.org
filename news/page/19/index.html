@@ -9,8 +9,12 @@
   <meta name="description" content="">
   <link rel="me" href="https://fosstodon.org/@wildflyas" />
   <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
-  <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
   <script>
@@ -21,7 +25,7 @@
     gtag('config', 'UA-40221748-1');
   </script>
   <script src="assets/javascript/tracking.js"></script>
-  <script src="https://analytics.ossupstream.org/matomo.js" async defer></script>
+  <script src="https://design.jboss.org/matomo/matomo.js" async defer></script>
 
 </head>
 
@@ -36,12 +40,6 @@
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
         <li>
-          <a href="/" class="">Home</a>
-        </li>
-        <li>
-          <a href="/downloads/" class="">Downloads</a>
-        </li>
-        <li>
           <a href="/news/" class="active">News</a>
         </li>
         <li>
@@ -54,10 +52,16 @@
             <a target="_blank" href="https://docs.wildfly.org">Docs</a>
         </li>
         <li>
+          <a href="/downloads/" class="">Downloads</a>
+        </li>
+        <li>
           <a href="/security/" class="">CVE Reporting</a>
         </li>
         <li>
-          <a class="button-cta secondary" href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/getstarted/">Get Started</a>
         </li>
       </ul>
     </nav>
@@ -79,350 +83,350 @@
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2017/10/06/OpenSSL-Support-In-Wildfly/" >OpenSSL support with WildFly</a></h2>
+          <h2><a href="/news/2019/02/27/WildFly16-Final-Released/" >WildFly 16 is released!</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Stuart Douglas | October 06, 2017</p>
+          <p class="byline">By Brian Stansberry | February 27, 2019</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2017/10/06/OpenSSL-Support-In-Wildfly/&title=OpenSSL support with WildFly" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2019/02/27/WildFly16-Final-Released/&title=WildFly 16 is released!" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=OpenSSL support with WildFly&url=https://wildfly.org//news/2017/10/06/OpenSSL-Support-In-Wildfly/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 16 is released!&url=https://wildfly.org//news/2019/02/27/WildFly16-Final-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2017/10/06/OpenSSL-Support-In-Wildfly/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2019/02/27/WildFly16-Final-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2017/10/06/OpenSSL-Support-In-Wildfly/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2019/02/27/WildFly16-Final-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=OpenSSL support with WildFly&amp;body=OpenSSL support with WildFly https://wildfly.org//news/2017/10/06/OpenSSL-Support-In-Wildfly/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=WildFly 16 is released!&amp;body=WildFly 16 is released! https://wildfly.org//news/2019/02/27/WildFly16-Final-Released/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>The upcoming WildFly 11 release includes support for OpenSSL. This provides two main advantages over JSSE: Support for ALPN on all JDK&#8217;s Significantly improved performance compared to JSSE Setting up OpenSSL In general for Linux based systems all that is required is to install a recent version of OpenSSL using your systems package manager. The OpenSSL support will search the library path, and use whatever version of OpenSSL it finds. The same applies to MacOS...</p>
+            <p>WildFly 16 Final is now available for download! Provisioning WildFly with Galleon As we continue with our quarterly delivery model, a major focus over the next few quarters will be on making WildFly as easy and productive as possible to use on the cloud, particularly on Kubernetes and OpenShift. An important requirement for the cloud is to be able to reduce the footprint of your server to what you need to run your application, eliminating...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2017/10/06/OpenSSL-Support-In-Wildfly/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2019/02/27/WildFly16-Final-Released/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2017/10/03/Messaging-features/" >Messaging features in WildFly 11</a></h2>
+          <h2><a href="/news/2019/01/07/New-Project-Lead/" >New WildFly Project Lead</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Jeff Mesnil | October 03, 2017</p>
+          <p class="byline">By Jason Greene | January 07, 2019</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2017/10/03/Messaging-features/&title=Messaging features in WildFly 11" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2019/01/07/New-Project-Lead/&title=New WildFly Project Lead" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Messaging features in WildFly 11&url=https://wildfly.org//news/2017/10/03/Messaging-features/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=New WildFly Project Lead&url=https://wildfly.org//news/2019/01/07/New-Project-Lead/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2017/10/03/Messaging-features/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2019/01/07/New-Project-Lead/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2017/10/03/Messaging-features/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2019/01/07/New-Project-Lead/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Messaging features in WildFly 11&amp;body=Messaging features in WildFly 11 https://wildfly.org//news/2017/10/03/Messaging-features/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=New WildFly Project Lead&amp;body=New WildFly Project Lead https://wildfly.org//news/2019/01/07/New-Project-Lead/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>WildFly 11 is integrating Apache ActiveMQ Artemis 1.5 to provides its messaging features. New features With the integration of Artemis 1.5, WildFly has udpated its messaging-activemq subsystem to provides new Artemis features through WildFly management model. The two new main features are the JDBC Store and the configuration for ActiveMQ client thread pools. JDBC Store The JDBC store is an alternative to Artemis File journal that uses a SQL database to store broker state (messages,...</p>
+            <p>I am very excited to announce that Brian Stansberry (@bestansberry) will be taking on the role of WildFly project lead. Brian has been a major contributor to the project for almost 15 years now. During this time, he led a number of critical and complex subsystems including Clustering, Management, and most recently the cross-cutting cloud integration work. He is also one of our most active reviewers, and has helped many contributors navigate deep WildFly internals....</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2017/10/03/Messaging-features/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2019/01/07/New-Project-Lead/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2017/09/29/Management-model-referential-integrity/" >Management Model Referential Integrity and Suggestions</a></h2>
+          <h2><a href="/news/2018/12/13/WildFly15-Final-Released/" >WildFly 15 is released!</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Brian Stansberry | September 29, 2017</p>
+          <p class="byline">By Jason Greene | December 13, 2018</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2017/09/29/Management-model-referential-integrity/&title=Management Model Referential Integrity and Suggestions" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2018/12/13/WildFly15-Final-Released/&title=WildFly 15 is released!" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Management Model Referential Integrity and Suggestions&url=https://wildfly.org//news/2017/09/29/Management-model-referential-integrity/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 15 is released!&url=https://wildfly.org//news/2018/12/13/WildFly15-Final-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2017/09/29/Management-model-referential-integrity/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2018/12/13/WildFly15-Final-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2017/09/29/Management-model-referential-integrity/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2018/12/13/WildFly15-Final-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Management Model Referential Integrity and Suggestions&amp;body=Management Model Referential Integrity and Suggestions https://wildfly.org//news/2017/09/29/Management-model-referential-integrity/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=WildFly 15 is released!&amp;body=WildFly 15 is released! https://wildfly.org//news/2018/12/13/WildFly15-Final-Released/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>A significant improvement in WildFly 11 is much better support for referential integrity when one resource in your configuration refers to another resource. Going beyond just checking that your references are correct, the server provides reference information that our CLI and the HAL web console are able to use to suggest valid values to you as you set up your configuration. Configuration references When you are configuring a WildFly server, a common thing you need...</p>
+            <p>WildFly 15 Final is now available for download! This is our fourth release following our quarterly delivery model. The major objective of this year’s release plan was to deliver EE8 functionality in incremental chunks over the first three quarters, and then to ensure WildFly ran well on the latest long term support version of Java. Accordingly, in this fourth release our focus was less on new features and more on polishing our support for JDK...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2017/09/29/Management-model-referential-integrity/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2018/12/13/WildFly15-Final-Released/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2017/09/08/Exploded-deployments/" >Using exploded deployments and CLI attachments</a></h2>
+          <h2><a href="/news/2018/09/28/Git-History/" >Using Git for configuration history</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Emmanuel Hugonnet | September 08, 2017</p>
+          <p class="byline">By Emmanuel Hugonnet | September 28, 2018</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2017/09/08/Exploded-deployments/&title=Using exploded deployments and CLI attachments" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2018/09/28/Git-History/&title=Using Git for configuration history" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Using exploded deployments and CLI attachments&url=https://wildfly.org//news/2017/09/08/Exploded-deployments/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Using Git for configuration history&url=https://wildfly.org//news/2018/09/28/Git-History/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2017/09/08/Exploded-deployments/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2018/09/28/Git-History/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2017/09/08/Exploded-deployments/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2018/09/28/Git-History/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Using exploded deployments and CLI attachments&amp;body=Using exploded deployments and CLI attachments https://wildfly.org//news/2017/09/08/Exploded-deployments/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=Using Git for configuration history&amp;body=Using Git for configuration history https://wildfly.org//news/2018/09/28/Git-History/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>In WildFly there used to be two worlds : one for developers with exploded deployments using a scanner and one for production where artifacts (wars/ears/jars) were deployed. Now those two worlds have collided and you can have exploded deployments without a scanner. And since this is using the management API you get remote access to the content for "free" and of course it works in domain mode. While this new feature is really usefull for...</p>
+            <p>Until now the history of configuration in WildFly was using the folder + filename pattern. Now we have moved to a proper SCM integrating Git to manage history. You can now take advantage of a full Git support for your configuration history: every change in your configuration is now a commit. you can use branches to develop in parallel. you can create tags for stable points in your configuration. pull configuration from a remote repository....</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2017/09/08/Exploded-deployments/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2018/09/28/Git-History/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2017/08/26/WildFly11-CR1-Released/" >WildFly 11 CR1 is now available!</a></h2>
+          <h2><a href="/news/2018/08/30/WildFly14-Final-Released/" >WildFly 14 is released!</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Jason Greene | August 26, 2017</p>
+          <p class="byline">By Jason Greene | August 30, 2018</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2017/08/26/WildFly11-CR1-Released/&title=WildFly 11 CR1 is now available!" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2018/08/30/WildFly14-Final-Released/&title=WildFly 14 is released!" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 11 CR1 is now available!&url=https://wildfly.org//news/2017/08/26/WildFly11-CR1-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 14 is released!&url=https://wildfly.org//news/2018/08/30/WildFly14-Final-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2017/08/26/WildFly11-CR1-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2018/08/30/WildFly14-Final-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2017/08/26/WildFly11-CR1-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2018/08/30/WildFly14-Final-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=WildFly 11 CR1 is now available!&amp;body=WildFly 11 CR1 is now available! https://wildfly.org//news/2017/08/26/WildFly11-CR1-Released/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=WildFly 14 is released!&amp;body=WildFly 14 is released! https://wildfly.org//news/2018/08/30/WildFly14-Final-Released/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>WildFly 11 CR1 is now available for download! Since the Beta, 66 issues have been resolved. You can find the full list below. Provided that no major issues are found, we hope to release the final very soon. The highlights of WildFly 11 are as follows: Elytron - New Security Infrastructure The biggest change in WildFly 11 is unification on a new common security framework across the full application server. Previously we had two separate...</p>
+            <p>I am happy to announce that the WildFly 14 release is Java EE8 Certified! Since WildFly is now certified, the default EE7 mode and EE8 preview option have been dropped.</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2017/08/26/WildFly11-CR1-Released/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2018/08/30/WildFly14-Final-Released/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2017/08/04/WildFly11-Beta-Released/" >WildFly 11 Beta1 is now available!</a></h2>
+          <h2><a href="/news/2018/06/01/Whats-New-In-HAL/" >What&#8217;s New in WildFly Management Console</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Jason Greene | August 04, 2017</p>
+          <p class="byline">By Harald Pehl | June 01, 2018</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2017/08/04/WildFly11-Beta-Released/&title=WildFly 11 Beta1 is now available!" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2018/06/01/Whats-New-In-HAL/&title=What&#8217;s New in WildFly Management Console" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 11 Beta1 is now available!&url=https://wildfly.org//news/2017/08/04/WildFly11-Beta-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=What&#8217;s New in WildFly Management Console&url=https://wildfly.org//news/2018/06/01/Whats-New-In-HAL/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2017/08/04/WildFly11-Beta-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2018/06/01/Whats-New-In-HAL/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2017/08/04/WildFly11-Beta-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2018/06/01/Whats-New-In-HAL/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=WildFly 11 Beta1 is now available!&amp;body=WildFly 11 Beta1 is now available! https://wildfly.org//news/2017/08/04/WildFly11-Beta-Released/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=What&#8217;s New in WildFly Management Console&amp;body=What&#8217;s New in WildFly Management Console https://wildfly.org//news/2018/06/01/Whats-New-In-HAL/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>WildFly 11 is now feature complete and the beta is now available for download! This release includes a significant amount of change, with 459 issues completed since the Alpha, and includes a number of major changes, including architectural changes around a new richer security layer. Since WildFly 11 is feature complete, and appears stable in our local testing, we aim to move to CR quickly. The highlights of this release are as follows: Elytron -...</p>
+            <p>WildFly 13 comes with a management console (HAL) which has been rewritten from scratch. HAL still uses a similar technical stack (GWT) and user experience, but now fully adopts PatternFly. More important we enhanced the existing features and added support for many new subsystems and attributes. The following sections show some highlights of the latest version. For more details about the new features see the release notes for HAL 3.0.0.Final. Finder The column based navigation...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2017/08/04/WildFly11-Beta-Released/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2018/06/01/Whats-New-In-HAL/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2017/05/05/WildFly-CI/" >Announcing public CI</a></h2>
+          <h2><a href="/news/2018/05/31/WildFly13-Final-Released/" >WildFly 13 "Baker&#8217;s Dozen" is released!</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Jason Greene | May 05, 2017</p>
+          <p class="byline">By Jason Greene | May 31, 2018</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2017/05/05/WildFly-CI/&title=Announcing public CI" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2018/05/31/WildFly13-Final-Released/&title=WildFly 13 "Baker&#8217;s Dozen" is released!" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Announcing public CI&url=https://wildfly.org//news/2017/05/05/WildFly-CI/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 13 "Baker&#8217;s Dozen" is released!&url=https://wildfly.org//news/2018/05/31/WildFly13-Final-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2017/05/05/WildFly-CI/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2018/05/31/WildFly13-Final-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2017/05/05/WildFly-CI/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2018/05/31/WildFly13-Final-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Announcing public CI&amp;body=Announcing public CI https://wildfly.org//news/2017/05/05/WildFly-CI/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=WildFly 13 "Baker&#8217;s Dozen" is released!&amp;body=WildFly 13 "Baker&#8217;s Dozen" is released! https://wildfly.org//news/2018/05/31/WildFly13-Final-Released/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>We are proud to announce our public CI system, which is running integration tests for WildFly, WildFly Core, Undertow, and many other related projects. This system ensures that we do not merge anything that is broken and that our master is always stable. CI also helps us with testing pull requests by: Making sure the code works on most common target platforms, currently Linux and Windows. Integration testing components as part of the full WildFly...</p>
+            <p>WildFly 13 Final is now available for download! EE8 Capabilities &amp; New Release Model This is our second release following our new quarterly delivery model. A central theme of this plan, is to deliver EE8 functionality in fully completed incremental chunks, as opposed to waiting for everything to finish in a big bang relase. WildFly 13 largely accomplishes this goal, by achieving EE8 feature completeness. WildFly 14 will focus on achieving formal certification, and converting...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2017/05/05/WildFly-CI/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2018/05/31/WildFly13-Final-Released/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2016/12/12/Jigsaws-Missing-Pieces/" >Jigsaw&#8217;s Missing Pieces</a></h2>
+          <h2><a href="/news/2018/03/01/WildFly12-Final-Released/" >WildFly 12 Final is now available!</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Jason Greene | December 12, 2016</p>
+          <p class="byline">By Jason Greene | March 01, 2018</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2016/12/12/Jigsaws-Missing-Pieces/&title=Jigsaw&#8217;s Missing Pieces" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2018/03/01/WildFly12-Final-Released/&title=WildFly 12 Final is now available!" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Jigsaw&#8217;s Missing Pieces&url=https://wildfly.org//news/2016/12/12/Jigsaws-Missing-Pieces/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 12 Final is now available!&url=https://wildfly.org//news/2018/03/01/WildFly12-Final-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2016/12/12/Jigsaws-Missing-Pieces/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2018/03/01/WildFly12-Final-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2016/12/12/Jigsaws-Missing-Pieces/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2018/03/01/WildFly12-Final-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=Jigsaw&#8217;s Missing Pieces&amp;body=Jigsaw&#8217;s Missing Pieces https://wildfly.org//news/2016/12/12/Jigsaws-Missing-Pieces/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=WildFly 12 Final is now available!&amp;body=WildFly 12 Final is now available! https://wildfly.org//news/2018/03/01/WildFly12-Final-Released/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>Red Hat, with its years of experience supporting large scale software systems, has always been a strong proponent of modular Java. Over time, we have delivered many products and solutions that provide and support popular modular environments like Java EE, and OSGi. Since 2011, we introduced a flexible modular implementation called JBoss Modules, which is capable of supporting the core modularity needs of both Java EE and OSGi, but is usable in a standalone manner,...</p>
+            <p>WildFly 12 Final is now available for download! EE8 Capabilities &amp; New Release Model This is our first release following our new quarterly delivery model. As part of this plan, we are delivering EE8 functionality in fully completed incremental chunks, as opposed to waiting for everything to finish in a big bang reelase. WildFly 12 makes significant progress on this front, adding support for the majority of the new standards: Name From Version From JSR...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2016/12/12/Jigsaws-Missing-Pieces/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2018/03/01/WildFly12-Final-Released/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2016/08/19/WildFly10-1-Released/" >WildFly 10.1 is now available!</a></h2>
+          <h2><a href="/news/2017/10/24/WildFly11-Final-Released/" >WildFly 11 Final is now available!</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Jason Greene | August 19, 2016</p>
+          <p class="byline">By Jason Greene | October 24, 2017</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2016/08/19/WildFly10-1-Released/&title=WildFly 10.1 is now available!" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2017/10/24/WildFly11-Final-Released/&title=WildFly 11 Final is now available!" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 10.1 is now available!&url=https://wildfly.org//news/2016/08/19/WildFly10-1-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 11 Final is now available!&url=https://wildfly.org//news/2017/10/24/WildFly11-Final-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2016/08/19/WildFly10-1-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2017/10/24/WildFly11-Final-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2016/08/19/WildFly10-1-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2017/10/24/WildFly11-Final-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=WildFly 10.1 is now available!&amp;body=WildFly 10.1 is now available! https://wildfly.org//news/2016/08/19/WildFly10-1-Released/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=WildFly 11 Final is now available!&amp;body=WildFly 11 Final is now available! https://wildfly.org//news/2017/10/24/WildFly11-Final-Released/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>WildFly 10.1 is officially complete and available for download! Major new features include: Out of the box HTTP/2 support with no JVM flags required ! TLS cert auto-generation Load-balancing profile is now in our default domain.xml config Support for clustering node discovery on Azure (jgroups AZURE_PING) Additionally there was a massive 324 issues resolved in this release! Out of the Box HTTP/2 and TLS Unique to WildFly, is that HTTP/2 now works without any special...</p>
+            <p>WildFly 11 Final is now available for download! The highlights of WildFly 11 are as follows: Elytron - New Security Infrastructure The biggest change in WildFly 11 is unification on a new common security framework across the full application server. Previously we had two separate security infrastructures (picketbox and security-realms), each covering separate use cases, and largely operating independent of the other. In addition to unification, Elytron brings a number of advanced capabilities such as...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2016/08/19/WildFly10-1-Released/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2017/10/24/WildFly11-Final-Released/" >Read More ></a></div>
       </div>
     
       
       
       <div class="news-list-item grid-wrapper">
         <div class="post-title grid__item width-12-12">
-          <h2><a href="/news/2016/01/30/WildFly10-Released/" >WildFly 10 Final is now available!</a></h2>
+          <h2><a href="/news/2017/10/10/Embedded-Host-Controller/" >Running an Embedded WildFly Host Controller in the CLI</a></h2>
         </div>
         <div class="grid__item width-6-12 width-12-12-m">
-          <p class="byline">By Jason Greene | January 30, 2016</p>
+          <p class="byline">By Ken Wills | October 10, 2017</p>
         </div>
         <div class="grid__item width-6-12 width-12-12-m"><div class="share-page">
-  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2016/01/30/WildFly10-Released/&title=WildFly 10 Final is now available!" rel="nofollow" target="_blank" title="Share on LinkedIn">
+  <a class="share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://wildfly.org//news/2017/10/10/Embedded-Host-Controller/&title=Running an Embedded WildFly Host Controller in the CLI" rel="nofollow" target="_blank" title="Share on LinkedIn">
     <img src="/assets/img/share-page/wildfly_icons_social-linkedin.png"/>
   </a>
-  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=WildFly 10 Final is now available!&url=https://wildfly.org//news/2016/01/30/WildFly10-Released/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
+  <a class="share-twitter" href="https://twitter.com/intent/tweet?text=Running an Embedded WildFly Host Controller in the CLI&url=https://wildfly.org//news/2017/10/10/Embedded-Host-Controller/&via=WildFlyAS&related=WildFlyAS" rel="nofollow" target="_blank" title="Share on Twitter">
     <img src="/assets/img/share-page/wildfly_icons_social-twitter.png"/>
   </a>
-  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2016/01/30/WildFly10-Released/" rel="nofollow" target="_blank" title="Share on Facebook">
+  <a class="share-facebook" href="https://facebook.com/sharer.php?u=https://wildfly.org//news/2017/10/10/Embedded-Host-Controller/" rel="nofollow" target="_blank" title="Share on Facebook">
     <img src="/assets/img/share-page/wildfly_icons_social-facebook.png"/>
   </a>
-  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2016/01/30/WildFly10-Released/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
+  <a class="share-reddit" href="http://www.reddit.com/submit?url=https://wildfly.org//news/2017/10/10/Embedded-Host-Controller/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Reddit" >
     <img src="/assets/img/share-page/wildfly_icons_social-reddit.png"/>
   </a>
-  <a class="share-email" href="mailto:?subject=WildFly 10 Final is now available!&amp;body=WildFly 10 Final is now available! https://wildfly.org//news/2016/01/30/WildFly10-Released/" title="Share via Email" >
+  <a class="share-email" href="mailto:?subject=Running an Embedded WildFly Host Controller in the CLI&amp;body=Running an Embedded WildFly Host Controller in the CLI https://wildfly.org//news/2017/10/10/Embedded-Host-Controller/" title="Share via Email" >
     <img src="/assets/img/share-page/wildfly_icons_social-email.png"/>
   </a>
 </div>
 </div>
         <div class="grid__item width-12-12">
           
-            <p>WildFly 10 Final is officially complete and available for download! WildFly 10 adds a number of capabilities and improvements to the powerful, yet lightweight, open-source application server. Java EE 7 As with WildFly 8 and WildFly 9, WildFly 10 implements the Java EE 7 Full and Web Profile standards. Builds on WildFly 9 In addition to the key features mentioned below, this release includes all the major features from 9, such as HTTP/2 support and...</p>
+            <p>WildFly supports running a standalone server in Offline mode as an embedded server. An analogous capability has been added for domain mode in the form of running an offline host controller. This article discusses some of the details and possible applications of this feature. Introduction For those not familiar with the existing embedded standalone server, see: Offline mode Running an Embedded WildFly 9 Server in the CLI · WildFly. One of the major use cases...</p>
           
         </div>
-        <div class="grid__item width-12-12"><a href="/news/2016/01/30/WildFly10-Released/" >Read More ></a></div>
+        <div class="grid__item width-12-12"><a href="/news/2017/10/10/Embedded-Host-Controller/" >Read More ></a></div>
       </div>
     
     
@@ -451,7 +455,7 @@
     </div>
   </div>
   <div class="grid-wrapper">
-    <p class="grid__item width-3-12">WildFly is open. All dependencies of this project are available under the <a href='https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html' target='_blank'>LGPL 2.1</a> or compatible license.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
 
     
       <div class="width-1-12 project-links">
@@ -461,6 +465,8 @@
             <li><a href="/downloads">Downloads</a></li>
           
             <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/getstarted">Get Started</a></li>
           
             <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
           
@@ -601,7 +607,11 @@
     if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
         _satellite.pageBottom();
     }
+    hljs.highlightAll();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
+
 </body>
 
 </html>
