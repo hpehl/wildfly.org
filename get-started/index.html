@@ -80,7 +80,7 @@
 <div class="sect2">
 <h3 id="step-0-install-java-maven">Step 0. Install Java &amp; Maven</h3>
 <div class="paragraph">
-<p>You need Java (at least version <code>11</code>, and preferably the latest LTS version) and Maven installed on your machine to create a Maven project that contains the source code of the Jakarta EE application.</p>
+<p>You need Java (at least version <code>11</code>, and preferably <code>17</code>) and Maven installed on your machine to create a Maven project that contains the source code of the Jakarta EE application.</p>
 </div>
 <div class="paragraph">
 <p>You can verify they are installed by executing the commands:</p>
@@ -110,13 +110,13 @@ exposes a HTTP endpoint with the Jakarta-RS API.</p>
 </div>
 <div class="paragraph">
 <p>The Maven project is configured to "provision" (install and configure)
-WildFly that hosts your application.</p>
+the WildFly that hosts your application.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="step-2-build-the-application">Step 2. Build the Application</h3>
 <div class="paragraph">
-<p>You can build the application by executing the command:</p>
+<p>You can build the application by executing the commands:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -125,7 +125,7 @@ mvn package verify</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This Maven command compiles the Jakarta EE application, provisions WildFly, deploys the application in WildFly and
+<p>This Maven command compiles the Jakarta EE application, provisions WildFly, deploys the application into WildFly and
 runs integration tests against it.
 When this command is finished, you have a fully functional, tested application running on  WildFly.</p>
 </div>
@@ -144,13 +144,13 @@ When this command is finished, you have a fully functional, tested application r
 <p>The application is accessible at <a href="http://localhost:8080/" class="bare">http://localhost:8080/</a>.</p>
 </div>
 <div class="paragraph">
-<p>To stop the application, type <code>Ctrl + C</code> in the terminal where your started  WildFly.</p>
+<p>To stop the application, type <code>Ctrl + C</code> in the terminal where you started  WildFly.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="step-4-continuous-development">Step 4. Continuous Development</h3>
 <div class="paragraph">
-<p>You can develop your application and see the updates in the running application immediately by using the <code>wildfly:dev</code> from the root
+<p>You can develop your application and see the updates in the running application immediately by using the <code>wildfly:dev</code> goal from the root
 of your project:</p>
 </div>
 <div class="listingblock">
