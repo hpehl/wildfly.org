@@ -6,7 +6,7 @@
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
   <link href="https://hpehl.github.io//wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hpehl.github.io//wildfly.org/" rel="alternate" type="text/html" />
-  <updated>2023-11-10T18:07:19+01:00</updated>
+  <updated>2023-11-23T12:03:24+01:00</updated>
   <id>https://hpehl.github.io//wildfly.org</id>
 
   
@@ -14,6 +14,945 @@
     <title type="html">WildFly</title>
   
 
+  
+    <entry>
+      <title type="html">WildFly Feature Development Process</title>
+      <link href="https://hpehl.github.io//wildfly.org/news/2023/11/22/WildFly_Feature_Development_Process/" rel="alternate" type="text/html" title="WildFly Feature Development Process" />
+      <published>2023-11-22T00:00:00+01:00</published>
+      <updated>2023-11-22T00:00:00+01:00</updated>
+      <id>https://hpehl.github.io//wildfly.org/news/2023/11/22/WildFly_Feature_Development_Process</id>
+      
+      
+        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2023/11/22/WildFly_Feature_Development_Process/">&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Some of the developers of WildFly have been thinking about how to clarify and formalize some of the processes we use when developing WildFly, and I want to make the broader WildFly community aware of the discussion.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This post basically duplicates one I recently made on the &lt;a href=&quot;https://lists.jboss.org/archives/list/wildfly-dev@lists.jboss.org/thread/JI5GX7Q2UPGXTDEMZG4F3PNF4BDQKB4A/&quot;&gt;wildfly-dev mail list&lt;/a&gt;. I&amp;#8217;d love to hear your thoughts about this on that mail thread or in &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/stream/174184-wildfly-developers&quot;&gt;Zulip&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The WildFly project has some pretty high standards around quality, stability and backwards compatibility, and those heavily influence how we go about bringing new features into WildFly. WildFly developers like me who also work on Red Hat JBoss EAP are aware of EAP&amp;#8217;s policies and processes for doing new feature development, and we bring those to how we do our work on WildFly, but WildFly has its own needs and would benefit from more formalized processes of its own.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This thread and other related discussions are intended to drive creation of these kinds of policies, and to work through technical issues that stand in the way.  I’m hoping we can make good progress on this this month, and get something finalized by the end of Q1 next year.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Goals of this effort include:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Making it clear to the WildFly developer community how to go about getting new features into WildFly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Providing a path for getting &apos;bake&apos; for new features by making them available to those interested in newer, less stable things, while not exposing them to other users who only want more stable features.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Encouraging new or less frequent contributors to consider proposing new features by making it possible to choose an acceptable tradeoff between how broadly their feature will be visible versue the level of effort that fits what they can offer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Skip ahead to the &lt;a href=&quot;#developing-the-process&quot;&gt;Developing the Process&lt;/a&gt; section if you’re not interested in background / context discussion.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly is the upstream project from which Red Hat’s JBoss EAP product is derived. Like most software products, EAP has processes that are meant to govern how new functionality gets introduced into the product, in order to ensure the high quality and long-term supportability of the product. EAP is derived from WildFly, and a high percentage of the development work on WildFly is performed by Red Hat engineers who also work on EAP, so it’s natural that the EAP processes have affected how those engineers do their work on WildFly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This has brought a ton of benefit to WildFly, primarily because the EAP requirements help ensure that people other than the developer coding up a feature are involved in the identification of the use cases for and requirements of the feature, and also help ensure the feature is properly documented and tested. People with quality engineering and documentation expertise are involved in the development of the feature, which is very much a good thing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;However, there are downsides to using EAP processes to guide a lot of WildFly development:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The EAP processes are meant for EAP and are not visible to the WildFly community. An open source software community should be able to see and understand how development work is done. A project with the scope and complexity of WildFly needs processes to ensure quality, but those processes should be WildFly’s own and should be publicly visible. Quasi-borrowing EAP processes doesn’t meet this goal.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The EAP processes can lead to an “all or nothing” effect. They require the involvement of people from different groups within Red Hat before a feature is merged. This is great in general but it can lead to situations where people not being able to prioritize a particular feature blocks it, even though the development of the feature has reached a point where it can offer real value to some WildFly users. If the feature is blocked, those users don’t benefit, and the WildFly developers don’t get the benefit of feedback on the feature from those users or other WildFly developers who would only encounter it once it&amp;#8217;s merged.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;developing-the-process&quot;&gt;Developing the Process&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So, what are we doing about this?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The goal is to define the various requirements for what constitutes a high quality feature, and to define a path people working on that feature can follow. The path should include a way for the feature to be made available to some users before it reaches its final form, without exposing it to users who only want finalized features.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Note that the main focus of this post is on coming up with a suitable process, but there are technical tasks that need to be done to make it practical to expose features to some but not all users and to allow them to best control what they can use in their WildFly installation. A great example of that kind of thing &lt;a href=&quot;https://lists.jboss.org/archives/list/wildfly-dev@lists.jboss.org/thread/4JCTIWREUBBX4DVIJIUAFQ2FWDBN3AXW/&quot;&gt;Paul Ferraro’s work on the management API&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For the process itself, back in September I created a working document to try and capture some of the elements that would go into a possible process:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.google.com/document/d/15_yKhW74-X9s2zUhs_ZUuZ3h-RlMfH5xWmHHsfYf1AA/edit&quot;&gt;WildFly Feature Development Process working document&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The gist of that document is the notion from Paul Ferraro’s work that features can be merged with different initial quality/stability/maturity levels (we plan to use &apos;stablity&apos; as the formal term), as represented by columns in the table, with a given feature expected to be ‘promoted’ over time from columns to the left toward columns to the right.  The rows in the table represent different aspects of ensuring a feature is at a particular stability level. The cells in the table then are quick notes on what requirements would have to be met for a given aspect in order for the feature to be merged at a given stability level.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;What I’m hoping is discussion &lt;a href=&quot;https://lists.jboss.org/archives/list/wildfly-dev@lists.jboss.org/thread/JI5GX7Q2UPGXTDEMZG4F3PNF4BDQKB4A/&quot;&gt;the wildfly-dev mail list&lt;/a&gt; and on &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/stream/174184-wildfly-developers&quot;&gt;Zulip&lt;/a&gt; about all this can help flesh out what’s in that document, rework it as necessary, and eventually lead to a more formal process document.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Some details on the stability levels:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Experimental&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;This level would be for real bleeding edge stuff. No WildFly distribution zip/tar would enable this level by default.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Preview&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;This would be the level for features at a sufficient level to be available by default[1] in WildFly Preview, but not in standard WildFly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Community&lt;/strong&gt;-- This would be the level for features at a sufficient level to be available by default in standard WildFly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Default&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;Features at this level have gone through additional vetting to ensure they are suitable for the long-term compatibility expectations of the feature pack that provides them. (See &lt;a href=&quot;#relationship-to-feature-packs&quot;&gt;Relationship to Feature Packs&lt;/a&gt; for more on this.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;[1] Note that ‘available by default’ could but often wouldn’t mean ‘enabled by default’, i.e. turned on in a standard OOTB configuration. It just means a user could turn it on if they so choose using the current configuration mechanisms.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Some details on the feature aspects:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Feature Team&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;This aspect relates to what people need to be involved with the feature.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Requirements Analysis&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;This relates to ensuring the user stories and technical requirements for the feature are thought through and written down. We’ve been doing these for a long time now via the &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals&quot;&gt;documents&lt;/a&gt; in the &lt;a href=&quot;https://github.com/wildfly/wildfly-proposals/pulls&quot;&gt;wildfly-proposals repo&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Implementation&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;The production code aspect of the feature.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Domain transformation&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;A specialized production code aspect, related to allowing a current version Domain Controller to manage Host Controllers and servers running an earlier version.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Test plan&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;Thinking about and writing down what needs to be tested and how.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Test development&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;Writing the tests.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Test verification&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;Test review, and verification that the test plan was implemented and that the tests pass.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Documentation&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;Proper documentation of the feature.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Note that it is likely that the set of rows in the table will need expansion, e.g. to capture requirements for things like the HAL web console, cloud images, tooling like WildFly Glow etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;relationship-to-feature-packs&quot;&gt;Relationship to Feature Packs&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The main WildFly code base produces three different feature packs, and the main reason there are three and not just one relates to some of the same stability/long-term compatibility concepts that are a key part of the feature development process I’m hoping we create. It’s important that we think carefully about how the feature development process relates to the feature packs, so to help with that I want to talk a bit about how feature packs are meant to work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ideally for any feature pack, the documentation of that feature pack would include somewhere ‘lifecycle’ information that can help users decide if the feature pack is suitable for their needs. This would cover key elements like:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The basic scope of the feature pack.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A likely release cadence for the feature pack.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The expected long-term maintainability and compatibility for the feature pack.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Different expectations for those key elements are prime reasons for creating a new feature pack versus adding functionality to an existing one, or for choosing one feature pack over another for a feature.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Honestly, the WildFly project does a poor job of documenting these things for its feature packs, which is my fault, and is why I need to write some of this in this already looooong post! Anyway…&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly produces three feature packs from its main repository. All share the same expected release cadence (currently a new feature release roughly quarterly and one bug fix release about a month after a feature release.) The scope of all three is similar and broad&amp;#8201;&amp;#8212;&amp;#8201;they provide functionality to run in, manage or act as a client to an application server process. Their primary differences relate to long-term maintainability and compatibility:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;wildfly-ee&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;We don’t talk about this feature pack a lot, often treating it as an internal detail and not producing any downloadable zip/tar built solely using it, but it’s an important piece of our ecosystem.  The defining characteristic of this feature pack is that it integrates technologies where we have the highest confidence in our ability to provide them in a largely compatible way for many years. We’re not perfect about this, we made some mistakes in the early iterations of this feature pack, and we can and will break compatibility if necessary. But we try not to and try to give advance warning if we will. For example, this feature pack provides the Elytron security layer, which was introduced as a replacement for the Picketbox security layer many years before we removed support for the Picketbox layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;wildfly&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;This feature pack depends upon wildfly-ee and adds functionality in addition to what’s in wildfly-ee. The traditional standard WildFly server zip is built using this feature pack. The primary reason we put things in this feature pack instead of wildfly-ee is because what we’re integrating is more likely to change in incompatible ways over a relatively short time period. For example, MicroProfile specifications are comfortable introducing breaking changes on an annual basis, making them not a great fit for wildfly-ee. The observability space, particularly metrics and tracing, is evolving rapidly, so our Micrometer and OpenTelemetry extensions are not in wildfly-ee.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;wildfly-preview&lt;/strong&gt;&amp;#8201;&amp;#8212;&amp;#8201;This feature pack is all about the fact that it provides no long term guarantees and can change significantly from release.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We need to think more about how feature stability levels relate to this, but here are a few thoughts:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Just because a user wants to use a particular preview or experimental level feature doesn’t mean they want to use an entire preview level feature pack like wildfly-preview. In other words, there is a use case for preview or experimental features in standard WildFly.
+On the other hand, we can use WildFly Preview to showcase functionality whose scope is not tied to a particular reasonably scoped ‘feature’. Using it for EE 9 is an obvious example. Not having an embedded messaging broker in the OOTB configs is not a ‘feature’. IOW there is a use case for WildFly Preview even if standard WildFly has preview features.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What we mean by the ‘Community’ and ‘Default’ levels is “relative to” the generally expected long-term maintainability and compatibility level of the feature pack that provides it. In other words, just because a feature provided by the wildfly feature pack has been vetted as suitable for the ‘Default’ level doesn’t mean it comes with higher expectations than the feature pack as a whole. If we provide a specification, and we integrate it in a way that is highly stable and very well tested, but then the spec changes in a year in a significantly incompatible way, then we may have to as well.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;next-steps&quot;&gt;Next Steps&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’d love to hear your thoughts and questions, either on the &lt;a href=&quot;https://lists.jboss.org/archives/list/wildfly-dev@lists.jboss.org/thread/JI5GX7Q2UPGXTDEMZG4F3PNF4BDQKB4A/&quot;&gt;wildfly-dev mail list thread&lt;/a&gt;, in &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/stream/174184-wildfly-developers&quot;&gt;Zulip&lt;/a&gt; or in comments on the &lt;a href=&quot;https://docs.google.com/document/d/15_yKhW74-X9s2zUhs_ZUuZ3h-RlMfH5xWmHHsfYf1AA/edit&quot;&gt;WildFly Feature Development Process working document&lt;/a&gt; I discussed above. I also encourage you to have a look into &lt;a href=&quot;https://lists.jboss.org/archives/list/wildfly-dev@lists.jboss.org/thread/4JCTIWREUBBX4DVIJIUAFQ2FWDBN3AXW/&quot;&gt;Paul Ferraro’s work&lt;/a&gt; I mentioned above, as well as other technical work that will likely be happening over the next six months.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As I noted at the start, I’m hoping we can have a solid process written and published by the end of Q1 next year, and that we can nail down some of the key concepts over the next few weeks well enough that we can integrate Paul’s work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Best regards,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Brian&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Brian Stansberry</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="development" />
+      
+
+      
+        <summary type="html">Some of the developers of WildFly have been thinking about how to clarify and formalize some of the processes we use when developing WildFly, and I want to make the broader WildFly community aware of the discussion.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Change the default encoding of the audit log file in WildFly</title>
+      <link href="https://wildfly-security.github.io/wildfly-elytron/blog/specify-file-audit-log-encoding/" rel="alternate" type="text/html" title="Change the default encoding of the audit log file in WildFly" />
+      <published>2023-11-16T00:00:00+01:00</published>
+      <updated>2023-11-16T00:00:00+01:00</updated>
+      <id>https://wildfly-security.github.io/wildfly-elytron/blog/specify-file-audit-log-encoding/</id>
+      
+      
+        <content type="html" xml:base="https://wildfly-security.github.io/wildfly-elytron/blog/specify-file-audit-log-encoding/"></content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Ilia Vassilev</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="audit-logging" />
+      
+        <category term="encoding" />
+      
+
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Identity Propagation with OpenID Connect</title>
+      <link href="https://wildfly-security.github.io/wildfly-elytron/blog/wildfly-oidc-identity-propagation/" rel="alternate" type="text/html" title="Identity Propagation with OpenID Connect" />
+      <published>2023-11-15T00:00:00+01:00</published>
+      <updated>2023-11-15T00:00:00+01:00</updated>
+      <id>https://wildfly-security.github.io/wildfly-elytron/blog/wildfly-oidc-identity-propagation/</id>
+      
+      
+        <content type="html" xml:base="https://wildfly-security.github.io/wildfly-elytron/blog/wildfly-oidc-identity-propagation/"></content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Farah Juma</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="oidc" />
+      
+        <category term="identity" />
+      
+        <category term="propagation" />
+      
+        <category term="ejb" />
+      
+
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Manual GitHub Actions Workflow in WildFly</title>
+      <link href="https://hpehl.github.io//wildfly.org/news/2023/11/13/github-manual-workflow/" rel="alternate" type="text/html" title="Manual GitHub Actions Workflow in WildFly" />
+      <published>2023-11-13T00:00:00+01:00</published>
+      <updated>2023-11-13T00:00:00+01:00</updated>
+      <id>https://hpehl.github.io//wildfly.org/news/2023/11/13/github-manual-workflow</id>
+      
+      
+        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2023/11/13/github-manual-workflow/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;GitHub actions workflow is a valuable tool that automates development process and continuous integration. While it&amp;#8217;s
+great to see every pull request can be verified automatically upon submission, sometimes we also like the flexibility
+to tweak which OS, JDK distribution and version to use, which tests to run, which maven options to specify, or which
+system properties to apply. Basically, a more customizable build environment and testing plan targeted for a particular
+issue at hand. This is what a manual workflow is for. This post will walk you through how to do this in WildFly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;use-cases-for-manual-workflow&quot;&gt;Use cases for manual workflow&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A pull request in WildFly usually triggers more than 10 CI jobs, and some of them take hours to complete.
+The Manual workflow in WildFly can greatly reduce the duration and resource consumption via parameterization, and perform
+the desired verification without the overhead of a full-blown CI cycle. And below are some more occasions where manual
+workflow is a good fit:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The build takes too long on your local machine.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You want to reproduce certain failures that only occur in GitHub CI settings, but not on your local machine.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You want to build and test WildFly on certain combination of OS and JDK versions not readily available locally.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You want to test your WildFly code changes in a clean environment, without the interference fom other projects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;how-to-start-manual-workflow&quot;&gt;How to start manual workflow&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;First thing to consider is where to run the manual workflow. It depends on your role and permission within WildFly project.
+If you are in maintainer role, you can run it in &lt;a href=&quot;https://github.com/wildfly/wildfly/actions&quot;&gt;upstream WildFly repository&lt;/a&gt;,
+or your fork of it. Other WildFly contributors and watchers are free to run it in their own fork.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In either case, navigate to the &lt;code&gt;Actions&lt;/code&gt; tab of WildFly repository, choose &lt;code&gt;Manual Build and Test&lt;/code&gt; from the list of
+workflows on the left panel, and then click &lt;code&gt;Run workflow&lt;/code&gt; dropdown on the right-side panel. The following is a sample
+screenshot of various configurations available in the dropdown menu:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/assets/img/news/manual-github-actions-workflow.png&quot; alt=&quot;Manual workflow&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;manual-workflow-parameters&quot;&gt;Manual workflow parameters&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Branch&lt;/code&gt;: Choose the branch your wish to run against, typically a topic branch containing some new code you want to verify.
+It defaults to &lt;code&gt;main&lt;/code&gt; branch. This is the standard GitHub branch selector with quick filtering.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;OS&lt;/code&gt;: Choose the runner operating system, either &lt;code&gt;ubuntu-latest&lt;/code&gt; or &lt;code&gt;windows-latest&lt;/code&gt;. It defaults to &lt;code&gt;ubuntu-latest&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;JDK Distribution&lt;/code&gt;: Choose the JDK distribution to build and test WildFly. It defaults to &lt;code&gt;temurin&lt;/code&gt; and supports the
+following distributions. For more information,
+see &lt;a href=&quot;https://github.com/actions/setup-java#supported-distributions&quot;&gt;setup-java action docs&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;temurin&lt;/code&gt;: Eclipse Temurin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;semeru&lt;/code&gt;: IBM Semeru Runtime Open Edition&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;microsoft&lt;/code&gt;: Microsoft Build of OpenJDK&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;oracle&lt;/code&gt;: Oracle JDK&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;zulu&lt;/code&gt;: Azul Zulu OpenJDK&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;corretto&lt;/code&gt;: Amazon Corretto Build of OpenJDK&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;liberica&lt;/code&gt;: Liberica JDK&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;jdk-version&lt;/code&gt;: Enter JDK version, a string value that is an exact version or a version range using SemVer notation.
+It&amp;#8217;s a required parameter with no default. For more information,
+see &lt;a href=&quot;https://github.com/actions/setup-java#supported-version-syntax&quot;&gt;setup-java action docs&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;args&lt;/code&gt;: Enter optional, additional maven command options. It defaults to &lt;code&gt;-Dquickly&lt;/code&gt;. Some common args are:&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-Dquickly&lt;/code&gt;: activates the &lt;code&gt;quick-build&lt;/code&gt; maven profile, which skips steps like testing, javadoc generation and checkstyle,
+For more information, see its &lt;a href=&quot;https://github.com/wildfly/wildfly/blob/main/pom.xml#L1340&quot;&gt;definition in pom.xml&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-DskipTests&lt;/code&gt;: a maven option to skip running tests&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;-DallTests&lt;/code&gt;: activates the maven profile that runs all suitable tests&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;other system properties or maven options&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;timeout&lt;/code&gt;: Enter number of minutes beyond which the workflow job will time out. It&amp;#8217;s an optional parameter and defaults
+to 120 minutes. How to choose a good timeout value depends largely on the previous parameter, &lt;code&gt;args&lt;/code&gt;, which determines
+which maven profile to activate, which tests to run, or which build steps to execute.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Cheng Fang</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="github" />
+      
+        <category term="continuous-integration" />
+      
+
+      
+        <summary type="html">GitHub actions workflow is a valuable tool that automates development process and continuous integration. While it&amp;#8217;s great to see every pull request can be verified automatically upon submission, sometimes we also like the flexibility to tweak which OS, JDK distribution and version to use, which tests to run, which maven options to specify, or which system properties to apply. Basically, a more customizable build environment and testing plan targeted for a particular issue at hand. This is what a manual workflow is for. This post will walk you through how to do this in WildFly.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Securing WildFly Apps with OIDC on OpenShift</title>
+      <link href="https://wildfly-security.github.io/wildfly-elytron/blog/securing-wildfly-apps-oidc-openshift/" rel="alternate" type="text/html" title="Securing WildFly Apps with OIDC on OpenShift" />
+      <published>2023-11-10T00:00:00+01:00</published>
+      <updated>2023-11-10T00:00:00+01:00</updated>
+      <id>https://wildfly-security.github.io/wildfly-elytron/blog/securing-wildfly-apps-oidc-openshift/</id>
+      
+      
+        <content type="html" xml:base="https://wildfly-security.github.io/wildfly-elytron/blog/securing-wildfly-apps-oidc-openshift/"></content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Ashwin Mehendale</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="oidc" />
+      
+        <category term="openshift" />
+      
+        <category term="keycloak" />
+      
+        <category term="adapter" />
+      
+        <category term="galleon-pack" />
+      
+
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Adding Support for Integrity Checking to an Existing Filesystem Realm</title>
+      <link href="https://wildfly-security.github.io/wildfly-elytron/blog/filesystem-integrity-elytron-tool/" rel="alternate" type="text/html" title="Adding Support for Integrity Checking to an Existing Filesystem Realm" />
+      <published>2023-11-09T00:00:00+01:00</published>
+      <updated>2023-11-09T00:00:00+01:00</updated>
+      <id>https://wildfly-security.github.io/wildfly-elytron/blog/filesystem-integrity-elytron-tool/</id>
+      
+      
+        <content type="html" xml:base="https://wildfly-security.github.io/wildfly-elytron/blog/filesystem-integrity-elytron-tool/"></content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Prarthona Paul</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Developing in the cloud with Eclipse Che</title>
+      <link href="https://hpehl.github.io//wildfly.org/news/2023/11/07/Developping-in-the-cloud-with-Eclipse-Che/" rel="alternate" type="text/html" title="Developing in the cloud with Eclipse Che" />
+      <published>2023-11-07T06:00:00+01:00</published>
+      <updated>2023-11-07T06:00:00+01:00</updated>
+      <id>https://hpehl.github.io//wildfly.org/news/2023/11/07/Developping%20in%20the%20cloud%20with%20Eclipse%20Che</id>
+      
+      
+        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2023/11/07/Developping-in-the-cloud-with-Eclipse-Che/">&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://eclipse.dev/che/&quot;&gt;Eclipse Che&lt;/a&gt; is a cloud IDE that promises to get rid of the cumbersome setup of your local environment by providing automated setup in the cloud. It can be run easily on Kubernetes or its derivative like OpenShift. The purpose of this blog entry is not to setup Eclipse Che.
+In this blog entry we will show you in a first step how you can use Eclipse Che for regular development. On a second step we will resuse the same application and deploy it on Kubernetes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For the video and demo purpose we used Eclipse Che installation on &lt;a href=&quot;https://kubernetes.io/docs/tasks/tools/install-minikube/&quot;&gt;Minikube&lt;/a&gt; following the &lt;a href=&quot;https://eclipse.dev/che/docs/stable/administration-guide/installing-che-on-minikube/&quot;&gt;instructions&lt;/a&gt; with the &lt;a href=&quot;https://eclipse.dev/che/docs/stable/administration-guide/installing-the-chectl-management-tool/&quot;&gt;chectl management tool&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In order to setup our project environment we will use a simple &lt;strong&gt;getting-started&lt;/strong&gt; project which contains only a single REST endpoint and an integration test. In this project we provide also:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;a &lt;code&gt;devfile.yaml&lt;/code&gt; to setup and configure the Che workspace. You may learn more about it on &lt;a href=&quot;https://devfile.io&quot; class=&quot;bare&quot;&gt;https://devfile.io&lt;/a&gt; .&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;a &lt;code&gt;ContainerFile&lt;/code&gt; to describe how to build our runtime image to be deployed on Kubernetes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;a &lt;code&gt;ingress.yaml&lt;/code&gt; file that can server as an example to expose our running service.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;regular-development-on-the-cloud&quot;&gt;Regular development on the cloud&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;creating-our-workspace&quot;&gt;Creating our workspace&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The first step is of course to create our workspace, for this you have to paste the following URL &lt;a href=&quot;https://github.com/wildfly-extras/wildfly-devfile-examples/tree/simple-cloud&quot; class=&quot;bare&quot;&gt;https://github.com/wildfly-extras/wildfly-devfile-examples/tree/simple-cloud&lt;/a&gt; .
+As you can see this repository is quite simple and provides at its root the &lt;code&gt;devfile.yaml&lt;/code&gt; that will configure our workspace.
+Let&amp;#8217;s do a quick analysis of this file content:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;it has a single component using a Universal Developer Image to bring in all the tools that a cloud developer might need.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;it defines the debug port and the ports that can be exposed&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;there is also a volume where the downloaded maven artefacts will be stored to keep them between restarts&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The we have several commands to provide shortcuts to commands a developer might need. They are quite standard and make development life easier but of course you can type them in a terminal if you&amp;#8217;s rather do it that way.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;taking-a-look-at-the-code&quot;&gt;Taking a look at the code&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The code consists of a very basic REST endpont with an &lt;code&gt;index.html&lt;/code&gt; page to call it and display the result. There is also an integration test that will call that endpoint and checks that it returns properly.
+If you take a look at the Apache Maven &lt;code&gt;pom.xml&lt;/code&gt; you can see that it uses the &lt;a href=&quot;https://docs.jboss.org/wildfly/plugins/maven/latest/&quot;&gt;WildFly Maven Plugin&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;plugin&amp;gt;
+  &amp;lt;groupId&amp;gt;org.wildfly.plugins&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;wildfly-maven-plugin&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;${version.wildfly.maven.plugin}&amp;lt;/version&amp;gt;
+  &amp;lt;configuration&amp;gt;
+    &amp;lt;feature-packs&amp;gt;
+      &amp;lt;feature-pack&amp;gt;
+        &amp;lt;location&amp;gt;org.wildfly:wildfly-galleon-pack:${version.jboss.bom}&amp;lt;/location&amp;gt;
+      &amp;lt;/feature-pack&amp;gt;
+      &amp;lt;feature-pack&amp;gt;
+        &amp;lt;location&amp;gt;org.wildfly.cloud:wildfly-cloud-galleon-pack:${version.cloud.fp}&amp;lt;/location&amp;gt;
+      &amp;lt;/feature-pack&amp;gt;
+    &amp;lt;/feature-packs&amp;gt;
+    &amp;lt;layers&amp;gt;
+      &amp;lt;!-- layers may be used to customize the server to provision--&amp;gt;
+      &amp;lt;layer&amp;gt;cloud-server&amp;lt;/layer&amp;gt;
+    &amp;lt;/layers&amp;gt;
+    &amp;lt;javaOpts&amp;gt;&amp;lt;/javaOpts&amp;gt;
+  &amp;lt;/configuration&amp;gt;
+  &amp;lt;executions&amp;gt;
+    &amp;lt;execution&amp;gt;
+      &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;package&amp;lt;/goal&amp;gt;
+      &amp;lt;/goals&amp;gt;
+    &amp;lt;/execution&amp;gt;
+  &amp;lt;/executions&amp;gt;
+&amp;lt;/plugin&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We use this plugin to provision a server and deploy our application to it. As you can see, we are installing the &lt;code&gt;cloud-server&lt;/code&gt; layer from the &lt;code&gt;wildfly-cloud-galleon-pack&lt;/code&gt; as it makes WildFly behave better in the cloud.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;building-and-debugging&quot;&gt;Building and debugging&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As you can see on the demo, we provide three commands for reglar development (&apos;InnerLoop&apos;) :&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;the first one builds the application, provisions the server and executes the integration test&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the second one provisions and starts the server with the application in &lt;code&gt;dev&lt;/code&gt; mode: this means that whenever the code changes the server is automatically updated. It is covered in more details &lt;a href=&quot;https://www.wildfly.org/news/2023/03/09/WildFly-Maven-Plugin/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;the third one provisions and starts the server with the application in &lt;code&gt;dev&lt;/code&gt; mode with debug enabled so you can debug the application and also take advantage of the dev mode.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Note you can use a terminal to execute those commands or your own. For example you can start the provisionned server with the regular &lt;code&gt;standalone.sh&lt;/code&gt; in &lt;strong&gt;target/server/bin&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;YouTube video player&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Riw0IcWUW98?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;deploying-to-the-cloud&quot;&gt;Deploying to the cloud&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;creating-the-secret&quot;&gt;Creating the secret&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Because we need to make our image available to be deployed on Kubernetes we have to provide the credentials and details on where to push it. In order to do that we need to create a &lt;strong&gt;secret&lt;/strong&gt; in the namespace you are running your workspace on (in my case it is &lt;code&gt;admin-che&lt;/code&gt;). On the devfile the target registry is &lt;strong&gt;quay.io&lt;/strong&gt;, you may change that if you want to use your own image registry.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight nowrap&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;kubectl delete secret quay-secret --namespace admin-che
+kubectl create secret generic quay-secret \
+  --namespace admin-che \
+  --from-literal=IMAGE_REGISTRY_PASSWORD=**** \
+  --from-literal=IMAGE_REGISTRY_LOGIN=mylogin@quay.io \
+  --from-literal=IMAGE_REGISTRY_NAMESPACE=mylogin
+kubectl label secret quay-secret \
+  --namespace admin-che \
+  controller.devfile.io/mount-to-devworkspace=true \
+  controller.devfile.io/watch-secret=true
+kubectl annotate secret quay-secret --namespace admin-che controller.devfile.io/mount-as=&apos;env&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The label and the annotation are here so that the secret will be automounted by the Che workspace on start. So you will need to restart the workspace if you created it as in the first part of this article.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;building-the-image&quot;&gt;Building the image&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For this task we are going to use &lt;a href=&quot;https://podman.io/&quot;&gt;Podman&lt;/a&gt; and a very simple &lt;code&gt;ContainerFile&lt;/code&gt; that will take the output of the provisionning task a copy it to a &lt;code&gt;wildfly-runtime&lt;/code&gt; image:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;FROM quay.io/wildfly/wildfly-runtime:latest
+COPY --chown=jboss:root target/server $JBOSS_HOME
+RUN chmod -R ug+rwX $JBOSS_HOME&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Once that image is built we need to push it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;tagging-and-pushing-the-image&quot;&gt;Tagging and pushing the image&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Here again we are going to use Podman to tag the image we just built and push it to our image registry. This task is the the that uses the content of the &lt;strong&gt;secret&lt;/strong&gt; we created. Otherwise it is just regular Podman commands.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;deploying-the-image-on-kubernetes&quot;&gt;Deploying the image on Kubernetes&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now we are going to deploy the image we have built and pushed on Kubernetes. In order to do this we are going to use &lt;a href=&quot;https://docs.wildfly.org/wildfly-charts/&quot;&gt;WildFly Helm Charts&lt;/a&gt;.
+The first step is to register the WildFly helm charts then execute &lt;code&gt;helm install&lt;/code&gt; with a few values to customize our deployment:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;--set build.enabled=false&lt;/code&gt; : this indicates that we are using an image that has already been built (in Openshift you can use s2i to automate what we just did before).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;in the .charts/helm.yaml file you will notice that there is a &lt;code&gt;deploy.route.enabled&lt;/code&gt; set to false this is again to override an Openshift feature where the &lt;code&gt;route&lt;/code&gt; to the service is automatically added. In Kubernetes you will have to create the Ingress resource manually (until now at least).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now that the image has been deployed and the service created, you need to expose it by creating the &lt;strong&gt;ingress&lt;/strong&gt; resource.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: getting-started-ingress
+  namespace: admin-che
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.info
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: getting-started
+                port:
+                  number: 8080&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You may want to change the target host name. In my example I added an entry in my &lt;code&gt;hosts&lt;/code&gt; configuration file mapping &lt;strong&gt;hello-world.info&lt;/strong&gt; to the minikube IP address.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now you can access the service on &lt;a href=&quot;http://hello-world.info&quot; class=&quot;bare&quot;&gt;http://hello-world.info&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;undeploying-the-image&quot;&gt;Undeploying the image&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We provide again a simple command that does a &lt;code&gt;helm uninstall&lt;/code&gt; thus removing the deployment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;videoblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;YouTube video player&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/WdrIXFKV8r4?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Emmanuel Hugonnet</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="cloud" />
+      
+        <category term="ide" />
+      
+        <category term="k8s" />
+      
+        <category term="devfile" />
+      
+        <category term="getting-started" />
+      
+
+      
+        <summary type="html">Eclipse Che is a cloud IDE that promises to get rid of the cumbersome setup of your local environment by providing automated setup in the cloud. It can be run easily on Kubernetes or its derivative like OpenShift. The purpose of this blog entry is not to setup Eclipse Che. In this blog entry we will show you in a first step how you can use Eclipse Che for regular development. On a second step we will resuse the same application and deploy it on Kubernetes.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Open Source Day 2023 Recap</title>
+      <link href="https://wildfly-security.github.io/wildfly-elytron/blog/ghc23-osd-recap/" rel="alternate" type="text/html" title="Open Source Day 2023 Recap" />
+      <published>2023-10-23T00:00:00+02:00</published>
+      <updated>2023-10-23T00:00:00+02:00</updated>
+      <id>https://wildfly-security.github.io/wildfly-elytron/blog/ghc23-osd-recap/</id>
+      
+      
+        <content type="html" xml:base="https://wildfly-security.github.io/wildfly-elytron/blog/ghc23-osd-recap/"></content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Diana Krepinska Vilkolakova</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">WildFly 30 is released!</title>
@@ -453,448 +1392,6 @@
 
       
         <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">WildFly and the Twelve-factor App Methodology</title>
-      <link href="https://jmesnil.net/weblog/2023/09/13/wildfly-12-factor-app/" rel="alternate" type="text/html" title="WildFly and the Twelve-factor App Methodology" />
-      <published>2023-09-13T00:00:00+02:00</published>
-      <updated>2023-09-13T00:00:00+02:00</updated>
-      <id>https://jmesnil.net/weblog/2023/09/13/wildfly-12-factor-app/</id>
-      
-      
-        <content type="html" xml:base="https://jmesnil.net/weblog/2023/09/13/wildfly-12-factor-app/"></content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Jeff Mesnil</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="development" />
-      
-        <category term="cloud" />
-      
-        <category term="user-experience" />
-      
-
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Vlog: Join us at Open Source Day on September 22, 2023 and Make Meaningful Contributions</title>
-      <link href="https://www.youtube.com/watch?v=nevZyt2TkzI" rel="alternate" type="text/html" title="Vlog: Join us at Open Source Day on September 22, 2023 and Make Meaningful Contributions" />
-      <published>2023-09-13T00:00:00+02:00</published>
-      <updated>2023-09-13T00:00:00+02:00</updated>
-      <id>https://www.youtube.com/watch?v=nevZyt2TkzI</id>
-      
-      
-        <content type="html" xml:base="https://www.youtube.com/watch?v=nevZyt2TkzI"></content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Sonia Zaldana Calles</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="ghc" />
-      
-        <category term="ghc23" />
-      
-        <category term="osd" />
-      
-        <category term="opensourceday" />
-      
-
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Using the resteasy-grpc feature together with the WildFly gRPC subsystem</title>
-      <link href="https://resteasy.dev/2023/09/12/resteasy-grpc/" rel="alternate" type="text/html" title="Using the resteasy-grpc feature together with the WildFly gRPC subsystem" />
-      <published>2023-09-13T00:00:00+02:00</published>
-      <updated>2023-09-13T00:00:00+02:00</updated>
-      <id>https://resteasy.dev/2023/09/12/resteasy-grpc/</id>
-      
-      
-        <content type="html" xml:base="https://resteasy.dev/2023/09/12/resteasy-grpc/"></content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>阿男</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="resteasy" />
-      
-        <category term="grpc" />
-      
-        <category term="wildfly" />
-      
-
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Vlog: Join us at Open Source Day on September 22nd, 2023 and Level Up Your Skills</title>
-      <link href="https://www.youtube.com/watch?v=9i_MiK0W2n4" rel="alternate" type="text/html" title="Vlog: Join us at Open Source Day on September 22nd, 2023 and Level Up Your Skills" />
-      <published>2023-09-08T00:00:00+02:00</published>
-      <updated>2023-09-08T00:00:00+02:00</updated>
-      <id>https://www.youtube.com/watch?v=9i_MiK0W2n4</id>
-      
-      
-        <content type="html" xml:base="https://www.youtube.com/watch?v=9i_MiK0W2n4"></content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Prarthona Paul</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="ghc" />
-      
-        <category term="ghc23" />
-      
-        <category term="osd" />
-      
-        <category term="opensourceday" />
-      
-
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Securing WildFly Apps with SAML on OpenShift</title>
-      <link href="https://wildfly-security.github.io/wildfly-elytron/blog/securing-wildfly-apps-saml-openshift/" rel="alternate" type="text/html" title="Securing WildFly Apps with SAML on OpenShift" />
-      <published>2023-09-06T00:00:00+02:00</published>
-      <updated>2023-09-06T00:00:00+02:00</updated>
-      <id>https://wildfly-security.github.io/wildfly-elytron/blog/securing-wildfly-apps-saml-openshift/</id>
-      
-      
-        <content type="html" xml:base="https://wildfly-security.github.io/wildfly-elytron/blog/securing-wildfly-apps-saml-openshift/"></content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Farah Juma</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="saml" />
-      
-        <category term="openshift" />
-      
-        <category term="keycloak" />
-      
-        <category term="adapter" />
-      
-        <category term="galleon-pack" />
-      
-
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Vlog: Begin your Open Source Journey with the WildFly Elytron Project at Open Source Day</title>
-      <link href="https://www.youtube.com/watch?v=PAcqCa8u0Z8" rel="alternate" type="text/html" title="Vlog: Begin your Open Source Journey with the WildFly Elytron Project at Open Source Day" />
-      <published>2023-09-06T00:00:00+02:00</published>
-      <updated>2023-09-06T00:00:00+02:00</updated>
-      <id>https://www.youtube.com/watch?v=PAcqCa8u0Z8</id>
-      
-      
-        <content type="html" xml:base="https://www.youtube.com/watch?v=PAcqCa8u0Z8"></content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Diana Krepinska Vilkolakova</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="ghc" />
-      
-        <category term="ghc23" />
-      
-        <category term="osd" />
-      
-        <category term="opensourceday" />
-      
-
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Vlog: Begin your Open Source Journey with the WildFly Elytron Project at Open Source Day</title>
-      <link href="https://www.youtube.com/watch?v=vUWGPTCNl4I" rel="alternate" type="text/html" title="Vlog: Begin your Open Source Journey with the WildFly Elytron Project at Open Source Day" />
-      <published>2023-08-29T00:00:00+02:00</published>
-      <updated>2023-08-29T00:00:00+02:00</updated>
-      <id>https://www.youtube.com/watch?v=vUWGPTCNl4I</id>
-      
-      
-        <content type="html" xml:base="https://www.youtube.com/watch?v=vUWGPTCNl4I"></content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Farah Juma</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="ghc" />
-      
-        <category term="ghc23" />
-      
-        <category term="osd" />
-      
-        <category term="opensourceday" />
-      
-
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">WildFly 29.0.1 is released!</title>
-      <link href="https://hpehl.github.io//wildfly.org/news/2023/08/23/WildFly2901-Released/" rel="alternate" type="text/html" title="WildFly 29.0.1 is released!" />
-      <published>2023-08-23T00:00:00+02:00</published>
-      <updated>2023-08-23T00:00:00+02:00</updated>
-      <id>https://hpehl.github.io//wildfly.org/news/2023/08/23/WildFly2901-Released</id>
-      
-      
-        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2023/08/23/WildFly2901-Released/">&lt;div id=&quot;preamble&quot;&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;WildFly 29.0.1.Final is now available &lt;a href=&quot;https://wildfly.org/downloads&quot;&gt;for download&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;It&amp;#8217;s been about five weeks since the WildFly 29 release, so we&amp;#8217;ve done a small bug fix update, WildFly 29.0.1. This includes an update to WildFly Preview.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The following issues were resolved in 29.0.1:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect4&quot;&gt;
-&lt;h5 id=&quot;bugs&quot;&gt;Bugs&lt;/h5&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18296&quot;&gt;WFLY-18296&lt;/a&gt;] - Wildfly 29: does not start on JRE, works on JDK. Worked in WFLY28&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18330&quot;&gt;WFLY-18330&lt;/a&gt;] - [29.x] Upgrade com.squareup.okio to 3.4.0 (resolves CVE-2023-3635)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18350&quot;&gt;WFLY-18350&lt;/a&gt;] - The testsuite/galleon tests are too unconstrained as to what channel is tested&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18366&quot;&gt;WFLY-18366&lt;/a&gt;] - Problems with upgrade of resteasy-microprofile and CDI&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect4&quot;&gt;
-&lt;h5 id=&quot;enhancements&quot;&gt;Enhancements&lt;/h5&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18388&quot;&gt;WFLY-18388&lt;/a&gt;] - Move 29.x Quickstarts to BOMs and Server 29.0.1.Final&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect4&quot;&gt;
-&lt;h5 id=&quot;tasks&quot;&gt;Tasks&lt;/h5&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18341&quot;&gt;WFLY-18341&lt;/a&gt;] - Restore incorrectly updated copyright dates in Jipijapa&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect4&quot;&gt;
-&lt;h5 id=&quot;component-upgrades&quot;&gt;Component Upgrades&lt;/h5&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18294&quot;&gt;WFLY-18294&lt;/a&gt;] - [WildFly 29] Upgrade HAL to 3.6.12.Final&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18376&quot;&gt;WFLY-18376&lt;/a&gt;] - Upgrade RESTEasy to 6.2.5.Final&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18378&quot;&gt;WFLY-18378&lt;/a&gt;] - Upgrade resteasy-microprofile to 2.1.3.Final&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18379&quot;&gt;WFLY-18379&lt;/a&gt;] - Upgrade WildFly Core to 21.1.1.Final&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Issues resolved in the WildFly Core update included with WildFly 29.0.1 were:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect4&quot;&gt;
-&lt;h5 id=&quot;component-upgrades-2&quot;&gt;Component Upgrades&lt;/h5&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6444&quot;&gt;WFCORE-6444&lt;/a&gt;] - Upgrade BouncyCastle to 1.76&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Enjoy!&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Paul Ferraro</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="announcement" />
-      
-        <category term="release" />
-      
-
-      
-        <summary type="html">WildFly 29.0.1.Final is now available for download.</summary>
       
 
       
