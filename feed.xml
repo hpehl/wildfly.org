@@ -4,10 +4,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
-  <link href="https://hpehl.github.io//wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="https://hpehl.github.io//wildfly.org/" rel="alternate" type="text/html" />
-  <updated>2023-11-23T12:03:24+01:00</updated>
-  <id>https://hpehl.github.io//wildfly.org</id>
+  <link href="https://hpehl.github.io/wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://hpehl.github.io/wildfly.org/" rel="alternate" type="text/html" />
+  <updated>2024-01-26T00:00:09+01:00</updated>
+  <id>https://hpehl.github.io/wildfly.org</id>
 
   
   
@@ -17,13 +17,13 @@
   
     <entry>
       <title type="html">WildFly Feature Development Process</title>
-      <link href="https://hpehl.github.io//wildfly.org/news/2023/11/22/WildFly_Feature_Development_Process/" rel="alternate" type="text/html" title="WildFly Feature Development Process" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2023/11/22/WildFly_Feature_Development_Process/" rel="alternate" type="text/html" title="WildFly Feature Development Process" />
       <published>2023-11-22T00:00:00+01:00</published>
       <updated>2023-11-22T00:00:00+01:00</updated>
-      <id>https://hpehl.github.io//wildfly.org/news/2023/11/22/WildFly_Feature_Development_Process</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2023/11/22/WildFly_Feature_Development_Process</id>
       
       
-        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2023/11/22/WildFly_Feature_Development_Process/">&lt;div id=&quot;preamble&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2023/11/22/WildFly_Feature_Development_Process/">&lt;div id=&quot;preamble&quot;&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Some of the developers of WildFly have been thinking about how to clarify and formalize some of the processes we use when developing WildFly, and I want to make the broader WildFly community aware of the discussion.&lt;/p&gt;
@@ -366,13 +366,13 @@ On the other hand, we can use WildFly Preview to showcase functionality whose sc
   
     <entry>
       <title type="html">Manual GitHub Actions Workflow in WildFly</title>
-      <link href="https://hpehl.github.io//wildfly.org/news/2023/11/13/github-manual-workflow/" rel="alternate" type="text/html" title="Manual GitHub Actions Workflow in WildFly" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2023/11/13/github-manual-workflow/" rel="alternate" type="text/html" title="Manual GitHub Actions Workflow in WildFly" />
       <published>2023-11-13T00:00:00+01:00</published>
       <updated>2023-11-13T00:00:00+01:00</updated>
-      <id>https://hpehl.github.io//wildfly.org/news/2023/11/13/github-manual-workflow</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2023/11/13/github-manual-workflow</id>
       
       
-        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2023/11/13/github-manual-workflow/">&lt;div class=&quot;paragraph&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2023/11/13/github-manual-workflow/">&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;GitHub actions workflow is a valuable tool that automates development process and continuous integration. While it&amp;#8217;s
 great to see every pull request can be verified automatically upon submission, sometimes we also like the flexibility
 to tweak which OS, JDK distribution and version to use, which tests to run, which maven options to specify, or which
@@ -622,13 +622,13 @@ which maven profile to activate, which tests to run, or which build steps to exe
   
     <entry>
       <title type="html">Developing in the cloud with Eclipse Che</title>
-      <link href="https://hpehl.github.io//wildfly.org/news/2023/11/07/Developping-in-the-cloud-with-Eclipse-Che/" rel="alternate" type="text/html" title="Developing in the cloud with Eclipse Che" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2023/11/07/Developping-in-the-cloud-with-Eclipse-Che/" rel="alternate" type="text/html" title="Developing in the cloud with Eclipse Che" />
       <published>2023-11-07T06:00:00+01:00</published>
       <updated>2023-11-07T06:00:00+01:00</updated>
-      <id>https://hpehl.github.io//wildfly.org/news/2023/11/07/Developping%20in%20the%20cloud%20with%20Eclipse%20Che</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2023/11/07/Developping%20in%20the%20cloud%20with%20Eclipse%20Che</id>
       
       
-        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2023/11/07/Developping-in-the-cloud-with-Eclipse-Che/">&lt;div id=&quot;preamble&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2023/11/07/Developping-in-the-cloud-with-Eclipse-Che/">&lt;div id=&quot;preamble&quot;&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;a href=&quot;https://eclipse.dev/che/&quot;&gt;Eclipse Che&lt;/a&gt; is a cloud IDE that promises to get rid of the cumbersome setup of your local environment by providing automated setup in the cloud. It can be run easily on Kubernetes or its derivative like OpenShift. The purpose of this blog entry is not to setup Eclipse Che.
@@ -956,13 +956,13 @@ spec:
   
     <entry>
       <title type="html">WildFly 30 is released!</title>
-      <link href="https://hpehl.github.io//wildfly.org/news/2023/10/18/WildFly30-Released/" rel="alternate" type="text/html" title="WildFly 30 is released!" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2023/10/18/WildFly30-Released/" rel="alternate" type="text/html" title="WildFly 30 is released!" />
       <published>2023-10-18T00:00:00+02:00</published>
       <updated>2023-10-18T00:00:00+02:00</updated>
-      <id>https://hpehl.github.io//wildfly.org/news/2023/10/18/WildFly30-Released</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2023/10/18/WildFly30-Released</id>
       
       
-        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2023/10/18/WildFly30-Released/">&lt;div id=&quot;preamble&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2023/10/18/WildFly30-Released/">&lt;div id=&quot;preamble&quot;&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;I&amp;#8217;m pleased to announce that the new WildFly and WildFly Preview 30.0.0.Final releases are available for download at &lt;a href=&quot;https://wildfly.org/downloads&quot; class=&quot;bare&quot;&gt;https://wildfly.org/downloads&lt;/a&gt;.&lt;/p&gt;
@@ -1225,13 +1225,13 @@ spec:
   
     <entry>
       <title type="html">Hacktoberfest 2023</title>
-      <link href="https://hpehl.github.io//wildfly.org/news/2023/09/27/Hacktoberfest-2023/" rel="alternate" type="text/html" title="Hacktoberfest 2023" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2023/09/27/Hacktoberfest-2023/" rel="alternate" type="text/html" title="Hacktoberfest 2023" />
       <published>2023-09-27T00:00:00+02:00</published>
       <updated>2023-09-27T00:00:00+02:00</updated>
-      <id>https://hpehl.github.io//wildfly.org/news/2023/09/27/Hacktoberfest-2023</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2023/09/27/Hacktoberfest-2023</id>
       
       
-        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2023/09/27/Hacktoberfest-2023/">&lt;div id=&quot;preamble&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2023/09/27/Hacktoberfest-2023/">&lt;div id=&quot;preamble&quot;&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;

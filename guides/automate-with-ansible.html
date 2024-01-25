@@ -5,7 +5,7 @@
   <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Deploy WildFly using Ansible</title>
+  <title>Deploying WildFly using Ansible</title>
   <meta name="description" content="">
   <link rel="me" href="https://fosstodon.org/@wildflyas" />
   <link rel="shortcut icon" type="image/png" href="/wildfly.org/favicon.ico" >
@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="Deploy WildFly using Ansible">
+<body class="Deploying WildFly using Ansible">
   <div class="content">
     <div class="header navigation">
   <div class="logo-wrapper">
@@ -73,7 +73,7 @@
 
     <div class="grid-wrapper guide">
   <div class="grid__item width-12-12 width-12-12-mobile">
-    <h1 class="text-caps">Deploy WildFly using Ansible </h1>
+    <h1 class="text-caps">Deploying WildFly using Ansible </h1>
   </div>
   <div class="width-12-12">
     <div>
@@ -87,9 +87,9 @@
 <li><a href="#ansible-playbook-to-install-wildfly">Ansible playbook to install WildFly</a></li>
 <li><a href="#run-the-playbook">Run the playbook!</a></li>
 <li><a href="#check-that-everything-worked-as-expected">Check that everything worked as expected</a></li>
-<li><a href="#deploy-an-application-to-the-wildlfy-cluster">Deploy an application to the Wildlfy cluster</a></li>
+<li><a href="#deploy-an-application-to-the-wildfly-cluster">Deploy an application to the WildFly cluster</a></li>
 <li><a href="#verify-that-the-wildfly-cluster-is-running-and-the-app-is-deployed">Verify that the WildFly cluster is running  and the app is deployed</a></li>
-<li><a href="#using-the-ansible-collection-as-an-installer-for-wildfly">Using the Ansible collection as an installer for Wildfly</a></li>
+<li><a href="#using-the-ansible-collection-as-an-installer-for-wildfly">Using the Ansible collection as an installer for WildFly</a></li>
 </ul>
 </li>
 <li><a href="#conclusion">Conclusion</a></li>
@@ -98,7 +98,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this brief demonstration, we’ll set up and run three instances of WildFly on the same machine (localhost). Together they will form a cluster. It’s a rather classic setup, where the appservers needs to synchronize the content of their application’s session to ensure fail over if one of the instances fails. This configuration guarantees that, if one instance fails while processing a request, another one can pick up the work without any data loss. Note that we’ll use a multicast to discover the members of the cluster and ensure that the cluster’s formation is fully automated and dynamic.</p>
+<p>In this brief demonstration, we’ll set up and run three instances of WildFly on the same machine (localhost). Together they will form a cluster. It’s a rather classic setup, where the appservers need to synchronize the content of their application’s sessions to ensure fail over if one of the instances fails. This configuration guarantees that, if one instance fails while processing a request, another one can pick up the work without any data loss. Note that we’ll use a multicast to discover the members of the cluster and ensure that the cluster’s formation is fully automated and dynamic.</p>
 </div>
 </div>
 </div>
@@ -118,9 +118,6 @@
 </li>
 <li>
 <p>Apache Maven 3.9+</p>
-</li>
-<li>
-<p>You have completed the <a href="https://wildfly.org/getstarted/">Get Started Guide</a>.</p>
 </li>
 </ul>
 </div>
@@ -183,7 +180,7 @@ community.general:6.1.0 was installed successfully</code></pre>
 <h2 id="set-up-the-wildfly-cluster">Set up the WildFly cluster</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For simplicity’s sake and to allow you to reproduce this demonstration on a single machine (physical or virtual) or even a container, we opted to deploy our three instances on one target. We chose localhost as a target, so that the demonstration can even be performed without a remote host.</p>
+<p>For simplicity’s sake and to allow you to reproduce this demonstration on a single machine (physical or virtual) or even a container, we opted to deploy our three instances on one target. We chose localhost as a target, so the demonstration can even be performed without a remote host.</p>
 </div>
 <div class="paragraph">
 <p>There are essentially two steps to set up the WildFly cluster:</p>
@@ -194,7 +191,7 @@ community.general:6.1.0 was installed successfully</code></pre>
 <p>Install WildFly on the targeted hosts (here just localhost). This means downloading the archive from this website and decompressing the archive in the appropriate directory (JBOSS_HOME). These tasks are handled by the wildfly_install role supplied by Ansible collection for WildFly.</p>
 </li>
 <li>
-<p>Create the configuration files to run several instances of WildFly. Because we’re running multiple instances on a single host, you also need to ensure that each instance has its own subdirectories and set of ports, so that the instances can coexist and communicate. Fortunately, this functionality is provided by a role within the Ansible collection called wildfly_systemd.</p>
+<p>Create the configuration files to run several instances of WildFly. Because we’re running multiple instances on a single host, you also need to ensure that each instance has its own subdirectories and set of ports, so the instances can coexist and communicate. Fortunately, this functionality is provided by a role within the Ansible collection called wildfly_systemd.</p>
 </li>
 </ol>
 </div>
@@ -256,7 +253,7 @@ community.general:6.1.0 was installed successfully</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In short, this playbook uses the Ansible collection for WildFly to, first, install the appserver by using the wildfly_install role. This will download all the artifacts, create the required system groups and users, install dependency (unzip) and so on. At the end of its execution, all the tidbits required to run WildFly on the target host are installed, but the server is not yet running. That’s what happening in the next step.</p>
+<p>In short, this playbook uses the Ansible collection for WildFly to, first, install the appserver by using the wildfly_install role. This will download all the artifacts, create the required system groups and users, install dependency (unzip) and so on. At the end of its execution, all the tidbits required to run WildFly on the target host are installed, but the server is not yet running. That is what&#8217;s happening in the next step.</p>
 </div>
 <div class="paragraph">
 <p>In the tasks section of the playbook, we then call on another role provided by the collection: wildfly_systemd. This role will take care of integrating WildFly, as a regular system service, into the service manager. Here, we use a loop to ensure that we create not one, but three different services. Each one will have the same configuration (standalone-ha.xml) but runs on different ports, using a different set of directories to store its data.</p>
@@ -542,7 +539,7 @@ localhost                  : ok=70   changed=16   unreachable=0    failed=0    s
 <p>Note that the playbook is not that long, but it does a lot for us. It performs almost 100 different tasks! Starting by automatically installing the dependencies, including the JVM required by WildFly, along with downloading its binaries. And the wildfly_systemd role does even more, effortlessly setting up three distinct services, each with its own set of ports and directory layout to store instance-specific data.</p>
 </div>
 <div class="paragraph">
-<p>Even better, the WildFly installation is NOT duplicated. All of the binaries live under the /opt/wildfly-27.0.1 directory, but all the data files of each instance are stored in separate folders. This means that we just need to update the binaries, once, and then restart the instances, to deploy a patch or upgrade to a new version of WildFly.</p>
+<p>Even better, the WildFly installation is NOT duplicated. All the binaries live under the /opt/wildfly-27.0.1 directory, but all the data files of each instance are stored in separate folders. This means that we just need to update the binaries, once, and then restart the instances, to deploy a patch or upgrade to a new version of WildFly.</p>
 </div>
 <div class="paragraph">
 <p>On top of everything, we configured the instances to use the standalone-ha.xml configuration as the baseline, so they are already set up for clustering.</p>
@@ -577,12 +574,12 @@ Jan 10 09:24:25 94aa1904876e standalone.sh[1001]: 09:24:25,914 INFO  [org.jboss.
 </div>
 </div>
 <div class="sect2">
-<h3 id="deploy-an-application-to-the-wildlfy-cluster">Deploy an application to the Wildlfy cluster</h3>
+<h3 id="deploy-an-application-to-the-wildfly-cluster">Deploy an application to the WildFly cluster</h3>
 <div class="paragraph">
-<p>Now, our three WildFly are running, but the cluster has yet to form. Indeed, with no apps there is no reason for the cluster to exist. Let&#8217;s modify our Ansible playbook to deploy a simple application to all instances; this will allow us to check that the cluster is working as expected. To achieve this, we&#8217;ll leverage another role provided by the WildFly collection: wildfly_utils.</p>
+<p>Now, our three WildFly servers are running, but the cluster has yet to form. Indeed, with no apps there is no reason for the cluster to exist. Let&#8217;s modify our Ansible playbook to deploy a simple application to all instances; this will allow us to check that the cluster is working as expected. To achieve this, we&#8217;ll leverage another role provided by the WildFly collection: wildfly_utils.</p>
 </div>
 <div class="paragraph">
-<p>In our case, we will use the jboss_cli.yml task file, which encapsulates the running of JBoss command-line interface (CLI) queries:</p>
+<p>In our case, we will use the jboss_cli.yml task file, which encapsulates the running of JBoss command-line interface (CLI) commands:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -608,7 +605,7 @@ Jan 10 09:24:25 94aa1904876e standalone.sh[1001]: 09:24:25,914 INFO  [org.jboss.
 </div>
 </div>
 <div class="paragraph">
-<p>Now, we will once again execute our playbook so that the web application is deployed on all instances. Once the automation completes successfully, the deployment will trigger the formation of the cluster.</p>
+<p>Now, we will once again execute our playbook so the web application is deployed on all instances. Once the automation completes successfully, the deployment will trigger the formation of the cluster.</p>
 </div>
 </div>
 <div class="sect2">
@@ -626,9 +623,9 @@ Jan 10 09:24:25 94aa1904876e standalone.sh[1001]: 09:24:25,914 INFO  [org.jboss.
 </div>
 </div>
 <div class="sect2">
-<h3 id="using-the-ansible-collection-as-an-installer-for-wildfly">Using the Ansible collection as an installer for Wildfly</h3>
+<h3 id="using-the-ansible-collection-as-an-installer-for-wildfly">Using the Ansible collection as an installer for WildFly</h3>
 <div class="paragraph">
-<p>Last remark: while the collection is designed to be used inside a playbook, you can also use the provided playbook to directly install Wildfly:</p>
+<p>Last remark: while the collection is designed to be used inside a playbook, you can also use the provided playbook to directly install WildFly:</p>
 </div>
 <div class="listingblock">
 <div class="content">

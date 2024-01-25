@@ -5,7 +5,7 @@
   <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Configure Logging for your Application</title>
+  <title>Configuring Logging for your Application</title>
   <meta name="description" content="">
   <link rel="me" href="https://fosstodon.org/@wildflyas" />
   <link rel="shortcut icon" type="image/png" href="/wildfly.org/favicon.ico" >
@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="Configure Logging for your Application">
+<body class="Configuring Logging for your Application">
   <div class="content">
     <div class="header navigation">
   <div class="logo-wrapper">
@@ -73,7 +73,7 @@
 
     <div class="grid-wrapper guide">
   <div class="grid__item width-12-12 width-12-12-mobile">
-    <h1 class="text-caps">Configure Logging for your Application </h1>
+    <h1 class="text-caps">Configuring Logging for your Application </h1>
   </div>
   <div class="width-12-12">
     <div>
@@ -81,19 +81,15 @@
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#add-dependency-to-jboss-logging">Add Dependency to JBoss Logging</a></li>
+<li><a href="#add-dependency-on-jboss-logging">Add Dependency on JBoss Logging</a></li>
 <li><a href="#add-logging-to-the-application">Add Logging to the Application</a></li>
-<li><a href="#configure-logging-in-wildfly-subsystem">Configure Logging in WildFly Subsystem</a></li>
-<li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#configure-logging-in-the-wildfly-subsystem">Configure Logging in the WildFly Subsystem</a></li>
+<li><a href="#whats-next">What&#8217;s next?</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div>
 <div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p>TODO: Add a summary of what you achieve in this guide.
-Something like:</p>
-</div>
 <div class="paragraph">
 <p>In this guide, you will learn how to use logging in your application and configure WildFly to
 display the logs at the level you want.</p>
@@ -117,23 +113,20 @@ display the logs at the level you want.</p>
 <li>
 <p>Apache Maven 3.9+</p>
 </li>
-<li>
-<p>You have completed the <a href="https://wildfly.org/getstarted/">Get Started Guide</a>.</p>
-</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>To use logging in our application, we will add a dependency to <code>org.jboss.logging:jboss-logging</code> in the Maven <code>pom.xml</code> file.
+<p>To use logging in our application, we will add a dependency on <code>org.jboss.logging:jboss-logging</code> in the Maven <code>pom.xml</code> file.
 Then, we will add a few logs in our code at different levels.
-Finally we will configure WildFly to change the log level of our application logs independently of WildFly own logs.</p>
+Finally, we will configure WildFly to change the log level of our application logs independently of WildFly own logs.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="add-dependency-to-jboss-logging">Add Dependency to JBoss Logging</h2>
+<h2 id="add-dependency-on-jboss-logging">Add Dependency on JBoss Logging</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In order to use JBoss Logging in our application, we need to add a dependency to it in the <code>pom.xml</code>.</p>
+<p>In order to use JBoss Logging in our application, we need to add a dependency on it in the <code>pom.xml</code>.</p>
 </div>
 <div class="paragraph">
 <p>The dependency is defined as:</p>
@@ -191,7 +184,7 @@ public class GettingStartedService {
 </div>
 </div>
 <div class="paragraph">
-<p>You added a <code>log</code> Logger that can log message with the category correspondig to the class package <code>org.wildfly.examples</code>.
+<p>You added a <code>log</code> Logger that can log message with the category corresponding to the class package <code>org.wildfly.examples</code>.
 You also added two logging calls, one at the <code>TRACE</code> level and the other one at the <code>INFO</code> level.</p>
 </div>
 <div class="paragraph">
@@ -212,12 +205,12 @@ Let&#8217;s now configure WildFly to display our application logs at the <code>T
 </div>
 </div>
 <div class="sect1">
-<h2 id="configure-logging-in-wildfly-subsystem">Configure Logging in WildFly Subsystem</h2>
+<h2 id="configure-logging-in-the-wildfly-subsystem">Configure Logging in the WildFly Subsystem</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The configuration of logging is done by WildFly in its <code>logging</code> subsystem.
-There are different ways to modify WildFly configuration but as we used the <code>wildfly-maven-plugin</code> to provision WildFly,
-we can pass a CLI script so that WildFly configuration will be modified whenever we invoke <code>mvn package</code>.</p>
+There are different ways to modify the WildFly configuration but as we used the <code>wildfly-maven-plugin</code> to provision WildFly,
+we can pass a CLI script so the WildFly configuration will be modified whenever we invoke <code>mvn package</code>.</p>
 </div>
 <div class="paragraph">
 <p>First, we add a <code>configuration.cli</code> in the <code>src/main/scripts</code> directory:</p>
@@ -231,8 +224,7 @@ we can pass a CLI script so that WildFly configuration will be modified whenever
 </div>
 </div>
 <div class="paragraph">
-<p>This script contains the management operations to change WildFly configuration. We could invoke any management operations but in this case,
-we only modify the <code>/subsystem=logging</code> resources that control the logging aspects.</p>
+<p>This script contains the management operations to change the WildFly configuration. We could invoke any management operations but, in this case, we only modify the <code>/subsystem=logging</code> resources that control the logging aspects.</p>
 </div>
 <div class="paragraph">
 <p>You then need to modify the <code>wildfly-maven-plugin</code> configuration in <code>pom.xml</code> to execute this:</p>
@@ -283,10 +275,10 @@ we only modify the <code>/subsystem=logging</code> resources that control the lo
 </div>
 </div>
 <div class="sect1">
-<h2 id="next-steps">Next Steps</h2>
+<h2 id="whats-next">What&#8217;s next?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>WildFly provides extensive logging configuration. You can learn more by reading WildFly&#8217;s <a href="https://docs.wildfly.org/29/Admin_Guide.html#Logging">Logging Subsystem Configuration Guide</a> and its <a href="https://docs.wildfly.org/29/wildscribe/subsystem/logging/">model reference</a>.</p>
+<p>WildFly provides extensive logging configuration. You can learn more by reading WildFly&#8217;s <a href="https://docs.wildfly.org/31/Admin_Guide.html#Logging">Logging Subsystem Configuration Guide</a> and its <a href="https://docs.wildfly.org/31/wildscribe/subsystem/logging/">model reference</a>.</p>
 </div>
 </div>
 </div>
@@ -296,10 +288,10 @@ we only modify the <code>/subsystem=logging</code> resources that control the lo
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.wildfly.org/29/Admin_Guide.html#Logging">Logging Subsystem Configuration Guide</a></p>
+<p><a href="https://docs.wildfly.org/31/Admin_Guide.html#Logging">Logging Subsystem Configuration Guide</a></p>
 </li>
 <li>
-<p><a href="https://docs.wildfly.org/29/wildscribe/subsystem/logging/">Logging Subsystem Model Reference</a></p>
+<p><a href="https://docs.wildfly.org/31/wildscribe/subsystem/logging/">Logging Subsystem Model Reference</a></p>
 </li>
 </ul>
 </div>
