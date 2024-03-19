@@ -81,7 +81,7 @@
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#add-dependency-on-jboss-logging">Add Dependency on JBoss Logging</a></li>
+<li><a href="#add-a-dependency-on-jboss-logging">Add a Dependency on JBoss Logging</a></li>
 <li><a href="#add-logging-to-the-application">Add Logging to the Application</a></li>
 <li><a href="#configure-logging-in-the-wildfly-subsystem">Configure Logging in the WildFly Subsystem</a></li>
 <li><a href="#whats-next">What&#8217;s next?</a></li>
@@ -116,14 +116,39 @@ display the logs at the level you want.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>To use logging in our application, we will add a dependency on <code>org.jboss.logging:jboss-logging</code> in the Maven <code>pom.xml</code> file.
-Then, we will add a few logs in our code at different levels.
-Finally, we will configure WildFly to change the log level of our application logs independently of WildFly own logs.</p>
+<p>WildFly supports all major logging facades. These include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/jboss-logging/jboss-logging">JBoss Logging</a></p>
+</li>
+<li>
+<p><a href="https://sl4fj.org">SLF4J</a></p>
+</li>
+<li>
+<p><a href="https://logging.apache.org/log4j/2.x/">Apache Log4j</a> (2.x+)</p>
+</li>
+<li>
+<p><a href="https://commons.apache.org/proper/commons-logging/">Apache Commons Logging</a></p>
+</li>
+<li>
+<p>Java Util Logging</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Choose the logging facade you&#8217;d like to use and ensure it&#8217;s added in your Maven <code>pom.xml</code> file with a scope of <code>provided</code>.
+Then, we will add a few logs in our code at different levels. Finally, we will configure WildFly to change the log level
+of our application logs independently of WildFly own logs.</p>
+</div>
+<div class="paragraph">
+<p>In our example we will be using JBoss Logging.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="add-dependency-on-jboss-logging">Add Dependency on JBoss Logging</h2>
+<h2 id="add-a-dependency-on-jboss-logging">Add a Dependency on JBoss Logging</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In order to use JBoss Logging in our application, we need to add a dependency on it in the <code>pom.xml</code>.</p>
@@ -136,6 +161,7 @@ Finally, we will configure WildFly to change the log level of our application lo
 <pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.jboss.logging&lt;/groupId&gt;
     &lt;artifactId&gt;jboss-logging&lt;/artifactId&gt;
+    &lt;!-- Provided by WildFly --&gt;
     &lt;scope&gt;provided&lt;/scope&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
@@ -169,22 +195,20 @@ import org.jboss.logging.Logger;
 @ApplicationScoped
 public class GettingStartedService {
 
-    private static Logger log = Logger.getLogger(GettingStartedService.class.getName());
+    private static Logger log = Logger.getLogger(GettingStartedService.class);
 
     public String hello(String name) {
-        if (log.isEnabled(Logger.Level.TRACE)) {
-            log.trace("called method with: " + name);
-        }
+        log.tracef("called method with: %s", name);
 
         String out = String.format("Hello '%s'.", name);
-        log.info("returning: " + out);
+        log.infof("returning: %s", out);
         return out;
     }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You added a <code>log</code> Logger that can log message with the category corresponding to the class package <code>org.wildfly.examples</code>.
+<p>You added a <code>log</code> Logger that can log messages with a name corresponding to the class <code>org.wildfly.examples.GettingStartedService</code>.
 You also added two logging calls, one at the <code>TRACE</code> level and the other one at the <code>INFO</code> level.</p>
 </div>
 <div class="paragraph">
@@ -217,14 +241,31 @@ we can pass a CLI script so the WildFly configuration will be modified whenever 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code># let the console display TRACE logs
+<pre class="highlight"><code># Start the embedded server
+embed-server
+# let the console display TRACE logs
 /subsystem=logging/console-handler=CONSOLE:write-attribute(name=level, value=TRACE)
-# create the logger for our code (with the category org.wildfly.examples corresponding to our package)
-/subsystem=logging/logger=org.wildfly.examples:add(level=TRACE)</code></pre>
+# create the logger for our code (with the name org.wildfly.examples corresponding to our package)
+/subsystem=logging/logger=org.wildfly.examples:add(level=TRACE)
+stop-embedded-server</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+We use the logger name <code>org.wildfly.examples</code> instead of the full logger name. This will allow trace logs from
+      all loggers which have this same base name.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>This script contains the management operations to change the WildFly configuration. We could invoke any management operations but, in this case, we only modify the <code>/subsystem=logging</code> resources that control the logging aspects.</p>
+<p>This script contains the management operations to change the WildFly configuration. We could invoke any management operations but,
+in this case, we only modify the <code>/subsystem=logging</code> resources that control the logging aspects.</p>
 </div>
 <div class="paragraph">
 <p>You then need to modify the <code>wildfly-maven-plugin</code> configuration in <code>pom.xml</code> to execute this:</p>
@@ -234,13 +275,11 @@ we can pass a CLI script so the WildFly configuration will be modified whenever 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;packaging-scripts&gt;
-    &lt;packaging-script&gt;
-        &lt;scripts&gt;
-            &lt;script&gt;${project.build.scriptSourceDirectory}/configuration.cli&lt;/script&gt;
-        &lt;/scripts&gt;
-    &lt;/packaging-script&gt;
-&lt;/packaging-scripts&gt;</code></pre>
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;!-- Execute the script in offline mode --&gt;
+&lt;offline&gt;true&lt;/offline&gt;
+&lt;scripts&gt;
+    &lt;script&gt;${project.build.scriptSourceDirectory}/configuration.cli&lt;/script&gt;
+&lt;/scripts&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -248,14 +287,23 @@ we can pass a CLI script so the WildFly configuration will be modified whenever 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>&lt;plugin&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;plugin&gt;
     &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
     &lt;artifactId&gt;wildfly-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;${version.wildfly.maven.plugin}&lt;/version&gt;
     &lt;configuration&gt;
-        ...
         &lt;!-- copy the XML snippet here --&gt;
     &lt;/configuration&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;provision-server&lt;/id&gt;
+            &lt;phase&gt;package&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;provision&lt;/goal&gt;
+                &lt;goal&gt;execution-commands&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
 &lt;/plugin&gt;</code></pre>
 </div>
 </div>
