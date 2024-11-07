@@ -8,13 +8,13 @@
   <title>WildFly Downloads</title>
   <meta name="description" content="">
   <link rel="me" href="https://fosstodon.org/@wildflyas" />
-  <link rel="shortcut icon" type="image/png" href="/wildfly.org/favicon.ico" >
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" >
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
-  <link rel="stylesheet" href="/wildfly.org/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
   <script>
@@ -24,8 +24,8 @@
 
     gtag('config', 'UA-40221748-1');
   </script>
-  <script src="/wildfly.orgassets/javascript/tracking.js"></script>
-  <script src="https://design.jboss.org/matomo/matomo.js" async defer></script>
+
+  
 
 </head>
 
@@ -33,38 +33,38 @@
   <div class="content">
     <div class="header navigation">
   <div class="logo-wrapper">
-    <a href="/wildfly.org/"><img class="wf-logo" src="/wildfly.org/assets/img/wildfly_icons_one-color-logo.png"></a>
+    <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
   </div>
   <div class="nav-container">
     <nav>
       <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
       <ul class="nav-list">
         <li>
-          <a href="/wildfly.org/news/" class="">News</a>
+          <a href="/news/" class="">News</a>
         </li>
         <li>
-          <a href="/wildfly.org/about/" class="">About</a>
+          <a href="/about/" class="">About</a>
         </li>
         <li>
-          <a href="/wildfly.org/contribute/" class="">Contribute</a>
+          <a href="/contribute/" class="">Contribute</a>
         </li>
         <li>
             <a target="_blank" href="https://docs.wildfly.org">Docs</a>
         </li>
         <li>
-          <a href="/wildfly.org/guides/" class="">Guides</a>
+          <a href="/guides/" class="">Guides</a>
         </li>
         <li>
-          <a href="/wildfly.org/downloads/" class="active">Downloads</a>
+          <a href="/downloads/" class="active">Downloads</a>
         </li>
         <li>
-          <a href="/wildfly.org/security/" class="">CVE Reporting</a>
+          <a href="/security/" class="">CVE Reporting</a>
         </li>
         <li>
           <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
         </li>
         <li>
-          <a class="button-cta secondary " href="/wildfly.org/get-started/">Get Started</a>
+          <a class="button-cta secondary " href="/get-started/">Get Started</a>
         </li>
       </ul>
     </nav>
@@ -75,14 +75,549 @@
   <div class="grid-wrapper">
     <div class="grid__item width-12-12 ">
       
-      <h1>Wild<strong>Fly</strong> 31.0.1 Final is now available</h1>
+      <h1>Wild<strong>Fly</strong> 34 Final is now available</h1>
       <div class="download-ctas">
-        <a href="https://github.com/wildfly/wildfly/releases/download/31.0.1.Final/wildfly-31.0.1.Final.zip" class="button-cta">Download the zip</a>
-        <a href="https://github.com/wildfly/wildfly/releases/download/31.0.1.Final/wildfly-31.0.1.Final.tar.gz" class="button-cta">Download the tgz</a>
+        <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-34.0.0.Final.zip" class="button-cta">Download the zip</a>
+        <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-34.0.0.Final.tar.gz" class="button-cta">Download the tgz</a>
       </div> 
-      <div class="page-subtitle">
+      <div class="page-eap">
         <h4>The technology behind Wild<strong>Fly</strong> is also available in <a href="https://www.redhat.com/en/technologies/jboss-middleware/application-platform" target="_blank">JBoss Enterprise Application Platform</a>. JBoss EAP is a hardened enterprise subscription with Red Hat’s world-class support, long multi-year maintenance cycles, and exclusive content. <a href="https://developers.redhat.com/register" target="_blank">Sign-up with Red Hat</a> to download a no-cost 1-year development license.</h4>
         <a href="https://developers.redhat.com/products/eap/download/" class="button-cta secondary" target="_blank">Download Red Hat JBoss EAP</a>
+      </div>
+      <div class="page-nightlies">
+        <h5>Nightly snapshot builds from the main WildFly source branch are also available for <a href="https://ci.wildfly.org/repository/download/WF_Nightly/latest.lastFinished/wildfly-latest-SNAPSHOT.zip?guest=1">standard WildFly</a> and <a href="https://ci.wildfly.org/repository/download/WF_WildFlyPreviewNightly/latest.lastFinished/wildfly-preview-latest-SNAPSHOT.zip?guest=1">WildFly Preview</a>.</h5>
+      </div>
+      
+      <div class="grid-wrapper version-row mobile-fullwidth">
+        <div class="grid__item width-2-12 version-id">
+          <h2 id="34.0.0.Final"><a class="anchor" href="#34.0.0.Final"></a>34.0.0.Final</h2>
+        </div>
+        <div class="grid__item width-10-12 version-content">
+          <div class="grid-wrapper">
+            <div class="grid__item width-6-12 version-table">
+              <table class="tg">
+                <tr>
+                  <th colspan="3"><div class="version-name final">Final<span class="release-date">Oct 17, 2024</span></div>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-34.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-34.0.0.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-34.0.0.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-34.0.0.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Preview Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-preview-34.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-preview-34.0.0.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-preview-34.0.0.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-preview-34.0.0.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Application Server Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-34.0.0.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-34.0.0.Final-src.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-34.0.0.Final-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Final/wildfly-34.0.0.Final-src.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Quick Start Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/quickstart/tree/34.0.0.Final">Git Tag</a><br/>
+                    
+                    <a href="https://github.com/wildfly/quickstart/releases/download/34.0.0.Final/wildfly-34.0.0.Final-quickstarts.zip">zip</a> | <a href="https://github.com/wildfly/quickstart/releases/download/34.0.0.Final/wildfly-34.0.0.Final-quickstarts.zip.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Release Notes</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://wildfly.org/news/2024/10/17/WildFly34-Released/">Notes</a><br/>
+                    
+                  </td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid-wrapper version-row mobile-fullwidth">
+        <div class="grid__item width-2-12 version-id">
+          <h2 id="34.0.0.Beta1"><a class="anchor" href="#34.0.0.Beta1"></a>34.0.0.Beta1</h2>
+        </div>
+        <div class="grid__item width-10-12 version-content">
+          <div class="grid-wrapper">
+            <div class="grid__item width-6-12 version-table">
+              <table class="tg">
+                <tr>
+                  <th colspan="3"><div class="version-name final">Beta<span class="release-date">Sep 26, 2024</span></div>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-34.0.0.Beta1.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-34.0.0.Beta1.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-34.0.0.Beta1.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-34.0.0.Beta1.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Preview Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-preview-34.0.0.Beta1.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-preview-34.0.0.Beta1.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-preview-34.0.0.Beta1.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-preview-34.0.0.Beta1.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Application Server Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-34.0.0.Beta1-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-34.0.0.Beta1-src.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-34.0.0.Beta1-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/34.0.0.Beta1/wildfly-34.0.0.Beta1-src.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Quick Start Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/quickstart/tree/34.0.0.Beta1">Git Tag</a><br/>
+                    
+                    <a href="https://github.com/wildfly/quickstart/releases/download/34.0.0.Beta1/wildfly-34.0.0.Beta1-quickstarts.zip">zip</a> | <a href="https://github.com/wildfly/quickstart/releases/download/34.0.0.Beta1/wildfly-34.0.0.Beta1-quickstarts.zip.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Release Notes</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/tag/34.0.0.Beta1">Notes</a><br/>
+                    
+                  </td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid-wrapper version-row mobile-fullwidth">
+        <div class="grid__item width-2-12 version-id">
+          <h2 id="33.0.2.Final"><a class="anchor" href="#33.0.2.Final"></a>33.0.2.Final</h2>
+        </div>
+        <div class="grid__item width-10-12 version-content">
+          <div class="grid-wrapper">
+            <div class="grid__item width-6-12 version-table">
+              <table class="tg">
+                <tr>
+                  <th colspan="3"><div class="version-name final">Final<span class="release-date">Sep 17, 2024</span></div>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-33.0.2.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-33.0.2.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-33.0.2.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-33.0.2.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Preview Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-preview-33.0.2.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-preview-33.0.2.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-preview-33.0.2.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-preview-33.0.2.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Application Server Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-33.0.2.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-33.0.2.Final-src.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-33.0.2.Final-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.2.Final/wildfly-33.0.2.Final-src.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Quick Start Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/quickstart/tree/33.0.2.Final">Git Tag</a><br/>
+                    
+                    <a href="https://github.com/wildfly/quickstart/releases/download/33.0.2.Final/wildfly-33.0.2.Final-quickstarts.zip">zip</a> | <a href="https://github.com/wildfly/quickstart/releases/download/33.0.2.Final/wildfly-33.0.2.Final-quickstarts.zip.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Release Notes</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://wildfly.org/news/2024/09/17/WildFly3302-Released/">Notes</a><br/>
+                    
+                  </td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid-wrapper version-row mobile-fullwidth">
+        <div class="grid__item width-2-12 version-id">
+          <h2 id="33.0.1.Final"><a class="anchor" href="#33.0.1.Final"></a>33.0.1.Final</h2>
+        </div>
+        <div class="grid__item width-10-12 version-content">
+          <div class="grid-wrapper">
+            <div class="grid__item width-6-12 version-table">
+              <table class="tg">
+                <tr>
+                  <th colspan="3"><div class="version-name final">Final<span class="release-date">Aug 22, 2024</span></div>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-33.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-33.0.1.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-33.0.1.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-33.0.1.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Preview Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-preview-33.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-preview-33.0.1.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-preview-33.0.1.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-preview-33.0.1.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Application Server Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-33.0.1.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-33.0.1.Final-src.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-33.0.1.Final-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.1.Final/wildfly-33.0.1.Final-src.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Quick Start Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/quickstart/tree/33.0.1.Final">Git Tag</a><br/>
+                    
+                    <a href="https://github.com/wildfly/quickstart/releases/download/33.0.1.Final/wildfly-33.0.1.Final-quickstarts.zip">zip</a> | <a href="https://github.com/wildfly/quickstart/releases/download/33.0.1.Final/wildfly-33.0.1.Final-quickstarts.zip.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Release Notes</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://wildfly.org/news/2024/08/22/WildFly3301-Released/">Notes</a><br/>
+                    
+                  </td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid-wrapper version-row mobile-fullwidth">
+        <div class="grid__item width-2-12 version-id">
+          <h2 id="33.0.0.Final"><a class="anchor" href="#33.0.0.Final"></a>33.0.0.Final</h2>
+        </div>
+        <div class="grid__item width-10-12 version-content">
+          <div class="grid-wrapper">
+            <div class="grid__item width-6-12 version-table">
+              <table class="tg">
+                <tr>
+                  <th colspan="3"><div class="version-name final">Final<span class="release-date">Jul 23, 2024</span></div>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-33.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-33.0.0.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-33.0.0.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-33.0.0.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Preview Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-preview-33.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-preview-33.0.0.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-preview-33.0.0.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-preview-33.0.0.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Application Server Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-33.0.0.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-33.0.0.Final-src.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-33.0.0.Final-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/33.0.0.Final/wildfly-33.0.0.Final-src.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Quick Start Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/quickstart/tree/33.0.0.Final">Git Tag</a><br/>
+                    
+                    <a href="https://github.com/wildfly/quickstart/releases/download/33.0.0.Final/wildfly-33.0.0.Final-quickstarts.zip">zip</a> | <a href="https://github.com/wildfly/quickstart/releases/download/33.0.0.Final/wildfly-33.0.0.Final-quickstarts.zip.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Release Notes</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://wildfly.org/news/2024/07/23/WildFly33-Released/">Notes</a><br/>
+                    
+                  </td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid-wrapper version-row mobile-fullwidth">
+        <div class="grid__item width-2-12 version-id">
+          <h2 id="32.0.1.Final"><a class="anchor" href="#32.0.1.Final"></a>32.0.1.Final</h2>
+        </div>
+        <div class="grid__item width-10-12 version-content">
+          <div class="grid-wrapper">
+            <div class="grid__item width-6-12 version-table">
+              <table class="tg">
+                <tr>
+                  <th colspan="3"><div class="version-name final">Final<span class="release-date">May 31, 2024</span></div>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-32.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-32.0.1.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-32.0.1.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-32.0.1.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Preview Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-preview-32.0.1.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-preview-32.0.1.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-preview-32.0.1.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-preview-32.0.1.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Application Server Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-32.0.1.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-32.0.1.Final-src.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-32.0.1.Final-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.1.Final/wildfly-32.0.1.Final-src.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Quick Start Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/quickstart/tree/32.0.1.Final">Git Tag</a><br/>
+                    
+                    <a href="https://github.com/wildfly/quickstart/releases/download/32.0.1.Final/wildfly-32.0.1.Final-quickstarts.zip">zip</a> | <a href="https://github.com/wildfly/quickstart/releases/download/32.0.1.Final/wildfly-32.0.1.Final-quickstarts.zip.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Release Notes</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://wildfly.org/news/2024/05/31/WildFly3201-Released/">Notes</a><br/>
+                    
+                  </td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid-wrapper version-row mobile-fullwidth">
+        <div class="grid__item width-2-12 version-id">
+          <h2 id="32.0.0.Final"><a class="anchor" href="#32.0.0.Final"></a>32.0.0.Final</h2>
+        </div>
+        <div class="grid__item width-10-12 version-content">
+          <div class="grid-wrapper">
+            <div class="grid__item width-6-12 version-table">
+              <table class="tg">
+                <tr>
+                  <th colspan="3"><div class="version-name final">Final<span class="release-date">Apr 25, 2024</span></div>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-32.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-32.0.0.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-32.0.0.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-32.0.0.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">WildFly Preview Distribution</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-preview-32.0.0.Final.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-preview-32.0.0.Final.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-preview-32.0.0.Final.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-preview-32.0.0.Final.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Application Server Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-32.0.0.Final-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-32.0.0.Final-src.zip.sha1">SHA-1</a><br/>
+                    
+                    <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-32.0.0.Final-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/32.0.0.Final/wildfly-32.0.0.Final-src.tar.gz.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Quick Start Source Code</td>
+                  <!--<td class="licence">AL</td>-->
+                  <td class="links">
+                    
+                    <a href="https://github.com/wildfly/quickstart/tree/32.0.0.Final">Git Tag</a><br/>
+                    
+                    <a href="https://github.com/wildfly/quickstart/releases/download/32.0.0.Final/wildfly-32.0.0.Final-quickstarts.zip">zip</a> | <a href="https://github.com/wildfly/quickstart/releases/download/32.0.0.Final/wildfly-32.0.0.Final-quickstarts.zip.sha1">SHA-1</a><br/>
+                    
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="description">Release Notes</td>
+                  <!--<td class="licence"></td>-->
+                  <td class="links">
+                    
+                    <a href="https://wildfly.org/news/2024/04/25/WildFly32-Released/">Notes</a><br/>
+                    
+                  </td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
       
       <div class="grid-wrapper version-row mobile-fullwidth">
@@ -138,7 +673,9 @@
                   <!--<td class="licence">AL</td>-->
                   <td class="links">
                     
-                    <a href="https://github.com/wildfly/quickstart/releases/download/31.0.1.Final/wildfly-31.0.1.Final-quickstarts.zip">Source</a><br/>
+                    <a href="https://github.com/wildfly/quickstart/tree/31.0.1.Final">Git Tag</a><br/>
+                    
+                    <a href="https://github.com/wildfly/quickstart/releases/download/31.0.1.Final/wildfly-31.0.1.Final-quickstarts.zip">zip</a> | <a href="https://github.com/wildfly/quickstart/releases/download/31.0.1.Final/wildfly-31.0.1.Final-quickstarts.zip.sha1">SHA-1</a><br/>
                     
                   </td>
                 </tr>
@@ -225,82 +762,6 @@
                   <td class="links">
                     
                     <a href="https://wildfly.org/news/2024/01/25/WildFly31-Released/">Notes</a><br/>
-                    
-                  </td>
-                </tr>
-                
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="grid-wrapper version-row mobile-fullwidth">
-        <div class="grid__item width-2-12 version-id">
-          <h2 id="31.0.0.Beta1"><a class="anchor" href="#31.0.0.Beta1"></a>31.0.0.Beta1</h2>
-        </div>
-        <div class="grid__item width-10-12 version-content">
-          <div class="grid-wrapper">
-            <div class="grid__item width-6-12 version-table">
-              <table class="tg">
-                <tr>
-                  <th colspan="3"><div class="version-name final">Beta<span class="release-date">Dec 21, 2023</span></div>
-                </tr>
-                
-                <tr>
-                  <td class="description">WildFly Distribution</td>
-                  <!--<td class="licence"></td>-->
-                  <td class="links">
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-31.0.0.Beta1.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-31.0.0.Beta1.zip.sha1">SHA-1</a><br/>
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-31.0.0.Beta1.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-31.0.0.Beta1.tar.gz.sha1">SHA-1</a><br/>
-                    
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td class="description">WildFly Preview Distribution</td>
-                  <!--<td class="licence"></td>-->
-                  <td class="links">
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-preview-31.0.0.Beta1.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-preview-31.0.0.Beta1.zip.sha1">SHA-1</a><br/>
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-preview-31.0.0.Beta1.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-preview-31.0.0.Beta1.tar.gz.sha1">SHA-1</a><br/>
-                    
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td class="description">Application Server Source Code</td>
-                  <!--<td class="licence">AL</td>-->
-                  <td class="links">
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-31.0.0.Beta1-src.zip">zip</a> | <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-31.0.0.Beta1-src.zip.sha1">SHA-1</a><br/>
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-31.0.0.Beta1-src.tar.gz">tgz</a> | <a href="https://github.com/wildfly/wildfly/releases/download/31.0.0.Beta1/wildfly-31.0.0.Beta1-src.tar.gz.sha1">SHA-1</a><br/>
-                    
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td class="description">Quick Start Source Code</td>
-                  <!--<td class="licence">AL</td>-->
-                  <td class="links">
-                    
-                    <a href="https://github.com/wildfly/quickstart/tree/31.0.0.Beta1">Git Tag</a><br/>
-                    
-                    <a href="https://github.com/wildfly/quickstart/releases/download/31.0.0.Beta1/wildfly-31.0.0.Beta1-quickstarts.zip">zip</a> | <a href="https://github.com/wildfly/quickstart/releases/download/31.0.0.Beta1/wildfly-31.0.0.Beta1-quickstarts.zip.sha1">SHA-1</a><br/>
-                    
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td class="description">Release Notes</td>
-                  <!--<td class="licence"></td>-->
-                  <td class="links">
-                    
-                    <a href="https://github.com/wildfly/wildfly/releases/tag/31.0.0.Beta1">Notes</a><br/>
                     
                   </td>
                 </tr>
@@ -4270,7 +4731,7 @@
   <div class="content project-footer">
   <div class="footer-section">
     <div class="logo-wrapper">
-      <a href="/wildfly.org/"><img class="wf-logo" src="/wildfly.org/assets/img/wildfly_icons_one-color-logo.png"></a>
+      <a href="/"><img class="wf-logo" src="/assets/img/wildfly_icons_one-color-logo.png"></a>
     </div>
   </div>
   <div class="grid-wrapper">
@@ -4386,17 +4847,13 @@
           
             <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
           
-            <li><a href="http://snowdrop.jboss.org/">Snowdrop</a></li>
-          
             <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
           
             <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
           
-            <li><a href="http://teiid.jboss.org/">Teiid</a></li>
+            <li><a href="https://teiid.io/">Teiid</a></li>
           
             <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
-          
-            <li><a href="https://thorntail.io/">Thorntail</a></li>
           
             <li><a href="http://wise.jboss.org/">Wise</a></li>
           
@@ -4416,14 +4873,14 @@
       Sponsored by
     </span>
     <span class="redhat-logo">
-      <a href="https://www.redhat.com/" target="_blank"><img src="/wildfly.org/assets/img/redhat_reversed.svg"></a>
+      <a href="https://www.redhat.com/" target="_blank"><img src="/assets/img/redhat_reversed.svg"></a>
     </span>
   </div>
 </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script type="text/javascript" src="/wildfly.org/assets/javascript/mobile-nav.js"></script>
-  <script type="text/javascript" src="/wildfly.org/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript" src="/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/assets/javascript/random-color-picker.js"></script>
   <script type="text/javascript">
     if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
         _satellite.pageBottom();
@@ -4431,7 +4888,7 @@
     hljs.highlightAll();
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
-  <script type="text/javascript" src="/wildfly.org/assets/javascript/copy.js"></script>
+  <script type="text/javascript" src="/assets/javascript/copy.js"></script>
 
 </body>
 
