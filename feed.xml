@@ -4,10 +4,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
-  <link href="https://wildfly.org//feed.xml" rel="self" type="application/atom+xml" />
-  <link href="https://wildfly.org//" rel="alternate" type="text/html" />
-  <updated>2024-11-07T17:58:31+01:00</updated>
-  <id>https://wildfly.org/</id>
+  <link href="https://hpehl.github.io/wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://hpehl.github.io/wildfly.org/" rel="alternate" type="text/html" />
+  <updated>2024-11-07T18:09:30+01:00</updated>
+  <id>https://hpehl.github.io/wildfly.org</id>
 
   
   
@@ -17,13 +17,13 @@
   
     <entry>
       <title type="html">Playing with Generative AI with WildFly</title>
-      <link href="https://wildfly.org//news/2024/11/04/WildFly-playing-with-generative-ai/" rel="alternate" type="text/html" title="Playing with Generative AI with WildFly" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/11/04/WildFly-playing-with-generative-ai/" rel="alternate" type="text/html" title="Playing with Generative AI with WildFly" />
       <published>2024-11-04T00:00:00+01:00</published>
       <updated>2024-11-04T00:00:00+01:00</updated>
-      <id>https://wildfly.org//news/2024/11/04/WildFly-playing-with-generative-ai</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/11/04/WildFly-playing-with-generative-ai</id>
       
       
-        <content type="html" xml:base="https://wildfly.org//news/2024/11/04/WildFly-playing-with-generative-ai/">&lt;div class=&quot;paragraph&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/11/04/WildFly-playing-with-generative-ai/">&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;This blog post provides information on how to use the AI Galleon Feature pack to write generative AI applications.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -550,13 +550,13 @@ Also you can try &lt;a href=&quot;https://openai.com/&quot; target=&quot;_blank&
   
     <entry>
       <title type="html">WildFly 35 moves to SE 17, drops SE 11</title>
-      <link href="https://wildfly.org//news/2024/10/28/WildFly-moves-to-SE-17/" rel="alternate" type="text/html" title="WildFly 35 moves to SE 17, drops SE 11" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/10/28/WildFly-moves-to-SE-17/" rel="alternate" type="text/html" title="WildFly 35 moves to SE 17, drops SE 11" />
       <published>2024-10-28T00:00:00+01:00</published>
       <updated>2024-10-28T00:00:00+01:00</updated>
-      <id>https://wildfly.org//news/2024/10/28/WildFly-moves-to-SE-17</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/10/28/WildFly-moves-to-SE-17</id>
       
       
-        <content type="html" xml:base="https://wildfly.org//news/2024/10/28/WildFly-moves-to-SE-17/">&lt;div class=&quot;paragraph&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/10/28/WildFly-moves-to-SE-17/">&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;As I noted in the &lt;a href=&quot;https://www.wildfly.org/news/2024/10/17/WildFly34-Released/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly 34 release announcement&lt;/a&gt;, our plan is that WildFly 34.x will be the final release series that would run on Java SE 11. Beginning with the WildFly 35 release, the minimum Java SE version for a WildFly server will be SE 17.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -630,13 +630,13 @@ The WildFly 34.0.1 release will support SE 11. If we do any further releases in 
   
     <entry>
       <title type="html">Save the Date: WildFly Mini Conference on Nov 20th</title>
-      <link href="https://wildfly.org//news/2024/10/28/WildFly-mini-conference-save-the-date/" rel="alternate" type="text/html" title="Save the Date: WildFly Mini Conference on Nov 20th" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/10/28/WildFly-mini-conference-save-the-date/" rel="alternate" type="text/html" title="Save the Date: WildFly Mini Conference on Nov 20th" />
       <published>2024-10-28T00:00:00+01:00</published>
       <updated>2024-10-28T00:00:00+01:00</updated>
-      <id>https://wildfly.org//news/2024/10/28/WildFly-mini-conference-save-the-date</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/10/28/WildFly-mini-conference-save-the-date</id>
       
       
-        <content type="html" xml:base="https://wildfly.org//news/2024/10/28/WildFly-mini-conference-save-the-date/">&lt;div class=&quot;paragraph&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/10/28/WildFly-mini-conference-save-the-date/">&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Hello, WildFly Community!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -710,13 +710,13 @@ The WildFly 34.0.1 release will support SE 11. If we do any further releases in 
   
     <entry>
       <title type="html">WildFly 34 is released!</title>
-      <link href="https://wildfly.org//news/2024/10/17/WildFly34-Released/" rel="alternate" type="text/html" title="WildFly 34 is released!" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/10/17/WildFly34-Released/" rel="alternate" type="text/html" title="WildFly 34 is released!" />
       <published>2024-10-17T00:00:00+02:00</published>
       <updated>2024-10-17T00:00:00+02:00</updated>
-      <id>https://wildfly.org//news/2024/10/17/WildFly34-Released</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/10/17/WildFly34-Released</id>
       
       
-        <content type="html" xml:base="https://wildfly.org//news/2024/10/17/WildFly34-Released/">&lt;div id=&quot;preamble&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/10/17/WildFly34-Released/">&lt;div id=&quot;preamble&quot;&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;I&amp;#8217;m pleased to announce that the new WildFly and WildFly Preview 34.0.0.Final releases are available for download at &lt;a href=&quot;https://wildfly.org/downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://wildfly.org/downloads&lt;/a&gt;.&lt;/p&gt;
@@ -1229,13 +1229,13 @@ The WildFly 34 series will be the &lt;strong&gt;last to support SE 11&lt;/strong
   
     <entry>
       <title type="html">Introducing Jakarta Data in WildFly Preview</title>
-      <link href="https://wildfly.org//news/2024/10/10/jakarta-data/" rel="alternate" type="text/html" title="Introducing Jakarta Data in WildFly Preview" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/10/10/jakarta-data/" rel="alternate" type="text/html" title="Introducing Jakarta Data in WildFly Preview" />
       <published>2024-10-10T00:00:00+02:00</published>
       <updated>2024-10-10T00:00:00+02:00</updated>
-      <id>https://wildfly.org//news/2024/10/10/jakarta-data</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/10/10/jakarta-data</id>
       
       
-        <content type="html" xml:base="https://wildfly.org//news/2024/10/10/jakarta-data/">&lt;div id=&quot;preamble&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/10/10/jakarta-data/">&lt;div id=&quot;preamble&quot;&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;I&amp;#8217;m excited that in the 34 Beta release we were able to introduce support for &lt;a href=&quot;https://jakarta.ee/specifications/data/1.0/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jakarta Data&lt;/a&gt; into WildFly Preview. It was a bit of an unexpected last minute thing that we were able to do this, which left us without time to much in the way of documentation. We&amp;#8217;ll correct that for WildFly 35, but in the meantime I&amp;#8217;ll use this blog post as a way to introduce the basics.&lt;/p&gt;
@@ -1564,13 +1564,13 @@ $ /subsystem=jakarta-data:add&lt;/code&gt;&lt;/pre&gt;
   
     <entry>
       <title type="html">Announcement for the Upcoming WildFly Mini Conference!</title>
-      <link href="https://wildfly.org//news/2024/10/07/WildFly-mini-conference-session-form/" rel="alternate" type="text/html" title="Announcement for the Upcoming WildFly Mini Conference!" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/10/07/WildFly-mini-conference-session-form/" rel="alternate" type="text/html" title="Announcement for the Upcoming WildFly Mini Conference!" />
       <published>2024-10-07T00:00:00+02:00</published>
       <updated>2024-10-07T00:00:00+02:00</updated>
-      <id>https://wildfly.org//news/2024/10/07/WildFly-mini-conference-session-form</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/10/07/WildFly-mini-conference-session-form</id>
       
       
-        <content type="html" xml:base="https://wildfly.org//news/2024/10/07/WildFly-mini-conference-session-form/">&lt;div class=&quot;paragraph&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/10/07/WildFly-mini-conference-session-form/">&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Hello, WildFly Community!&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -1634,13 +1634,13 @@ $ /subsystem=jakarta-data:add&lt;/code&gt;&lt;/pre&gt;
   
     <entry>
       <title type="html">Debug a provisioned WildFly server with the help of wildfly-maven-plugin</title>
-      <link href="https://wildfly.org//news/2024/10/04/debug-with-maven-wildfly-plugin/" rel="alternate" type="text/html" title="Debug a provisioned WildFly server with the help of wildfly-maven-plugin" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/10/04/debug-with-maven-wildfly-plugin/" rel="alternate" type="text/html" title="Debug a provisioned WildFly server with the help of wildfly-maven-plugin" />
       <published>2024-10-04T00:00:00+02:00</published>
       <updated>2024-10-04T00:00:00+02:00</updated>
-      <id>https://wildfly.org//news/2024/10/04/debug-with-maven-wildfly-plugin</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/10/04/debug-with-maven-wildfly-plugin</id>
       
       
-        <content type="html" xml:base="https://wildfly.org//news/2024/10/04/debug-with-maven-wildfly-plugin/">&lt;div class=&quot;sect1&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/10/04/debug-with-maven-wildfly-plugin/">&lt;div class=&quot;sect1&quot;&gt;
 &lt;h2 id=&quot;debug-a-provisioned-wildfly-server-with-the-help-of-the-wildfly-maven-plugin&quot;&gt;Debug a provisioned WildFly server with the help of the wildfly-maven-plugin&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -1989,13 +1989,13 @@ wildfly:run
   
     <entry>
       <title type="html">WildFly 34 Beta is released!</title>
-      <link href="https://wildfly.org//news/2024/09/26/WildFly34Beta-released/" rel="alternate" type="text/html" title="WildFly 34 Beta is released!" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/09/26/WildFly34Beta-released/" rel="alternate" type="text/html" title="WildFly 34 Beta is released!" />
       <published>2024-09-26T00:00:00+02:00</published>
       <updated>2024-09-26T00:00:00+02:00</updated>
-      <id>https://wildfly.org//news/2024/09/26/WildFly34Beta-released</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/09/26/WildFly34Beta-released</id>
       
       
-        <content type="html" xml:base="https://wildfly.org//news/2024/09/26/WildFly34Beta-released/">&lt;div class=&quot;paragraph&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/09/26/WildFly34Beta-released/">&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;I&amp;#8217;m pleased to announce that the new WildFly 34.0.0.Beta1 release is available for download at &lt;a href=&quot;https://wildfly.org/downloads&quot; class=&quot;bare&quot;&gt;https://wildfly.org/downloads&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -2070,13 +2070,13 @@ component upgrades have been included in this release but I would also like to c
   
     <entry>
       <title type="html">Hacktoberfest 2024</title>
-      <link href="https://wildfly.org//news/2024/09/23/Hacktoberfest-2024/" rel="alternate" type="text/html" title="Hacktoberfest 2024" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/09/23/Hacktoberfest-2024/" rel="alternate" type="text/html" title="Hacktoberfest 2024" />
       <published>2024-09-23T00:00:00+02:00</published>
       <updated>2024-09-23T00:00:00+02:00</updated>
-      <id>https://wildfly.org//news/2024/09/23/Hacktoberfest-2024</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/09/23/Hacktoberfest-2024</id>
       
       
-        <content type="html" xml:base="https://wildfly.org//news/2024/09/23/Hacktoberfest-2024/">&lt;div id=&quot;preamble&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/09/23/Hacktoberfest-2024/">&lt;div id=&quot;preamble&quot;&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
@@ -2288,13 +2288,13 @@ component upgrades have been included in this release but I would also like to c
   
     <entry>
       <title type="html">WildFly 33.0.2 is released!</title>
-      <link href="https://wildfly.org//news/2024/09/17/WildFly3302-Released/" rel="alternate" type="text/html" title="WildFly 33.0.2 is released!" />
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/09/17/WildFly3302-Released/" rel="alternate" type="text/html" title="WildFly 33.0.2 is released!" />
       <published>2024-09-17T00:00:00+02:00</published>
       <updated>2024-09-17T00:00:00+02:00</updated>
-      <id>https://wildfly.org//news/2024/09/17/WildFly3302-Released</id>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/09/17/WildFly3302-Released</id>
       
       
-        <content type="html" xml:base="https://wildfly.org//news/2024/09/17/WildFly3302-Released/">&lt;div class=&quot;paragraph&quot;&gt;
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/09/17/WildFly3302-Released/">&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;WildFly 33.0.2.Final is now available &lt;a href=&quot;https://wildfly.org/downloads&quot;&gt;for download&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
