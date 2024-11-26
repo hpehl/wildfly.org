@@ -6,7 +6,7 @@
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
   <link href="https://hpehl.github.io/wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hpehl.github.io/wildfly.org/" rel="alternate" type="text/html" />
-  <updated>2024-11-12T12:15:03+01:00</updated>
+  <updated>2024-11-26T11:21:52+01:00</updated>
   <id>https://hpehl.github.io/wildfly.org</id>
 
   
@@ -14,6 +14,586 @@
     <title type="html">WildFly</title>
   
 
+  
+    <entry>
+      <title type="html">WildFly 34.0.1 is released!</title>
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/11/22/WildFly3401-Released/" rel="alternate" type="text/html" title="WildFly 34.0.1 is released!" />
+      <published>2024-11-22T00:00:00+01:00</published>
+      <updated>2024-11-22T00:00:00+01:00</updated>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/11/22/WildFly3401-Released</id>
+      
+      
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/11/22/WildFly3401-Released/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;WildFly 34.0.1.Final is now available &lt;a href=&quot;https://wildfly.org/downloads&quot;&gt;for download&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It&amp;#8217;s been about a month since the WildFly 34 release, so we have done a small bug fix update, WildFly 34.0.1. This includes an update to WildFly Preview.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The following issues were resolved in 34.0.1:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;bugs&quot;&gt;Bugs&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19891&quot;&gt;WFLY-19891&lt;/a&gt;] - ISPN000299: Unable to acquire lock&amp;#8230;&amp;#8203; when cancelling a persistent timer in @PostConstruct on a suspended node&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19909&quot;&gt;WFLY-19909&lt;/a&gt;] - Wrong routing of EJB calls in cluster&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;component-upgrades&quot;&gt;Component Upgrades&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19927&quot;&gt;WFLY-19927&lt;/a&gt;] - Upgrade RESTEasy to 6.2.11.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19928&quot;&gt;WFLY-19928&lt;/a&gt;] - Upgrade RESTEasy to 7.0.0.Alpha4 (WF preview)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19964&quot;&gt;WFLY-19964&lt;/a&gt;] - Upgrade Netty to 4.1.115.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19977&quot;&gt;WFLY-19977&lt;/a&gt;] - Upgrade wildfly-clustering to 1.1.3.Final&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Paul Ferraro</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="release" />
+      
+
+      
+        <summary type="html">WildFly 34.0.1.Final is now available for download.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Using the maven-wildfly-plugin to provision the WildFly to use the PostgreSQL datasource.</title>
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/11/14/using-maven-wildfly-plugin-with-postgresql-ds/" rel="alternate" type="text/html" title="Using the maven-wildfly-plugin to provision the WildFly to use the PostgreSQL datasource." />
+      <published>2024-11-14T00:00:00+01:00</published>
+      <updated>2024-11-14T00:00:00+01:00</updated>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/11/14/using-maven-wildfly-plugin-with-postgresql-ds</id>
+      
+      
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/11/14/using-maven-wildfly-plugin-with-postgresql-ds/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Recently I needed to configure a WildFly server to use a PostgreSQL datasource for some testings, and I’d like to use the`wildfly-maven-plugin` to automate the server provision process, so I invested some time into the topic and finally made it work. To sum up what I have learned, I have put the usage example in this PR:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/jberet/jberet-examples/pull/8&quot;&gt;jberet-examples / add postgresql based repository example #8&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;From the above pull request, we can see that the &lt;code&gt;wildfly-datasources-galleon-pack&lt;/code&gt; feature pack&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_1&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_1&quot; title=&quot;View footnote.&quot;&gt;1&lt;/a&gt;]&lt;/sup&gt; is added into the plugin configuration:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;feature-pack&amp;gt;
+    &amp;lt;location&amp;gt;org.wildfly:wildfly-datasources-galleon-pack:8.0.1.Final&amp;lt;/location&amp;gt;
+&amp;lt;/feature-pack&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And this layer is used:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;layers&amp;gt;
+    &amp;lt;layer&amp;gt;postgresql-driver&amp;lt;/layer&amp;gt;
+&amp;lt;/layers&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The above layer will just add the PostgreSQL driver into the provisioned WildFly server, and it won’t add any datasource by default. If I run the provisioned server with the above feature pack and layer added into the configuration with the following command in the example:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mvn clean wildfly:dev -Ppostgres&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I can see from the server log that the PostgreSQL driver is enabled during the server startup process:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;22:11:00,626 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 42) WFLYJCA0005: Deploying non-JDBC-compliant driver class org.postgresql.Driver (version 42.5)
+22:11:00,631 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Started Driver service with driver-name = postgresql&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So the feature pack and the layer will prepare the provisioned WildFly server to connect to the PostgreSQL driver, and then we can configure the datasource in the server. In the above example, there are scripts that will add the PostgreSQL datasource&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_2&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_2&quot; title=&quot;View footnote.&quot;&gt;2&lt;/a&gt;]&lt;/sup&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;xa-data-source add --name=batch_db --enabled=true --use-java-context=true --use-ccm=true --jndi-name=java:jboss/jsr352/batch_db --xa-datasource-properties={&quot;URL&quot;=&amp;gt;&quot;jdbc:postgresql://localhost:5432/batch_db&quot;} --driver-name=postgresql --password=123 --user-name=batch_user --same-rm-override=false --no-recovery=true
+/subsystem=batch-jberet/jdbc-job-repository=batch_db:add(data-source=batch_db)
+/subsystem=batch-jberet/:write-attribute(name=default-job-repository,value=batch_db)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The above configuration add the PostgreSQL datasource I need, and then it configures the batch subsystem to use the datasource as its job store, and is used in the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt; configuration section:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;scripts&amp;gt;
+    &amp;lt;script&amp;gt;${configure.ds.script}&amp;lt;/script&amp;gt;
+&amp;lt;/scripts&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The &lt;code&gt;configure.ds.script&lt;/code&gt; property is configured in the &lt;code&gt;postgresql&lt;/code&gt; profile:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;profile&amp;gt;
+    &amp;lt;id&amp;gt;postgres&amp;lt;/id&amp;gt;
+    &amp;lt;activation&amp;gt;
+        &amp;lt;property&amp;gt;
+            &amp;lt;name&amp;gt;postgres&amp;lt;/name&amp;gt;
+        &amp;lt;/property&amp;gt;
+    &amp;lt;/activation&amp;gt;
+    &amp;lt;properties&amp;gt;
+        &amp;lt;configure.ds.script&amp;gt;${project.basedir}/add-postgresql-ds.cli&amp;lt;/configure.ds.script&amp;gt;
+    &amp;lt;/properties&amp;gt;
+&amp;lt;/profile&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the script execution during the server startup, I can see from the server log that the datasource is bound:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;17:47:36,063 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0001: Bound data source [java:jboss/jsr352/batch_db]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please note that the &lt;code&gt;script&lt;/code&gt; section configuration can be used with the &lt;code&gt;provision&lt;/code&gt; goal(and it can be used in other goals as well like &lt;code&gt;dev&lt;/code&gt;):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;execution&amp;gt;
+    &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;provision&amp;lt;/goal&amp;gt;
+    &amp;lt;/goals&amp;gt;
+&amp;lt;/execution&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you want to use the &lt;code&gt;script&lt;/code&gt; with the &lt;code&gt;package&lt;/code&gt; goal:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;execution&amp;gt;
+    &amp;lt;goals&amp;gt;
+        &amp;lt;goal&amp;gt;package&amp;lt;/goal&amp;gt;
+    &amp;lt;/goals&amp;gt;
+&amp;lt;/execution&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Then you should configure the script like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;packaging-scripts&amp;gt;
+    &amp;lt;packaging-script&amp;gt;
+        &amp;lt;scripts&amp;gt;
+            &amp;lt;script&amp;gt;${configure.ds.script}&amp;lt;/script&amp;gt;
+        &amp;lt;/scripts&amp;gt;
+        &amp;lt;!-- Expressions resolved during server execution --&amp;gt;
+        &amp;lt;resolve-expressions&amp;gt;false&amp;lt;/resolve-expressions&amp;gt;
+    &amp;lt;/packaging-script&amp;gt;
+&amp;lt;/packaging-scripts&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Here is an example that is showing the above configuration method:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.wildfly.org/wildfly-maven-plugin/releases/5.0/package-mojo.html#packagingScripts&quot;&gt;WildFly Maven Plugin – wildfly:package#packagingScripts&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To sum up, if you want to play with the &lt;code&gt;jberet-example&lt;/code&gt; as noted in above by using a PostgreSQL back-end DB, you can use &lt;code&gt;podman&lt;/code&gt;(or Docker) to start a container that runs a PostgreSQL database:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ podman run -it -e POSTGRES_PASSWORD=123 -e POSTGRES_USER=batch_user -e POSTGRES_DB=batch_db -p 5432:5432 postgres&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Then run:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mvn clean wildfly:dev -Dpostgres&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You should be able to play with the example.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Above is the introduction to the script configuration. Besides the &lt;code&gt;postgresql-driver&lt;/code&gt; layer, the &lt;code&gt;wildfly-datasources-galleon-pack&lt;/code&gt; also provide other layers as described in the document&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_3&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_3&quot; title=&quot;View footnote.&quot;&gt;3&lt;/a&gt;]&lt;/sup&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;postgresql-default-datasource&lt;/code&gt;: Provision the PostgreSQLDS non xa
+datasource and configures it as the default one. Depends on
+postgresql-datasource layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;postgresql-datasource&lt;/code&gt;: Provision the PostgreSQLDS non xa
+datasource. Depends on postgresql-driver layer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;postgresql-driver&lt;/code&gt;: Provision the postgresql driver. This layer
+installs the JBoss Modules module org.postgresql.jdbc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As the document described above, the &lt;code&gt;postgresql-datasource&lt;/code&gt; and the &lt;code&gt;postgresql-default-datasource&lt;/code&gt; layers define a &lt;code&gt;PostgreSQLDS&lt;/code&gt; datasource in the provisioned server by default. In addition, the default &lt;code&gt;PostgreSQLDS&lt;/code&gt; datasource uses some built-in parameters to connect to the underlying PostgreSQL database. Here are the parameters that must be defined:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;POSTGRESQL_DATABASE&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;POSTGRESQL_PASSWORD&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;POSTGRESQL_URL&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;POSTGRESQL_USER&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the example, it also contains a profile called &lt;code&gt;postgres-ds&lt;/code&gt; that showing the usage of the &lt;code&gt;postgresql-datasource&lt;/code&gt; layer:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;layers&amp;gt;
+    &amp;lt;layer&amp;gt;postgresql-datasource&amp;lt;/layer&amp;gt;
+&amp;lt;/layers&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the profile it defines the following properties for the &lt;code&gt;PostgreSQLDS&lt;/code&gt; datasource:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;env&amp;gt;
+    &amp;lt;POSTGRESQL_JNDI&amp;gt;java:jboss/jsr352/batch_db&amp;lt;/POSTGRESQL_JNDI&amp;gt;
+    &amp;lt;POSTGRESQL_DATABASE&amp;gt;batch_db&amp;lt;/POSTGRESQL_DATABASE&amp;gt;
+    &amp;lt;POSTGRESQL_PASSWORD&amp;gt;123&amp;lt;/POSTGRESQL_PASSWORD&amp;gt;
+    &amp;lt;POSTGRESQL_URL&amp;gt;jdbc:postgresql://localhost:5432/batch_db&amp;lt;/POSTGRESQL_URL&amp;gt;
+    &amp;lt;POSTGRESQL_USER&amp;gt;batch_user&amp;lt;/POSTGRESQL_USER&amp;gt;
+&amp;lt;/env&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;After the above configuration is used, and if the provisioned server is run by &lt;code&gt;mvn clean wildfly:dev -Ppostgres-ds&lt;/code&gt;, we can check the datasource by using the CLI tool to connect to the WildFly server:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;./jboss-cli.sh --connect
+[standalone@localhost:9990 /]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And then we can check the configured datasource in the server:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[standalone@localhost:9990 /] /subsystem=datasources:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;data-source&quot; =&amp;gt; {&quot;PostgreSQLDS&quot; =&amp;gt; undefined},
+        &quot;jdbc-driver&quot; =&amp;gt; {&quot;postgresql&quot; =&amp;gt; undefined},
+        &quot;xa-data-source&quot; =&amp;gt; undefined
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can see the &lt;code&gt;PostgreSQLDS&lt;/code&gt; is now the configured datasource. Then we can check the &lt;code&gt;default-job-repository&lt;/code&gt; used by the &lt;code&gt;batch-jberet&lt;/code&gt; subsystem:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[standalone@localhost:9990 /] /subsystem=batch-jberet:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;restart-jobs-on-resume&quot; =&amp;gt; true,
+        &quot;security-domain&quot; =&amp;gt; &quot;ApplicationDomain&quot;,
+        &quot;default-job-repository&quot; =&amp;gt; &quot;batch_db&quot;,
+        &quot;default-thread-pool&quot; =&amp;gt; &quot;batch&quot;,
+        &quot;in-memory-job-repository&quot; =&amp;gt; {&quot;in-memory&quot; =&amp;gt; undefined},
+        &quot;jdbc-job-repository&quot; =&amp;gt; {&quot;batch_db&quot; =&amp;gt; undefined},
+        &quot;thread-factory&quot; =&amp;gt; undefined,
+        &quot;thread-pool&quot; =&amp;gt; {&quot;batch&quot; =&amp;gt; undefined}
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As the output shown above, the &lt;code&gt;default-job-repository&lt;/code&gt; is configured to use the &lt;code&gt;batch_db&lt;/code&gt;. Finally, we can check the definition of the &lt;code&gt;batch_db&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[standalone@localhost:9990 /] /subsystem=batch-jberet/jdbc-job-repository=batch_db:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;data-source&quot; =&amp;gt; &quot;PostgreSQLDS&quot;,
+        &quot;execution-records-limit&quot; =&amp;gt; undefined
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It&amp;#8217;s clear that the used &lt;code&gt;data-source&lt;/code&gt; is &lt;code&gt;PostgreSQLDS&lt;/code&gt;. This configuration is done by the &lt;code&gt;enable-jdbc-job-repo.cli&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;/subsystem=batch-jberet/jdbc-job-repository=batch_db:add(data-source=PostgreSQLDS)
+/subsystem=batch-jberet/:write-attribute(name=default-job-repository,value=batch_db)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And the above script is configured to be executed in the &lt;code&gt;postgres-ds&lt;/code&gt; profile of the example:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;properties&amp;gt;
+    &amp;lt;configure.ds.script&amp;gt;${project.basedir}/enable-jdbc-job-repo.cli&amp;lt;/configure.ds.script&amp;gt;
+&amp;lt;/properties&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you check the configuration by running the example with the &lt;code&gt;-Ppostgres&lt;/code&gt; profile. You can see the following output from the CLI:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[standalone@localhost:9990 /] /subsystem=batch-jberet/jdbc-job-repository=batch_db:read-resource
+{
+    &quot;outcome&quot; =&amp;gt; &quot;success&quot;,
+    &quot;result&quot; =&amp;gt; {
+        &quot;data-source&quot; =&amp;gt; &quot;batch_db&quot;,
+        &quot;execution-records-limit&quot; =&amp;gt; undefined
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Which is expected, because we configured the data-source manually by using the &lt;code&gt;postgresql-driver&lt;/code&gt; layer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Above is the introduction to the usage of the &lt;code&gt;wildfly-datasources-galleon-pack&lt;/code&gt; in the &lt;code&gt;maven-wildfly-plugin&lt;/code&gt;. An alternative way to do the configuration to use the &lt;code&gt;add-resources&lt;/code&gt; goal in the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt;. The document of the WildFly Maven Plugin shows its usage:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.wildfly.org/wildfly-maven-plugin/releases/5.0/add-resource-example.html&quot;&gt;WildFly Maven Plugin – Adding Resources Examples&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the above configuration, the datasource is deployed during the &lt;code&gt;add-resource&lt;/code&gt; goal running process. Because this method depends on the &lt;code&gt;add-resource&lt;/code&gt; goal, so it needs server to be run firstly, and then deploy the PostgreSQL driver(The PostgreSQL driver need to be added into the dependencies section for it to be deployed).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In addition, there is another way to do the PostgreSQL datasource configuration by using the Glow&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_4&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_4&quot; title=&quot;View footnote.&quot;&gt;4&lt;/a&gt;]&lt;/sup&gt; in the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt;. Here is the relative document to describe its usage:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.wildfly.org/guides/database-integrating-with-postgresql&quot;&gt;Integrating with a PostgreSQL database&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please note that the &lt;code&gt;batch-processing&lt;/code&gt; example&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_5&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_5&quot; title=&quot;View footnote.&quot;&gt;5&lt;/a&gt;]&lt;/sup&gt; in the WildFly Quickstart uses the above Glow solution to do the datasource configuration, and here is a relative pull request that contains the discussion related with the Glow usage:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/wildfly/quickstart/pull/973&quot;&gt;WFLY-19790 Replaces -ds.xml deprecated filed with Jakarta’s DataSou… by emmartins · Pull Request #973 · wildfly/quickstart&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the above pull request, it also contains the example usage of the &lt;code&gt;jakarta.annotation.sql.DataSourceDefinition&lt;/code&gt; class that eliminates the usage of the CLI script to configure the datasource&lt;sup class=&quot;footnote&quot;&gt;[&lt;a id=&quot;_footnoteref_6&quot; class=&quot;footnote&quot; href=&quot;#_footnotedef_6&quot; title=&quot;View footnote.&quot;&gt;6&lt;/a&gt;]&lt;/sup&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Personally I prefer to use the &lt;code&gt;wildfly-datasources-galleon-pack&lt;/code&gt; to configure the datasource because I can either use the default datasource layer configuration or manually configure it by choosing different layers, but you can always choose a solution that best fits your own project’s requirement.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div id=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_1&quot;&gt;
+&lt;a href=&quot;#_footnoteref_1&quot;&gt;1&lt;/a&gt;. &lt;a href=&quot;https://github.com/wildfly-extras/wildfly-datasources-galleon-pack&quot;&gt;wildfly-extras/wildfly-datasources-galleon-pack&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_2&quot;&gt;
+&lt;a href=&quot;#_footnoteref_2&quot;&gt;2&lt;/a&gt;. &lt;a href=&quot;https://github.com/jberet/jberet-examples/blob/main/deployment/add-postgresql-ds.cli&quot; class=&quot;bare&quot;&gt;https://github.com/jberet/jberet-examples/blob/main/deployment/add-postgresql-ds.cli&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_3&quot;&gt;
+&lt;a href=&quot;#_footnoteref_3&quot;&gt;3&lt;/a&gt;. &lt;a href=&quot;https://github.com/wildfly-extras/wildfly-datasources-galleon-pack/blob/main/doc/postgresql/README.md&quot; class=&quot;bare&quot;&gt;https://github.com/wildfly-extras/wildfly-datasources-galleon-pack/blob/main/doc/postgresql/README.md&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_4&quot;&gt;
+&lt;a href=&quot;#_footnoteref_4&quot;&gt;4&lt;/a&gt;. &lt;a href=&quot;https://github.com/wildfly/wildfly-glow&quot;&gt;wildfly/wildfly-glow:Galleon Layers Output from War: Automatic discover of WildFly provisioning information from an application.&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_5&quot;&gt;
+&lt;a href=&quot;#_footnoteref_5&quot;&gt;5&lt;/a&gt;. &lt;a href=&quot;https://github.com/wildfly/quickstart/tree/main/batch-processing&quot;&gt;quickstart/batch-processing at main · wildfly/quickstart&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;footnote&quot; id=&quot;_footnotedef_6&quot;&gt;
+&lt;a href=&quot;#_footnoteref_6&quot;&gt;6&lt;/a&gt;. &lt;a href=&quot;https://github.com/wildfly/quickstart/pull/973/files#diff-c2ef4683cc221a472071d924c4598af19d1152ad40f3b773cf4fe9c60fbc686d&quot;&gt;WFLY-19790 Replaces -ds.xml deprecated filed with Jakarta’s DataSou… by emmartins · Pull Request #973 · wildfly/quickstart&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>阿男</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="wildfly-maven-plugin" />
+      
+        <category term="postgresql" />
+      
+        <category term="jberet" />
+      
+        <category term="glow" />
+      
+
+      
+        <summary type="html">Recently I needed to configure a WildFly server to use a PostgreSQL datasource for some testings, and I’d like to use the`wildfly-maven-plugin` to automate the server provision process, so I invested some time into the topic and finally made it work. To sum up what I have learned, I have put the usage example in this PR:</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Next WildFly Mini Conference</title>
+      <link href="https://hpehl.github.io/wildfly.org/news/2024/11/12/WildFly-mini-conference/" rel="alternate" type="text/html" title="Next WildFly Mini Conference" />
+      <published>2024-11-12T00:00:00+01:00</published>
+      <updated>2024-11-12T00:00:00+01:00</updated>
+      <id>https://hpehl.github.io/wildfly.org/news/2024/11/12/WildFly-mini-conference</id>
+      
+      
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/11/12/WildFly-mini-conference/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The WildFly team organizes the next WildFly mini conference. It will take place on &lt;strong&gt;Wednesday, November 20, 2024&lt;/strong&gt;. It starts at &lt;strong&gt;14:00 UTC&lt;/strong&gt; and includes &lt;strong&gt;four sessions&lt;/strong&gt; with topics related to WildFly. All sessions will be streamed live on YouTube.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For more information, please take a look at the conference page at &lt;a href=&quot;https://www.wildfly.org/conference/&quot; class=&quot;bare&quot;&gt;https://www.wildfly.org/conference/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We&amp;#8217;re looking forward to seeing you there!&lt;/p&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Harald Pehl</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="conference" />
+      
+
+      
+        <summary type="html">The WildFly team organizes the next WildFly mini conference. It will take place on Wednesday, November 20, 2024. It starts at 14:00 UTC and includes four sessions with topics related to WildFly. All sessions will be streamed live on YouTube.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Playing with Generative AI with WildFly</title>
@@ -522,7 +1102,7 @@ Also you can try &lt;a href=&quot;https://openai.com/&quot; target=&quot;_blank&
 
       
         <author>
-          <name>ehugonne</name>
+          <name>Emmanuel Hugonnet</name>
           
           
         </author>
@@ -1981,409 +2561,6 @@ wildfly:run
 
       
         <summary type="html">Debug a provisioned WildFly server with the help of the wildfly-maven-plugin</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">WildFly 34 Beta is released!</title>
-      <link href="https://hpehl.github.io/wildfly.org/news/2024/09/26/WildFly34Beta-released/" rel="alternate" type="text/html" title="WildFly 34 Beta is released!" />
-      <published>2024-09-26T00:00:00+02:00</published>
-      <updated>2024-09-26T00:00:00+02:00</updated>
-      <id>https://hpehl.github.io/wildfly.org/news/2024/09/26/WildFly34Beta-released</id>
-      
-      
-        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/09/26/WildFly34Beta-released/">&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;I&amp;#8217;m pleased to announce that the new WildFly 34.0.0.Beta1 release is available for download at &lt;a href=&quot;https://wildfly.org/downloads&quot; class=&quot;bare&quot;&gt;https://wildfly.org/downloads&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;As can be seen from the &lt;a href=&quot;https://github.com/wildfly/wildfly/releases/tag/34.0.0.Beta1&quot;&gt;Release Notes&lt;/a&gt; a lot of maintenance and
-component upgrades have been included in this release but I would also like to call out some of the following highlights:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19306&quot;&gt;WFLY-19306&lt;/a&gt;]&amp;#8201;&amp;#8212;&amp;#8201;move from ORM 6.4.x to 6.6.x&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19632&quot;&gt;WFLY-19632&lt;/a&gt;]&amp;#8201;&amp;#8212;&amp;#8201;Hibernate Search 7.1.x to 7.2.x&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19298&quot;&gt;WFLY-19298&lt;/a&gt;]&amp;#8201;&amp;#8212;&amp;#8201;FasterXML Jackson from 2.15.x to 2.17.x&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Within the WildFly Preview distribution we also have:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19397&quot;&gt;WFLY-19397&lt;/a&gt;]&amp;#8201;&amp;#8212;&amp;#8201;Jakarta Data&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19589&quot;&gt;WFLY-19589&lt;/a&gt;]&amp;#8201;&amp;#8212;&amp;#8201;MP REST Client 4.0&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19464&quot;&gt;WFLY-19464&lt;/a&gt;]&amp;#8201;&amp;#8212;&amp;#8201;User boms for WildFly Preview&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Please try out this release and let us know how you get on.&lt;/p&gt;
-&lt;/div&gt;</content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Darran Lofthouse</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="announcement" />
-      
-        <category term="release" />
-      
-
-      
-        <summary type="html">I&amp;#8217;m pleased to announce that the new WildFly 34.0.0.Beta1 release is available for download at https://wildfly.org/downloads.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Hacktoberfest 2024</title>
-      <link href="https://hpehl.github.io/wildfly.org/news/2024/09/23/Hacktoberfest-2024/" rel="alternate" type="text/html" title="Hacktoberfest 2024" />
-      <published>2024-09-23T00:00:00+02:00</published>
-      <updated>2024-09-23T00:00:00+02:00</updated>
-      <id>https://hpehl.github.io/wildfly.org/news/2024/09/23/Hacktoberfest-2024</id>
-      
-      
-        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/09/23/Hacktoberfest-2024/">&lt;div id=&quot;preamble&quot;&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;/assets/img/news/hacktoberfest/hacktoberfest2024.png&quot; alt=&quot;Content Browser&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://hacktoberfest.com/&quot;&gt;Hacktoberfest&lt;/a&gt; is back, offering the perfect opportunity to showcase your Open Source expertise. This annual event brings together developers at all levels—from seasoned professionals to eager newcomers—in a unified effort to contribute to Open Source projects and foster collaboration within the global software community. Join us for this month-long celebration of innovation and teamwork, as we work together to make meaningful contributions, one pull request at a time.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;what-is-hacktoberfest&quot;&gt;What is Hacktoberfest?&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Hacktoberfest is a month-long event in October that encourages Open Source contributors and developers worldwide to give back to the global tech community. It&amp;#8217;s a fantastic opportunity for the contributors to showcase their skills and get to know about other Open Source communities.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;To participate you simply need to:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Register:&lt;/strong&gt; &lt;a href=&quot;https://hacktoberfest.com/auth/&quot;&gt;Sign up&lt;/a&gt; on the official Hacktoberfest website, anytime between September 23rd and October 31st to get started.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Discover Projects:&lt;/strong&gt; Explore the Hacktoberfest website to find a project that sparks your interest. You can also check out the curated list of projects we&amp;#8217;ve prepared for you.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Follow the Project guidelines:&lt;/strong&gt; Read the respective Contributing Guide, Code of Conduct, and follow best practices like forking the repository, creating a new branch, and making a meaningful contribution.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Contribute:&lt;/strong&gt; Select an issue that matches your interest and start working on it. Choose an issue that aligns with your interests and begin contributing. Your goal is to submit four well-crafted pull or merge requests between October 1st and October 31st. For these to count toward your total, they must be accepted by the project maintainers.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Rewards:&lt;/strong&gt; Upon registering for Hacktoberfest, you’ll earn a digital badge, which will be upgraded as you complete and have four of your pull or merge requests accepted throughout the event.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;get-started-with-our-projects&quot;&gt;Get started with our projects&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;This list features an exciting variety of projects under the WildFly umbrella, just waiting for your contributions. Whether your expertise lies in Java, Docker, or Ansible, there&amp;#8217;s a project here for everyone to dive into and make an impact.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;olist arabic&quot;&gt;
-&lt;ol class=&quot;arabic&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;WildFly:&lt;/strong&gt; WildFly is a powerful, modular, and lightweight application server that empowers you to build amazing applications.&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/wildfly/wildfly&quot;&gt;GitHub repository&lt;/a&gt;, &lt;a href=&quot;https://github.com/wildfly/wildfly/blob/main/CONTRIBUTING.md&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://issues.redhat.com/issues/?filter=12421535&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;WildFly Elytron:&lt;/strong&gt; WildFly Elytron is a set of APIs and SPIs for application server security and client side security. Within the WildFly server, WildFly Elytron is used to secure applications deployed to the server as well as management access to the server. It is a standalone library that can also be used in other Java server environments.&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/wildfly-security/wildfly-elytron&quot;&gt;GitHub repository&lt;/a&gt;, &lt;a href=&quot;https://github.com/wildfly-security/wildfly-elytron/blob/2.x/CONTRIBUTING.md&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://issues.redhat.com/issues/?filter=12364234&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;For more details, check out WildFly Elytron&amp;#8217;s Hacktoberfest &lt;a href=&quot;https://wildfly-security.github.io/wildfly-elytron/hacktoberfest/&quot;&gt;page&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Ansible Middleware:&lt;/strong&gt; Ansible Middleware is a suite of supported content that combines the power of Ansible automation with Red Hat&amp;#8217;s Middleware portfolio. It allows organizations to meet their business demands and automate the installation, configuration, and management of Enterprise Middleware.&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/ansible-middleware&quot;&gt;GitHub repositories&lt;/a&gt;, &lt;a href=&quot;https://github.com/ansible-middleware/keycloak/blob/main/CONTRIBUTING.md&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://github.com/search?q=org%3Aansible-middleware+state%3Aopen+label%3Ahacktoberfest&amp;amp;type=issues&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Undertow:&lt;/strong&gt; Undertow is a versatile and high-performance web server that provides both blocking and non-blocking APIs based on NIO. Its modular architecture allows you to build a web server tailored to your needs, from a full Java EE servlet container to a low-level non-blocking handler.&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/undertow-io/undertow&quot;&gt;GitHub repository&lt;/a&gt;, &lt;a href=&quot;https://github.com/undertow-io/undertow/blob/main/CONTRIBUTING.md&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://issues.redhat.com/issues/?filter=12422070&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;WildFly Core:&lt;/strong&gt; WildFly Core provides the core runtime that is used by the WildFly application server. This includes modular class loading, unified management including domain mode, basic deployment architecture, and a CLI for management.&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/wildfly/wildfly-core&quot;&gt;GitHub repository&lt;/a&gt;, &lt;a href=&quot;https://github.com/wildfly/wildfly-core/blob/main/CONTRIBUTING.md&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://issues.redhat.com/issues/?filter=12421536&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Narayana:&lt;/strong&gt; Narayana is a transactions toolkit that provides support for applications using various standards-based transaction protocols. It&amp;#8217;s an essential component of the WildFly application server and continues to be developed as a standalone transaction manager.&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/jbosstm/narayana&quot;&gt;GitHub repository&lt;/a&gt;, &lt;a href=&quot;https://github.com/jbosstm/narayana/blob/main/CONTRIBUTING.md&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://issues.redhat.com/issues/?filter=12421681&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Intersmash:&lt;/strong&gt; Intersmash is a Java library that makes it easy to automate the provisioning and execution of tests in cloud-native environments. It helps the user prototype and test complex interoperability scenarios on kubernetes compliant cloud-native environments and platforms, most notably OpenShift. (Other Kubernetes implementations will be supported in the future.)&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/Intersmash/intersmash&quot;&gt;GitHub repository&lt;/a&gt;, &lt;a href=&quot;https://github.com/Intersmash/intersmash/blob/main/CONTRIBUTING.md&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://github.com/Intersmash/intersmash/issues?q=is%3Aopen+is%3Aissue+label%3Ahacktoberfest&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;PatternFly Java:&lt;/strong&gt; PatternFly Java is a 💯 Java implementation of PatternFly without any JavaScript dependencies. Its goal is to provide an easy-to-use, elegant, and efficient API to build complex web applications with PatternFly in Java. PatternFly Java works with both GWT and J2CL. PatternFly Java is used for the next-gen WildFly management console.&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/patternfly-java/patternfly-java&quot;&gt;GitHub repository&lt;/a&gt;, &lt;a href=&quot;https://github.com/patternfly-java/patternfly-java/blob/main/CONTRIBUTING.md&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://github.com/patternfly-java/patternfly-java/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;WildFly GitHub Bot:&lt;/strong&gt; WildFly GitHub Bot is a small easy-to-start application that we utilize to manage the workflow of WildFly&amp;#8217;s Pull Requests. It, for instance, requires reviews from relevant reviewers or sets labels based on the PR&amp;#8217;s state. We have a lot of ideas that you can start implementing.&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/wildfly/wildfly-github-bot&quot;&gt;GitHub repository&lt;/a&gt;, &lt;a href=&quot;https://github.com/wildfly/wildfly-github-bot/blob/main/CONTRIBUTING.md&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://github.com/wildfly/wildfly-github-bot/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;WildFly Docker Images:&lt;/strong&gt; The WildFly Docker project provides Docker images for running the WildFly application server with support for various JDK versions. It allows easy customization of server configurations, application deployment, and management in both standalone and domain modes.&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/jboss-dockerfiles/wildfly&quot;&gt;GitHub repository&lt;/a&gt;, &lt;a href=&quot;https://github.com/jboss-dockerfiles/wildfly/blob/master/CONTRIBUTING.adoc&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://github.com/jboss-dockerfiles/wildfly/issues&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Berg:&lt;/strong&gt; Berg is a test-suite for the HAL Management Console based on Cypress UI test automation.&lt;/p&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Here are the &lt;a href=&quot;https://github.com/hal/berg&quot;&gt;GitHub repository&lt;/a&gt;, &lt;a href=&quot;https://github.com/hal/berg/blob/main/CONTRIBUTING.md&quot;&gt;Contributing Guide&lt;/a&gt;, and &lt;a href=&quot;https://github.com/hal/berg/issues?q=is%3Aissue+is%3Aopen+label%3Ahacktoberfest&quot;&gt;Hacktoberfest Issues link&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;how-to-reach-out-to-us-for-hacktoberfest-related-queries&quot;&gt;How to reach out to us for Hacktoberfest related queries?&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Please join our &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/stream/Hacktoberfest&quot;&gt;Hacktoberfest Zulip chatroom&lt;/a&gt; and reach out to us if you have any queries or need assistance. We’re here to ensure a smooth journey for you.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Let’s make Hacktoberfest 2024 the most exciting and impactful one yet! Every contribution counts, and together, we can create something truly meaningful.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Ranabir Chakraborty</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="Hacktoberfest" />
-      
-
-      
-        <summary type="html"></summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">WildFly 33.0.2 is released!</title>
-      <link href="https://hpehl.github.io/wildfly.org/news/2024/09/17/WildFly3302-Released/" rel="alternate" type="text/html" title="WildFly 33.0.2 is released!" />
-      <published>2024-09-17T00:00:00+02:00</published>
-      <updated>2024-09-17T00:00:00+02:00</updated>
-      <id>https://hpehl.github.io/wildfly.org/news/2024/09/17/WildFly3302-Released</id>
-      
-      
-        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2024/09/17/WildFly3302-Released/">&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;WildFly 33.0.2.Final is now available &lt;a href=&quot;https://wildfly.org/downloads&quot;&gt;for download&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Typically after a major release of WildFly we follow up with one small bug fix release in the coming weeks before moving
-on to the next major release, however due to the nature of the issues fixed in this release we have decided to release
-one more release so I am pleased to confirm WildFly 33.0.2.Final is now available.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The following issues were resolved in 33.0.2:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;component-upgrade&quot;&gt;Component Upgrade&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19705&quot;&gt;WFLY-19705&lt;/a&gt;] - Upgrade WildFly Core to 25.0.2.Final&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19730&quot;&gt;WFLY-19730&lt;/a&gt;] - CVE-2024-8391 Upgrade Vert.x to 4.5.10&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Issues resolved in the WildFly Core update included with WildFly 33.0.2 were:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;component-upgrade-2&quot;&gt;Component Upgrade&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6968&quot;&gt;WFCORE-6968&lt;/a&gt;] - Upgrade WildFly Elytron to 2.5.2.Final&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-6973&quot;&gt;WFCORE-6973&lt;/a&gt;] - CVE-2024-7885 Upgrade Undertow to 2.3.17.Final&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Issues resolved in the WildFly Elytron upgrade were:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;bug&quot;&gt;Bug&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/ELY-2797&quot;&gt;ELY-2797&lt;/a&gt;]- NullPointerException in OidcClientConfiguration.resolveUrls if parameter &amp;quot;request_parameter_supported&amp;quot; is not present in openid-configuration.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Enjoy!&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Darran Lofthouse</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="announcement" />
-      
-        <category term="release" />
-      
-
-      
-        <summary type="html">WildFly 33.0.2.Final is now available for download.</summary>
       
 
       
