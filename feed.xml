@@ -6,7 +6,7 @@
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
   <link href="https://hpehl.github.io//wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hpehl.github.io//wildfly.org/" rel="alternate" type="text/html" />
-  <updated>2024-12-18T17:52:51+01:00</updated>
+  <updated>2024-12-18T17:58:28+01:00</updated>
   <id>https://hpehl.github.io//wildfly.org</id>
 
   
@@ -171,6 +171,9 @@ The management console is a single-page application (&lt;a href=&quot;https://en
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;With a route, you are accessing pods behind a service. If your deployments have multiple pods, it&amp;#8217;s complex and hacky to access a specific pod or configure all pods.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Please do not use the &lt;a href=&quot;https://quay.io/repository/halconsole/wildfly&quot;&gt;quay.io/halconsole/wildfly&lt;/a&gt; images in production. It contains preconfigured, insecure credentials and is meant only for development and testing purposes.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
