@@ -6,7 +6,7 @@
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
   <link href="https://hpehl.github.io//wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hpehl.github.io//wildfly.org/" rel="alternate" type="text/html" />
-  <updated>2024-12-18T11:30:38+01:00</updated>
+  <updated>2024-12-18T14:26:42+01:00</updated>
   <id>https://hpehl.github.io//wildfly.org</id>
 
   
@@ -49,7 +49,7 @@ The console uses the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/W
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;You can build such an image on your own based on the official WildFly images available at &lt;a href=&quot;https://quay.io/repository/wildfly/wildfly&quot;&gt;quay.io/wildfly/wildfly&lt;/a&gt; (see &quot;Extending the image&quot;). Another way is to use the pre-built images from &lt;a href=&quot;https://quay.io/repository/halconsole/wildfly&quot;&gt;quay.io/halconsole/wildfly&lt;/a&gt;. These images are mainly meant for HAL development and testing, but already meet these requirements, which makes them suitable for our use case. In particular the images add a management user &lt;code&gt;admin:admin&lt;/code&gt; and have a list of preconfigured allowed origins.&lt;/p&gt;
+&lt;p&gt;You can build such an image on your own based on the official WildFly images available at &lt;a href=&quot;https://quay.io/repository/wildfly/wildfly&quot;&gt;quay.io/wildfly/wildfly&lt;/a&gt; (see &quot;Extending the image&quot;). Another way is to use the pre-built images from &lt;a href=&quot;https://quay.io/repository/halconsole/wildfly&quot;&gt;quay.io/halconsole/wildfly&lt;/a&gt;. These images are mainly meant for HAL development and testing but already meet these requirements, which makes them suitable for our use case. In particular the images add a management user &lt;code&gt;admin:admin&lt;/code&gt; and have a list of preconfigured allowed origins.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;To add the allowed origin for the public route, we make use of the &lt;a href=&quot;https://github.com/jmesnil/kubectl-jboss-cli/&quot;&gt;&lt;code&gt;jboss-cli&lt;/code&gt;&lt;/a&gt; &lt;code&gt;kubectl&lt;/code&gt; plugin. This plugin makes it straightforward to connect to a WildFly instance running on OpenShift and execute CLI commands. Please visit &lt;a href=&quot;https://github.com/jmesnil/kubectl-jboss-cli/&quot; class=&quot;bare&quot;&gt;https://github.com/jmesnil/kubectl-jboss-cli/&lt;/a&gt; to find out how to install and use the plugin.&lt;/p&gt;
@@ -102,7 +102,7 @@ exit&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;sect2&quot;&gt;
 &lt;h3 id=&quot;online-version-of-the-management-console&quot;&gt;Online version of the management console&lt;/h3&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;As an alternative to adding the allowed origin, you can also use of the online version of the management console available at &lt;a href=&quot;https://hal.github.io/console&quot; class=&quot;bare&quot;&gt;https://hal.github.io/console&lt;/a&gt;. This URL ships the latest version of the management console.&lt;/p&gt;
+&lt;p&gt;As an alternative to adding the allowed origin, you can also use the online version of the management console available at &lt;a href=&quot;https://hal.github.io/console&quot; class=&quot;bare&quot;&gt;https://hal.github.io/console&lt;/a&gt;. This URL ships the latest version of the management console.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;admonitionblock note&quot;&gt;
 &lt;table&gt;
@@ -111,7 +111,7 @@ exit&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
 &lt;/td&gt;
 &lt;td class=&quot;content&quot;&gt;
-The management console is a single-page application (&lt;a href=&quot;https://en.wikipedia.org/wiki/Single-page_application&quot;&gt;SPA&lt;/a&gt;) without any server side dependencies. As such it can run on its own and connect to an arbitrary management interface. The online version of the console makes use of this fact. See &lt;a href=&quot;https://hal.github.io/documentation/get-started/#standalone-mode&quot; class=&quot;bare&quot;&gt;https://hal.github.io/documentation/get-started/#standalone-mode&lt;/a&gt; for more details.
+The management console is a single-page application (&lt;a href=&quot;https://en.wikipedia.org/wiki/Single-page_application&quot;&gt;SPA&lt;/a&gt;) without any server side dependencies. As such, it can run on its own and connect to an arbitrary management interface. The online version of the console makes use of this fact. See &lt;a href=&quot;https://hal.github.io/documentation/get-started/#standalone-mode&quot; class=&quot;bare&quot;&gt;https://hal.github.io/documentation/get-started/#standalone-mode&lt;/a&gt; for more details.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
@@ -127,7 +127,7 @@ The management console is a single-page application (&lt;a href=&quot;https://en
 &lt;li&gt;
 &lt;p&gt;Add a management interface to the public route:&lt;/p&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Give an arbitrary name, select &lt;strong&gt;https&lt;/strong&gt; as scheme, enter the hostname of the public route &lt;em&gt;without&lt;/em&gt; https and port &lt;strong&gt;80&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Give an arbitrary name, select &lt;strong&gt;https&lt;/strong&gt; as a scheme, enter the hostname of the public route &lt;em&gt;without&lt;/em&gt; https and port &lt;strong&gt;80&lt;/strong&gt;:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
@@ -147,10 +147,28 @@ The management console is a single-page application (&lt;a href=&quot;https://en
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;things-to-keep-in-mind&quot;&gt;Things to keep in mind&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please note that the above instructions are just a workaround to access the OpenShift management console as long as there is no more compatible, container-friendly way. In particular, the approach ignores some principles that should not be applied in a cloud environment:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Changing the management configuration of a pod is an antipattern as it will not outlive a pod restart. At that point, you&amp;#8217;ll have to reconfigure the allowed origin.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;With a route, you are accessing pods behind a service. If your deployments have multiple pods, it&amp;#8217;s complex and hacky to access a specific pod or configure all pods.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
 &lt;h2 id=&quot;outlook&quot;&gt;Outlook&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;We&amp;#8217;re currently working on the &lt;a href=&quot;https://github.com/hal/foundation&quot;&gt;next-gen management console&lt;/a&gt;. This version will also support a dedicated variant for OpenShift that will integrate with the OpenShift management console. For more information you can watch the &lt;a href=&quot;https://www.youtube.com/watch?v=Karu90yDIhs&amp;amp;t=571s&quot;&gt;talk&lt;/a&gt; on the next-gen management console from the last &lt;a href=&quot;https://www.wildfly.org/conference/&quot;&gt;WildFly mini conference&lt;/a&gt;, get the &lt;a href=&quot;https://www.wildfly.org/assets/data/conference/202411_wmc_nextgen_console.pdf&quot;&gt;slides&lt;/a&gt; or reach out to us in the HAL Zulip &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/channel/174373-hal&quot;&gt;channel&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We&amp;#8217;re currently working on the &lt;a href=&quot;https://github.com/hal/foundation&quot;&gt;next-gen management console&lt;/a&gt;. This version will also support a dedicated variant for OpenShift that will integrate with the OpenShift management console and addresses the limitations mentioned above. For more information you can watch the &lt;a href=&quot;https://www.youtube.com/watch?v=Karu90yDIhs&amp;amp;t=571s&quot;&gt;talk&lt;/a&gt; on the next-gen management console from the last &lt;a href=&quot;https://www.wildfly.org/conference/&quot;&gt;WildFly mini conference&lt;/a&gt;, get the &lt;a href=&quot;https://www.wildfly.org/assets/data/conference/202411_wmc_nextgen_console.pdf&quot;&gt;slides&lt;/a&gt; or reach out to us in the HAL Zulip &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/channel/174373-hal&quot;&gt;channel&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</content>
