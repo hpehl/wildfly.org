@@ -6,7 +6,7 @@
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
   <link href="https://hpehl.github.io//wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hpehl.github.io//wildfly.org/" rel="alternate" type="text/html" />
-  <updated>2024-11-26T14:55:21+01:00</updated>
+  <updated>2024-12-18T10:56:03+01:00</updated>
   <id>https://hpehl.github.io//wildfly.org</id>
 
   
@@ -14,6 +14,290 @@
     <title type="html">WildFly</title>
   
 
+  
+    <entry>
+      <title type="html">Using the management console on OpenShift</title>
+      <link href="https://hpehl.github.io//wildfly.org/news/2024/12/18/Management-Console-on-OpenShift/" rel="alternate" type="text/html" title="Using the management console on OpenShift" />
+      <published>2024-12-18T00:00:00+01:00</published>
+      <updated>2024-12-18T00:00:00+01:00</updated>
+      <id>https://hpehl.github.io//wildfly.org/news/2024/12/18/Management-Console-on-OpenShift</id>
+      
+      
+        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2024/12/18/Management-Console-on-OpenShift/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In this blog post I&amp;#8217;d like to show how you can use the management console (aka &lt;a href=&quot;https://hal.github.io&quot;&gt;HAL&lt;/a&gt;) for WildFly instances running on OpenShift.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The console is an integral part of WildFly and is activated by default when running on-premise. For instances running on OpenShift, the console is not available by default, though. To use the console on OpenShift, you need a WildFly image that meets the following requirements:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Management user:&lt;br&gt;
+The management console is protected by default and requires a management user added with the &lt;code&gt;add-user.sh&lt;/code&gt; script.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Public route to the management interface:&lt;br&gt;
+The management interface has to be publicly available from the outside.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Allowed origin:&lt;br&gt;
+The console uses the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API&quot;&gt;fetch API&lt;/a&gt; to talk to the management interface of a running WildFly instance. In an OpenShift environment, the origins of the public route and the management interface itself are different. That&amp;#8217;s why we need to tell WildFly that it is ok to make requests to the management interface from another origin (see &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS&quot;&gt;CORS policies&lt;/a&gt; for more details).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can build such an image on your own based on the official WildFly images available at &lt;a href=&quot;https://quay.io/repository/wildfly/wildfly&quot;&gt;quay.io/wildfly/wildfly&lt;/a&gt; (see &quot;Extending the image&quot;). Another way is to use the pre-built images from &lt;a href=&quot;https://quay.io/repository/halconsole/wildfly&quot;&gt;quay.io/halconsole/wildfly&lt;/a&gt;. These images are mainly meant for HAL development and testing, but already meet these requirements, which makes them suitable for our use case. In particular the images add a management user &lt;code&gt;admin:admin&lt;/code&gt; and have a list of preconfigured allowed origins.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To add the allowed origin for the public route, we make use of the &lt;a href=&quot;https://jmesnil.net/weblog/2024/12/11/a-kubectl-plugin-for-wildfly-jboss-cli/&quot;&gt;&lt;code&gt;jboss-cli&lt;/code&gt;&lt;/a&gt; &lt;code&gt;kubectl&lt;/code&gt; plugin. This plugin makes it straightforward to connect to a WildFly instance running on OpenShift and execute CLI commands. Please visit &lt;a href=&quot;https://jmesnil.net/weblog/2024/12/11/a-kubectl-plugin-for-wildfly-jboss-cli/&quot; class=&quot;bare&quot;&gt;https://jmesnil.net/weblog/2024/12/11/a-kubectl-plugin-for-wildfly-jboss-cli/&lt;/a&gt; to find out how to install and use the plugin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;instructions&quot;&gt;Instructions&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The steps below assume you have access to an OpenShift cluster and installed &lt;code&gt;kubectl&lt;/code&gt; and the &lt;code&gt;jboss-cli&lt;/code&gt; plugin.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Create application&lt;/p&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;oc new-app quay.io/halconsole/wildfly
+oc create route edge --service wildfly --port 9990&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add allowed origin&lt;/p&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Use &lt;code&gt;oc get pods&lt;/code&gt; to find the name of the pod to connect to and &lt;code&gt;oc get routes&lt;/code&gt; to get the hostname of the public route to the management interface.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;kubectl jboss-cli -p &amp;lt;pod&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Login using &lt;code&gt;admin:admin&lt;/code&gt; and execute these CLI commands:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;/core-service=management/management-interface=http-interface:list-add(name=allowed-origins,value=https://&amp;lt;hostname&amp;gt;)
+reload
+exit&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open the management console at &lt;code&gt;https://&amp;lt;hostname&amp;gt;&lt;/code&gt; and login using &lt;code&gt;admin:admin&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+As an alternative to adding the allowed origin, you can also use of the latest online version of the management console available at &lt;a href=&quot;https://hal.github.io/console&quot; class=&quot;bare&quot;&gt;https://hal.github.io/console&lt;/a&gt;.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Background: The management console is a single-page application (&lt;a href=&quot;https://en.wikipedia.org/wiki/Single-page_application&quot;&gt;SPA&lt;/a&gt;) without any server side dependencies. As such it can run on its own and connect to an arbitrary management interface. The online version of the console makes use of this fact. See &lt;a href=&quot;https://hal.github.io/documentation/get-started/#standalone-mode&quot; class=&quot;bare&quot;&gt;https://hal.github.io/documentation/get-started/#standalone-mode&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Create the application as above and find the hostname of the public route using &lt;code&gt;oc get routes&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open &lt;a href=&quot;https://hal.github.io/console&quot; class=&quot;bare&quot;&gt;https://hal.github.io/console&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add a management interface to the public route:&lt;/p&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Give an arbitrary name, select &lt;strong&gt;https&lt;/strong&gt; as scheme, enter the hostname of the public route &lt;em&gt;without&lt;/em&gt; https and port &lt;strong&gt;80&lt;/strong&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/assets/img/news/hal/add-management-interface.png&quot; alt=&quot;Add management interface&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Add&lt;/strong&gt; and then &lt;strong&gt;Connect&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Login using &lt;code&gt;admin:admin&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;outlook&quot;&gt;Outlook&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We&amp;#8217;re currently working on the &lt;a href=&quot;https://github.com/hal/foundation&quot;&gt;next-gen management console&lt;/a&gt;. This version will also support a dedicated variant for OpenShift that will integrate with the OpenShift management console. For more information you can watch the &lt;a href=&quot;https://www.youtube.com/watch?v=Karu90yDIhs&amp;amp;t=571s&quot;&gt;talk&lt;/a&gt; on the next-gen management console from the last &lt;a href=&quot;https://www.wildfly.org/conference/&quot;&gt;WildFly mini conference&lt;/a&gt;, get the &lt;a href=&quot;https://www.wildfly.org/assets/data/conference/202411_wmc_nextgen_console.pdf&quot;&gt;slides&lt;/a&gt; or reach out to us in the HAL Zulip &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/channel/174373-hal&quot;&gt;channel&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Harald Pehl</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="hal" />
+      
+        <category term="management" />
+      
+        <category term="console" />
+      
+        <category term="openshift" />
+      
+
+      
+        <summary type="html">In this blog post I&amp;#8217;d like to show how you can use the management console (aka HAL) for WildFly instances running on OpenShift.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">WildFly 35 Beta is released!</title>
+      <link href="https://hpehl.github.io//wildfly.org/news/2024/12/12/WildFly35Beta-released/" rel="alternate" type="text/html" title="WildFly 35 Beta is released!" />
+      <published>2024-12-12T00:00:00+01:00</published>
+      <updated>2024-12-12T00:00:00+01:00</updated>
+      <id>https://hpehl.github.io//wildfly.org/news/2024/12/12/WildFly35Beta-released</id>
+      
+      
+        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2024/12/12/WildFly35Beta-released/">&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I&amp;#8217;m pleased to announce that the new WildFly 35.0.0.Beta1 release is available for download at &lt;a href=&quot;https://wildfly.org/downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://wildfly.org/downloads&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;new_and_notable&quot;&gt;New and Notable&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This quarter we had a heavy focus on MicroProfile, particularly &lt;a href=&quot;https://microprofile.io/2024/08/22/microprofile-7-0-release/#&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MicroProfile 7.0&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;WildFly now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19592_MicroProfile_Fault_Tolerance_4_1.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supports MicroProfile Fault Tolerance 4.1&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;WildFly now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19591_MicroProfile_OpenAPI_4.0.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supports MicroProfile OpenAPI 4.0&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Standard WildFly now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19866-promote-mp-rest-client-to-default.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supports MicroProfile REST Client 4.0&lt;/a&gt;. This was previously supported in WildFly Preview.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Standard WildFly now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/observability/WFLY-19846-promote-mp-tel-2-to-default.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supports MicroProfile Telemetry 2.0&lt;/a&gt;. This was previously supported in WildFly Preview.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Our MicroProfile Reactive Messaging subsystem has added OpenTelemetry tracing integration for &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19835_microprofile_reactive_messaging_otel_with_kafka.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Kafka connectors&lt;/a&gt; and &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19836_microprofile_reactive_messaging_otel_with_amqp.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AMQP connectors&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There&amp;#8217;s plenty of new things beyond MicroProfile area as well, though:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;WildFly now includes &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/scripts/WFCORE-6935-system-daemon-scripts.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supported &lt;code&gt;systemd&lt;/code&gt; units&lt;/a&gt; in the &lt;code&gt;bin/systemd&lt;/code&gt; directory, replacing the old, unsupported &lt;code&gt;docs/contrib/scripts/systemd&lt;/code&gt; files. The new units include support for a managed domain.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;jaxrs&lt;/code&gt; subsystem now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/jaxrs/WFLY-13122_Add_Json_Merge_Patch_support.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;provides JSON merge patch support&lt;/a&gt;. This feature allows the client to send a JSON http request with Content-Type &quot;application/merge-patch+json&quot;, and the JSON content will be directly merged to the target resource.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;We added &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/ee/WFLY-19776_Jakarta_Data_in_standard_WildFly.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;support for Jakarta Data 1.0&lt;/a&gt; to standard WildFly. This was previously &lt;a href=&quot;https://www.wildfly.org/news/2024/10/10/jakarta-data/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;included in WildFly Preview 34&lt;/a&gt;; now it is available in standard WildFly as well. This feature is provided at the &lt;a href=&quot;https://docs.wildfly.org/34/Admin_Guide.html#Feature_stability_levels&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;preview&lt;/code&gt; stability level&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;WildFly Preview has  a new &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19954_Preview_Support_vertx_feature_pack.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;vertx&lt;/code&gt; subsystem and Galleon layer&lt;/a&gt;, intended to give user&amp;#8217;s greater control over the configuration of Vert.x instances running in the server. This feature is provided at the &lt;a href=&quot;https://docs.wildfly.org/34/Admin_Guide.html#Feature_stability_levels&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;preview&lt;/code&gt; stability level&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;WildFly Glow has also received a new feature to &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/wf-galleon/WFLY-19855_glow_spaces.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;introduce spaces to structure discovered Galleon feature-packs&lt;/a&gt;, this allows feature packs to be grouped into spaces such as an incubating space to reflect the stability of the feature pack and to allow users to select which spaces they want to use.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For further details please see the detailed &lt;a href=&quot;https://github.com/wildfly/wildfly/releases/tag/35.0.0.Beta1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;35.0.0.Beta1 Release Notes&lt;/a&gt; in GitHub.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As we approach the end of 2024 this is the time of the year where we release the Beta release of the major version just before
+we wrap up for the end of the year and will follow up with the Final release once we return in the new year.  Please take this
+time as an opportunity to try out this release and provide us with any feedback.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Finally I would like to thank everyone who has contributed to making this release happen, both via direct contributions to WildFly as well as the countless contributions to the projects that WildFly depends upon. We also had a couple of first time contributors this release so I would like to thank &lt;a href=&quot;https://github.com/aldaris&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Peter Major&lt;/a&gt; for taking on one of our &lt;code&gt;good-first-issue&lt;/code&gt; Jira issues to remove redundant code from our application client implementation and &lt;a href=&quot;https://github.com/pedro-hos&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Pedro Hos&lt;/a&gt; for contributing updates to our testsuite to move tests to a more appropriate location.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Darran Lofthouse</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="release" />
+      
+
+      
+        <summary type="html">I&amp;#8217;m pleased to announce that the new WildFly 35.0.0.Beta1 release is available for download at https://wildfly.org/downloads.</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">WildFly 34.0.1 is released!</title>
@@ -2136,431 +2420,6 @@ $ /subsystem=jakarta-data:add&lt;/code&gt;&lt;/pre&gt;
 
       
         <summary type="html">I&amp;#8217;m excited that in the 34 Beta release we were able to introduce support for Jakarta Data into WildFly Preview. It was a bit of an unexpected last minute thing that we were able to do this, which left us without time to much in the way of documentation. We&amp;#8217;ll correct that for WildFly 35, but in the meantime I&amp;#8217;ll use this blog post as a way to introduce the basics.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Announcement for the Upcoming WildFly Mini Conference!</title>
-      <link href="https://hpehl.github.io//wildfly.org/news/2024/10/07/WildFly-mini-conference-session-form/" rel="alternate" type="text/html" title="Announcement for the Upcoming WildFly Mini Conference!" />
-      <published>2024-10-07T00:00:00+02:00</published>
-      <updated>2024-10-07T00:00:00+02:00</updated>
-      <id>https://hpehl.github.io//wildfly.org/news/2024/10/07/WildFly-mini-conference-session-form</id>
-      
-      
-        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2024/10/07/WildFly-mini-conference-session-form/">&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Hello, WildFly Community!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;We are excited to share that after the success of our first WildFly Mini Conference earlier this year, we are planning a new edition for November!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The inaugural conference was an incredible experience, bringing together WildFly developers and the entire community for productive discussions and learning. We are eager to replicate this success, and we want your help to make the next event even better.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;We would love to hear which topics you would like to see covered in the conference sessions. Your feedback is crucial to us, and we want to ensure the event meets everyone&amp;#8217;s expectations and interests.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Please take a moment to share your suggestions by filling out our &lt;a href=&quot;https://forms.gle/mAj7dDvECeaWp1WM7&quot;&gt;form&lt;/a&gt;. We will be collecting responses until next Monday, October 14th.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;We look forward to hearing from you and seeing everyone at the next WildFly Mini Conference!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Best regards,&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Flavia&lt;/p&gt;
-&lt;/div&gt;</content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Flavia Rainone</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="wildfly" />
-      
-        <category term="announcement" />
-      
-        <category term="conference" />
-      
-        <category term="wildfly-mini-conference" />
-      
-
-      
-        <summary type="html">Hello, WildFly Community!</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Debug a provisioned WildFly server with the help of wildfly-maven-plugin</title>
-      <link href="https://hpehl.github.io//wildfly.org/news/2024/10/04/debug-with-maven-wildfly-plugin/" rel="alternate" type="text/html" title="Debug a provisioned WildFly server with the help of wildfly-maven-plugin" />
-      <published>2024-10-04T00:00:00+02:00</published>
-      <updated>2024-10-04T00:00:00+02:00</updated>
-      <id>https://hpehl.github.io//wildfly.org/news/2024/10/04/debug-with-maven-wildfly-plugin</id>
-      
-      
-        <content type="html" xml:base="https://hpehl.github.io//wildfly.org/news/2024/10/04/debug-with-maven-wildfly-plugin/">&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;debug-a-provisioned-wildfly-server-with-the-help-of-the-wildfly-maven-plugin&quot;&gt;Debug a provisioned WildFly server with the help of the wildfly-maven-plugin&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Sometimes I need to debug my project in a customized WildFly server. The requirements are:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;I need to use a specific version of WildFly server.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;I need to override the version of some artifacts used in modules inside the WildFly server.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;I need to run the WildFly server in debug mode, so I can use IDE tools to remotely debug the code.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;With the use of the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt;, the above goals can be achieved in an automated way. Here is an example of the configuration to show the use of the plugin to achieve the above goals:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/jberet/jberet-examples/blob/main/deployment/pom.xml&quot;&gt;jberet-examples/deployment/pom.xml at main · jberet/jberet-examples&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The &lt;code&gt;wildfly-maven-plugin&lt;/code&gt; configuration in the above &lt;code&gt;pom.xml&lt;/code&gt; looks like this:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;plugin&amp;gt;
-    &amp;lt;groupId&amp;gt;org.wildfly.plugins&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;wildfly-maven-plugin&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;${version.maven.wildfly.plugin}&amp;lt;/version&amp;gt;
-    &amp;lt;configuration&amp;gt;
-        &amp;lt;provisioning-dir&amp;gt;${jboss.home}&amp;lt;/provisioning-dir&amp;gt;
-        &amp;lt;galleon-options&amp;gt;
-            &amp;lt;jboss-fork-embedded&amp;gt;${galleon.fork.embedded}&amp;lt;/jboss-fork-embedded&amp;gt;
-        &amp;lt;/galleon-options&amp;gt;
-        &amp;lt;feature-packs&amp;gt;
-            &amp;lt;feature-pack&amp;gt;
-                &amp;lt;groupId&amp;gt;${server.test.feature.pack.groupId}&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;${server.test.feature.pack.artifactId}&amp;lt;/artifactId&amp;gt;
-                &amp;lt;version&amp;gt;${wildfly.version}&amp;lt;/version&amp;gt;
-                &amp;lt;inherit-configs&amp;gt;false&amp;lt;/inherit-configs&amp;gt;
-                &amp;lt;included-configs&amp;gt;
-                    &amp;lt;config&amp;gt;
-                        &amp;lt;model&amp;gt;standalone&amp;lt;/model&amp;gt;
-                        &amp;lt;name&amp;gt;standalone-full.xml&amp;lt;/name&amp;gt;
-                    &amp;lt;/config&amp;gt;
-                    &amp;lt;config&amp;gt;
-                        &amp;lt;model&amp;gt;standalone&amp;lt;/model&amp;gt;
-                        &amp;lt;name&amp;gt;standalone.xml&amp;lt;/name&amp;gt;
-                    &amp;lt;/config&amp;gt;
-                &amp;lt;/included-configs&amp;gt;
-                &amp;lt;excluded-packages&amp;gt;
-                    &amp;lt;name&amp;gt;docs.schema&amp;lt;/name&amp;gt;
-                    &amp;lt;name&amp;gt;appclient&amp;lt;/name&amp;gt;
-                    &amp;lt;name&amp;gt;domain&amp;lt;/name&amp;gt;
-                &amp;lt;/excluded-packages&amp;gt;
-            &amp;lt;/feature-pack&amp;gt;
-        &amp;lt;/feature-packs&amp;gt;
-        &amp;lt;channels&amp;gt;
-            &amp;lt;channel&amp;gt;
-                &amp;lt;manifest&amp;gt;
-                    &amp;lt;groupId&amp;gt;org.jberet&amp;lt;/groupId&amp;gt;
-                    &amp;lt;artifactId&amp;gt;jberet-channel-manifest&amp;lt;/artifactId&amp;gt;
-                    &amp;lt;version&amp;gt;${version.jberet}&amp;lt;/version&amp;gt;
-                &amp;lt;/manifest&amp;gt;
-            &amp;lt;/channel&amp;gt;
-        &amp;lt;/channels&amp;gt;
-    &amp;lt;/configuration&amp;gt;
-...
-&amp;lt;/plugin&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In the above configuration, the &lt;code&gt;feature-packs&lt;/code&gt; section specifies the feature packs to be used by the provisioned server(there is no default feature pack that would be used if this wasn&amp;#8217;t set), and the &lt;code&gt;channels&lt;/code&gt; section is using the &lt;code&gt;jberet-channel-manifest&lt;/code&gt; channel to override the &lt;code&gt;batch-jberet&lt;/code&gt; module to be used in the provisioned server. Please note that you need to use the &lt;code&gt;channels&lt;/code&gt; with the &lt;code&gt;feature-packs&lt;/code&gt; together. Here are the properties used by the configuration:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&amp;lt;properties&amp;gt;
-    ...
-    &amp;lt;version.jberet&amp;gt;3.0.0.Final&amp;lt;/version.jberet&amp;gt;
-    ...
-    &amp;lt;version.maven.wildfly.plugin&amp;gt;5.0.1.Final&amp;lt;/version.maven.wildfly.plugin&amp;gt;
-    &amp;lt;jboss.home&amp;gt;${project.build.directory}${file.separator}wildfly&amp;lt;/jboss.home&amp;gt;
-    &amp;lt;wildfly.version&amp;gt;33.0.2.Final&amp;lt;/wildfly.version&amp;gt;
-    &amp;lt;server.test.feature.pack.groupId&amp;gt;org.wildfly&amp;lt;/server.test.feature.pack.groupId&amp;gt;
-    &amp;lt;server.test.feature.pack.artifactId&amp;gt;wildfly-ee-galleon-pack&amp;lt;/server.test.feature.pack.artifactId&amp;gt;
-    ...
-&amp;lt;/properties&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In the above way, I can define the WildFly version to be used and the JBeret version to be used in the provisioned WildFly server.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The &lt;code&gt;jberet-channel-manifest&lt;/code&gt; is provided by the JBeret project itself:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/jberet/jsr352/tree/main/jberet-manifest&quot;&gt;jsr352/jberet-manifest at main · jberet/jsr352&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The above subproject provides the JBeret module that can be used in the WildFly server. It uses the concept of WildFly Channel to achieve this goal. It can be used to override the version of some artifacts used in modules inside the WildFly server. I won’t explain the concept of WildFly Channel in this blog post. If you are interested in this topic, these articles are worth reading:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.wildfly.org/news/2023/04/05/prospero/&quot;&gt;An Introduction To The Prospero Usage&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.wildfly.org/news/2024/01/29/wildfly-glow/&quot;&gt;WildFly Glow, an evolution of WildFly provisioning&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.wildfly.org/news/2024/01/31/whats-new-in-provisioning/&quot;&gt;What’s new in WildFly provisioning&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;With the above configuration, the &lt;code&gt;3.0.0.Final&lt;/code&gt; version of that manifest specifies use of JBeret &lt;code&gt;3.0.0&lt;/code&gt; while WildFly &lt;code&gt;33.0.2&lt;/code&gt; used &lt;code&gt;2.2.1&lt;/code&gt;. If I run the following command in the above example project, the output showing the relative provision process:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mvn wildfly:run
-...
-[INFO] Resolving channel metadata from Maven artifact org.jberet:jberet-channel-manifest:3.0.0.Final
-[INFO] Provisioning server in /Users/weli/works/jberet-examples/deployment/target/wildfly
-[INFO] Resolving feature-packs
-[INFO] Installing packages
-[INFO] 6 of 523 (1.1%)
-[INFO] Resolving artifacts
-[INFO] 11 of 491 (2.2%)
-...
-[INFO] Generating configurations
-[INFO] Delayed generation, waiting...
-[INFO] Resolving channel metadata from Maven artifact org.jberet:jberet-channel-manifest:3.0.0.Final
-...
-[INFO] --- wildfly:5.0.1.Final:start (wildfly-start) @ batch-deployment-examples ---
-[INFO] Provisioning default server in /Users/weli/works/jberet-examples/deployment/target/server
-Downloading from jboss-public-repository-group: https://repository.jboss.org/nexus/content/groups/public/org/wildfly/wildfly-galleon-pack/33.0.2.Final/wildfly-galleon-pack-33.0.2.Final.zip
-...&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;From the above output, we can see that &lt;code&gt;org.jberet:jberet-channel-manifest:3.0.0.Final&lt;/code&gt; is used for provision, and the &lt;code&gt;wildfly-galleon-pack-33.0.2.Final.zip&lt;/code&gt; is downloaded. If I check the generated WildFly server directory, I can see that JBeret &lt;code&gt;3.0.0.Final&lt;/code&gt; is used in the provisioned WildFly server:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ pwd
-/Users/weli/works/jberet-examples/deployment/target/wildfly
-$ find modules -name &quot;*jberet*&quot;
-modules/system/layers/base/org/wildfly/extension/batch/jberet
-modules/system/layers/base/org/wildfly/extension/batch/jberet/main/wildfly-batch-jberet-33.0.2.Final.jar
-modules/system/layers/base/org/jberet
-modules/system/layers/base/org/jberet/jberet-core
-modules/system/layers/base/org/jberet/jberet-core/main/jberet-core-3.0.0.Final.jar&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;To run the provisioned WildFly server in debug mode, the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt; provide options to support the debug mode. To check the usages of &lt;code&gt;wildfly-maven-plugin&lt;/code&gt;, I can run the following command in the above example project to do so:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mvn wildfly:help -Ddetail=true&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The above command will output the full document of the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt;. Following are the relative parts of the document:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;wildfly:dev
-  Description: Starts a standalone instance of WildFly and deploys the
-    application to the server. The deployment type must be a WAR. Once the
-    server is running, the source directories are monitored for changes. If
-    required the sources will be compiled and the deployment may be redeployed.
-    Note that changes to the POM file are not monitored. If changes are made
-    the POM file, the process will need to be terminated and restarted. Note
-    that if a WildFly Bootable JAR is packaged, it is ignored by this goal.
-  Implementation: org.wildfly.plugin.dev.DevMojo
-  Language: java
-  Bound to phase: package
-
-  Available parameters:
-
-    ...
-
-    debug (Default: false)
-      User property: wildfly.debug
-      Starts the server with debugging enabled.
-
-    debugHost (Default: *)
-      User property: wildfly.debug.host
-      Sets the hostname to listen on for debugging. An * means all hosts.
-
-    debugPort (Default: 8787)
-      User property: wildfly.debug.port
-      Sets the port the debugger should listen on.
-
-    debugSuspend (Default: false)
-      User property: wildfly.debug.suspend
-      Indicates whether the server should suspend itself until a debugger is
-      attached.
-
-...
-
-wildfly:run
-  Description: Starts a standalone instance of WildFly and deploys the
-    application to the server. This goal will block until cancelled or a
-    shutdown is invoked from a management client. Note that if a WildFly
-    Bootable JAR is packaged, it is ignored by this goal.
-  Implementation: org.wildfly.plugin.server.RunMojo
-  Language: java
-  Before this goal executes, it will call:
-    Phase: &apos;package&apos;
-
-  Available parameters:
-
-    ...
-
-    debug (Default: false)
-      User property: wildfly.debug
-      Starts the server with debugging enabled.
-
-    debugHost (Default: *)
-      User property: wildfly.debug.host
-      Sets the hostname to listen on for debugging. An * means all hosts.
-
-    debugPort (Default: 8787)
-      User property: wildfly.debug.port
-      Sets the port the debugger should listen on.
-
-    debugSuspend (Default: false)
-      User property: wildfly.debug.suspend
-      Indicates whether the server should suspend itself until a debugger is
-      attached.&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;As the document written in above, both the &lt;code&gt;wildfly:dev&lt;/code&gt; and the &lt;code&gt;wildfly:run&lt;/code&gt; goals support the &lt;code&gt;debug&lt;/code&gt; mode, and the property to activate it is the &lt;code&gt;wildfly.debug&lt;/code&gt; option.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;admonitionblock note&quot;&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class=&quot;icon&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class=&quot;content&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;If you want to check the help text of a specific goal of the plugin, taking the &lt;code&gt;wildfly:dev&lt;/code&gt; goal for example, you can use this command to do so:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mvn wildfly:help -Ddetail=true -Dgoal=dev&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In addition, instead of reading the embedded help text, you can also refer to the online documentation of &lt;code&gt;wildfly-maven-plugin&lt;/code&gt; here:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://docs.wildfly.org/wildfly-maven-plugin&quot;&gt;WildFly Maven Plugin
-(wildfly-maven-plugin)&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;With the above information, I can run the provisioned WildFly server in debug mode:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mvn wildfly:run -Dwildfly.debug=true&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;And from the server output I can see the debug options are added:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;[INFO] JAVA_OPTS : -Xms64m -Xmx512m -Djava.net.preferIPv4Stack=true -Djava.awt.headless=true -Djboss.modules.system.pkgs=org.jboss.byteman -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8787 --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-modules=java.se&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;As the output shows above, the debug options are added and the remote debug port is set as &lt;code&gt;8787&lt;/code&gt; by default. This means the WildFly server is ready to accept the remote debug requests. In addition, the customized version of the WildFly server codebase and the overridden version of the JBeret module codebase can be used for debugging now. I won’t introduce the way to use an IDE to debug the WildFly server in this blog post. If you’d like to learn about the way to do so, I have written a personal blog post on this topic before:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://weinan.io/2017/05/07/troubleshooting-wildfly.html&quot;&gt;Troubleshooting the Wildfly startup process&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Enjoy :D&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>阿男</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="wildfly" />
-      
-        <category term="wildfly-maven-plugin" />
-      
-        <category term="jberet" />
-      
-
-      
-        <summary type="html">Debug a provisioned WildFly server with the help of the wildfly-maven-plugin</summary>
       
 
       
