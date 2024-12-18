@@ -6,7 +6,7 @@
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
   <link href="https://hpehl.github.io//wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hpehl.github.io//wildfly.org/" rel="alternate" type="text/html" />
-  <updated>2024-12-18T14:26:42+01:00</updated>
+  <updated>2024-12-18T17:52:51+01:00</updated>
   <id>https://hpehl.github.io//wildfly.org</id>
 
   
@@ -50,6 +50,18 @@ The console uses the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/W
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;You can build such an image on your own based on the official WildFly images available at &lt;a href=&quot;https://quay.io/repository/wildfly/wildfly&quot;&gt;quay.io/wildfly/wildfly&lt;/a&gt; (see &quot;Extending the image&quot;). Another way is to use the pre-built images from &lt;a href=&quot;https://quay.io/repository/halconsole/wildfly&quot;&gt;quay.io/halconsole/wildfly&lt;/a&gt;. These images are mainly meant for HAL development and testing but already meet these requirements, which makes them suitable for our use case. In particular the images add a management user &lt;code&gt;admin:admin&lt;/code&gt; and have a list of preconfigured allowed origins.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock warning&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Warning&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+The additions in the &lt;a href=&quot;https://quay.io/repository/halconsole/wildfly&quot;&gt;quay.io/halconsole/wildfly&lt;/a&gt; images are only meant for development and testing purposes. Please do not rely on the management user &lt;code&gt;admin:admin&lt;/code&gt; or the preconfigured allowed origins. It is strongly recommended not to use that in production!
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;To add the allowed origin for the public route, we make use of the &lt;a href=&quot;https://github.com/jmesnil/kubectl-jboss-cli/&quot;&gt;&lt;code&gt;jboss-cli&lt;/code&gt;&lt;/a&gt; &lt;code&gt;kubectl&lt;/code&gt; plugin. This plugin makes it straightforward to connect to a WildFly instance running on OpenShift and execute CLI commands. Please visit &lt;a href=&quot;https://github.com/jmesnil/kubectl-jboss-cli/&quot; class=&quot;bare&quot;&gt;https://github.com/jmesnil/kubectl-jboss-cli/&lt;/a&gt; to find out how to install and use the plugin.&lt;/p&gt;

@@ -126,6 +126,18 @@ The console uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/F
 <div class="paragraph">
 <p>You can build such an image on your own based on the official WildFly images available at <a href="https://quay.io/repository/wildfly/wildfly">quay.io/wildfly/wildfly</a> (see "Extending the image"). Another way is to use the pre-built images from <a href="https://quay.io/repository/halconsole/wildfly">quay.io/halconsole/wildfly</a>. These images are mainly meant for HAL development and testing but already meet these requirements, which makes them suitable for our use case. In particular the images add a management user <code>admin:admin</code> and have a list of preconfigured allowed origins.</p>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+The additions in the <a href="https://quay.io/repository/halconsole/wildfly">quay.io/halconsole/wildfly</a> images are only meant for development and testing purposes. Please do not rely on the management user <code>admin:admin</code> or the preconfigured allowed origins. It is strongly recommended not to use that in production!
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>To add the allowed origin for the public route, we make use of the <a href="https://github.com/jmesnil/kubectl-jboss-cli/"><code>jboss-cli</code></a> <code>kubectl</code> plugin. This plugin makes it straightforward to connect to a WildFly instance running on OpenShift and execute CLI commands. Please visit <a href="https://github.com/jmesnil/kubectl-jboss-cli/" class="bare">https://github.com/jmesnil/kubectl-jboss-cli/</a> to find out how to install and use the plugin.</p>
 </div>
