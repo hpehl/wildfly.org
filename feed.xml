@@ -6,7 +6,7 @@
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
   <link href="https://hpehl.github.io//wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hpehl.github.io//wildfly.org/" rel="alternate" type="text/html" />
-  <updated>2024-12-18T18:06:46+01:00</updated>
+  <updated>2024-12-19T14:57:19+01:00</updated>
   <id>https://hpehl.github.io//wildfly.org</id>
 
   
@@ -58,7 +58,7 @@ The console uses the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/W
 &lt;div class=&quot;title&quot;&gt;Warning&lt;/div&gt;
 &lt;/td&gt;
 &lt;td class=&quot;content&quot;&gt;
-The additions in the &lt;a href=&quot;https://quay.io/repository/halconsole/wildfly&quot;&gt;quay.io/halconsole/wildfly&lt;/a&gt; images are only meant for development and testing purposes. Please do not rely on the management user &lt;code&gt;admin:admin&lt;/code&gt; or the preconfigured allowed origins. It is strongly recommended not to use that in production!
+The additions in the &lt;a href=&quot;https://quay.io/repository/halconsole/wildfly&quot;&gt;quay.io/halconsole/wildfly&lt;/a&gt; images are &lt;strong&gt;only&lt;/strong&gt; meant for &lt;strong&gt;development and testing&lt;/strong&gt; purposes. Under &lt;strong&gt;no circumstances&lt;/strong&gt; must this be &lt;strong&gt;used in production&lt;/strong&gt;! Do not rely on the management user &lt;code&gt;admin:admin&lt;/code&gt; or the preconfigured allowed origins.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
@@ -173,7 +173,7 @@ The management console is a single-page application (&lt;a href=&quot;https://en
 &lt;p&gt;With a route, you are accessing pods behind a service. If your deployments have multiple pods, it&amp;#8217;s complex and hacky to access a specific pod or configure all pods.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Please do not use the &lt;a href=&quot;https://quay.io/repository/halconsole/wildfly&quot;&gt;quay.io/halconsole/wildfly&lt;/a&gt; images in production. They contain preconfigured, insecure credentials and are meant only for development and testing purposes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Do not use&lt;/strong&gt; the &lt;a href=&quot;https://quay.io/repository/halconsole/wildfly&quot;&gt;quay.io/halconsole/wildfly&lt;/a&gt; images &lt;strong&gt;in production&lt;/strong&gt; under any circumstances. They contain preconfigured, insecure credentials and are meant only for development and testing purposes.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
