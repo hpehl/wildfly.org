@@ -10,7 +10,7 @@ layout: base
   };
   let query = Object.entries(options).map(([key, value]) => `${key}=${value}`).join('&');
   const url = `https://calendar.google.com/calendar/embed?${query}`;
-  const style = 'border:0;display:block;border:none;width:100%;';
+  const style = 'display:block;border:none;width:100%;';
   const attributes = 'width="100%" height="600"';
   const iframe = `<iframe src="${url}" style="${style}" ${attributes}></iframe>`;
   document.getElementById('calendar-container').innerHTML = iframe;
