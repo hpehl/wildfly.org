@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deploying High-Availability Messaging with WildFly and AMQ 7 on OpenShift</title>
+  <meta name="description" content="">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/wildfly.org/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/wildfly.org/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="Deploying High-Availability Messaging with WildFly and AMQ 7 on OpenShift">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/wildfly.org/"><img class="wf-logo" src="/wildfly.org/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/wildfly.org/news/" class="">News</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/guides/" class="active">Guides</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/wildfly.org/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="grid-wrapper guide">
+  <div class="grid__item width-12-12 width-12-12-mobile">
+    <h1 class="text-caps">Deploying High-Availability Messaging with WildFly and AMQ 7 on OpenShift </h1>
+  </div>
+  <div class="width-12-12">
+    <div>
+      <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#log-into-the-openshift-cluster">Log Into the OpenShift Cluster</a></li>
+<li><a href="#install-and-deploy-amq-7-using-an-operator">Install and deploy AMQ 7 using an operator</a></li>
+<li><a href="#build-wildfly-with-a-messaging-application-image-using-the-wildfly-maven-plugin">Build WildFly with a messaging application image using the WildFly Maven Plugin</a></li>
+<li><a href="#push-wildfly-image-to-the-openshift-registry">Push WildFly image to the OpenShift registry</a></li>
+<li><a href="#install-the-wildfly-operator">Install the WildFly Operator</a></li>
+<li><a href="#deploy-the-application-image-using-the-wildfly-operator">Deploy the application image using the WildFly Operator</a></li>
+<li><a href="#test-the-application">Test the Application</a></li>
+<li><a href="#whats-next">What&#8217;s Next?</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this guide, you will learn how to configure a WildFly server connected to a remote AMQ 7 cluster on OpenShift using operators.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prerequisites">Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To complete this guide, you need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Roughly 20 minutes</p>
+</li>
+<li>
+<p>JDK 17+ installed with <code>JAVA_HOME</code> configured appropriately</p>
+</li>
+<li>
+<p>Apache Maven 3.9+</p>
+</li>
+<li>
+<p>Access to an OpenShift cluster (consider using the 'Self-managed' variant for a local development environment, available for free at <a href="https://developers.redhat.com/products/openshift/download" target="_blank" rel="noopener">Red Hat OpenShift</a>)</p>
+</li>
+<li>
+<p><a href="https://docs.openshift.com/container-platform/4.14/cli_reference/openshift_cli/getting-started-cli.html" target="_blank" rel="noopener">OpenShift CLI</a> tool</p>
+</li>
+<li>
+<p><a href="https://podman.io/" target="_blank" rel="noopener">Podman</a> (<a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a> is also compatible with minor adjustments)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="log-into-the-openshift-cluster">Log Into the OpenShift Cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before we can deploy our application, we need to log in to an OpenShift cluster. You can log in via the <a href="https://docs.openshift.com/container-platform/4.14/cli_reference/openshift_cli/getting-started-cli.html">OpenShift CLI</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc login -u myUserName</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can log in using an API token:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc login --token=myToken --server=myServerUrl</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can request the token via the <code>Copy Login Command</code> link in the OpenShift web console.</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t already have a project created, you can create one using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">oc new-project myProjectName</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install-and-deploy-amq-7-using-an-operator">Install and deploy AMQ 7 using an operator</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To install the AMQ 7 Operator, follow the instructions in the Red Hat documentation: <a href="https://access.redhat.com/documentation/en-us/red_hat_amq_broker/7.12/html-single/deploying_amq_broker_on_openshift/index#proc-br-installing-operator-to-project-from-operatorhub_broker-ocp" target="_blank" rel="noopener">Installing the Operator using OperatorHub</a></p>
+</div>
+<div class="paragraph">
+<p>Next, create a file named <code>broker.yaml</code> with the following content to deploy the AMQ 7 cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-yaml" data-lang="yaml">apiVersion: broker.amq.io/v1beta1
+kind: ActiveMQArtemis
+metadata:
+  name: amq-broker
+  application: amq-broker-app
+spec:
+  acceptors:
+    - name: acceptor
+      protocols: core,amqp
+      port: 61616
+      sslEnabled: false
+      enabledProtocols: TLSv1,TLSv1.1,TLSv1.2
+      needClientAuth: true
+      wantClientAuth: true
+      verifyHost: true
+      sslProvider: JDK
+      sniHost: localhost
+      expose: true
+      anycastPrefix: jms.queue.
+      multicastPrefix: /topic/
+  console:
+    expose: true
+  deploymentPlan:
+    journalType: nio
+    messageMigration: true
+    persistenceEnabled: true
+    requireLogin: false
+    size: 2
+    storage:
+      size: "1Gi"
+  upgrades:
+    enabled: false
+    minor: false</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This Custom Resource (CR) file configures an AMQ 7 cluster with two brokers deployed as a StatefulSet. This setup ensures
+high availability because, in the event of a pod failure, the StatefulSet will automatically restart the failed pod.
+However, to maintain data integrity, Persistent Volumes must be configured to store the messaging journal. Without them,
+messages will be lost during restarts.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the <code>messageMigration: true</code> setting enables the graceful scaling down of AMQ 7 pods. This ensures that messages
+from the scaled-down node are migrated to another node in the cluster, preventing data loss.</p>
+</div>
+<div class="paragraph">
+<p>Run following command to deploy AMQ 7 on OpenShift:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">oc create -f broker.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check that AMQ 7 brokers are in <code>Running</code> state by checking running pods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">$ oc get pods
+NAME                                            READY   STATUS      RESTARTS   AGE
+amq-broker-ss-0                                  1/1     Running   0          35m
+amq-broker-ss-1                                  1/1     Running   0          36m
+...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="build-wildfly-with-a-messaging-application-image-using-the-wildfly-maven-plugin">Build WildFly with a messaging application image using the WildFly Maven Plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We&#8217;re going to use the <a href="https://github.com/wildfly/quickstart/tree/main/remote-helloworld-mdb" target="_blank" rel="noopener">WildFly Quickstart: remote-helloworld-mdb</a>
+to demonstrate how to build a trimmed WildFly server with a deployed messaging application. This quickstart leverages the WildFly Maven plugin
+to create a trimmed WildFly server and deploy the <code>remote-helloworld-mdb.war</code> application. It then produces a new container image based on
+the <a href="https://quay.io/wildfly/wildfly-runtime:latest" target="_blank" rel="noopener">WildFly Runtime Image</a>, incorporating the application.</p>
+</div>
+<div class="paragraph">
+<p>This quickstart includes a <code>HelloWorldMDBServletClient</code> servlet, which sends messages to the <code>HELLOWORLDMDBQueue</code> queue,
+and a <code>HelloWorldQueueMDB</code> message-driven bean (MDB) that consumes messages from this queue.</p>
+</div>
+<div class="paragraph">
+<p>To build the <a href="https://github.com/wildfly/quickstart/tree/main/remote-helloworld-mdb" target="_blank" rel="noopener">remote-helloworld-mdb</a> quickstart,
+execute the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">git clone git@github.com:wildfly/quickstart.git
+cd quickstart/remote-helloworld-mdb
+mvn clean package wildfly:image -Popenshift</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>openshift</code> profile is used to provide additional configuration for the WildFly server to work correctly on the Openshift
+environment. The Maven goal <code>wildfly:image</code> instructs the WildFly Maven Plugin to build a container image.</p>
+</div>
+<div class="paragraph">
+<p>You can verify the newly built image by running:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">$ podman images
+REPOSITORY                                                                                                                TAG             IMAGE ID      CREATED         SIZE
+localhost/remote-helloworld-mdb                                                                                           latest          cf9a174a5311  14 minutes ago  621 MB
+...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="push-wildfly-image-to-the-openshift-registry">Push WildFly image to the OpenShift registry</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We need to expose the created image in the registry, so it can later be referenced from the Custom Resource for the WildFly Operator.
+We can utilize the integrated OpenShift registry and push the image into it through the ImageStream. First create a new
+ImageStream in your namespace:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">oc create imagestream remote-helloworld-mdb</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now push your image into the ImageStream:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">export REGISTRY="$(oc get routes -n openshift-image-registry default-route -o=jsonpath='{.spec.host}')"
+podman login --tls-verify=false -u admin  -p $(oc whoami -t) $REGISTRY
+podman tag localhost/remote-helloworld-mdb  $REGISTRY/$(oc config view --minify -o jsonpath='{..namespace}')/remote-helloworld-mdb
+podman push --tls-verify=false $REGISTRY/$(oc config view --minify -o jsonpath='{..namespace}')/remote-helloworld-mdb</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can verify that the image was successfully pushed to the ImageStream by running:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">$ oc get imagestream remote-helloworld-mdb
+NAME                    IMAGE REPOSITORY                                                                       TAGS     UPDATED
+remote-helloworld-mdb   default-route-openshift-image-registry.apps-crc.testing/mnovak/remote-helloworld-mdb   latest   17 minutes ago</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install-the-wildfly-operator">Install the WildFly Operator</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>First we need to install the WildFly Operator to OpenShift cluster. Since the WildFly Operator is not included in the OpenShift
+OperatorHub by default, it must be added manually. Create the file <code>community-catalog-source.yaml</code> with content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-yaml" data-lang="yaml">apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: operatorhubio-catalog
+  namespace: openshift-marketplace
+spec:
+  displayName: Community Operators
+  grpcPodConfig:
+    securityContextConfig: restricted
+  image: quay.io/operatorhubio/catalog:latest
+  publisher: OperatorHub.io
+  sourceType: grpc
+  updateStrategy:
+    registryPoll:
+      interval: 60m</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Execute the following command to add the community catalog to the OperatorHub:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">oc apply -f community-catalog-source.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now install the WildFly Operator using the <code>wildfly-operator.yml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-yaml" data-lang="yaml">apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: wildfly
+spec:
+  channel: alpha
+  installPlanApproval: Automatic
+  name: wildfly
+  source: operatorhubio-catalog
+  sourceNamespace: openshift-marketplace</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and install it by:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">oc apply -f wildfly-operator.yml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now verify the installed operator in your namespace by inspecting the pods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">$ oc get pods
+NAME                                            READY   STATUS      RESTARTS   AGE
+wildfly-operator-d975cb47c-q9vgp                 1/1     Running   0          4m17s
+...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploy-the-application-image-using-the-wildfly-operator">Deploy the application image using the WildFly Operator</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now, we will configure the WildFly Operator to deploy the WildFly image with the messaging application. To achieve this, we will
+create a new file, <code>wildfly-remote-messaging.yaml</code>. In this file, the location of the AMQ 7 broker must be specified by setting
+the environment variables <code>JBOSS_MESSAGING_CONNECTOR_HOST</code> and <code>JBOSS_MESSAGING_CONNECTOR_PORT</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-yaml" data-lang="yaml">apiVersion: wildfly.org/v1alpha1
+kind: WildFlyServer
+metadata:
+  name: wildfly-remote-activemq
+spec:
+  applicationImage: "remote-helloworld-mdb:latest"
+  replicas: 1
+  env:
+  - name: JBOSS_MESSAGING_CONNECTOR_HOST
+    value: amq-broker-acceptor-0-svc
+  - name: JBOSS_MESSAGING_CONNECTOR_PORT
+    value: '61616'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and deploy it by:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">oc apply -f wildfly-remote-messaging.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can now verify the deployed wildfly in your namespace by inspecting the pods:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">$ oc get pods
+NAME                                            READY   STATUS      RESTARTS   AGE
+wildfly-remote-activemq-0                        1/1     Running   0          63s
+...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="test-the-application">Test the Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We&#8217;re going to test the application by sending 5 messages to the <code>HELLOWORLDMDBQueue</code> to the AMQ 7 broker.
+Then we will check that the MDB consumed those messages from the queue:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">curl http://$(oc get route wildfly-remote-activemq-route --template='{{ .spec.host }}')/remote-helloworld-mdb/HelloWorldMDBServletClient</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command invokes the <code>HelloWorldMDBServletClient</code> servlet deployed to WildFly to send messages. Check the server log
+to ensure they contain entries similar to the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-bash" data-lang="bash">$ oc logs wildfly-remote-activemq-0
+...
+13:39:27,846 INFO [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-10 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 1
+13:39:27,860 INFO [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-12 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 3
+13:39:27,863 INFO [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-11 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 2
+13:39:27,874 INFO [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-10 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 4
+13:39:27,878 INFO [class org.jboss.as.quickstarts.mdb.HelloWorldQueueMDB] (Thread-12 (ActiveMQ-client-global-threads)) Received Message from queue: This is message 5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The presence of these log entries in the server log confirms that the MDB successfully consumed messages from the <code>HELLOWORLDMDBQueue</code> from one of the clustered remote AMQ 7 broker.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="whats-next">What&#8217;s Next?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that you have deployed WildFly with a messaging application connected to AMQ 7, explore the following resources to enhance your understanding and further extend your deployment:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Deploying AMQ Broker on OpenShift</strong>: Dive deeper into deploying and managing AMQ Broker on OpenShift with detailed guides and best practices.
+<a href="https://docs.redhat.com/en/documentation/red_hat_amq/7.7/html-single/deploying_amq_broker_on_openshift/index" target="_blank" rel="noopener">Deploying AMQ Broker on OpenShift</a></p>
+</li>
+<li>
+<p><strong>WildFly Operator Repository</strong>: Learn more about the WildFly Operator, its features, and advanced configuration options directly from the official GitHub repository.
+<a href="https://github.com/wildfly/wildfly-operator" target="_blank" rel="noopener">WildFly Operator GitHub</a></p>
+</li>
+<li>
+<p><strong>WildFly Maven Plugin Documentation</strong>: Explore the WildFly Maven Plugin for automating deployment, configuration, and management of WildFly applications during your build process.
+<a href="https://docs.wildfly.org/wildfly-maven-plugin/releases/5.0/" target="_blank" rel="noopener">WildFly Maven Plugin Documentation</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These resources provide valuable insights and tools to optimize your WildFly and AMQ deployments, automate workflows, and build robust applications on OpenShift.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="references">References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/wildfly/wildfly-operator" target="_blank" rel="noopener">WildFly Operator GitHub</a></p>
+</li>
+<li>
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_amq_broker/7.12/html-single/deploying_amq_broker_on_openshift/index" target="_blank" rel="noopener">Deploying AMQ Broker on OpenShift</a></p>
+</li>
+<li>
+<p><a href="https://docs.wildfly.org/wildfly-maven-plugin/releases/5.0/" target="_blank" rel="noopener">WildFly Maven Plugin Documentation</a></p>
+</li>
+<li>
+<p><a href="https://activemq.apache.org/components/artemis/documentation/latest/clusters.html#overview" target="_blank" rel="noopener">Apache ActiveMQ Artemis Documentation - Clusters</a></p>
+</li>
+<li>
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/configuring_messaging/index#clusters_overview" target="_blank" rel="noopener">EAP 7.4 Messaging Clusters Overview</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+    <div>&lt; <a href="/wildfly.org/guides">Back to Guides</a></div>
+  </div>
+</div>
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/wildfly.org/"><img class="wf-logo" src="/wildfly.org/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/wildfly.org/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/wildfly.org/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/wildfly.org/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/wildfly.org/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>
