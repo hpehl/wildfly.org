@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invoke one Microservices from another - PART 3: Propagate Authentication</title>
+  <meta name="description" content="">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/wildfly.org/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/wildfly.org/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="Invoke one Microservices from another - PART 3: Propagate Authentication">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/wildfly.org/"><img class="wf-logo" src="/wildfly.org/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/wildfly.org/news/" class="">News</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/guides/" class="active">Guides</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/events/" class="">Events</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/wildfly.org/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="grid-wrapper guide">
+  <div class="grid__item width-12-12 width-12-12-mobile">
+    <h1 class="text-caps">Invoke one Microservices from another - PART 3: Propagate Authentication </h1>
+  </div>
+  <div class="width-12-12">
+    <div>
+      <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#introduction">Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#how-it-works">How it works</a></li>
+</ul>
+</li>
+<li><a href="#keycloak">Keycloak</a>
+<ul class="sectlevel2">
+<li><a href="#run-keycloak-on-kubernetes">Run Keycloak on Kubernetes</a></li>
+</ul>
+</li>
+<li><a href="#web-application-microservice-a">Web Application (Microservice A)</a>
+<ul class="sectlevel2">
+<li><a href="#maven-project">Maven Project</a></li>
+<li><a href="#java-code">Java code</a></li>
+<li><a href="#build-and-push-the-image-to-quay-io">Build and push the image to Quay.io</a></li>
+<li><a href="#deploy-to-kubernetes">Deploy to Kubernetes</a></li>
+</ul>
+</li>
+<li><a href="#service-microservice-b">Service (Microservice B)</a>
+<ul class="sectlevel2">
+<li><a href="#maven-project-2">Maven Project</a></li>
+<li><a href="#microprofile-config-properties">microprofile-config.properties</a></li>
+<li><a href="#java-code-2">Java code</a></li>
+<li><a href="#build-and-push-the-image-to-quay-io-2">Build and push the image to Quay.io</a></li>
+<li><a href="#deploy-to-kubernetes-2">Deploy to Kubernetes</a></li>
+</ul>
+</li>
+<li><a href="#test">Test</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this guide, you will learn HOW-TO propagate user authentication and authorization data between two microservices;</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="prerequisites">Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To complete this guide, you need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Complete <a href="simple-microservice-client-part2">Invoke one Microservices from another - PART 2: Kubernetes</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction">Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The scenario consists of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a <strong>Service</strong> deployed on a Kubernetes cluster which is not exposed outside the cluster</p>
+</li>
+<li>
+<p>a <strong>Web Application</strong> deployed on a Kubernetes cluster which is exposed outside the cluster and consumes the <strong>Service</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The user is required to authenticate before using the <strong>Web Application</strong> and, after authentication happens, we want authentication data to be available, not only to the <strong>Web Application</strong>, but also tho the <strong>Service</strong>; authentication is delegated to <strong>Keycloak</strong> using <a href="https://www.keycloak.org/securing-apps/oidc-layers">OpenID Connect</a> protocol;</p>
+</div>
+<div class="paragraph">
+<p>The overall architecture is:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/wildfly.org/assets/img/news/get-started-microservices-on-kubernetes/simple-microservice-client-part3-1.png" alt="simple microservice client part3 1">
+</div>
+</div>
+<div class="paragraph">
+<p>We will start from the two microservices we built in <a href="simple-microservice-client-part2">Invoke one Microservices from another - PART 2: Kubernetes</a> and:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Microservice A</strong> will be the basis for <strong>Web Application</strong></p>
+</li>
+<li>
+<p><strong>Microservice B</strong> will be the basis for <strong>Service</strong></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="how-it-works">How it works</h3>
+<div class="paragraph">
+<p>This is how it works:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user tries to access <strong>Web Application</strong> (<strong>Microservice A</strong>) from a web browser</p>
+</li>
+<li>
+<p>The browser is redirected to <strong>Keycloak</strong> where, by providing username and password, the user authenticates itself</p>
+</li>
+<li>
+<p>The browser is redirected back to <strong>Web Application</strong>: this time the request contains a <strong>JWT Access Token</strong> (and a few more tokens actually) provided by <strong>Keycloak</strong>, containing authentication and authorization data</p>
+</li>
+<li>
+<p><strong>Web Application</strong> validates the <strong>JWT Access Token</strong> and grants access to the user</p>
+</li>
+<li>
+<p><strong>Web Application</strong> invokes <strong>Service</strong> (<strong>Microservice B</strong>) forwarding to it the <strong>JWT Access Token</strong> it just received</p>
+</li>
+<li>
+<p><strong>Service</strong> validates the <strong>JWT Access Token</strong> and grants access to <strong>Web Application</strong></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="keycloak">Keycloak</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>First, we install and configure Keycloak with users, groups etc..</p>
+</div>
+<div class="sect2">
+<h3 id="run-keycloak-on-kubernetes">Run Keycloak on Kubernetes</h3>
+<div class="paragraph">
+<p>Create a folder named <code>keycloak</code> wherever you want;</p>
+</div>
+<div class="paragraph">
+<p>Download file <a href="https://github.com/wildfly-extras/guides/tree/main/get-started-microservices-on-kubernetes/simple-microservice-rest-client/simple-microservice-client-secured/kubernetes/keycloak/keycloak-realm-realm.json">keycloak-realm-realm.json</a> inside the <code>keycloak</code> folder you just created;</p>
+</div>
+<div class="paragraph">
+<p>Then, create a <code>configmap</code> using it as its content (run the command from the <code>keycloak</code> folder):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">kubectl create configmap keycloak-data-import --from-file=keycloak-realm-realm.json=keycloak-realm-realm.json</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create a file named <code>keycloak.yaml</code> in the <code>keycloak</code> folder:</p>
+</div>
+<div class="listingblock">
+<div class="title">keycloak.yaml:</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-external
+  labels:
+    app: keycloak
+spec:
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: keycloak
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-internal
+  labels:
+    app: keycloak
+spec:
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: keycloak
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  labels:
+    app: keycloak
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      volumes:
+        - name: keycloak-data-import-volume
+          configMap:
+            name: keycloak-data-import
+      containers:
+        - name: keycloak
+          image: quay.io/keycloak/keycloak:26.0
+          args: [ "start-dev", "--import-realm" ]
+          env:
+            - name: KEYCLOAK_ADMIN
+              value: "admin"
+            - name: KEYCLOAK_ADMIN_PASSWORD
+              value: "admin"
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /realms/master
+              port: 8080
+          volumeMounts:
+            - name: keycloak-data-import-volume
+              mountPath: /opt/keycloak/data/import</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deploy to your Kubernetes Cluster (run the command from the <code>keycloak</code> folder):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">kubectl apply -f keycloak.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To access the Keycloak console, find out on what IP address/port, <a href="https://minikube.sigs.k8s.io/docs/" target="_blank" rel="noopener">minikube</a> is exposing your <strong>keycloak-external</strong> service:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ minikube service keycloak-external --url
+<a href="http://192.168.39.190:31950" class="bare">http://192.168.39.190:31950</a></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Open the link in your web browser and login to Keycloak with username/password "<strong>admin</strong>/<strong>admin</strong>";</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+since we are using minikube, we expose <strong>Keycloak</strong> outside the cluster with a <code>NodePort</code> service (<strong>keycloak-external</strong>) and inside the cluster with a <code>ClusterIP</code> service (<strong>keycloak-internal</strong>)
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="configure-keycloak-manually">optional alternative: configure Keycloak manually</h4>
+<div class="paragraph">
+<p>As an alternative to using <strong>Keycloak</strong> auto import feature (see the "--import-realm" command argument above), you can configure <strong>Keycloak</strong> manually: remove <code>volumes</code> and <code>volumeMounts</code> and follow these steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a realm called <strong>keycloak-realm</strong></p>
+</li>
+<li>
+<p>Create a client called <strong>simple-microservice-client-secured</strong>; in the Capability config, turn on <u>Client authentication</u>.</p>
+</li>
+<li>
+<p>For the <strong>simple-microservice-client-secured</strong> client, we also need to set the valid redirect URIs to <strong>*</strong> and set the Web origins to <strong>+</strong> to permit all origins of Valid Redirect URIs.</p>
+</li>
+<li>
+<p>For the <strong>simple-microservice-client-secured</strong> client, note down the <u>Client Secret</u> in the <u>Credentials</u> tab (e.g. <code>KqIQIzNHD9LnCRjsCxblDnfEl4rcNoKB</code>);</p>
+</li>
+<li>
+<p>Now, click on Realm roles and create two roles, <strong>user</strong> and <strong>admin</strong>.</p>
+</li>
+<li>
+<p>Create a user called <strong>alice</strong> and assign her the <strong>user</strong> and <strong>admin</strong> roles; set password <strong>123</strong> for <strong>alice</strong></p>
+</li>
+<li>
+<p>Create a user called <strong>bob</strong> and assign him only the <strong>user</strong> role; set password <strong>123</strong> for <strong>bob</strong></p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+in case you want to go deeper, find more information and examples in <a href="https://wildfly-security.github.io/wildfly-elytron/blog/bearer-only-support-openid-connect/">Setting up your Keycloak OpenID provider</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="web-application-microservice-a">Web Application (Microservice A)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="maven-project">Maven Project</h3>
+<div class="paragraph">
+<p>Copy <a href="https://github.com/wildfly-extras/guides/tree/main/get-started-microservices-on-kubernetes/simple-microservice-rest-client/simple-microservice-client">simple-microservice-client</a>
+into a new folder named <strong>simple-microservice-client-secured</strong>;</p>
+</div>
+<div class="sect3">
+<h4 id="pom-xml">pom.xml</h4>
+<div class="paragraph">
+<p>Update the artifactId to <code>&lt;artifactId&gt;simple-microservice-client-secured&lt;/artifactId&gt;</code>;</p>
+</div>
+<div class="paragraph">
+<p>Add the following to <code>dependencies</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">        &lt;dependency&gt;
+            &lt;groupId&gt;org.wildfly.security&lt;/groupId&gt;
+            &lt;artifactId&gt;wildfly-elytron-http-oidc&lt;/artifactId&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;jakarta.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;jakarta.servlet-api&lt;/artifactId&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Add the following <code>layers</code> in the <code>wildfly-maven-plugin</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">    &lt;layer&gt;elytron-oidc-client&lt;/layer&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="web-xml">web.xml</h4>
+<div class="paragraph">
+<p>Create file <code>src/main/webapp/WEB-INF/web.xml</code> with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="title">src/main/webapp/WEB-INF/web.xml:</div>
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee <a href="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"" class="bare">http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</a>
+         metadata-complete="false"&gt;
+    &lt;security-constraint&gt;
+        &lt;web-resource-collection&gt;
+            &lt;web-resource-name&gt;secured&lt;/web-resource-name&gt;
+            &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+        &lt;/web-resource-collection&gt;
+        &lt;auth-constraint&gt;
+            &lt;role-name&gt;user&lt;/role-name&gt;
+            &lt;role-name&gt;admin&lt;/role-name&gt;
+        &lt;/auth-constraint&gt;
+    &lt;/security-constraint&gt;
+
+    &lt;login-config&gt;
+        &lt;auth-method&gt;OIDC&lt;/auth-method&gt;
+    &lt;/login-config&gt;
+
+    &lt;security-role&gt;
+        &lt;role-name&gt;user&lt;/role-name&gt;
+    &lt;/security-role&gt;
+    &lt;security-role&gt;
+        &lt;role-name&gt;admin&lt;/role-name&gt;
+    &lt;/security-role&gt;
+&lt;/web-app&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="oidc-json">oidc.json</h4>
+<div class="paragraph">
+<p>Create file <code>src/main/webapp/WEB-INF/oidc.json</code> with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="title">src/main/webapp/WEB-INF/oidc.json:</div>
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "client-id" : "simple-microservice-client-secured",
+  "provider-url" : "${env.OIDC_PROVIDER_URL:http://localhost:8080}/realms/keycloak-realm",
+  "ssl-required" : "EXTERNAL",
+  "credentials" : {
+    "secret" : "${env.OIDC_CLIENT_SECRET:KqIQIzNHD9LnCRjsCxblDnfEl4rcNoKB}"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In case you followed the steps in <a href="#configure-keycloak-manually">optional alternative: configure Keycloak manually</a>, replace <code>KqIQIzNHD9LnCRjsCxblDnfEl4rcNoKB</code> with the <u>Client Secret</u> you previously noted down;</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-code">Java code</h3>
+<div class="sect3">
+<h4 id="gettingstartedendpointclient">GettingStartedEndpointClient</h4>
+<div class="paragraph">
+<p>Add the following interface:</p>
+</div>
+<div class="listingblock">
+<div class="title">org.wildfly.examples.GettingStartedEndpointClient.java:</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.wildfly.examples;
+
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders;
+import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
+
+@RegisterClientHeaders
+@RegisterRestClient(configKey="simple-microservice-server")
+@Path("/hello")
+public interface GettingStartedEndpointClient {
+	@GET
+	@Path("/{name}")
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response sayHello(@HeaderParam("Authorization") String authorization, final @PathParam("name") String name);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="gettingstartedendpoint">GettingStartedEndpoint</h4>
+<div class="paragraph">
+<p>Modify the class <code>GettingStartedEndpoint</code> as in the following:</p>
+</div>
+<div class="listingblock">
+<div class="title">org.wildfly.examples.GettingStartedEndpoint.java:</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.wildfly.examples;
+
+import jakarta.inject.Inject;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.wildfly.security.http.oidc.OidcSecurityContext;
+
+import java.io.IOException;
+
+@Path("/")
+public class GettingStartedEndpoint {
+
+    @Context
+    private HttpServletRequest httpServletRequest;
+
+    @Inject
+    @RestClient
+    private GettingStartedEndpointClient client;
+
+    @GET
+    @Path("/{name}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response sayHello(final @PathParam("name") String name) throws IOException {
+        Response response;
+        OidcSecurityContext oidcSecurityContext = getOidcSecurityContext(httpServletRequest);
+        if (oidcSecurityContext != null) {
+            String authzHeaderValue = "Bearer " + oidcSecurityContext.getTokenString();
+            System.out.println("\n\n[JWT] service Token: " + authzHeaderValue + "\n\n");
+            return client.sayHello(authzHeaderValue, name);
+        } else {
+            System.out.println("\n\n[JWT] No token :(\n\n");
+            return client.sayHello(null, name);
+        }
+    }
+
+    private OidcSecurityContext getOidcSecurityContext(HttpServletRequest req) {
+        return (OidcSecurityContext) req.getAttribute(OidcSecurityContext.class.getName());
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="build-and-push-the-image-to-quay-io">Build and push the image to Quay.io</h3>
+<div class="paragraph">
+<p>Build the application:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">mvn clean package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Build the Docker image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">podman build -t simple-microservice-client-secured:latest .</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+You can use <a href="https://docs.wildfly.org/wildfly-maven-plugin/releases/5.1/image-mojo.html" target="_blank" rel="noopener"><code>wildfly-maven-plugin</code></a> to automate the image build
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Create a public repository named <code>simple-microservice-client-secured</code> on <a href="https://quay.io" target="_blank" rel="noopener">quay.io</a> (e.g. <a href="https://quay.io/repository/tborgato/simple-microservice-client-secured" target="_blank" rel="noopener">https://quay.io/repository/tborgato/simple-microservice-client-secured</a>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+replace <code>tborgato</code> with the name of your account in all the commands that will follow
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Tag the Docker image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">podman tag simple-microservice-client-secured quay.io/tborgato/simple-microservice-client-secured</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Push the <code>simple-microservice-client-secured</code> Docker Image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">podman push quay.io/tborgato/simple-microservice-client-secured</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deploy-to-kubernetes">Deploy to Kubernetes</h3>
+<div class="paragraph">
+<p>Create file <code>simple-microservice-client-secured-deployment.yaml</code> in the <code>kubernetes</code> folder in the root of your project:</p>
+</div>
+<div class="listingblock">
+<div class="title">simple-microservice-client-secured-deployment.yaml:</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-microservice-client-secured-deployment
+  labels:
+    app: simple-microservice-client-secured
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-microservice-client-secured
+  template:
+    metadata:
+      labels:
+        app: simple-microservice-client-secured
+    spec:
+      containers:
+        - name: simple-microservice-client-secured
+          image: quay.io/tborgato/simple-microservice-client-secured
+          ports:
+            - containerPort: 8080
+            - containerPort: 9990
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 9990
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 9990
+          startupProbe:
+            httpGet:
+              path: /health/started
+              port: 9990
+          env:
+            - name: SIMPLE-MICROSERVICE-SERVER_MP_REST_URI
+              value: "http://simple-microservice-server-secured-service:8080"
+            - name: OIDC_PROVIDER_URL
+              # replace with the outcome of "minikube service keycloak-external --url"
+              value: "http://192.168.39.190:31950"
+            - name: OIDC_CLIENT_SECRET
+              value: "KqIQIzNHD9LnCRjsCxblDnfEl4rcNoKB"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>replace "http://192.168.39.190:31950" with the outcome of command <code>minikube service keycloak-external --url</code> (this is where your web browser will be redirected for authentication)</p>
+</li>
+<li>
+<p>replace "tborgato" with your account name on <a href="quay.io">quay.io</a></p>
+</li>
+<li>
+<p>In case you followed the steps in <a href="#configure-keycloak-manually">optional alternative: configure Keycloak manually</a>, replace <code>KqIQIzNHD9LnCRjsCxblDnfEl4rcNoKB</code> with the <u>Client Secret</u> you previously noted down;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Deploy to your Kubernetes Cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">kubectl apply -f kubernetes/simple-microservice-client-secured-deployment.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create file <code>simple-microservice-client-secured-service.yaml</code> in the <code>kubernetes</code> folder:</p>
+</div>
+<div class="listingblock">
+<div class="title">simple-microservice-client-secured-service.yaml:</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: simple-microservice-client-secured-service
+  labels:
+    app: simple-microservice-client-secured
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: simple-microservice-client-secured
+  type: NodePort</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deploy to your Kubernetes Cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">kubectl apply -f kubernetes/simple-microservice-client-secured-service.yaml</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="service-microservice-b">Service (Microservice B)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="maven-project-2">Maven Project</h3>
+<div class="paragraph">
+<p>Copy <a href="https://github.com/wildfly-extras/guides/tree/main/get-started-microservices-on-kubernetes/simple-microservice-rest-client/simple-microservice-server">simple-microservice-server</a>
+into a new folder named <strong>simple-microservice-server-secured</strong>;</p>
+</div>
+<div class="sect3">
+<h4 id="pom-xml-2">pom.xml</h4>
+<div class="paragraph">
+<p>Update the artifactId to <code>&lt;artifactId&gt;simple-microservice-server-secured&lt;/artifactId&gt;</code>;</p>
+</div>
+<div class="paragraph">
+<p>Add the following to <code>dependencyManagement</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.wildfly.bom&lt;/groupId&gt;
+    &lt;artifactId&gt;wildfly-expansion&lt;/artifactId&gt;
+    &lt;version&gt;${version.wildfly.bom}&lt;/version&gt;
+    &lt;type&gt;pom&lt;/type&gt;
+    &lt;scope&gt;import&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Add the following to <code>dependencies</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">        &lt;dependency&gt;
+            &lt;groupId&gt;org.eclipse.microprofile.config&lt;/groupId&gt;
+            &lt;artifactId&gt;microprofile-config-api&lt;/artifactId&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.eclipse.microprofile.jwt&lt;/groupId&gt;
+            &lt;artifactId&gt;microprofile-jwt-auth-api&lt;/artifactId&gt;
+            &lt;scope&gt;provided&lt;/scope&gt;
+        &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Add the following <code>layers</code> in the <code>wildfly-maven-plugin</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">        &lt;layer&gt;microprofile-config&lt;/layer&gt;
+        &lt;layer&gt;microprofile-jwt&lt;/layer&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="microprofile-config-properties">microprofile-config.properties</h3>
+<div class="paragraph">
+<p>Add file <code>src/main/resources/META-INF/microprofile-config.properties</code> with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="title">microprofile-config.properties:</div>
+<div class="content">
+<pre class="highlight"><code class="language-properties" data-lang="properties">mp.jwt.verify.publickey.location=http://localhost:8080/realms/keycloak-realm/protocol/openid-connect/certs</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-code-2">Java code</h3>
+<div class="sect3">
+<h4 id="gettingstartedapplication">GettingStartedApplication</h4>
+<div class="paragraph">
+<p>Modify the class <code>GettingStartedApplication</code> as in the following:</p>
+</div>
+<div class="listingblock">
+<div class="title">org.wildfly.examples.GettingStartedApplication.java:</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.wildfly.examples;
+
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
+import org.eclipse.microprofile.auth.LoginConfig;
+
+@LoginConfig(authMethod="MP-JWT")
+@ApplicationPath("/hello")
+public class GettingStartedApplication extends Application {
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="gettingstartedendpoint-2">GettingStartedEndpoint</h4>
+<div class="paragraph">
+<p>Modify the class <code>GettingStartedEndpoint</code> as in the following:</p>
+</div>
+<div class="listingblock">
+<div class="title">org.wildfly.examples.GettingStartedEndpoint.java:</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">package org.wildfly.examples;
+
+import jakarta.annotation.security.RolesAllowed;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.jwt.JsonWebToken;
+
+@Path("/")
+public class GettingStartedEndpoint {
+
+	@Inject
+	@ConfigProperty(name = "mp.jwt.verify.publickey.location")
+	private String publicKeyLocation;
+
+	@Inject
+	JsonWebToken jwt;
+
+	@GET
+	@Path("/{name}")
+	@Produces(MediaType.TEXT_PLAIN)
+	@RolesAllowed({"admin"})
+	public Response sayHello(final @PathParam("name") String name) {
+		System.out.println("mp.jwt.verify.publickey.location=" + publicKeyLocation);
+
+		String response =
+				"Hello " + name
+						+ (jwt != null ? (" Subject:" + jwt.getSubject()) : null)
+						+ (jwt != null ? (" Issuer: " + jwt.getIssuer()) : null);
+
+		return Response.ok(response).build();
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="build-and-push-the-image-to-quay-io-2">Build and push the image to Quay.io</h3>
+<div class="paragraph">
+<p>Build the application:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">mvn clean package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Build the Docker image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">podman build -t simple-microservice-server-secured:latest .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create a public repository named <code>simple-microservice-server-secured</code> on <a href="https://quay.io" target="_blank" rel="noopener">quay.io</a> (e.g. <a href="https://quay.io/repository/tborgato/my-jaxrs-app" target="_blank" rel="noopener">https://quay.io/repository/tborgato/simple-microservice-server-secured</a>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+replace <code>tborgato</code> with the name of your account in all the commands that will follow
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Tag the Docker image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">podman tag simple-microservice-server-secured quay.io/tborgato/simple-microservice-server-secured</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Push the <code>simple-microservice-server-secured</code> Docker Image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">podman push quay.io/tborgato/simple-microservice-server-secured</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deploy-to-kubernetes-2">Deploy to Kubernetes</h3>
+<div class="paragraph">
+<p>Create file <code>simple-microservice-server-secured-deployment.yaml</code> in the <code>kubernetes</code> folder:</p>
+</div>
+<div class="listingblock">
+<div class="title">simple-microservice-server-secured-deployment.yaml:</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-microservice-server-secured-deployment
+  labels:
+    app: simple-microservice-server-secured
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-microservice-server-secured
+  template:
+    metadata:
+      labels:
+        app: simple-microservice-server-secured
+    spec:
+      containers:
+        - name: simple-microservice-server-secured
+          image: quay.io/tborgato/simple-microservice-server-secured
+          ports:
+            - containerPort: 8080
+            - containerPort: 9990
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 9990
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 9990
+          startupProbe:
+            httpGet:
+              path: /health/started
+              port: 9990
+          env:
+            - name: MP_JWT_VERIFY_PUBLICKEY_LOCATION
+              value: "http://keycloak-internal:8080/realms/keycloak-realm/protocol/openid-connect/certs"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>replace "tborgato" with your account name on <a href="quay.io">quay.io</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Deploy to your Kubernetes Cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">kubectl apply -f kubernetes/simple-microservice-server-secured-deployment.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Create file <code>simple-microservice-server-secured-service.yaml</code> in the <code>kubernetes</code> folder:</p>
+</div>
+<div class="listingblock">
+<div class="title">simple-microservice-server-secured-service.yaml:</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: simple-microservice-server-secured-service
+  labels:
+    app: simple-microservice-server-secured
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: simple-microservice-server-secured
+  type: ClusterIP</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Deploy to your Kubernetes Cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">kubectl apply -f kubernetes/simple-microservice-server-secured-service.yaml</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="test">Test</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ minikube service simple-microservice-client-secured-service --url
+<a href="http://192.168.39.190:32225" class="bare">http://192.168.39.190:32225</a></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Open that URL in your browser, log in as <strong>alice</strong>/<strong>123</strong> and try it out!</p>
+</div>
+<div class="paragraph">
+<p>After pressing the "Say Hello" button, you should see something like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">Hello ddd Subject:aaef43ee-4005-4d2d-a5f0-0e0d11a1f831 Issuer: http://192.168.39.190:31950/realms/keycloak-realm</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="references">References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://wildfly-security.github.io/wildfly-elytron/blog/bearer-only-support-openid-connect/" class="bare">https://wildfly-security.github.io/wildfly-elytron/blog/bearer-only-support-openid-connect/</a></p>
+</li>
+<li>
+<p><a href="https://github.com/wildfly-security-incubator/elytron-examples/tree/main/oidc-with-bearer" class="bare">https://github.com/wildfly-security-incubator/elytron-examples/tree/main/oidc-with-bearer</a></p>
+</li>
+<li>
+<p><a href="https://www.keycloak.org/getting-started/getting-started-kube" class="bare">https://www.keycloak.org/getting-started/getting-started-kube</a></p>
+</li>
+<li>
+<p>Source code for this guide:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/wildfly-extras/guides/tree/main/get-started-microservices-on-kubernetes/simple-microservice-rest-client/simple-microservice-client-secured" class="bare">https://github.com/wildfly-extras/guides/tree/main/get-started-microservices-on-kubernetes/simple-microservice-rest-client/simple-microservice-client-secured</a></p>
+</li>
+<li>
+<p><a href="https://github.com/wildfly-extras/guides/tree/main/get-started-microservices-on-kubernetes/simple-microservice-rest-client/simple-microservice-server-secured" class="bare">https://github.com/wildfly-extras/guides/tree/main/get-started-microservices-on-kubernetes/simple-microservice-rest-client/simple-microservice-server-secured</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+    <div>&lt; <a href="/wildfly.org/guides">Back to Guides</a></div>
+  </div>
+</div>
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/wildfly.org/"><img class="wf-logo" src="/wildfly.org/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/wildfly.org/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/wildfly.org/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/wildfly.org/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/wildfly.org/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>

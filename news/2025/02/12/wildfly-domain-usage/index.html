@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>An introduction to use the domain mode of the current release of WildFly</title>
+  <meta name="description" content="An introduction to use the domain mode of the current release of WildFly with the instructions on configuring the Elytron subsystem.">
+  <link rel="me" href="https://fosstodon.org/@wildflyas" />
+  <link rel="shortcut icon" type="image/png" href="/wildfly.org/favicon.ico" >
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/atelier-dune-light.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/protobuf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/dockerfile.min.js"></script>
+  <link rel="stylesheet" href="/wildfly.org/assets/css/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40221748-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-40221748-1');
+  </script>
+
+  
+
+</head>
+
+<body class="An introduction to use the domain mode of the current release of WildFly">
+  <div class="content">
+    <div class="header navigation">
+  <div class="logo-wrapper">
+    <a href="/wildfly.org/"><img class="wf-logo" src="/wildfly.org/assets/img/wildfly_icons_one-color-logo.png"></a>
+  </div>
+  <div class="nav-container">
+    <nav>
+      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+      <ul class="nav-list">
+        <li>
+          <a href="/wildfly.org/news/" class="active">News</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/about/" class="">About</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/contribute/" class="">Contribute</a>
+        </li>
+        <li>
+            <a target="_blank" href="https://docs.wildfly.org">Docs</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/guides/" class="">Guides</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/events/" class="">Events</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/downloads/" class="">Downloads</a>
+        </li>
+        <li>
+          <a href="/wildfly.org/security/" class="">CVE Reporting</a>
+        </li>
+        <li>
+          <a href="https://github.com/wildfly/wildfly/fork" target="_blank">Fork</a>
+        </li>
+        <li>
+          <a class="button-cta secondary " href="/wildfly.org/get-started/">Get Started</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+    <div class="post-page grid-wrapper">
+  <div class="grid__item width-10-12">
+    <h1 class="title">An introduction to use the domain mode of the current release of WildFly</h1>
+    
+    
+    
+
+    <p>
+      
+        
+          
+          <p class="byline">
+            
+              <img class="avatar" height="60px" width="60px" src="/assets/img/authors/liweinan.jpg"/>
+            
+
+            By 阿男
+            
+              | February 12, 2025
+            
+          </p>
+        
+      
+    </p>
+  </div>
+  <div class="grid__item width-10-12 doc-content">
+    
+    <div class="paragraph">
+<p>I recently tried to play with the domain mode in the current release of WildFly, version 35, while writing this blog post.</p>
+</div>
+<div class="paragraph">
+<p>According to the blog post written by Brian Stansberry<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>, there are some breaking backward-compatibility changes in the security configuration part related to Elytron since WildFly 25:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>A key focus in WildFly 25 has been completing our migration away from the legacy security layer that dates back to JBoss AS and onto the <a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a> based <a href="https://docs.wildfly.org/24/WildFly_Elytron_Security.html">security layer</a> introduced in WildFly 11. SE 17 does not provide packages that legacy security heavily relies upon, so the time has come to complete the transition off of legacy security.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Nevertheless, the resources I could find are mostly outdated or don&#8217;t contain the step-by-step walkthrough about the minimal configuration to be done for using the domain mode of WildFly. I have written a book before, explaining the domain mode usage of WildFly<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>. There is also a relative document about the domain mode setup<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>. All these materials are outdated on the domain configuration topic, so I&#8217;d like to update the knowledge on this topic in this blog post, showing how to configure the domain mode for the most recent version of WildFly server, which is version 35 when I&#8217;m writing this blog post. I won’t cover all the detail usages of the domain mode in this blog post, but it will be a good start to follow the instructions in this blog posts for the further studies.</p>
+</div>
+<div class="paragraph">
+<p>Here is my local environment setup to use the domain mode of the WildFly server:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/01.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>As the deployment diagram shows above, I used two machines to run the WildFly server in domain mode. In the above setup, the WildFly server running on Machine A acts as a domain controller, and the WildFly server on Machine B will be connected to Machine A accepting the management from the domain server.</p>
+</div>
+<div class="paragraph">
+<p>The host name of the WildFly server running on Machine A will be configured to <code>primary</code>(this will be defined in the <code>name</code> property in the <code>host.xml</code>), and the host name of the WildFly server running on Machine B will be configured to <code>secondary</code>.</p>
+</div>
+<div class="paragraph">
+<p>Both WildFly servers, running on two different machines, will be configured to run a managed server (defined in the server section of the <code>host.xml</code>) within the same server group, named <code>other-server-group</code>.</p>
+</div>
+<div class="paragraph">
+<p>The Primary Host Controller will define a <code>server-three</code> managed server, while the Secondary Host Controller will define a <code>server-two</code> managed server, both belonging to the <code>other-server-group</code> server group.</p>
+</div>
+<div class="paragraph">
+<p>In this way, the Domain Controller can manage the server group and deploy user applications to the managed servers within it, even though the managed servers are running on different hosts.</p>
+</div>
+<div class="paragraph">
+<p>The first step is to download the current version of WildFly. I will use version <code>35.0.0.Final</code> version in this blog post which is the newest final version when I’m writing this blog post. Here is the release page:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/wildfly/wildfly/releases/tag/35.0.0.Final">Release 35.0.0.Final · wildfly/wildfly</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">❯ wget https://github.com/wildfly/wildfly/releases/download/35.0.0.Final/wildfly-35.0.0.Final.zip</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After the WildFly server zip file is downloaded and extracted into both machines, I can do the configuration work. The extracted WildFly server directory has some of the configuration files out-of-box. Here are the domain configurations provided:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">❯ ls wildfly-35.0.0.Final/domain/configuration/
+application-roles.properties            host-secondary.xml
+application-users.properties            host.xml
+default-server-logging.properties       logging.properties
+domain.xml                              mgmt-groups.properties
+host-primary.xml                        mgmt-users.properties</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the above command output, we can see in the <code>wildfly-35.0.0.Final/domain/configuration/</code> directory, it contains <code>host-primary.xml</code> and <code>host-secondary.xml</code> files. I will use <code>host-secondary.xml</code> with some modifications in Machine B. However, I’ll use the <code>host.xml</code> instead of <code>host-primary.xml</code> in Machine A, because <code>host-primary.xml</code> has removed all the <code>servers</code> configuration, but we need these <code>servers</code> configuration in our setup. However, I still need to configure a Managed Server in Machine A for demonstration purposes.</p>
+</div>
+<div class="paragraph">
+<p>First, let’s check the <code>host.xml</code> on Machine A to fit the requirement. In <code>host.xml</code>, the host name is set to <code>primary</code> by default:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;host xmlns="urn:jboss:domain:community:20.0" name="primary"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is what I expect, so I don’t need to change it.</p>
+</div>
+<div class="paragraph">
+<p>Instead of directly editing the configuration file, we can use the <code>jboss-cli.sh</code> to connect to the server to edit the configuration file in a more controllable way. To do this, we can first run the <code>jboss-cli.sh</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">❯ pwd
+/Users/weli/works/wildfly-35.0.0.Final/bin
+weli@192 ~/works/wildfly-35.0.0.Final/bin
+❯ ./jboss-cli.sh
+You are disconnected at the moment. Type 'connect' to connect to the server or 'help' for the list of supported commands.
+[disconnected /]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After entering the CLI, run the following command to connect to the host controller:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">[disconnected /] embed-host-controller
+[domain@embedded /]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above command will run the domain server in offline-mode(To learn about the detailed usages of the above command, you can read this blog post<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>). And we can now configure the server in the CLI, and all the changes will be persisted into the host controller configuration file(by default it’s <code>host.xml</code>).</p>
+</div>
+<div class="paragraph">
+<p>Now we can use the CLI to read the host name:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">[domain@embedded /] /:read-attribute(name=local-host-name)
+{
+    "outcome" =&gt; "success",
+    "result" =&gt; "primary"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It&#8217;s preferred to use CLI command instead of directly operating on the host controller configuration file. In the rest of this blog post, I&#8217;ll introduce both the content of the host controller file, and the way to use the CLI command to modify it.</p>
+</div>
+<div class="paragraph">
+<p>Now we can see the <code>host.xml</code> file has two servers settings by default:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;server name="server-one" group="main-server-group"/&gt;
+&lt;server name="server-two" group="main-server-group" auto-start="true"&gt;
+    &lt;jvm name="default"/&gt;
+    &lt;socket-bindings port-offset="150"/&gt;
+&lt;/server&gt;
+&lt;server name="server-three" group="other-server-group" auto-start="false"&gt;
+    &lt;jvm name="default"/&gt;
+    &lt;socket-bindings port-offset="250"/&gt;
+&lt;/server&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I’ll use only <code>server-three</code> in this blog post, so I comment out the <code>server-one</code> and the <code>server-two</code> definitions and only leave the <code>server-three</code> definition here.</p>
+</div>
+<div class="paragraph">
+<p>Here are the commands to disable the <code>server-one</code> and <code>server-two</code> from auto-starting:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">[domain@embedded /] /host=primary/server-config=server-one:write-attribute(name=auto-start, value=false)
+{
+    "outcome" =&gt; "success",
+    "result" =&gt; undefined,
+    "server-groups" =&gt; undefined
+}
+
+[domain@embedded /] /host=primary/server-config=server-two:write-attribute(name=auto-start, value=false)
+{
+    "outcome" =&gt; "success",
+    "result" =&gt; undefined,
+    "server-groups" =&gt; undefined
+}
+
+[domain@embedded /]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can use these commands to remove the <code>server-one</code> and <code>server-two</code> directly:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">/host=primary/server-config=server-one:remove
+/host=primary/server-config=server-two:remove</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition, there are several interface properties defined in the <code>host.xml</code> file that we need to override during runtime. Here is the <code>interfaces</code> section in the <code>host.xml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;interfaces&gt;
+    &lt;interface name="management"&gt;
+        &lt;inet-address value="${jboss.bind.address.management:127.0.0.1}"/&gt;
+    &lt;/interface&gt;
+    &lt;interface name="public"&gt;
+        &lt;inet-address value="${jboss.bind.address:127.0.0.1}"/&gt;
+    &lt;/interface&gt;
+&lt;/interfaces&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>I checked my IP address of Machine A, and it’s <code>192.168.0.115</code>, so I started the WildFly Server on Machine A by running the following commands in the <code>bin</code> directory of WildFly:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ pwd
+/wildfly-35.0.0.Final/bin</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ ./domain.sh --host-config=host.xml -Djboss.bind.address.management=192.168.0.115 -Djboss.bind.address=192.168.0.115 -Djboss.domain.primary.address=192.168.0.115</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Please note that the <code>host.xml</code> is the default value for the <code>--host-config</code> argument. So in this specific case we don’t have to add it.</p>
+</div>
+<div class="paragraph">
+<p>And I can see the server is started and here is the server log output of the above command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">=========================================================================
+
+JBoss Bootstrap Environment
+
+JBOSS_HOME: /wildfly-35.0.0.Final
+
+JAVA: .sdkman/candidates/java/current/bin/java
+
+JAVA_OPTS: -Xms64m -Xmx512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djdk.serialFilter="maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000"  --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-exports=jdk.naming.dns/com.sun.jndi.dns=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Djava.security.manager=allow
+
+=========================================================================
+
+17:06:49,064 INFO  [org.jboss.modules] (main) JBoss Modules version 2.1.6.Final
+17:06:49,405 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+17:06:49,428 INFO  [org.jboss.as.process.Host Controller.status] (main) WFLYPC0018: Starting process 'Host Controller'
+17:06:49,896 INFO  [org.jboss.as.process.Host Controller.system.stdout] (stdout for Host Controller) [Host Controller] 17:06:49,875 INFO  [org.jboss.modules] (main) JBoss Modules version 2.1.6.Final
+[Host Controller] 17:06:50,385 INFO  [org.jboss.msc] (main) JBoss MSC version 1.5.5.Final
+[Host Controller] 17:06:50,393 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+[Host Controller] 17:06:50,441 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly 35.0.0.Final (WildFly Core 27.0.0.Final) starting
+[Host Controller] 17:06:50,806 INFO  [org.wildfly.security] (Controller Boot Thread) ELY00001: WildFly Elytron version 2.6.0.Final
+[Host Controller] 17:06:51,088 INFO  [org.jboss.as.host.controller] (Controller Boot Thread) WFLYHC0003: Creating http management service using network interface (management) port (9990) securePort (-1)
+[Host Controller] 17:06:51,099 INFO  [org.xnio] (MSC service thread 1-3) XNIO version 3.8.16.Final
+[Host Controller] 17:06:51,103 INFO  [org.xnio.nio] (MSC service thread 1-3) XNIO NIO Implementation Version 3.8.16.Final
+[Host Controller] 17:06:51,139 INFO  [org.jboss.remoting] (MSC service thread 1-7) JBoss Remoting version 5.0.30.Final
+[Host Controller] 17:06:52,510 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0062: Http management interface listening on http://192.168.0.115:9990/management and https://192.168.0.115:-1/management
+[Host Controller] 17:06:52,510 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0053: Admin console listening on http://192.168.0.115:9990 and https://192.168.0.115:-1
+[Host Controller] 17:06:52,546 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly 35.0.0.Final (WildFly Core 27.0.0.Final) (Host Controller) started in 3066ms - Started 70 of 71 services (14 services are lazy, passive or on-demand) - Host Controller configuration files in use: domain.xml, host.xml - Minimum feature stability level: community</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the above server log output, I can see the server-bound address is <code>192.168.0.115</code> instead of the default <code>127.0.0.1</code>. Then I opened another terminal window and ran the following command in the <code>bin</code> directory of the WildFly server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ ./add-user.sh -u admin -p 123
+Added user 'admin' to file '/wildfly-35.0.0.Final/standalone/configuration/mgmt-users.properties'
+Added user 'admin' to file '/wildfly-35.0.0.Final/domain/configuration/mgmt-users.properties'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the above command output, we can see the <code>admin</code> user is added and its password is <code>123</code>. This added user will be used on the Secondary Host Controller to connect to the Primary Host controller.</p>
+</div>
+<div class="paragraph">
+<p>Please note that the above command didn&#8217;t generate a secret value related to the generated <code>admin</code> user as described you may find in the other online materials, which is already deprecated since WildFly 25. So the following <code>secret</code> configuration on the Secondary Host Controller is already deprecated:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;server-identities&gt;
+  &lt;secret value="..." /&gt;
+&lt;/server-identities&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As the Primary Host Controller is started on Machine A, now we can check the WildFly server configuration on Machine B. As planned, the Host Controller is named <code>secondary</code>, and it will be connected to the Primary Host Controller on Machine A, which acts as the domain controller.</p>
+</div>
+<div class="paragraph">
+<p>Now we can check the configuration on the Secondary Host Controller. The Secondary Host Controller on Machine B will use the <code>host-secondary.xml</code> file as its configuration file. Please note that to edit the <code>host-secondary.xml</code> file in CLI, you should use this command to connect to the embedded server and use the correct host controller file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">[disconnected /] embed-host-controller --host-config=host-secondary.xml
+[domain@embedded /]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We need to make some modifications to this file. First I need to add the <code>name</code> property to the <code>host</code> section:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;host xmlns="urn:jboss:domain:community:20.0" name="secondary"&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is the method to use the CLI command to modify the host controller name:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ ./wildfly-35.0.0.Final/bin/jboss-cli.sh
+You are disconnected at the moment. Type 'connect' to connect to the server or 'help' for the list of supported commands.
+[disconnected /] embed-host-controller --host-config=host-secondary.xml
+[domain@embedded /] /host=unknown-host.unknown-domain:write-attribute(name=name,value=secondary)
+{
+    "outcome" =&gt; "success",
+    "result" =&gt; undefined,
+    "server-groups" =&gt; undefined,
+    "response-headers" =&gt; {"process-state" =&gt; "reload-required"}
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">[domain@embedded /] /host=unknown-host.unknown-domain:reload(admin-only=true)
+{"outcome" =&gt; "success"}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Please note that if you use tab complete, it should autocomplete your default host name. Giving the host a name can help to analyze the server log output later.</p>
+</div>
+<div class="paragraph">
+<p>So I need to define this <code>authentication-context</code> in the <code>elytron</code> subsystem. This configuration is different from the legacy authentication. Here are the details:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;profile&gt;
+    &lt;subsystem xmlns="urn:jboss:domain:core-management:1.0"/&gt;
+    &lt;subsystem xmlns="urn:wildfly:elytron:community:18.0" final-providers="combined-providers"
+               disallowed-providers="OracleUcrypto" register-jaspi-factory="false"&gt;
+        &lt;authentication-client&gt;
+            &lt;authentication-configuration sasl-mechanism-selector="DIGEST-MD5" name="myConfig"
+                                          authentication-name="admin" realm="ManagementRealm"&gt;
+                &lt;credential-reference clear-text="123"/&gt;
+            &lt;/authentication-configuration&gt;
+            &lt;authentication-context name="myCtx"&gt;
+                &lt;match-rule match-host="${jboss.domain.primary.address}" authentication-configuration="myConfig"/&gt;
+            &lt;/authentication-context&gt;
+        &lt;/authentication-client&gt;
+        ...
+    &lt;/subsystem&gt;
+    ...
+&lt;/profile&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is the equivalent CLI command to do the configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">[domain@embedded /] /host=secondary/subsystem=elytron/authentication-configuration=myConfig:add(sasl-mechanism-selector=DIGEST-MD5, authentication-name=admin, realm=ManagementRealm, credential-reference={clear-text="123"})
+{"outcome" =&gt; "success"}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">[domain@embedded /] /host=secondary/subsystem=elytron/authentication-context=myCtx:add(match-rules=[{match-host="${jboss.domain.primary.address}", authentication-configuration=myConfig}])
+{"outcome" =&gt; "success"}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above configuration shows how to configure the <code>elytron</code> subsystem to provide user <code>admin</code> and its password <code>123</code> for usage. The <code>authentication-configuration</code> section is added, and the authentication context <code>myCtx</code> is using this configuration. Please note this is only one way to provide <code>username</code> and <code>password</code> via the Elytron subsystem, and you can avoid using <code>clear-text</code> to provide the password. I won’t dig into more details on how to use Elytron in this blog post, but you can always refer to its document to learn its usage<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>.</p>
+</div>
+<div class="paragraph">
+<p>Then I need to add modify configuration of the <code>domain-controller</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;domain-controller&gt;
+    &lt;remote authentication-context="myCtx"&gt;
+        &lt;discovery-options&gt;
+            &lt;static-discovery name="primary" protocol="${jboss.domain.primary.protocol:remote+http}"
+                              host="${jboss.domain.primary.address}" port="${jboss.domain.primary.port:9990}"/&gt;
+        &lt;/discovery-options&gt;
+    &lt;/remote&gt;
+&lt;/domain-controller&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As the configuration is shown above, I defined the <code>authentication-context</code> to be used as <code>myCtx</code>. Here is the equivalent CLI command to do the configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">/host=secondary:write-attribute(name=domain-controller.remote.authentication-context, value=myCtx)
+{
+    "outcome" =&gt; "success",
+    "result" =&gt; undefined,
+    "server-groups" =&gt; undefined,
+    "response-headers" =&gt; {"process-state" =&gt; "reload-required"}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After configuring the authentication part in the <code>host-secondary.xml</code> file on Machine B, the last thing is that I disabled the <code>server-one</code> and left only <code>server-two</code> in the configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;servers&gt;
+    &lt;!-- &lt;server name="server-one" group="main-server-group"/&gt; --&gt;
+    &lt;server name="server-two" group="other-server-group"&gt;
+        &lt;socket-bindings port-offset="150"/&gt;
+    &lt;/server&gt;
+&lt;/servers&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Again it&#8217;s better to use the CLI command to do the configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">/host=secondary/server-config=server-one:remove</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Until now all the configurations are done, and then I can start the WildFly server on Machine B with the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">❯ ./domain.sh --host-config=host-secondary.xml -Djboss.bind.address.management=192.168.0.113 -Djboss.bind.address=192.168.0.113 -Djboss.domain.primary.address=192.168.0.115</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above command, I assign the value <code>host-secondary.xml</code> to the <code>host-config</code> property, and I assign values of <code>jboss.bind.address.management</code> and <code>jboss.bind.address</code> as <code>192.168.0.113</code>, which is the IP address of Machine B itself. I assigned the value of <code>jboss.domain.primary.address</code> as <code>192.168.0.115</code>, which is the IP address of Machine A. On Machine A, there is a WildFly server running as a domain controller as described above. Now we can see the server log output of the above command from Machine B:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">=========================================================================
+
+JBoss Bootstrap Environment
+
+JBOSS_HOME: /wildfly-35.0.0.Final
+
+JAVA: .sdkman/candidates/java/current/bin/java
+
+JAVA_OPTS: -Xms64m -Xmx512m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djdk.serialFilter="maxbytes=10485760;maxdepth=128;maxarray=100000;maxrefs=300000"  --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldap=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.url.ldaps=ALL-UNNAMED --add-exports=jdk.naming.dns/com.sun.jndi.dns=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Djava.security.manager=allow
+
+=========================================================================
+
+17:17:30,558 INFO  [org.jboss.modules] (main) JBoss Modules version 2.1.6.Final
+17:17:30,668 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+17:17:30,677 INFO  [org.jboss.as.process.Host Controller.status] (main) WFLYPC0018: Starting process 'Host Controller'
+17:17:30,855 INFO  [org.jboss.as.process.Host Controller.system.stdout] (stdout for Host Controller) [Host Controller] 17:17:30,847 INFO  [org.jboss.modules] (main) JBoss Modules version 2.1.6.Final
+[Host Controller] 17:17:31,008 INFO  [org.jboss.msc] (main) JBoss MSC version 1.5.5.Final
+[Host Controller] 17:17:31,010 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+[Host Controller] 17:17:31,026 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0049: WildFly 35.0.0.Final (WildFly Core 27.0.0.Final) starting
+[Host Controller] 17:17:31,158 INFO  [org.wildfly.security] (Controller Boot Thread) ELY00001: WildFly Elytron version 2.6.0.Final
+[Host Controller] 17:17:31,270 INFO  [org.jboss.as.host.controller] (Controller Boot Thread) WFLYHC0003: Creating http management service using network interface (management) port (9990) securePort (-1)
+[Host Controller] 17:17:31,275 INFO  [org.xnio] (MSC service thread 1-7) XNIO version 3.8.16.Final
+[Host Controller] 17:17:31,278 INFO  [org.xnio.nio] (MSC service thread 1-7) XNIO NIO Implementation Version 3.8.16.Final
+[Host Controller] 17:17:31,289 INFO  [org.jboss.remoting] (MSC service thread 1-7) JBoss Remoting version 5.0.30.Final
+[Host Controller] 17:17:32,666 INFO  [org.jboss.as.host.controller] (Controller Boot Thread) WFLYHC0148: Connected to the domain controller at remote+http://192.168.0.115:9990
+[Host Controller] 17:17:32,692 INFO  [org.jboss.as.host.controller] (Controller Boot Thread) WFLYHC0023: Starting server server-two
+17:17:32,800 INFO  [org.jboss.as.process.Server:server-two.status] (ProcessController-threads - 3) WFLYPC0018: Starting process 'Server:server-two'
+[Host Controller] 17:17:33,442 INFO  [org.jboss.as.host.controller] (management task-1) WFLYHC0021: Server [Server:server-two] connected using connection [Channel ID 20a1192c (inbound) of Remoting connection 79a44d09 to 192.168.0.113/192.168.0.113:61942 of endpoint "secondary:MANAGEMENT" &lt;6894739b&gt;]
+[Host Controller] 17:17:33,452 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0062: Http management interface listening on http://192.168.0.113:9990/management and https://192.168.0.113:-1/management
+[Host Controller] 17:17:33,452 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0054: Admin console is not enabled
+[Host Controller] 17:17:33,453 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly 35.0.0.Final (WildFly Core 27.0.0.Final) (Host Controller) started in 2754ms - Started 70 of 71 services (14 services are lazy, passive or on-demand) - Host Controller configuration file in use: host-secondary.xml - Minimum feature stability level: community
+[Host Controller] 17:17:33,453 INFO  [org.jboss.as.host.controller] (server-registration-threads - 1) WFLYHC0020: Registering server server-two</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the above server log output on Machine B, we can see the WildFly server is started and <code>server-two</code> is started. In addition, it’s connected to the Domain Controller on Machine A. Here is the server log output from the WildFly server on Machine A:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">[Host Controller] 17:17:32,549 INFO  [org.jboss.as.domain.controller] (Host Controller Service Threads - 23) WFLYHC0019: Registered remote secondary host "secondary", JBoss WildFly 35.0.0.Final (WildFly 27.0.0.Final)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the above Primary Host Controller log output, I can see the secondary host is connected, so it starts to accept the management of Primary Host Controller, which acts as the domain controller. Now I can open the web browser on Machine A to access the WildFly server admin console: <a href="http://192.168.0.115:9990" class="bare">http://192.168.0.115:9990</a></p>
+</div>
+<div class="paragraph">
+<p>Please note that I can’t use the IP address <code>127.0.0.1</code> here, because the WildFly server is listening to the public IP address of Machine A, which we have assigned to the <code>jboss.bind.address.management</code> property during the server startup process. Here is the screenshot of the admin page of the WildFly server:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/02.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>We need to enter <code>admin</code> as the username and <code>123</code> as the password, which is the user we added as the management user above. And then we can enter the admin page of the server:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/03.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>As we have entered the WildFly admin page, we can try to deploy an example application. There is a <code>helloworld</code> project in the WildFly Quickstart project:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/wildfly/quickstart/tree/35.0.0.Final/helloworld">https://github.com/wildfly/quickstart/tree/35.0.0.Final/helloworld</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The above project is a simple application that just contains a servlet that will respond with the text <code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code> to the request. So I cloned the WildFly Quickstart project into my local environment and then built the <code>helloworld</code> project to generate the <code>helloworld.war</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ pwd
+/wildfly-quickstart/helloworld</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ mvn install
+...
+[INFO] BUILD SUCCESS
+...</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">❯ ls target/*.war
+target/helloworld.war</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As the project is built, I can deploy the above WAR file into the WildFly server group. So I go back to the WildFly admin page, and then I can click the <code>Deployments</code> on the top menu and click the <code>Upload Deployment</code>:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/04.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>From the above screenshot, you can see that I tried to deploy the sample project into the <code>other-server-group</code>. I use this server group because I have configured servers on both Primary Host Controller and Secondary Host Controller hosts into this server group. Here is the deployment diagram for the server group:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/05.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>As the diagram shown above, I will use the domain controller’s admin page to deploy <code>helloworld.war</code> into the <code>other-server-group</code>, so the project will be deployed to <code>server-two</code> and <code>server-three</code>, because they both belong to <code>other-server-group</code>. Coming back to the WildFly admin page, I drag and drop the <code>helloworld.war</code> into the deployment page:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/06.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>Then I clicked <code>Next</code> and left the deployment configuration fields as default:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/07.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>Then I clicked <code>Finished</code> and reached the <code>Deployment successful</code> page:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/08.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>Now the <code>helloworld.war</code> is deployed to all the managed servers in the <code>other-server-group</code>. Now I click the <code>Deployments</code> on the top menu of the admin page, and then click the <code>other-server-group</code>, we can see that the <code>helloworld.war</code> is deployed into the server group:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/09.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>As the <code>helloworld</code> project is deployed, we can check the statuses of the two Host Controllers. I clicked the <code>Runtime</code> on top of the menu of the admin page, and then clicked the <code>primary</code> host tab, then I saw that <code>server-three</code> has not started yet:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/10.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>This is because the <code>auto-start</code> property is configured to <code>false</code> in the <code>host.xml</code> of the primary host:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;server name="server-three" group="other-server-group" auto-start="false"&gt;
+    &lt;jvm name="default"/&gt;
+    &lt;socket-bindings port-offset="250"/&gt;
+&lt;/server&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So I need to click the <code>Start</code> button of the <code>server-three</code>:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/11.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>After a while the <code>server-three</code> is started:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/12.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>Because we didn’t configure the <code>auto-start</code> to <code>false</code> on the
+Secondary Host Controller, so it’s already started:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="/wildfly.org/assets/img/news/2025-01-wildfly-domain/13.png" alt="image"></span></p>
+</div>
+<div class="paragraph">
+<p>From the above screenshots, we can see that the URL of <code>server-two</code> is <a href="http://192.168.0.113:8230" class="bare">http://192.168.0.113:8230</a>, and the URL of <code>server-three</code> is <a href="http://192.168.0.115:8330" class="bare">http://192.168.0.115:8330</a>. Their ports are different because the <code>port-offset</code> property settings are different. For <code>server-three</code>, the <code>port-offset</code> is configured like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;server name="server-three" group="other-server-group" auto-start="false"&gt;
+    &lt;jvm name="default"/&gt;
+    &lt;socket-bindings port-offset="250"/&gt;
+&lt;/server&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Because the <code>port-offset</code> is set to <code>250</code> for <code>server-three</code>, and the default HTTP port setting is <code>8080</code>, so <code>8080+250=8330</code>. For <code>server-two</code>, the configuration is like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">&lt;server name="server-two" group="other-server-group"&gt;
+    &lt;socket-bindings port-offset="150"/&gt;
+&lt;/server&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As the <code>port-offset</code> setting is <code>150</code>, the calculated HTTP port is <code>8080+150=8330</code>, which is expected. Now we can use the <code>curl</code> command to do the requests to both the Machine A and the Machine B to see if the <code>helloworld</code> project is deployed on two both of the machines:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">❯ curl http://192.168.0.115:8330/helloworld/HelloWorld
+&lt;html&gt;&lt;head&gt;&lt;title&gt;helloworld&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">❯ curl http://192.168.0.113:8230/helloworld/HelloWorld
+&lt;html&gt;&lt;head&gt;&lt;title&gt;helloworld&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the above command output, we can see that the <code>helloworld</code> project is deployed two both hosts. Though they are running on two different machines, because these two hosts are in the same <code>other-server-group</code> and they are managed by the domain controller, so the project is deployed to both hosts.</p>
+</div>
+<div class="paragraph">
+<p>I hope this blog post can be helpful to update your knowledge base to see how to use the domain mode in the most current WildFly release. For convenience, I have put the <code>host.xml</code> of the Primary Host Controller and the <code>host-secondary.xml</code> of the Secondary Host Controller online for reference<sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup>.</p>
+</div>
+<div class="sect2">
+<h3 id="references">References</h3>
+
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. <a href="https://www.wildfly.org/news/2021/10/05/WildFly25-Final-Released/">WildFly 25 is released!</a>
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. <a href="https://www.packtpub.com/en-us/product/jboss-eap6-high-availability-9781783282449?srsltid=AfmBOooUR6olUaY8qVHB6U70wb2oe_nAk8OloSeJAtkbn6AGgoQ7-OM9">JBoss EAP6 High Availability | Programming | eBook</a>
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. <a href="https://docs.wildfly.org/35/Admin_Guide.html#Domain_Setup">https://docs.wildfly.org/35/Admin_Guide.html#Domain_Setup</a>
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. <a href="https://www.wildfly.org/news/2017/10/10/Embedded-Host-Controller/">Running an Embedded WildFly Host Controller in the CLI</a>
+</div>
+<div class="footnote" id="_footnotedef_5">
+<a href="#_footnoteref_5">5</a>. <a href="https://docs.wildfly.org/35/WildFly_Elytron_Security.html">WildFly Elytron Security</a>
+</div>
+<div class="footnote" id="_footnotedef_6">
+<a href="#_footnoteref_6">6</a>. <a href="https://gist.github.com/liweinan/6cca8f88203e5aa76d3c1516d1758421">WildFly Domain Mode Configuration Files</a>
+</div>
+</div>
+    
+  </div>
+</div>
+
+
+
+  </div>
+
+  <div class="content project-footer">
+  <div class="footer-section">
+    <div class="logo-wrapper">
+      <a href="/wildfly.org/"><img class="wf-logo" src="/wildfly.org/assets/img/wildfly_icons_one-color-logo.png"></a>
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <p class="grid__item width-3-12">WildFly is fully open. All components are open source and follow a community-focused development process.<br/><br/>This website was built with <a href='https://jekyllrb.com/' target='_blank'>Jekyll</a> is hosted on <a href='https://pages.github.com/' target='_blank'>Github Pages</a> and is completely open source. If you want to make it better, <a href='https://github.com/wildfly/wildfly.org/fork' target='_blank'>fork it</a> and show us what you’ve got.</p>
+
+    
+      <div class="width-1-12 project-links">
+        <strong>Navigation</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="/downloads">Downloads</a></li>
+          
+            <li><a href="https://docs.wildfly.org">Docs</a></li>
+          
+            <li><a href="/get-started">Get Started</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly">Github</a></li>
+          
+            <li><a href="/guides">Guides</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Contribute</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://issues.jboss.org/browse/WFLY">Submit a bug</a></li>
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://github.com/wildfly/wildfly/fork">Fork WildFly</a></li>
+          
+            <li><a href="https://twitter.com/WildFlyAS">Follow us</a></li>
+          
+        </ul>
+      </div>
+    
+      <div class="width-1-12 project-links">
+        <strong>Get Help</strong>
+        <ul class="footer-links width-1-12">
+          
+            <li><a href="https://groups.google.com/forum/#!forum/wildfly">Join the forum</a></li>
+          
+            <li><a href="https://wildfly.zulipchat.com/">Join Zulip Chat</a></li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="width-6-12 more-links">
+        <strong>Find more Red Hat Middleware Community Projects</strong>
+        <ul class="footer-links">
+          
+            <li><a href="https://www.apiman.io/">APIMan</a></li>
+          
+            <li><a href="http://arquillian.org">Arquillian</a></li>
+          
+            <li><a href="https://github.com/ansible-middleware/wildfly">Ansible Collection for Wildfly</a></li>
+          
+            <li><a href="http://byteman.jboss.org/">Byteman</a></li>
+          
+            <li><a href="http://capedwarf.org/">CapeDwarf</a></li>
+          
+            <li><a href="https://github.com/alechenninger/chronicler">Chronicler</a></li>
+          
+            <li><a href="https://github.com/darcy-framework">Darcy</a></li>
+          
+            <li><a href="http://debezium.io/">Debezium</a></li>
+          
+            <li><a href="https://www.drools.org/">Drools</a></li>
+          
+            <li><a href="http://gatein.jboss.org/">GateIn</a></li>
+          
+            <li><a href="http://www.hawkular.org/">Hawkular</a></li>
+          
+            <li><a href="http://hawt.io/">Hawtio</a></li>
+          
+            <li><a href="http://hibernate.org/">Hibernate</a></li>
+          
+            <li><a href="http://www.infinispan.org/">Infinispan</a></li>
+          
+            <li><a href="https://developers.redhat.com/products/codeready-studio/overview">CodeReady Studio</a></li>
+          
+            <li><a href="http://forge.jboss.org/">JBoss Forge</a></li>
+          
+            <li><a href="https://github.com/jboss-logging">JBoss Logging</a></li>
+          
+            <li><a href="http://jbossremoting.jboss.org/">JBoss Remoting</a></li>
+          
+            <li><a href="https://www.jbpm.org/">jBPM</a></li>
+          
+            <li><a href="https://jsfunit.jboss.org/">JSFUnit</a></li>
+          
+            <li><a href="https://www.keycloak.org/">Keycloak</a></li>
+          
+            <li><a href="http://modcluster.io/">Mod Cluster</a></li>
+          
+            <li><a href="http://modeshape.jboss.org/">ModeShape</a></li>
+          
+            <li><a href="https://www.optaplanner.org/">OptaPlanner</a></li>
+          
+            <li><a href="https://quarkus.io/">Quarkus</a></li>
+          
+            <li><a href="http://resteasy.jboss.org/">RESTEasy</a></li>
+          
+            <li><a href="https://riftsaw.jboss.org/">Riftsaw</a></li>
+          
+            <li><a href="http://savara.jboss.org/">Savara</a></li>
+          
+            <li><a href="https://weld.cdi-spec.org/">Weld</a></li>
+          
+            <li><a href="http://arquillian.org/">Shrinkwrap</a></li>
+          
+            <li><a href="https://switchyard.jboss.org/">Switchyard</a></li>
+          
+            <li><a href="https://tattletale.jboss.org/">Tattletale</a></li>
+          
+            <li><a href="https://teiid.io/">Teiid</a></li>
+          
+            <li><a href="https://wildfly-security.github.io/wildfly-elytron/">WildFly Elytron</a></li>
+          
+            <li><a href="http://wise.jboss.org/">Wise</a></li>
+          
+            <li><a href="https://xnio.jboss.org/">XNIO</a></li>
+          
+        </ul>
+      </div>
+    
+  </div>
+</div>
+  <div class="content redhat-footer">
+  <div class="grid-wrapper">
+    <span class="licence">
+      <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i> <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC by 3.0</a> | <a href="https://www.redhat.com/en/about/privacy-policy">Privacy Policy</a>
+    </span>
+    <span class="redhat">
+      Sponsored by
+    </span>
+    <span class="redhat-logo">
+      <a href="https://www.redhat.com/" target="_blank"><img src="/wildfly.org/assets/img/redhat_reversed.svg"></a>
+    </span>
+  </div>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/wildfly.org/assets/javascript/mobile-nav.js"></script>
+  <script type="text/javascript" src="/wildfly.org/assets/javascript/random-color-picker.js"></script>
+  <script type="text/javascript">
+    if (("undefined" !== typeof _satellite) && ("function" === typeof _satellite.pageBottom)) {
+        _satellite.pageBottom();
+    }
+    hljs.highlightAll();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+  <script type="text/javascript" src="/wildfly.org/assets/javascript/copy.js"></script>
+
+</body>
+
+</html>
