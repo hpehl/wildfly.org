@@ -5,7 +5,7 @@
   <script id="adobe_dtm" src="//www.redhat.com/dtm.js" type="text/javascript"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Using Infinispan remote cache - PART 1: Docker Image</title>
+  <title>Using Infinispan remote cache - PART 1: Container Image</title>
   <meta name="description" content="">
   <link rel="me" href="https://fosstodon.org/@wildflyas" />
   <link rel="shortcut icon" type="image/png" href="/wildfly.org/favicon.ico" >
@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="Using Infinispan remote cache - PART 1: Docker Image">
+<body class="Using Infinispan remote cache - PART 1: Container Image">
   <div class="content">
     <div class="header navigation">
   <div class="logo-wrapper">
@@ -76,7 +76,7 @@
 
     <div class="grid-wrapper guide">
   <div class="grid__item width-12-12 width-12-12-mobile">
-    <h1 class="text-caps">Using Infinispan remote cache - PART 1: Docker Image </h1>
+    <h1 class="text-caps">Using Infinispan remote cache - PART 1: Container Image </h1>
   </div>
   <div class="width-12-12">
     <div>
@@ -113,7 +113,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this guide, we will extend the example created in <a href="simple-microservice-part1">WildFly Java Microservice - PART 1: Docker Image</a> and use a remote <a href="https://infinispan.org/" target="_blank" rel="noopener">Infinispan Server</a> to cache HTTP Session data.</p>
+<p>In this guide, we will extend the example created in <a href="simple-microservice-part1">WildFly Java Microservice - PART 1: Container Image</a> and use a remote <a href="https://infinispan.org/" target="_blank" rel="noopener">Infinispan Server</a> to cache HTTP Session data.</p>
 </div>
 </div>
 </div>
@@ -126,7 +126,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Complete <a href="simple-microservice-part1">WildFly Java Microservice - PART 1: Docker Image</a></p>
+<p>Complete <a href="simple-microservice-part1">WildFly Java Microservice - PART 1: Container Image</a></p>
 </li>
 </ul>
 </div>
@@ -275,14 +275,14 @@ run-batch</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">    &lt;plugin&gt;
         &lt;groupId&gt;org.wildfly.plugins&lt;/groupId&gt;
         &lt;artifactId&gt;wildfly-maven-plugin&lt;/artifactId&gt;
-        &lt;version&gt;5.0.0.Final&lt;/version&gt;
+        &lt;version&gt;5.1.1.Final&lt;/version&gt;
         &lt;configuration&gt;
             &lt;feature-packs&gt;
                 &lt;feature-pack&gt;
-                    &lt;location&gt;org.wildfly:wildfly-galleon-pack:32.0.0.Final&lt;/location&gt;
+                    &lt;location&gt;org.wildfly:wildfly-galleon-pack:35.0.0.Final&lt;/location&gt;
                 &lt;/feature-pack&gt;
                 &lt;feature-pack&gt;
-                    &lt;location&gt;org.wildfly.cloud:wildfly-cloud-galleon-pack:7.0.0.Final&lt;/location&gt;
+                    &lt;location&gt;org.wildfly.cloud:wildfly-cloud-galleon-pack:7.0.2.Final&lt;/location&gt;
                 &lt;/feature-pack&gt;
             &lt;/feature-packs&gt;
             &lt;layers&gt;
@@ -375,6 +375,18 @@ COMMIT my-jaxrs-app-infinispan:latest
 Successfully tagged localhost/my-jaxrs-app-infinispan:latest
 625a63506dab171c4750f6be89e45c236591d40524b239307e32c716add01457</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+You can use <a href="https://docs.wildfly.org/wildfly-maven-plugin/releases/5.1/image-mojo.html" target="_blank" rel="noopener"><code>wildfly-maven-plugin</code></a> to automate the image build
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">

@@ -103,7 +103,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this guide, you will learn HOW-TO run the Docker Image you built in <a href="simple-microservice-part1">WildFly Java Microservice - PART 1: Docker Image</a> on Kubernetes.</p>
+<p>In this guide, you will learn HOW-TO run the Docker Image you built in <a href="simple-microservice-part1">WildFly Java Microservice - PART 1: Container Image</a> on Kubernetes.</p>
 </div>
 </div>
 </div>
@@ -116,7 +116,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Complete <a href="simple-microservice-part1">WildFly Java Microservice - PART 1: Docker Image</a></p>
+<p>Complete <a href="simple-microservice-part1">WildFly Java Microservice - PART 1: Container Image</a></p>
 </li>
 <li>
 <p>A <a href="https://kubernetes.io" target="_blank" rel="noopener">Kubernetes</a> cluster: throughout this mini-series, we will use <a href="https://minikube.sigs.k8s.io" target="_blank" rel="noopener">Minikube</a></p>
@@ -175,6 +175,18 @@ replace <code>tborgato</code> with the name of your account in all the commands 
 <pre class="highlight"><code class="language-bash" data-lang="bash">podman pull quay.io/tborgato/my-jaxrs-app</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+You can use <a href="https://docs.wildfly.org/wildfly-maven-plugin/releases/5.1/image-mojo.html" target="_blank" rel="noopener"><code>wildfly-maven-plugin</code></a> to automate the image push to an image registry
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -185,6 +197,14 @@ replace <code>tborgato</code> with the name of your account in all the commands 
 <h3 id="minikube">Minikube</h3>
 <div class="paragraph">
 <p>You can use whatever Kubernetes cluster you have available; in this guide, and in the following, we will use <a href="https://minikube.sigs.k8s.io/docs/" target="_blank" rel="noopener">minikube</a>.</p>
+</div>
+<div class="paragraph">
+<p>In case you are using <code>minikube</code>, start the cluster:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">minikube start</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -289,7 +309,7 @@ Hello 'pippo'.</code></pre>
 <h2 id="whats-next">What&#8217;s next?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="simple-microservice-database-part1">Connecting to a DB - PART 1: Docker Image</a></p>
+<p><a href="simple-microservice-database-part1">Connecting to a DB - PART 1: Container Image</a></p>
 </div>
 </div>
 </div>
