@@ -6,7 +6,7 @@
   <generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator>
   <link href="https://hpehl.github.io/wildfly.org/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://hpehl.github.io/wildfly.org/" rel="alternate" type="text/html" />
-  <updated>2025-03-11T11:26:27+01:00</updated>
+  <updated>2025-04-09T17:48:08+02:00</updated>
   <id>https://hpehl.github.io/wildfly.org</id>
 
   
@@ -14,6 +14,221 @@
     <title type="html">WildFly</title>
   
 
+  
+    <entry>
+      <title type="html">WildFly 36 Beta is released!</title>
+      <link href="https://hpehl.github.io/wildfly.org/news/2025/03/27/WildFly36Beta-released/" rel="alternate" type="text/html" title="WildFly 36 Beta is released!" />
+      <published>2025-03-27T00:00:00+01:00</published>
+      <updated>2025-03-27T00:00:00+01:00</updated>
+      <id>https://hpehl.github.io/wildfly.org/news/2025/03/27/WildFly36Beta-released</id>
+      
+      
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2025/03/27/WildFly36Beta-released/">&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I&amp;#8217;m pleased to announce that the new WildFly 36.0.0.Beta1 release is available for download at &lt;a href=&quot;https://wildfly.org/downloads&quot; class=&quot;bare&quot;&gt;https://wildfly.org/downloads&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As can be seen from the &lt;a href=&quot;https://github.com/wildfly/wildfly/releases/tag/36.0.0.Beta1&quot;&gt;Release Notes&lt;/a&gt; a lot of issues were resolved in this release but I would also like to call out some of the following highlights:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-18582&quot;&gt;WFLY-18582&lt;/a&gt;]&amp;#8201;&amp;#8212;&amp;#8201;Add a prometheus endpoint to the micrometer extension&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFCORE-5718&quot;&gt;WFCORE-5718&lt;/a&gt;]&amp;#8201;&amp;#8212;&amp;#8201;Support remote+tls with EJBClient and remote-outbound-connection&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-20476&quot;&gt;WFLY-20476&lt;/a&gt;]&amp;#8201;&amp;#8212;&amp;#8201;Promote ajp-listener AJP_ALLOWED_REQUEST_ATTRIBUTES_PATTERN to community stability&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;[&lt;a href=&quot;https://issues.redhat.com/browse/WFLY-20477&quot;&gt;WFLY-20477&lt;/a&gt;]&amp;#8201;&amp;#8212;&amp;#8201;Promote undertow subsystem&amp;#8217;s reuse-x-forwarded and rewrite-host header configurability to community stability&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Within the WildFly Preview distribution we also &lt;a href=&quot;https://issues.redhat.com/browse/WFLY-19397&quot;&gt;upgraded to a beta of Hibernate ORM 7 and an alpha of Hibernate Search 8&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We&amp;#8217;ve also enhanced &lt;a href=&quot;https://docs.wildfly.org/wildfly-glow/&quot;&gt;WildFly Glow&lt;/a&gt;, so it is now possible to &lt;a href=&quot;https://github.com/wildfly/wildfly-proposals/issues/688&quot;&gt;run a source-only WildFly application&lt;/a&gt; using &lt;a href=&quot;https://www.jbang.dev/&quot;&gt;JBang&lt;/a&gt;!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Please try out this release and let us know how you get on.&lt;/p&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Darran Lofthouse</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="announcement" />
+      
+        <category term="release" />
+      
+
+      
+        <summary type="html">I&amp;#8217;m pleased to announce that the new WildFly 36.0.0.Beta1 release is available for download at https://wildfly.org/downloads.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Vlog: WildFly AI - monitor and troubleshoot a WildFly server with the WildFly chatbot.</title>
+      <link href="https://youtu.be/crSKeeBsXoE" rel="alternate" type="text/html" title="Vlog: WildFly AI - monitor and troubleshoot a WildFly server with the WildFly chatbot." />
+      <published>2025-03-21T00:00:00+01:00</published>
+      <updated>2025-03-21T00:00:00+01:00</updated>
+      <id>https://youtu.be/crSKeeBsXoE</id>
+      
+      
+        <content type="html" xml:base="https://youtu.be/crSKeeBsXoE"></content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Jean-François Denise</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="ai" />
+      
+        <category term="management" />
+      
+        <category term="vlog" />
+      
+
+      
+        <summary type="html">This video demonstrates how you can interact with a WildFly server using natural language.</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Save the Date: WildFly Mini Conference on March 25th, 2025</title>
+      <link href="https://hpehl.github.io/wildfly.org/news/2025/03/19/WildFly-mini-conference-2025-save-the-date/" rel="alternate" type="text/html" title="Save the Date: WildFly Mini Conference on March 25th, 2025" />
+      <published>2025-03-19T00:00:00+01:00</published>
+      <updated>2025-03-19T00:00:00+01:00</updated>
+      <id>https://hpehl.github.io/wildfly.org/news/2025/03/19/WildFly-mini-conference-2025-save-the-date</id>
+      
+      
+        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2025/03/19/WildFly-mini-conference-2025-save-the-date/">&lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Hello, WildFly Community!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We are excited to announce that the WildFly Mini Conference is scheduled for March 25th, 2025! Building on the success of our previous events, we’re looking forward to another day of insightful discussions, community engagement, and deep dives into the latest in enterprise Java and WildFly development.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This year’s conference will focus on key topics shaping the future of WildFly and enterprise Java, including:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Quick Prototyping with WildFly&lt;/strong&gt; – Learn how to efficiently build and test applications using WildFly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;WildFly Day One Operations with Ansible Automation&lt;/strong&gt; – Discover best practices for deploying and managing WildFly with Ansible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Everything about Jakarta EE TCKs in twenty minutes&lt;/strong&gt; – A concise session covering the essentials of Jakarta EE compatibility testing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;WildFly in a Vendor-Neutral Foundation&lt;/strong&gt; – Exploring the ecosystem and collaboration opportunities for WildFly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;WildFly AI Feature Pack: Deploying an MCP Server&lt;/strong&gt; – Learn how the WildFly AI Feature Pack enables intelligent middleware capabilities and enhances application deployments with AI-driven optimizations.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;date-tuesday-march-25-2025&quot;&gt;📅 Date: Tuesday, March 25, 2025&lt;/h4&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;time-1400-1800-utc&quot;&gt;⏰ Time: 14:00 - 18:00 UTC&lt;/h4&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;live-stream-youtube-live&quot;&gt;🔗 Live stream: &lt;a href=&quot;https://www.youtube.com/live/d8IExBP7rxw&quot;&gt;YouTube Live&lt;/a&gt;&lt;/h4&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Make sure to click &quot;Notify me&quot; on YouTube to receive reminders before the event starts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This conference is a great opportunity for Java developers, middleware engineers, and open-source enthusiasts to explore the future of WildFly and enterprise Java. For more details, checkout our &lt;a href=&quot;https://www.wildfly.org/events/wmc-202503.html&quot;&gt;conference page&lt;/a&gt;. We look forward to seeing you online for another great WildFly Mini Conference!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</content>
+      
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+          <name>Ranabir Chakraborty</name>
+          
+          
+        </author>
+      
+
+      
+        
+      
+
+      
+        <category term="wildfly" />
+      
+        <category term="announcement" />
+      
+        <category term="conference" />
+      
+        <category term="wildfly-mini-conference" />
+      
+
+      
+        <summary type="html">Hello, WildFly Community!</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">Testing WildFly applications on Kubernetes with Arquillian Cube</title>
@@ -2243,822 +2458,6 @@ public class ChatBotWebSocketEndpoint {
 
       
         <summary type="html">In the last two years we&amp;#8217;ve been putting a lot of effort into improving how the WildFly project interacts with our community, including adding new communication channels like our Mini Conferences, adding new user guides and creating a transparent feature development process. WildFly has been a successful project for a long time now, and I believe that&amp;#8217;s largely because we are passionate about serving our community.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">Testing WildFly applications on Docker with Arquillian Cube</title>
-      <link href="https://hpehl.github.io/wildfly.org/news/2025/01/27/testing-on-docker-with-cube/" rel="alternate" type="text/html" title="Testing WildFly applications on Docker with Arquillian Cube" />
-      <published>2025-01-27T00:00:00+01:00</published>
-      <updated>2025-01-27T00:00:00+01:00</updated>
-      <id>https://hpehl.github.io/wildfly.org/news/2025/01/27/testing-on-docker-with-cube</id>
-      
-      
-        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2025/01/27/testing-on-docker-with-cube/">&lt;div id=&quot;preamble&quot;&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Recently we resumed the &lt;a href=&quot;https://github.com/arquillian/arquillian-cube&quot;&gt;Arquillian Cube&lt;/a&gt; project as a way to test on
-containerized environments, such as Docker, Kubernetes, and OpenShift.
-The last (pre)release is &lt;a href=&quot;https://github.com/arquillian/arquillian-cube/releases/tag/2.0.0.Alpha1&quot;&gt;2.0.0.Alpha1&lt;/a&gt;, and it
-aims at filling the gap with the 1.18.2 release, by running against more recent versions of target environments (again,
-Docker, Kubernetes and OpenShift).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;This example provides the guidance to set up an automated integration test for a WildFly application that should be run
-on Docker.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In order to do so, we&amp;#8217;ll start from the
-&lt;a href=&quot;https://www.wildfly.org/guides/get-started-microservices-on-kubernetes/simple-microservice-part1&quot;&gt;WildFly Java Microservice - PART 1: Docker Image&lt;/a&gt; guide, which will be modified to show how to implement a JUnit test that will use an &lt;em&gt;existing&lt;/em&gt; Dockerfile
-to automate the image build and execution.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;use-case&quot;&gt;Use case&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The original article uses Maven archetypes to provide the reader with a ready-to-use WildFly application project.
-And it works great, definitely!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;But in the last section, the user is instructed on how to build the Docker image, and about testing it manually.
-This article is all about this: using Arquillian Cube to automate the image build, and the Docker container setup and
-execution, while leveraging annotations and APIs at the test class level, to let the developer focus on the
-actual test logic.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In the following sections we&amp;#8217;ll see which steps we need to take in order to modify the original example and achieve what above.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;step-by-step-changes&quot;&gt;Step by step changes&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;As said, we need to start from the
-&lt;a href=&quot;https://www.wildfly.org/guides/get-started-microservices-on-kubernetes/simple-microservice-part1&quot;&gt;WildFly Java Microservice - PART 1: Docker Image&lt;/a&gt; article, so make sure to go through it, then&amp;#8230;&amp;#8203;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;docker-compose-and-dockerfile-resources&quot;&gt;Docker &lt;code&gt;compose&lt;/code&gt; and &lt;em&gt;Dockerfile&lt;/em&gt; resources&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Let&amp;#8217;s start and create a new &lt;code&gt;docker-build&lt;/code&gt; directory at the project root:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;mkdir docker-build&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;and put the Dockerfile - i.e. the one we created in the original article - inside it. We&amp;#8217;ll need to change just one
-line, i.e. we should replace the path &lt;code&gt;target/server&lt;/code&gt; with just &lt;code&gt;server&lt;/code&gt;, we&amp;#8217;ll see why later on.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;As you can see, we reused the &lt;em&gt;Dockerfile&lt;/em&gt; which we created in the original example, which defines how the
-image should be built.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Then we should create a &lt;code&gt;docker-compose.yml&lt;/code&gt; file at the project root, as well, with the following contents:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;version: &apos;2&apos;
-services:
-  wildfly:
-    build:
-      context: docker-build
-    ports:
-      - &quot;9991:9990&quot;
-      - &quot;8081:8080&quot;
-    networks:
-      - front-tier
-networks:
-  front-tier:&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Here we&amp;#8217;ve defined how the Docker container should run the image created previously.
-Specifically, we can see that a container named &lt;code&gt;wildfly&lt;/code&gt; will be started, building an image as per the &lt;em&gt;Dockerfile&lt;/em&gt;
-which is in the &lt;code&gt;docker-build&lt;/code&gt; sub-directory, and exposing the container &lt;code&gt;8080&lt;/code&gt; and &lt;code&gt;9990&lt;/code&gt; ports via the host&amp;#8217;s
-&lt;code&gt;8081&lt;/code&gt; and &lt;code&gt;9991&lt;/code&gt; ones, respectively.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;That&amp;#8217;s all about what we need on the Docker side. Arquillian Cube will automate the &lt;code&gt;docker compose&lt;/code&gt; build that
-will use the Dockerfile which was created already to build and run the WildFly application image.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In the following section we&amp;#8217;ll modify the project POM to use Arquillian Cube.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;update-the-example-project-pom&quot;&gt;Update the example project POM&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;First off, let&amp;#8217;s add the following &lt;code&gt;properties&lt;/code&gt; to define some required versions:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;        &amp;lt;arquillian-cube.version&amp;gt;2.0.0.Alpha1&amp;lt;/arquillian-cube.version&amp;gt;
-        &amp;lt;arquillian-core.version&amp;gt;1.8.0.Final&amp;lt;/arquillian-core.version&amp;gt;
-        &amp;lt;junit.version&amp;gt;4.13.2&amp;lt;/junit.version&amp;gt;
-        &amp;lt;slf4j.version&amp;gt;2.0.16&amp;lt;/slf4j.version&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Then we need to comment out, or remove, the following declaration of the JUnit 5 BOM off the &lt;code&gt;dependencyManagement&lt;/code&gt;
-section, since  Arquillian Cube will use JUnit 4 instrumentation by default:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;            &amp;lt;!-- Arquillian Cube still using JUnit 4 by default --&amp;gt;
-            &amp;lt;!--            &amp;amp;lt;!&amp;amp;ndash;Define the JUnit5 bom. WildFly BOM still contains JUnit4, so we have to declare a version here &amp;amp;ndash;&amp;amp;gt;--&amp;gt;
-            &amp;lt;!--            &amp;lt;dependency&amp;gt;--&amp;gt;
-            &amp;lt;!--                &amp;lt;groupId&amp;gt;org.junit&amp;lt;/groupId&amp;gt;--&amp;gt;
-            &amp;lt;!--                &amp;lt;artifactId&amp;gt;junit-bom&amp;lt;/artifactId&amp;gt;--&amp;gt;
-            &amp;lt;!--                &amp;lt;version&amp;gt;${version.junit5}&amp;lt;/version&amp;gt;--&amp;gt;
-            &amp;lt;!--                &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt;--&amp;gt;
-            &amp;lt;!--                &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt;--&amp;gt;
-            &amp;lt;!--            &amp;lt;/dependency&amp;gt;--&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;and finally let&amp;#8217;s add the following dependencies to the &lt;code&gt;dependencyManagment&lt;/code&gt; section, which are what we need to use
-Arquillian Cube:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;            &amp;lt;!-- We need to lock Arquillian Cube dependencies to 2.0.0.Alpha1 --&amp;gt;
-            &amp;lt;dependency&amp;gt;
-                &amp;lt;groupId&amp;gt;org.arquillian.cube&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;arquillian-cube-bom&amp;lt;/artifactId&amp;gt;
-                &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt;
-                &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt;
-                &amp;lt;version&amp;gt;${arquillian-cube.version}&amp;lt;/version&amp;gt;
-            &amp;lt;/dependency&amp;gt;
-            &amp;lt;!-- And Arquillian Core one to the 1.8.0. version, which is the one that Arquillian Cube 2.0.0.Alpha1 is using --&amp;gt;
-            &amp;lt;dependency&amp;gt;
-                &amp;lt;groupId&amp;gt;org.jboss.arquillian&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;arquillian-bom&amp;lt;/artifactId&amp;gt;
-                &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt;
-                &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt;
-                &amp;lt;version&amp;gt;${arquillian-core.version}&amp;lt;/version&amp;gt;
-            &amp;lt;/dependency&amp;gt;
-            &amp;lt;dependency&amp;gt;
-                &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;
-                &amp;lt;version&amp;gt;${junit.version}&amp;lt;/version&amp;gt;
-                &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-            &amp;lt;/dependency&amp;gt;
-            &amp;lt;dependency&amp;gt;
-                &amp;lt;groupId&amp;gt;org.slf4j&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;slf4j-bom&amp;lt;/artifactId&amp;gt;
-                &amp;lt;version&amp;gt;${slf4j-api.version}&amp;lt;/version&amp;gt;
-                &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-            &amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Once this is done, we actually need to depend on Arquillian Cube and related artifacts, which we&amp;#8217;ll do by adding the
-following to the &lt;code&gt;dependencies&lt;/code&gt; section:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;        &amp;lt;!-- We need Arquillian Cube to run our WildFly instance in a Docker container --&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.arquillian.cube&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;arquillian-cube-docker&amp;lt;/artifactId&amp;gt;
-            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.jboss.arquillian.junit&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;arquillian-junit-container&amp;lt;/artifactId&amp;gt;
-            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.jboss.arquillian.junit&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;arquillian-junit-standalone&amp;lt;/artifactId&amp;gt;
-            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;
-            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;!-- Slf4j is used by Arquillian Cube Docker --&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.slf4j&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;slf4j-api&amp;lt;/artifactId&amp;gt;
-            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-        &amp;lt;/dependency&amp;gt;
-        &amp;lt;dependency&amp;gt;
-            &amp;lt;groupId&amp;gt;org.slf4j&amp;lt;/groupId&amp;gt;
-            &amp;lt;artifactId&amp;gt;slf4j-simple&amp;lt;/artifactId&amp;gt;
-            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
-        &amp;lt;/dependency&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;while we&amp;#8217;ll have to remove the following ones:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;        &amp;lt;!-- Test scope dependencies --&amp;gt;
-        &amp;lt;!-- Arquillian Cube still using JUnit 4 by default --&amp;gt;
-        &amp;lt;!--        &amp;lt;dependency&amp;gt;--&amp;gt;
-        &amp;lt;!--            &amp;lt;groupId&amp;gt;org.junit.jupiter&amp;lt;/groupId&amp;gt;--&amp;gt;
-        &amp;lt;!--            &amp;lt;artifactId&amp;gt;junit-jupiter&amp;lt;/artifactId&amp;gt;--&amp;gt;
-        &amp;lt;!--            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;--&amp;gt;
-        &amp;lt;!--        &amp;lt;/dependency&amp;gt;--&amp;gt;
-
-        &amp;lt;!-- Not needed anymore because the test uses a standalone Docker container --&amp;gt;
-        &amp;lt;!--        &amp;lt;dependency&amp;gt;--&amp;gt;
-        &amp;lt;!--            &amp;lt;groupId&amp;gt;org.wildfly.arquillian&amp;lt;/groupId&amp;gt;--&amp;gt;
-        &amp;lt;!--            &amp;lt;artifactId&amp;gt;wildfly-arquillian-container-managed&amp;lt;/artifactId&amp;gt;--&amp;gt;
-        &amp;lt;!--            &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;--&amp;gt;
-        &amp;lt;!--        &amp;lt;/dependency&amp;gt;--&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Last moves with our POM, let&amp;#8217;s add the following to the &lt;code&gt;wildfly-maven-plugin&lt;/code&gt; configuration:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;            &amp;lt;plugin&amp;gt;
-                &amp;lt;groupId&amp;gt;org.wildfly.plugins&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;wildfly-maven-plugin&amp;lt;/artifactId&amp;gt;
-                &amp;lt;version&amp;gt;${version.wildfly.maven.plugin}&amp;lt;/version&amp;gt;
-                &amp;lt;configuration&amp;gt;
-                    &amp;lt;!-- We need for the server to be provisioned in ./docker-build/server, as required by the Dockerfile --&amp;gt;
-                    &amp;lt;provisioningDir&amp;gt;${project.basedir}/docker-build/server&amp;lt;/provisioningDir&amp;gt;
-                    &amp;lt;overwriteProvisionedServer&amp;gt;true&amp;lt;/overwriteProvisionedServer&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;and let the &lt;code&gt;maven-clean-plugin&lt;/code&gt; take care of such directory when cleaning things up, too:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;            &amp;lt;plugin&amp;gt;
-                &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
-                &amp;lt;artifactId&amp;gt;maven-clean-plugin&amp;lt;/artifactId&amp;gt;
-                &amp;lt;version&amp;gt;3.3.2&amp;lt;/version&amp;gt;
-                &amp;lt;!-- Let&apos;s remove ./docker-build/server, too --&amp;gt;
-                &amp;lt;configuration&amp;gt;
-                    &amp;lt;filesets&amp;gt;
-                        &amp;lt;fileset&amp;gt;
-                            &amp;lt;directory&amp;gt;${project.basedir}/docker-build/server&amp;lt;/directory&amp;gt;
-                        &amp;lt;/fileset&amp;gt;
-                    &amp;lt;/filesets&amp;gt;
-                &amp;lt;/configuration&amp;gt;
-            &amp;lt;/plugin&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;That&amp;#8217;s it, we&amp;#8217;re done with the POM,  let&amp;#8217;s move on and see how the &lt;code&gt;arquillian.xml&lt;/code&gt; file should be configured.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;update-arquillian-xml-configuration&quot;&gt;Update &lt;code&gt;arquillian.xml&lt;/code&gt; configuration&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;This is easy, we don&amp;#8217;t need a &lt;code&gt;wildfly&lt;/code&gt; container anymore, so let&amp;#8217;s remove it.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;    &amp;lt;!-- &amp;lt;container default=&quot;true&quot; qualifier=&quot;managed&quot;&amp;gt; --&amp;gt;
-    &amp;lt;!--     &amp;lt;configuration&amp;gt; --&amp;gt;
-    &amp;lt;!--         &amp;lt;property name=&quot;jbossHome&quot;&amp;gt;target/server&amp;lt;/property&amp;gt; --&amp;gt;
-    &amp;lt;!--     &amp;lt;/configuration&amp;gt; --&amp;gt;
-    &amp;lt;!-- &amp;lt;/container&amp;gt; --&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Then we need to configure the &lt;code&gt;docker&lt;/code&gt; extension, specifically we&amp;#8217;ll just set the &lt;code&gt;dockerContainersFile&lt;/code&gt; property,
-i.e. the path for the &lt;code&gt;docker-compose.yml&lt;/code&gt; file:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;    &amp;lt;extension qualifier=&quot;docker&quot;&amp;gt;
-        &amp;lt;property name=&quot;dockerContainersFile&quot;&amp;gt;./docker-compose.yml&amp;lt;/property&amp;gt;
-    &amp;lt;/extension&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;With all the above in place, the only thing left is the test class.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;create-a-test-class-for-testing-on-docker&quot;&gt;Create a test class for testing on Docker&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Add the following contents to a new &lt;code&gt;GettingStartedDockerIT.java&lt;/code&gt; class:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;package org.wildfly.examples;
-
-import jakarta.ws.rs.client.Client;
-import jakarta.ws.rs.client.ClientBuilder;
-import jakarta.ws.rs.core.Response;
-import org.arquillian.cube.HostIp;
-import org.arquillian.cube.HostPort;
-import org.jboss.arquillian.junit.Arquillian;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import java.net.URI;
-
-/**
- * Run integration tests with Arquillian to be able to test CDI beans
- */
-@RunWith(Arquillian.class)
-public class GettingStartedDockerIT {
-
-    @HostIp
-    private String wildflyIp;
-
-    @HostPort(containerName = &quot;wildfly&quot;, value = 8080)
-    int wildflyPort;
-
-    @Test
-    public void testHelloEndpoint() {
-        try (Client client = ClientBuilder.newClient()) {
-            final String name = &quot;World&quot;;
-            Response response = client
-                    .target(URI.create(&quot;http://&quot; + wildflyIp + &quot;:&quot; + wildflyPort + &quot;/&quot;))
-                    .path(&quot;/hello/&quot; + name)
-                    .request()
-                    .get();
-
-            Assert.assertEquals(200, response.getStatus());
-            Assert.assertEquals(String.format(&quot;Hello &apos;%s&apos;.&quot;, name), response.readEntity(String.class));
-
-        }
-    }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;As you can see, it&amp;#8217;s similar to the existing &lt;code&gt;GettingStartedApplicationIT.java&lt;/code&gt; test class that the Maven archetype
-execution created for us in the original example, but we use a different runner, and inject the Docker container IP
-address and the host port which is mapping the exposed &lt;code&gt;8080&lt;/code&gt; port.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;At this point we can remove the two existing test classes, i.e. &lt;code&gt;GettingStartedServiceIT&lt;/code&gt; and
-&lt;code&gt;GettingStartedApplicationIT.java&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;run-the-test&quot;&gt;Run the test&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;That&amp;#8217;s it, we can run Docker integration test by issuing the following command:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;mvn clean install&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;and we&amp;#8217;ll see how Arquillian Cube will gather the docker extension configuration, then summarize the container definition,
-and eventually run the test:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.wildfly.examples.GettingStartedDockerIT
-...
-Jan 20, 2025 6:06:06 PM org.arquillian.cube.docker.impl.client.CubeDockerConfigurationResolver resolveSystemDefaultSetup
-INFO: Connected to docker (fburzigo-thinkpadp1gen3.rmtit.csb) using default settings version: 24.0.5 kernel: 6.11.4-201.fc40.x86_64
-CubeDockerConfiguration:
-  serverUri = unix:///var/run/docker.sock
-  tlsVerify = false
-  dockerServerIp = localhost
-  definitionFormat = COMPOSE
-  clean = false
-  removeVolumes = true
-  dockerContainers = containers:
-  wildfly:
-    alwaysPull: false
-    buildImage:
-      dockerfileLocation: docker-build
-      noCache: true
-      remove: true
-    killContainer: false
-    manual: false
-    networkMode: front-tier
-    networks:
-    - front-tier
-    portBindings: !!set
-      9991-&amp;gt;9990/tcp: null
-      8081-&amp;gt;8080/tcp: null
-    readonlyRootfs: false
-    removeVolumes: true
-networks:
-  front-tier:
-    driver: bridge
-
-
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.69 s -- in org.wildfly.examples.GettingStartedDockerIT&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;in-conclusion&quot;&gt;In conclusion&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Testing a WildFly application directly on Docker will make the test more similar to the actual environment where
-it will be run.
-Arquillian Cube provides an easy and effective way to test on Docker, with almost no configuration and instrumentation
-changes with respect to existing Arquillian based tests.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The code for the example application which is described in this article is here: &lt;a href=&quot;https://github.com/fabiobrz/wildfly-mini-series-docker-cube&quot; class=&quot;bare&quot;&gt;https://github.com/fabiobrz/wildfly-mini-series-docker-cube&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Fabio Burzigotti&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Fabio Burzigotti</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="wildfly" />
-      
-        <category term="docker" />
-      
-        <category term="arquillian" />
-      
-        <category term="cube" />
-      
-        <category term="containers" />
-      
-
-      
-        <summary type="html">Recently we resumed the Arquillian Cube project as a way to test on containerized environments, such as Docker, Kubernetes, and OpenShift. The last (pre)release is 2.0.0.Alpha1, and it aims at filling the gap with the 1.18.2 release, by running against more recent versions of target environments (again, Docker, Kubernetes and OpenShift).</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">WildFly 35 is released!</title>
-      <link href="https://hpehl.github.io/wildfly.org/news/2025/01/09/WildFly35Released/" rel="alternate" type="text/html" title="WildFly 35 is released!" />
-      <published>2025-01-09T00:00:00+01:00</published>
-      <updated>2025-01-09T00:00:00+01:00</updated>
-      <id>https://hpehl.github.io/wildfly.org/news/2025/01/09/WildFly35Released</id>
-      
-      
-        <content type="html" xml:base="https://hpehl.github.io/wildfly.org/news/2025/01/09/WildFly35Released/">&lt;div id=&quot;preamble&quot;&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;I&amp;#8217;m pleased to announce that the new WildFly and WildFly Preview 35.0.0.Final releases are available for download at &lt;a href=&quot;https://wildfly.org/downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://wildfly.org/downloads&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;new_and_notable&quot;&gt;New and Notable&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;This quarter we had a heavy focus on MicroProfile, particularly &lt;a href=&quot;https://microprofile.io/2024/08/22/microprofile-7-0-release/#&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MicroProfile 7.0&lt;/a&gt;, which I&amp;#8217;m pleased to say WildFly 35 fully supports. Improvements in the MicroProfile area include:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;WildFly now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19592_MicroProfile_Fault_Tolerance_4_1.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supports MicroProfile Fault Tolerance 4.1&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;WildFly now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19591_MicroProfile_OpenAPI_4.0.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supports MicroProfile OpenAPI 4.0&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Standard WildFly now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19866-promote-mp-rest-client-to-default.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supports MicroProfile REST Client 4.0&lt;/a&gt;. This was previously supported in WildFly Preview.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Standard WildFly now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/observability/WFLY-19846-promote-mp-tel-2-to-default.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supports MicroProfile Telemetry 2.0&lt;/a&gt;. This was previously supported in WildFly Preview.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Our MicroProfile Reactive Messaging subsystem has added OpenTelemetry tracing integration for &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19835_microprofile_reactive_messaging_otel_with_kafka.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Kafka connectors&lt;/a&gt; and &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19836_microprofile_reactive_messaging_otel_with_amqp.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AMQP connectors&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;There&amp;#8217;s plenty of new things beyond MicroProfile area as well, though:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;WildFly Preview is a compatible implementation of the &lt;a href=&quot;https://jakarta.ee/specifications/coreprofile/11/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jakarta EE 11 Core Profile&lt;/a&gt;, which was released in November, independent of the work-in-progress EE 11 Platform and Web Profile specifications. WildFly Preview was one of the compatible implementations used to ratify the specification, and WildFly Preview 35 is also a compatible implementation, on both &lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE11/WildFly_Preview_35.0.0.Final/jakarta-core-jdk17.adoc&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Java 17&lt;/a&gt; and &lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE11/WildFly_Preview_35.0.0.Final/jakarta-core-jdk21.adoc&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Java 21&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;WildFly now includes &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/scripts/WFCORE-6935-system-daemon-scripts.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;supported &lt;code&gt;systemd&lt;/code&gt; units&lt;/a&gt; in the &lt;code&gt;bin/systemd&lt;/code&gt; directory, replacing the old, unsupported &lt;code&gt;docs/contrib/scripts/systemd&lt;/code&gt; files. The new units include support for a managed domain.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The &lt;code&gt;jaxrs&lt;/code&gt; subsystem now &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/jaxrs/WFLY-13122_Add_Json_Merge_Patch_support.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;provides JSON merge patch support&lt;/a&gt;. This feature allows the client to send a JSON http request with Content-Type &quot;application/merge-patch+json&quot;, and the JSON content will be directly merged to the target resource.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;We added &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/ee/WFLY-19776_Jakarta_Data_in_standard_WildFly.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;support for Jakarta Data 1.0&lt;/a&gt; to standard WildFly. This was previously &lt;a href=&quot;https://www.wildfly.org/news/2024/10/10/jakarta-data/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;included in WildFly Preview 34&lt;/a&gt;; now it is available in standard WildFly as well. This feature is provided at the &lt;a href=&quot;https://docs.wildfly.org/35/Admin_Guide.html#Feature_stability_levels&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;preview&lt;/code&gt; stability level&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;WildFly Preview has  a new &lt;a href=&quot;https://docs.wildfly.org/wildfly-proposals/microprofile/WFLY-19954_Preview_Support_vertx_feature_pack.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;vertx&lt;/code&gt; subsystem and Galleon layer&lt;/a&gt;, intended to give users greater control over the configuration of Vert.x instances running in the server. This feature is provided at the &lt;a href=&quot;https://docs.wildfly.org/35/Admin_Guide.html#Feature_stability_levels&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;code&gt;preview&lt;/code&gt; stability level&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;We added a new &lt;a href=&quot;https://docs.wildfly.org/quickstart/helloworld-rs/README.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Jakarta RESTful Web Services Helloworld&lt;/a&gt; quickstart and a new &lt;a href=&quot;https://www.wildfly.org/guides/messaging-high-availability-openshift&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Deploying High-Availability Messaging with WildFly and AMQ 7 on OpenShift&lt;/a&gt; guide.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Another big thing that&amp;#8217;s new is, as I &lt;a href=&quot;https://www.wildfly.org/news/2024/10/28/WildFly-moves-to-SE-17/&quot;&gt;announced in October&lt;/a&gt;, WildFly now requires a minimum of Java SE 17, and thus no longer supports running on Java 11.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;supported-specifications&quot;&gt;Supported Specifications&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;jakarta-ee&quot;&gt;Jakarta EE&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Standard WildFly 35 is a compatible implementation of the EE 10 &lt;a href=&quot;https://jakarta.ee/specifications/platform/10/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Platform&lt;/a&gt; as well as the &lt;a href=&quot;https://jakarta.ee/specifications/webprofile/10/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Web Profile&lt;/a&gt; and the &lt;a href=&quot;https://jakarta.ee/specifications/coreprofile/10/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Core Profile&lt;/a&gt;. WildFly is EE 10 Platform, Web Profile and Core Profile compatible when running on Java SE 17 and Java SE 21.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Evidence supporting our certification is available in the &lt;a href=&quot;https://github.com/wildfly/certifications/tree/EE10&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly Certifications&lt;/a&gt; repository on GitHub:&lt;/p&gt;
-&lt;/div&gt;
-&lt;table class=&quot;tableblock frame-all grid-all stretch&quot;&gt;
-&lt;colgroup&gt;
-&lt;col style=&quot;width: 50%;&quot;&gt;
-&lt;col style=&quot;width: 50%;&quot;&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Specification&lt;/th&gt;
-&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;Compatibility Evidence&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot; rowspan=&quot;2&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta EE 10 Full Platform&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_35.0.0.Final/jakarta-full-platform-jdk17.adoc#tck-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 17&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_35.0.0.Final/jakarta-full-platform-jdk21.adoc#tck-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 21&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot; rowspan=&quot;2&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta EE 10 Web Profile&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_35.0.0.Final/jakarta-web-profile-jdk17.adoc#tck-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 17&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_35.0.0.Final/jakarta-web-profile-jdk21.adoc#tck-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 21&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot; rowspan=&quot;2&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;Jakarta EE 10 Core Profile&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_35.0.0.Final/jakarta-core-jdk17.adoc#jakarta-core-profile-1001-tck-java-se-17-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 17&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/EE10/WildFly_35.0.0.Final/jakarta-core-jdk21.adoc#jakarta-core-profile-1001-tck-java-se-21-results&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SE 21&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;microprofile&quot;&gt;MicroProfile&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Standard WildFly 35 supports &lt;a href=&quot;https://microprofile.io/2024/08/22/microprofile-7-0-release/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MicroProfile Platform 7.0&lt;/a&gt;, along with several other MicroProfile specifications that are not part of MicroProfile Platform. WildFly&amp;#8217;s MicroProfile support includes implementations of the following specifications in our &quot;full&quot; (e.g. &lt;code&gt;standalone-full.xml&lt;/code&gt;) and &quot;default&quot; (e.g &lt;code&gt;standalone.xml&lt;/code&gt;) configurations as well as our &quot;microprofile&quot; configurations (e.g. &lt;code&gt;standalone-microprofile.xml&lt;/code&gt;):&lt;/p&gt;
-&lt;/div&gt;
-&lt;table class=&quot;tableblock frame-all grid-all stretch&quot;&gt;
-&lt;colgroup&gt;
-&lt;col style=&quot;width: 33.3333%;&quot;&gt;
-&lt;col style=&quot;width: 33.3333%;&quot;&gt;
-&lt;col style=&quot;width: 33.3334%;&quot;&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;MicroProfile Technology&lt;/th&gt;
-&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;WildFly Full/Default Configurations&lt;/th&gt;
-&lt;th class=&quot;tableblock halign-left valign-top&quot;&gt;WildFly MicroProfile Configuration&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Config 3.1&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Fault Tolerance 4.1&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Health 4.0&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile JWT Authentication 2.1&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile LRA 2.0&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile OpenAPI 4.0&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Reactive Messaging 3.0&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Reactive Streams Operators 3.0&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Rest Client 4.0&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;MicroProfile Telemetry 2.0&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;/p&gt;&lt;/td&gt;
-&lt;td class=&quot;tableblock halign-left valign-top&quot;&gt;&lt;p class=&quot;tableblock&quot;&gt;X&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/wildfly/certifications/blob/MP7.0/WildFly_35.0.0.Final/microprofile-7.0/microprofile-7.0-full-certification.adoc&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Compatibility evidence&lt;/a&gt; for the above specifications that are part of MicroProfile 7.0 can be found in the WildFly Certifications repository on GitHub.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;preview-ee11&quot;&gt;WildFly Preview and EE 11&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;As I noted in the &lt;a href=&quot;https://www.wildfly.org/news/2024/04/25/WildFly32-Released/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly 32 release announcement&lt;/a&gt;, beginning with that release we are using WildFly Preview to provide a look at what we&amp;#8217;re doing for Jakarta EE 11 support.  The EE 11 Platform and Web Profile specifications won&amp;#8217;t go GA before later this year. But there are milestone, Release Candidate and Final releases of many EE 11 specs and implementations available, so we are providiong those in WildFly Preview. This means for a number of EE APIs, WildFly Preview no longer provides an EE 10 compatible implementation.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;However, for a number of specifications that are planning changes for EE 11 we are still offering the EE 10 variant. In future releases we&amp;#8217;ll shift those to the EE 11 variants.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;As I mentioned earlier, the &lt;a href=&quot;https://jakarta.ee/specifications/coreprofile/11/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;EE 11 Core Profile specification&lt;/a&gt; did go GA in November and WildFly Preview 35 is a compatible implementation of that profile.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Full details on the EE specification versions provided by WildFly Preview can be found in &lt;a href=&quot;https://docs.wildfly.org/35/WildFly_and_WildFly_Preview.html#ee-11-support-in-wildfly-preview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;the WildFly 35 documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;java-se-support&quot;&gt;Java SE Support&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Our recommendation is that you run WildFly 35 on Java SE 21, as that is the latest LTS JDK release where we have completed the full set of testing we like to do before recommending a particular SE version. WildFly 35 also is heavily tested and runs well on Java 17.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Our recommendation of SE 21 over SE 17 is solely because as a general principle we recommend being on later LTS releases, not because of any problems with WildFly on SE 17.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;While we recommend using an LTS JDK release, I do believe WildFly runs well on SE 23. By runs well, I mean the main WildFly testsuite runs with no more than a few failures in areas not expected to be commonly used. We want developers who are trying to evaluate what a newer JVM means for their applications to be able to look to WildFly as a useful development platform. We&amp;#8217;ve also had good results with tests on Linux of an EA release of SE 24 (Oracle 24-ea+15-1658).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Please note that WildFly runs in classpath mode.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;incompatibilities&quot;&gt;Incompatible Changes&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Beginning with the WildFly 35 release, standard WildFly no longer supports running in a Java SE 11 environment. Users should run WildFly 35 on SE 21 or SE 17.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The default name of the bootable jar produced by &lt;a href=&quot;https://docs.wildfly.org/wildfly-maven-plugin/releases/5.1/package-mojo.html#bootableJar&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly&amp;#8217;s maven tooling&lt;/a&gt; has changed from a fixed name of &lt;code&gt;server-bootable.jar&lt;/code&gt; to the dynamic name &lt;code&gt;${project.artifactId}-bootable.jar&lt;/code&gt; where &lt;code&gt;project.artifactId&lt;/code&gt; is the maven artifact id of the module producing the jar. If this default value isn&amp;#8217;t wanted, &lt;a href=&quot;https://docs.wildfly.org/wildfly-maven-plugin/releases/5.1/package-mojo.html#bootableJarName&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;the bootable jar name can be configured&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;release-notes&quot;&gt;Release Notes&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The full WildFly 35 release notes are &lt;a href=&quot;https://github.com/wildfly/wildfly/releases/tag/35.0.0.Final&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;available in GitHub&lt;/a&gt;.  Issues fixed in the underlying WildFly Core 27.0.0 release are listed in the &lt;a href=&quot;https://issues.redhat.com/issues/?filter=12451392&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly Core JIRA&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Please try it out and give us your feedback, in the &lt;a href=&quot;https://groups.google.com/g/wildfly&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WildFly google group&lt;/a&gt;, &lt;a href=&quot;https://wildfly.zulipchat.com/#narrow/stream/196266-wildfly-user&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Zulip&lt;/a&gt; or &lt;a href=&quot;https://issues.redhat.com/projects/WFLY/summary&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;JIRA&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;And, with that, I&amp;#8217;m moving on to what I think will be a very busy WildFly 36!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Best regards,&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Brian&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Brian Stansberry</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="announcement" />
-      
-        <category term="release" />
-      
-
-      
-        <summary type="html">I&amp;#8217;m pleased to announce that the new WildFly and WildFly Preview 35.0.0.Final releases are available for download at https://wildfly.org/downloads.</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">PKCS#12 with WildFly Elytron&apos;s Credential Store</title>
-      <link href="https://lofthouse.dev/2025/01/06/pkcs12-with-wildfly-elytrons-credential-store/" rel="alternate" type="text/html" title="PKCS#12 with WildFly Elytron&apos;s Credential Store" />
-      <published>2025-01-06T00:00:00+01:00</published>
-      <updated>2025-01-06T00:00:00+01:00</updated>
-      <id>https://lofthouse.dev/2025/01/06/pkcs12-with-wildfly-elytrons-credential-store/</id>
-      
-      
-        <content type="html" xml:base="https://lofthouse.dev/2025/01/06/pkcs12-with-wildfly-elytrons-credential-store/">&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The default credential store used in WildFly from WildFly Elytron is the KeyStoreCredentialStore which is backed by a Java KeyStore to hold the credentials.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;This in turn defaults to using the JCEKS KeyStore format, this blog post is to illustrate how we can configure this to use a PKCS#12 store instead both in WildFly and when using the elytron-tool CLI tool directly.&lt;/p&gt;
-&lt;/div&gt;</content>
-      
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-          <name>Darran Lofthouse</name>
-          
-          
-        </author>
-      
-
-      
-        
-      
-
-      
-        <category term="wildfly" />
-      
-        <category term="credential-store" />
-      
-        <category term="pkcs12" />
-      
-
-      
-        <summary type="html">The default credential store used in WildFly from WildFly Elytron is the KeyStoreCredentialStore which is backed by a Java KeyStore to hold the credentials.</summary>
       
 
       
