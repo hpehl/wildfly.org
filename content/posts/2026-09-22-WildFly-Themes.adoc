@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introducing WildFly Themes — Community-Driven Planning for WildFly"
-date: 2026-08-21
+date: 2026-09-22
 tags: announcement community
 author: hpehl
 description: WildFly adopts a structured, transparent planning process using themes, goals, and tasks tracked on GitHub.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "halOP 0.5.0 Released — Next-Gen WildFly Management Console"
-date: 2026-08-21
+date: 2026-09-22
 tags: hal console management release
 author: hpehl
 description: halOP 0.5.0 brings a rewritten attribute pipeline, resource shell SPI, new documentation site, and a detailed roadmap toward replacing the current WildFly management console.
