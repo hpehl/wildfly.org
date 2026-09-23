@@ -125,7 +125,7 @@ The console will integrate with the https://model-graph-tools.github.io/[Model G
 
 === AI-Assisted Management
 
-We're exploring how AI can help users work with WildFly more effectively — understanding configuration, troubleshooting problems, and navigating the management model. PatternFly 6 ships an https://www.patternfly.org/patternfly-ai/chatbot/overview/[AI chatbot component,window="_blank"] with a conversational UI, and the management model's rich metadata (resource descriptions, attribute constraints, capability references, stability levels) is a strong foundation for AI-assisted workflows. Combined with the Model Graph Tools integration, there's a natural path toward context-aware assistance. The architecture for connecting these pieces — whether WildFly exposes an AI-capable endpoint, connects to an external service, or something the user configures — is still being defined.
+We're exploring how AI can help users work with WildFly more effectively — understanding configuration, troubleshooting problems, and navigating the management model. PatternFly 6 ships an https://www.patternfly.org/extensions/chatbot/overview[AI chatbot component,window="_blank"] with a conversational UI, and the management model's rich metadata (resource descriptions, attribute constraints, capability references, stability levels) is a strong foundation for AI-assisted workflows. Combined with the Model Graph Tools integration, there's a natural path toward context-aware assistance. The architecture for connecting these pieces — whether WildFly exposes an AI-capable endpoint, connects to an external service, or something the user configures — is still being defined.
 
 === Test Automation
 
@@ -150,7 +150,7 @@ Follow the steps under https://hal.github.io/foundation/editions/halop.html#depl
 
 [source,bash]
 ----
-jbang org.jboss.hal:hal-op-standalone:0.4.0:runner
+jbang org.jboss.hal:hal-op-standalone:0.5.0:runner
 ----
 
 We'd love your feedback — please file issues at https://github.com/hal/foundation/issues[github.com/hal/foundation/issues,window="_blank"].
