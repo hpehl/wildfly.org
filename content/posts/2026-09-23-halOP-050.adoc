@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "halOP 0.5.0 Released — Next-Gen WildFly Management Console"
-date: 2026-09-22
+date: 2026-09-23
 tags: hal console management release
 author: hpehl
 description: halOP 0.5.0 brings a rewritten attribute pipeline, resource shell SPI, new documentation site, and a detailed roadmap toward replacing the current WildFly management console.
+synopsis: halOP 0.5.0 brings a rewritten attribute pipeline, resource shell SPI, new documentation site, and a detailed roadmap toward replacing the current WildFly management console.
 ---
 
 I'm happy to announce the release of https://github.com/hal/foundation/releases/tag/v0.5.0[halOP 0.5.0,window="_blank"] — the latest milestone toward replacing the current WildFly management console. This release is heavy on the infrastructure that makes the console auto-generate its UI directly from WildFly's management model. If you haven't been following along, https://hal.github.io/foundation/[HAL Foundation,window="_blank"] is the shared base for both halOP (the on-premise console) and the planned halOS (OpenShift edition). It's written in Java 21 and compiled to JavaScript via https://github.com/google/j2cl[J2CL,window="_blank"], using https://patternfly-java.github.io/[PatternFly Java,window="_blank"] for the UI and https://hal.github.io/elemento/[Elemento,window="_blank"] for type-safe DOM manipulation and routing.
