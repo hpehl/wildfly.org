@@ -150,8 +150,7 @@ Follow the steps under https://hal.github.io/foundation/editions/halop.html#depl
 
 [source,bash]
 ----
-jbang app install --name halop org.jboss.hal:hal-op-standalone:0.5.0
-halop
+jbang org.jboss.hal:hal-op-standalone:0.4.0:runner
 ----
 
 We'd love your feedback — please file issues at https://github.com/hal/foundation/issues[github.com/hal/foundation/issues,window="_blank"].

@@ -49,7 +49,7 @@ WildFly Themes is designed for community participation. Here's how you can get i
 * *Propose work* — The repository includes issue templates for both goals and tasks. If you see an area where WildFly should invest, open an issue.
 * *Pick up a task* — Browse the open tasks and comment on any that interest you. Many tasks don't require deep WildFly internals knowledge.
 * *Join the conversation* — Discuss themes and goals on https://wildfly.zulipchat.com/[WildFly Zulip,window="_blank"] or the https://groups.google.com/g/wildfly[WildFly forum,window="_blank"].
-* *Attend a community meeting* — We hold WildFly Community meetings every two weeks, where themes, goals, and ongoing work are discussed. Check the https://www.wildfly.org/events/[WildFly calendar,window="_blank"] for the next meeting, or subscribe to the https://calendar.google.com/calendar/ical/wildflyorg%40gmail.com/public/basic.ics[calendar feed,window="_blank"].
+* *Attend a community meeting* — We hold WildFly Community meetings every two weeks, where themes, goals, and ongoing work are discussed. Check the link:/events/[WildFly calendar] for the next meeting, or subscribe to the https://calendar.google.com/calendar/ical/wildflyorg%40gmail.com/public/basic.ics[calendar feed,window="_blank"].
 
 We believe that transparent planning leads to better software. WildFly Themes is our way of making sure the community has a clear view of where we're going — and a real voice in getting there.
 
